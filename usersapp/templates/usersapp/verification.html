@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="col-lg-7">
+    {% if user.is_authenticated %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert" style="margin-top: 50px;">
+            <h3>Поздравляем!</h3>
+            <br>
+            <h4>Пользователь {{ user.username }} подтвержден.</h4>
+        </div>
+    {% else %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert" style="margin-top: 50px;">
+            <h3>Верификация не пройдена.</h3>
+        </div>
+    {% endif %}
+    <br>
+    <div class="alert alert-secondary alert-dismissible fade show" role="alert" style="margin-top: 50px;">
+        <button class="btn btn-round form-control">
+            <a href="{% url 'index' %}" class="">на главную</a>
+        </button>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+from django.db import models
+from django.urls import reverse
+from django.utils.timezone import now
+from datetime import timedelta
+from django.contrib.auth.models import AbstractUser
+
+
+class GeekHubUser(AbstractUser):
+    other = 'O'
+    male = 'M'
+    female = 'W'
+
+    GENDER_CHOISES = (
+        (other, 'другой'),
+        (male, 'мужской'),
+        (female, 'женский'),
+    )
+
+    activate_key = models.CharField(verbose_name='Код активации', max_length=128, blank=True, null=True)
+    activate_key_expires = models.DateTimeField(verbose_name='Время действия кода активации',
+                                                default=(now() + timedelta(hours=1)))
+    email = models.EmailField(verbose_name='E-mail', unique=True)
+    profile_photo = models.ImageField(upload_to='media', verbose_name='Фотография профиля', blank=True)
+    birthday = models.DateField(verbose_name='День рождения', blank=True, null=True)
+    user_information = models.CharField(blank=True, max_length=512, verbose_name='Обо мне', default='')
+    gender = models.CharField(max_length=1, choices=GENDER_CHOISES, verbose_name='Пол', default=other)
+
+    def is_activate_key_expired(self):
+        if now() <= self.activate_key_expires:
+            # ToDo: тут логируем что активация невозможна из-за устаревания активационного кода
+            return False
+        return True
+
+    def get_absolute_url(self):
+        return reverse('usersapp:login')

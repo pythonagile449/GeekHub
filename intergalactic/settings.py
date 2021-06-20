@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'usersapp.apps.UsersappConfig',
 ]
 
 MIDDLEWARE = [
@@ -59,7 +60,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'intergalactic.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
@@ -82,7 +82,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
@@ -96,7 +95,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
@@ -106,6 +104,18 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Users auth
+AUTH_USER_MODEL = 'usersapp.GeekHubUser'
+
+# URL - для аутентификации
+LOGIN_URL = '/auth/login'
+
+# URL - куда пользователь будет перенаправлен при неудачной попытке аутентификации
+LOGIN_ERROR_URL = '/'
+
+# URL - куда пользователь будет перенаправлен после удачной попытки аутентификации
+LOGIN_REDIRECT_URL = '/auth/'
 
 try:
     from intergalactic.settings_local import *
