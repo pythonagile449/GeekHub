@@ -17,6 +17,12 @@
             <td><a href="{% url 'usersapp:account' user.pk %}">Account</a></td>
         </tr>
         <tr>
+            <td><a href="{% url 'usersapp:modify' user.pk %}">Update</a></td>
+        </tr>
+        <tr>
+            <td><a href="{% url 'usersapp:delete' user.pk %}">Delete</a></td>
+        </tr>
+        <tr>
             <td><a href="{% url 'usersapp:logout' %}">Logout</a></td>
         </tr>
     {% endif %}

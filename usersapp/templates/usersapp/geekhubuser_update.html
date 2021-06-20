@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>Редактируем профиль: {{ object.username }}</p>
+<form class="form-horizontal" method="post"
+      enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <br>
+    <input class="form-control" type="submit" value="Сохранить изменения">
+</form>
+</body>
+</html>

@@ -1,13 +1,12 @@
 from django.contrib import auth
-from django.contrib.messages.views import SuccessMessageMixin
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
-from django.urls import reverse
-from django.views.generic.edit import CreateView
+from django.urls import reverse, reverse_lazy
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import DetailView
 from django.contrib.auth.views import LoginView, LogoutView
 from usersapp.models import GeekHubUser
-from usersapp.forms import RegistrationForm, LoginForm, UserProfileForm
+from usersapp.forms import RegistrationForm, LoginForm, UserProfileForm, UserProfileEditForm
 
 
 def main(request):
@@ -54,6 +53,35 @@ class UserAccountView(DetailView):
     """
     model = GeekHubUser
     form_class = UserProfileForm
+
+
+class UserAccountEdit(UpdateView):
+    """
+    Редактирование профиля пользователя
+    Контекст:   object - содержит все поля модели пользователя (пример: {{ object.username }})
+                form - содержит поле логина и пароля (пример : {{ form.username }}, или стандартно {{ form.as_p }})
+    Имя шаблона: geekhubuser_update.html
+    """
+    model = GeekHubUser
+    form_class = UserProfileEditForm
+    template_name_suffix = '_update'
+    success_url = reverse_lazy('usersapp:index')
+
+
+class UserAccountDeleteView(DeleteView):
+    """
+    Удаление профиля пользователя
+    Как и договаривались, вместо удаления, производим деактивацию
+    Имя шаблона: geekhubuser_confirm_delete.html
+    """
+    model = GeekHubUser
+    success_url = reverse_lazy('usersapp:index')
+
+    def delete(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        self.object.is_active = False
+        self.object.save()
+        return HttpResponseRedirect(self.get_success_url())
 
 
 def verify(request, email, activate_key):

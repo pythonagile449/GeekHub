@@ -1,5 +1,4 @@
 import uuid
-
 from django import forms
 from django.conf import settings
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, UserChangeForm
@@ -28,6 +27,7 @@ class RegistrationForm(UserCreationForm):
         model = GeekHubUser
         fields = ('username', 'email', 'password1', 'password2')
 
+    # ToDo: Вот тут мне не нравится метод save, пришлось все забрать из родительского модуля
     def save(self, commit=True):
         user = super().save(commit=False)
         user.set_password(self.cleaned_data["password1"])
@@ -49,3 +49,9 @@ class UserProfileForm(UserChangeForm):
     class Meta:
         model = GeekHubUser
         fields = '__all__'
+
+
+class UserProfileEditForm(UserChangeForm):
+    class Meta:
+        model = GeekHubUser
+        fields = ['first_name', 'last_name', 'profile_photo', 'user_information', 'birthday', 'gender']
