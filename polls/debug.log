@@ -1,0 +1,7 @@
+2021-06-21 16:00:07,558 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-06-21 16:00:07,655 polls.middleware DEBUG    Информация:
+{"path": "/auth/registration/", "request_total": 0.016, "debug": null}
+2021-06-21 16:29:04,747 django.utils.autoreload INFO     C:\Lession_online\Agile SCRUM\GeekHub\polls\middleware.py changed, reloading.
+2021-06-21 16:29:04,748 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-21 16:29:05,238 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-06-21 16:45:52,709 asyncio      DEBUG    Using proactor: IocpProactor
