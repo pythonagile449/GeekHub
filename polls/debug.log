@@ -339,3 +339,28 @@ django.db.utils.OperationalError: no such table: usersapp_geekhubuser
 {"path": "/", "request_total": 0.002}
 {"path": "/auth/registration/", "request_total": 0.016}
 {"path": "/auth/", "request_total": 0.006}
+2021-06-23 00:42:32,862 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-06-23 00:46:51,148 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-23 00:50:10,268 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-23 00:51:44,309 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-06-23 00:54:01,879 django.utils.autoreload INFO     Watching for file changes with StatReloader
+{"path": "/", "request_total": 0.14}
+{"path": "/favicon.ico", "request_total": 0.016}
+2021-06-23 00:54:12,459 django.request WARNING  Not Found: /favicon.ico
+2021-06-23 00:55:24,084 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-23 00:55:24,412 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-23 00:58:28,728 django.utils.autoreload INFO     Watching for file changes with StatReloader
+{"path": "/", "request_total": 0.062}
+{"path": "/auth/", "request_total": 0.032}
+{"path": "/auth/registration/", "request_total": 0.062}
+{"path": "/auth/", "request_total": 0.015}
+{"path": "/admin/", "request_total": 0.0}
+{"path": "/admin/login/", "request_total": 0.343}
+{"path": "/admin/login/", "request_total": 0.53}
+{"path": "/admin/login/", "request_total": 0.047}
+{"path": "/auth/login/", "request_total": 0.015}
+{"path": "/auth/login/", "request_total": 0.515}
+{"path": "/auth/login/", "request_total": 0.016}
+{"path": "/auth/registration/", "request_total": 0.031}
+2021-06-23 01:02:37,643 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-23 01:02:37,908 asyncio      DEBUG    Using proactor: IocpProactor
