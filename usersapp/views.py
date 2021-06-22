@@ -13,7 +13,7 @@ def main(request):
     """
     Главная страница приложения usersapp
     """
-    return render(request, 'usersapp\index.html')
+    return render(request, 'usersapp/index.html')
 
 
 class RegistrationView(CreateView):
@@ -33,7 +33,7 @@ class AuthenticationView(LoginView):
     Имя шаблона: login.html
     """
     form_class = LoginForm
-    template_name = 'usersapp\login.html'
+    template_name = 'usersapp/login.html'
 
 
 class UserLogoutView(LogoutView):
@@ -42,7 +42,7 @@ class UserLogoutView(LogoutView):
     Завершает текущий сеанс работы пользователя, с отображением страницы
     Имя шаблона: logout.html
     """
-    template_name = 'usersapp\logout.html'
+    template_name = 'usersapp/logout.html'
 
 
 class UserAccountView(DetailView):

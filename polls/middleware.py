@@ -16,7 +16,7 @@ class RequestTimeMiddleware():
         data = {
             'path': request.path,
             'request_total': round(time.monotonic() - timestamp, 3),
-            'debug': self.log_debug,
+            #'debug': self.log_debug,
 
         }
         with open('polls/debug.log', 'a') as f:

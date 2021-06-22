@@ -5,3 +5,337 @@
 2021-06-21 16:29:04,748 asyncio      DEBUG    Using proactor: IocpProactor
 2021-06-21 16:29:05,238 django.utils.autoreload INFO     Watching for file changes with StatReloader
 2021-06-21 16:45:52,709 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-22 08:00:47,606 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-06-22 08:00:56,951 django.request ERROR    Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/shakirov/PycharmProjects/GeekHub/polls/middleware.py", line 19, in __call__
+    'debug': self.log_debug,
+AttributeError: 'RequestTimeMiddleware' object has no attribute 'log_debug'
+2021-06-22 08:00:58,071 django.request ERROR    Internal Server Error: /favicon.ico
+Traceback (most recent call last):
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/shakirov/PycharmProjects/GeekHub/polls/middleware.py", line 19, in __call__
+    'debug': self.log_debug,
+AttributeError: 'RequestTimeMiddleware' object has no attribute 'log_debug'
+2021-06-22 08:02:01,252 asyncio      DEBUG    Using selector: EpollSelector
+2021-06-22 08:02:01,416 asyncio      DEBUG    Using selector: EpollSelector
+2021-06-22 08:02:02,731 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-06-22 08:02:11,625 django.request ERROR    Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/shakirov/PycharmProjects/GeekHub/polls/middleware.py", line 19, in __call__
+    'debug': self.log_debug,
+AttributeError: 'RequestTimeMiddleware' object has no attribute 'log_debug'
+2021-06-22 08:02:12,715 django.request ERROR    Internal Server Error: /favicon.ico
+Traceback (most recent call last):
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/shakirov/PycharmProjects/GeekHub/polls/middleware.py", line 19, in __call__
+    'debug': self.log_debug,
+AttributeError: 'RequestTimeMiddleware' object has no attribute 'log_debug'
+2021-06-22 08:09:45,367 django.utils.autoreload INFO     /home/shakirov/PycharmProjects/GeekHub/polls/middleware.py changed, reloading.
+2021-06-22 08:09:45,368 asyncio      DEBUG    Using selector: EpollSelector
+2021-06-22 08:09:46,127 django.utils.autoreload INFO     Watching for file changes with StatReloader
+{"path": "/", "request_total": 0.015}
+{"path": "/favicon.ico", "request_total": 0.01}
+2021-06-22 08:09:49,051 django.request WARNING  Not Found: /favicon.ico
+2021-06-22 08:10:14,331 asyncio      DEBUG    Using selector: EpollSelector
+2021-06-22 08:10:29,591 asyncio      DEBUG    Using selector: EpollSelector
+2021-06-22 08:10:29,755 asyncio      DEBUG    Using selector: EpollSelector
+2021-06-22 08:10:34,987 asyncio      DEBUG    Using selector: EpollSelector
+2021-06-22 08:10:49,399 django.utils.autoreload INFO     Watching for file changes with StatReloader
+{"path": "/", "request_total": 0.01}
+{"path": "/", "request_total": 0.006}
+{"path": "/about/", "request_total": 0.012}
+2021-06-22 08:11:04,254 django.request WARNING  Not Found: /about/
+{"path": "/contacts/", "request_total": 0.009}
+2021-06-22 08:11:09,145 django.request WARNING  Not Found: /contacts/
+{"path": "/editor/", "request_total": 0.008}
+2021-06-22 08:11:11,890 django.request WARNING  Not Found: /editor/
+{"path": "/input/", "request_total": 0.013}
+2021-06-22 08:11:14,940 django.request WARNING  Not Found: /input/
+{"path": "/auth", "request_total": 0.001}
+2021-06-22 08:11:19,237 django.request ERROR    Internal Server Error: /auth/
+Traceback (most recent call last):
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/shakirov/PycharmProjects/GeekHub/usersapp/views.py", line 16, in main
+    return render(request, 'usersapp\index.html')
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/template/loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: usersapp\index.html
+{"path": "/auth/", "request_total": 0.134}
+2021-06-22 08:12:26,022 django.request ERROR    Internal Server Error: /auth/
+Traceback (most recent call last):
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/shakirov/PycharmProjects/GeekHub/usersapp/views.py", line 16, in main
+    return render(request, 'usersapp\index.html')
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/template/loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: usersapp\index.html
+{"path": "/auth/", "request_total": 0.078}
+2021-06-22 08:13:26,875 django.request ERROR    Internal Server Error: /auth/
+Traceback (most recent call last):
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/shakirov/PycharmProjects/GeekHub/usersapp/views.py", line 16, in main
+    return render(request, 'usersapp\index.html')
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/template/loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: usersapp\index.html
+{"path": "/auth/", "request_total": 0.078}
+2021-06-22 08:13:50,609 asyncio      DEBUG    Using selector: EpollSelector
+2021-06-22 08:13:50,773 asyncio      DEBUG    Using selector: EpollSelector
+2021-06-22 08:13:52,080 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-06-22 08:14:41,460 django.utils.autoreload INFO     /home/shakirov/PycharmProjects/GeekHub/usersapp/views.py changed, reloading.
+2021-06-22 08:14:41,461 asyncio      DEBUG    Using selector: EpollSelector
+2021-06-22 08:14:42,161 django.utils.autoreload INFO     Watching for file changes with StatReloader
+{"path": "/auth/", "request_total": 0.049}
+2021-06-22 08:14:48,723 django.request ERROR    Internal Server Error: /auth/login/
+Traceback (most recent call last):
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/core/handlers/base.py", line 204, in _get_response
+    response = response.render()
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/template/response.py", line 105, in render
+    self.content = self.rendered_content
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/template/response.py", line 81, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/template/response.py", line 63, in resolve_template
+    return select_template(template, using=self.using)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/template/loader.py", line 47, in select_template
+    raise TemplateDoesNotExist(', '.join(template_name_list), chain=chain)
+django.template.exceptions.TemplateDoesNotExist: usersapp\login.html
+{"path": "/auth/login/", "request_total": 0.142}
+2021-06-22 08:16:11,607 django.utils.autoreload INFO     /home/shakirov/PycharmProjects/GeekHub/usersapp/views.py changed, reloading.
+2021-06-22 08:16:11,608 asyncio      DEBUG    Using selector: EpollSelector
+2021-06-22 08:16:12,325 django.utils.autoreload INFO     Watching for file changes with StatReloader
+{"path": "/auth/login/", "request_total": 0.026}
+2021-06-22 08:16:15,111 django.request ERROR    Internal Server Error: /auth/login/
+Traceback (most recent call last):
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/db/backends/sqlite3/base.py", line 423, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such table: usersapp_geekhubuser
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/utils/decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/views/decorators/debug.py", line 89, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/utils/decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/utils/decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/utils/decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/views/decorators/cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/contrib/auth/views.py", line 63, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/views/generic/base.py", line 98, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/views/generic/edit.py", line 141, in post
+    if form.is_valid():
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/forms/forms.py", line 175, in is_valid
+    return self.is_bound and not self.errors
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/forms/forms.py", line 170, in errors
+    self.full_clean()
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/forms/forms.py", line 373, in full_clean
+    self._clean_form()
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/forms/forms.py", line 400, in _clean_form
+    cleaned_data = self.clean()
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/contrib/auth/forms.py", line 202, in clean
+    self.user_cache = authenticate(self.request, username=username, password=password)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/views/decorators/debug.py", line 42, in sensitive_variables_wrapper
+    return func(*func_args, **func_kwargs)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/contrib/auth/__init__.py", line 76, in authenticate
+    user = backend.authenticate(request, **credentials)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/contrib/auth/backends.py", line 42, in authenticate
+    user = UserModel._default_manager.get_by_natural_key(username)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/contrib/auth/base_user.py", line 45, in get_by_natural_key
+    return self.get(**{self.model.USERNAME_FIELD: username})
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/db/models/query.py", line 431, in get
+    num = len(clone)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/db/models/query.py", line 262, in __len__
+    self._fetch_all()
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/db/models/query.py", line 1324, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/db/models/query.py", line 51, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1175, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/db/backends/utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/db/backends/utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/db/backends/utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/db/backends/sqlite3/base.py", line 423, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such table: usersapp_geekhubuser
+{"path": "/auth/login/", "request_total": 0.197}
+2021-06-22 08:16:35,486 asyncio      DEBUG    Using selector: EpollSelector
+2021-06-22 08:16:54,283 asyncio      DEBUG    Using selector: EpollSelector
+2021-06-22 08:16:58,429 asyncio      DEBUG    Using selector: EpollSelector
+{"path": "/auth/login/", "request_total": 0.011}
+{"path": "/auth/login/", "request_total": 0.298}
+{"path": "/auth/", "request_total": 0.024}
+{"path": "/auth/account/1", "request_total": 0.008}
+{"path": "/auth/edit/1", "request_total": 0.028}
+{"path": "/admin/", "request_total": 0.065}
+{"path": "/admin/usersapp/geekhubuser/", "request_total": 0.079}
+{"path": "/admin/jsi18n/", "request_total": 0.029}
+{"path": "/admin/", "request_total": 0.038}
+{"path": "/admin/auth/group/", "request_total": 0.065}
+{"path": "/admin/jsi18n/", "request_total": 0.017}
+{"path": "/admin/", "request_total": 0.038}
+{"path": "/auth/edit/1", "request_total": 0.034}
+{"path": "/", "request_total": 0.013}
+{"path": "/auth/registration/", "request_total": 0.038}
+2021-06-22 08:45:18,353 asyncio      DEBUG    Using selector: EpollSelector
+2021-06-22 08:45:45,808 asyncio      DEBUG    Using selector: EpollSelector
+{"path": "/auth/registration/", "request_total": 0.031}
+2021-06-22 08:49:14,756 asyncio      DEBUG    Using selector: EpollSelector
+{"path": "/auth/registration/", "request_total": 0.02}
+{"path": "/auth/registration/", "request_total": 0.502}
+{"path": "/auth/verify/chehov@reqsoft.ru/c16f192a4a4c4b97a5aeb69e71aa6679/", "request_total": 0.011}
+{"path": "/auth/login/", "request_total": 0.007}
+{"path": "/auth/", "request_total": 0.021}
+{"path": "/auth/account/1", "request_total": 0.009}
+2021-06-22 08:55:01,228 asyncio      DEBUG    Using selector: EpollSelector
+{"path": "/auth/registration/", "request_total": 0.021}
+{"path": "/auth/registration/", "request_total": 0.458}
+{"path": "/auth/verify/chehov@reqsoft.ru/cd83e3357e8b4623917614a534a0e8ea/", "request_total": 0.008}
+{"path": "/auth/login/", "request_total": 0.005}
+{"path": "/auth/account/4", "request_total": 0.003}
+{"path": "/auth/logout/", "request_total": 0.02}
+{"path": "/auth/registration/", "request_total": 0.028}
+{"path": "/auth/logout/", "request_total": 0.003}
+{"path": "/auth/login/", "request_total": 0.015}
+{"path": "/auth/login/", "request_total": 0.306}
+{"path": "/auth/", "request_total": 0.013}
+{"path": "/auth/edit/1", "request_total": 0.071}
+{"path": "/admin/", "request_total": 0.055}
+{"path": "/admin/usersapp/geekhubuser/", "request_total": 0.102}
+{"path": "/admin/jsi18n/", "request_total": 0.02}
+{"path": "/admin/usersapp/geekhubuser/1/change/", "request_total": 0.213}
+{"path": "/admin/jsi18n/", "request_total": 0.037}
+{"path": "/admin/usersapp/geekhubuser/", "request_total": 0.081}
+{"path": "/admin/", "request_total": 0.035}
+{"path": "/auth/logout/", "request_total": 0.034}
+{"path": "/auth/registration/", "request_total": 0.016}
+{"path": "/auth/registration/", "request_total": 0.053}
+2021-06-22 09:19:34,564 asyncio      DEBUG    Using selector: EpollSelector
+{"path": "/auth/registration/", "request_total": 0.02}
+{"path": "/auth/registration/", "request_total": 0.484}
+{"path": "/auth/verify/chehov@reqsoft.ru/0eecc19717b44790bda6e9bd7e0d215c/", "request_total": 0.011}
+{"path": "/auth/login/", "request_total": 0.006}
+{"path": "/auth/account/4", "request_total": 0.003}
+2021-06-22 09:22:43,576 asyncio      DEBUG    Using selector: EpollSelector
+{"path": "/auth/registration/", "request_total": 0.019}
+{"path": "/auth/registration/", "request_total": 0.463}
+{"path": "/auth/verify/chehov@reqsoft.ru/1ac644e966c24a4b97ff92c1d3c1e7cb/", "request_total": 0.009}
+{"path": "/auth/login/", "request_total": 0.005}
+{"path": "/auth/account/4", "request_total": 0.002}
+{"path": "/auth/registration/", "request_total": 0.008}
+{"path": "/auth/registration/", "request_total": 0.026}
+2021-06-22 09:24:29,179 asyncio      DEBUG    Using selector: EpollSelector
+{"path": "/auth/registration/", "request_total": 0.02}
+{"path": "/auth/registration/", "request_total": 0.465}
+{"path": "/auth/verify/chehov@reqsoft.ru/ce0aecda5b944696a87462cbc2556166/", "request_total": 0.008}
+{"path": "/auth/login/", "request_total": 0.004}
+{"path": "/auth/account/4", "request_total": 0.002}
+{"path": "/auth/registration/", "request_total": 0.009}
+2021-06-22 11:36:14,633 asyncio      DEBUG    Using selector: EpollSelector
+{"path": "/auth/login/", "request_total": 0.028}
+{"path": "/auth/logout/", "request_total": 0.013}
+{"path": "/auth/registration/", "request_total": 0.035}
+{"path": "/auth/registration/", "request_total": 0.005}
+{"path": "/auth/registration/", "request_total": 0.445}
+{"path": "/auth/verify/chehov@reqsoft.ru/d42f9b0140414dd780ed1041ecb112f4/", "request_total": 0.01}
+{"path": "/auth/login/", "request_total": 0.004}
+{"path": "/auth/account/4", "request_total": 0.004}
+2021-06-22 11:36:37,571 asyncio      DEBUG    Using selector: EpollSelector
+{"path": "/auth/login/", "request_total": 0.025}
+{"path": "/auth/logout/", "request_total": 0.012}
+{"path": "/auth/registration/", "request_total": 0.031}
+{"path": "/auth/registration/", "request_total": 0.005}
+{"path": "/auth/registration/", "request_total": 0.441}
+{"path": "/auth/verify/chehov@reqsoft.ru/2ee42d63e2254429bc38346678512a34/", "request_total": 0.008}
+{"path": "/auth/login/", "request_total": 0.004}
+{"path": "/auth/account/4", "request_total": 0.004}
+2021-06-22 11:36:56,833 asyncio      DEBUG    Using selector: EpollSelector
+{"path": "/auth/login/", "request_total": 0.019}
+{"path": "/auth/logout/", "request_total": 0.014}
+{"path": "/auth/", "request_total": 0.009}
+{"path": "/auth/registration/", "request_total": 0.032}
+{"path": "/auth/registration/", "request_total": 0.005}
+{"path": "/auth/registration/", "request_total": 0.433}
+{"path": "/auth/verify/chehov@reqsoft.ru/0eea7acbce3041e49221d5b2cdecc56a/", "request_total": 0.008}
+{"path": "/auth/login/", "request_total": 0.004}
+{"path": "/auth/account/4", "request_total": 0.002}
+2021-06-22 11:37:14,691 asyncio      DEBUG    Using selector: EpollSelector
+{"path": "/auth/login/", "request_total": 0.018}
+{"path": "/auth/logout/", "request_total": 0.015}
+{"path": "/auth/", "request_total": 0.013}
+{"path": "/auth/registration/", "request_total": 0.03}
+{"path": "/auth/registration/", "request_total": 0.005}
+{"path": "/auth/registration/", "request_total": 0.45}
+{"path": "/auth/verify/chehov@reqsoft.ru/89c7086a6b284cf48b3724251987d290/", "request_total": 0.008}
+{"path": "/auth/login/", "request_total": 0.004}
+{"path": "/auth/account/4", "request_total": 0.003}
+2021-06-22 11:46:46,670 asyncio      DEBUG    Using selector: EpollSelector
+{"path": "/auth/login/", "request_total": 0.018}
+{"path": "/auth/logout/", "request_total": 0.012}
+{"path": "/auth/", "request_total": 0.009}
+{"path": "/auth/registration/", "request_total": 0.03}
+{"path": "/auth/registration/", "request_total": 0.005}
+{"path": "/auth/registration/", "request_total": 0.439}
+{"path": "/auth/verify/chehov@reqsoft.ru/951dd92fa3964d1fafa22ac03604c41a/", "request_total": 0.008}
+{"path": "/auth/login/", "request_total": 0.004}
+{"path": "/auth/account/4", "request_total": 0.002}
+{"path": "/auth/edit/1", "request_total": 0.048}
+{"path": "/", "request_total": 0.002}
+{"path": "/auth/registration/", "request_total": 0.016}
+{"path": "/auth/", "request_total": 0.006}
