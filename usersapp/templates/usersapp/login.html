@@ -12,34 +12,20 @@
 
 <div class="wrapper-login">
     <div class="container-login">
-            <form action="login.html" class="form-horizontal" method="post"
-                  enctype="multipart/form-data">
-                {% csrf_token %}{{ form.as_p }}
-
-
+            <form  class="form-horizontal" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
                 <label class="text-login">
-                    <input name="login" class="text-login-placeholder" placeholder="Никнейм/Адрес электронной почты">
+                    <input name="username" class="text-login-placeholder" placeholder="Никнейм/Адрес электронной почты">
                 </label>
-
-
                 <label class="text-password">
                     <input name="password" class="text-login-placeholder" placeholder="Введите пароль">
                 </label>
-
-
-
-
-
-                <button  class="form-control" type="submit" >Войти</button>
-
-
-
+                <button  class="form-control" type="submit" value="Login">Войти</button>
                 <div class="text-alternative">
-                    или  <a href="index.html">Зарегистрируйтесь</a>
+                    или  <a href="{% url 'usersapp:registration' %}">Зарегистрируйтесь</a>
                 </div>
             </form>
     </div>
-
 </div>
 </body>
 </html>

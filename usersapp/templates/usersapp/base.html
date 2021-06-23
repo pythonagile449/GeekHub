@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta html-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Intergalactic Entertainment</title>
+    <link rel="stylesheet" type="text/css" href="../../../static/css/style.css">
+</head>
+
+<body>
+<div class="wrapper">
+
+    <div class="header">
+        <div class="header-container">
+            <a href="/"><img src="../../../static/svg/logo.svg" alt="logo"></a>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <div class="menu"> <!-- Блок меню. Состоит из двух групп: левого меню и правого.-->
+
+            <div class="menu-left">
+                <ul class="menu-left"> <!-- Прижат к левому краю блока-->
+                    <li><a href="/">Все потоки</a></li>
+                    <li><a href="/about/">Дизайн</a></li>
+                    <li><a href="/contacts/">Веб-разработка</a></li>
+                    <li><a href="/editor/">Мобильная разработка</a></li>
+                    <li><a href="/input/">Маркетинг</a></li>
+                </ul>
+            </div>
+
+            <div class="menu-right"> <!-- Прижат к правому краю блока-->
+                <ul class="menu-right">
+                    <li><a href="{% url 'usersapp:index' %}">Войти</a></li>
+                    <li><a href="{% url 'usersapp:registration' %}" class="button1">Регистрация</a></li> <!--Сделана как ссылка с кнопкой (не active)-->
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="container">
+
+                <div class="section-title">
+                    <h2>Все потоки</h2>
+                </div>
+
+                <div class="section-menu"></div>
+
+        </div>
+        <div class="content-container">
+            <div class="section-left">
+
+                {% block content %} {% endblock %}
+
+            </div>
+
+            <div class="section-right">
+
+                <div class="section-right-block">
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="footer-container">
+
+        </div>
+    </div>
+</div>
+</body>
+</html>

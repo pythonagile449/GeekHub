@@ -364,3 +364,37 @@ django.db.utils.OperationalError: no such table: usersapp_geekhubuser
 {"path": "/auth/registration/", "request_total": 0.031}
 2021-06-23 01:02:37,643 asyncio      DEBUG    Using proactor: IocpProactor
 2021-06-23 01:02:37,908 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-23 19:18:44,789 django.utils.autoreload INFO     Watching for file changes with StatReloader
+{"path": "/", "request_total": 0.047}
+{"path": "/favicon.ico", "request_total": 0.021}
+2021-06-23 19:18:47,932 django.request WARNING  Not Found: /favicon.ico
+{"path": "/auth/", "request_total": 0.025}
+{"path": "/auth/account/1", "request_total": 0.014}
+{"path": "/auth/edit/1", "request_total": 0.044}
+{"path": "/admin/", "request_total": 0.109}
+{"path": "/auth/login/", "request_total": 0.043}
+{"path": "/auth/login/", "request_total": 0.012}
+{"path": "/auth/login/", "request_total": 0.013}
+{"path": "/auth/login/login.html", "request_total": 0.015}
+2021-06-23 19:19:19,202 django.request WARNING  Not Found: /auth/login/login.html
+{"path": "/auth/login/", "request_total": 0.013}
+{"path": "/auth/login/", "request_total": 0.018}
+{"path": "/auth/login/", "request_total": 0.014}
+{"path": "/auth/login/", "request_total": 0.04}
+{"path": "/auth/registration/", "request_total": 0.017}
+{"path": "/auth/login/", "request_total": 0.015}
+{"path": "/auth/login/", "request_total": 0.017}
+{"path": "/auth/login/", "request_total": 0.007}
+{"path": "/auth/login/", "request_total": 0.004}
+{"path": "/auth/login/", "request_total": 0.008}
+{"path": "/auth/login/", "request_total": 0.006}
+{"path": "/admin", "request_total": 0.001}
+{"path": "/admin/", "request_total": 0.047}
+{"path": "/admin/logout/", "request_total": 0.07}
+{"path": "/admin/", "request_total": 0.002}
+{"path": "/admin/login/", "request_total": 0.051}
+{"path": "/auth/login/", "request_total": 0.007}
+{"path": "/auth/login/", "request_total": 0.006}
+{"path": "/auth/login/", "request_total": 0.007}
+{"path": "/auth/login/", "request_total": 0.29}
+{"path": "/auth/", "request_total": 0.012}
