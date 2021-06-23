@@ -170,7 +170,7 @@
 	.section-right-block {
         width: 367px;
         background: var(--section-bg-color); /* цвет фона правой секции контента*/
-        height: 520 px;
+        height: 520px;
 	}
 
 	.chapter {

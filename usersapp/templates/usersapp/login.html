@@ -2,15 +2,44 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta html-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Intergalactic Entertainment</title>
+    <link rel="stylesheet" type="text/css" href="../../../static/css/style-login.css">
 </head>
+
 <body>
-<form class="form-horizontal" method="post"
-      enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <br>
-    <input class="form-control" type="submit" value="Login">
-</form>
+
+<div class="wrapper-login">
+    <div class="container-login">
+            <form action="login.html" class="form-horizontal" method="post"
+                  enctype="multipart/form-data">
+                {% csrf_token %}{{ form.as_p }}
+
+
+                <label class="text-login">
+                    <input name="login" class="text-login-placeholder" placeholder="Никнейм/Адрес электронной почты">
+                </label>
+
+
+                <label class="text-password">
+                    <input name="password" class="text-login-placeholder" placeholder="Введите пароль">
+                </label>
+
+
+
+
+
+                <button  class="form-control" type="submit" >Войти</button>
+
+
+
+                <div class="text-alternative">
+                    или  <a href="index.html">Зарегистрируйтесь</a>
+                </div>
+            </form>
+    </div>
+
+</div>
 </body>
 </html>
