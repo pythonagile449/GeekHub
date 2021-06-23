@@ -6,7 +6,6 @@ import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
     dependencies = [
@@ -21,8 +20,11 @@ class Migration(migrations.Migration):
                 ('description', models.TextField(blank=True, verbose_name='Описание категории')),
                 ('created_at', models.DateTimeField(auto_now_add=True, verbose_name='Время создания')),
                 ('hash_view', models.CharField(blank=True, max_length=256)),
-                ('author', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to=settings.AUTH_USER_MODEL, verbose_name='Автор комментария')),
-                ('parent_category', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to='commentsapp.commentsbranch')),
+                ('author', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL,
+                                             to=settings.AUTH_USER_MODEL, verbose_name='Автор комментария')),
+                ('parent_category',
+                 models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL,
+                                   to='commentsapp.commentsbranch')),
             ],
             options={
                 'abstract': False,

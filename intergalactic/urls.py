@@ -18,7 +18,7 @@ from django.urls import path, include
 import mainapp.views as mainapp
 
 urlpatterns = [
-    path('', mainapp.main),
+    path('', mainapp.main, name='index'),
     path('admin/', admin.site.urls),
     path('auth/', include('usersapp.urls', namespace='usersapp')),
 ]

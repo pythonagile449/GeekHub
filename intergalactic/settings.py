@@ -111,20 +111,18 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'usersapp.GeekHubUser'
 
 # URL - для аутентификации
-LOGIN_URL = '/auth/login'
+# LOGIN_URL = '/auth/login/'
 
 # URL - куда пользователь будет перенаправлен при неудачной попытке аутентификации
 LOGIN_ERROR_URL = '/'
 
 # URL - куда пользователь будет перенаправлен после удачной попытки аутентификации
-LOGIN_REDIRECT_URL = '/auth/'
+LOGIN_REDIRECT_URL = '/'
 
 try:
     from intergalactic.settings_local import *
 except ImportError:
     from intergalactic.settings_deploy import *
-
-
 
 LOGGING = {
     'version': 1,

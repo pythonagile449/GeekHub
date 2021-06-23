@@ -436,3 +436,1221 @@ django.db.utils.OperationalError: no such table: usersapp_geekhubuser
 {"path": "/auth/login/", "request_total": 0.0}
 {"path": "/auth/registration/", "request_total": 0.0}
 {"path": "/auth/login/", "request_total": 0.0}
+2021-06-23 23:00:35,414 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-06-23 23:01:25,539 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-23 23:01:25,602 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-23 23:01:28,535 django.utils.autoreload INFO     Watching for file changes with StatReloader
+{"path": "/", "request_total": 0.344}
+{"path": "/favicon.ico", "request_total": 0.313}
+2021-06-23 23:01:34,255 django.request WARNING  Not Found: /favicon.ico
+{"path": "/auth/", "request_total": 0.047}
+2021-06-23 23:02:12,341 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-23 23:02:20,473 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-23 23:03:36,492 asyncio      DEBUG    Using proactor: IocpProactor
+{"path": "/", "request_total": 0.0}
+{"path": "/auth/login/", "request_total": 0.047}
+{"path": "/auth/login/", "request_total": 0.344}
+{"path": "/auth/login/", "request_total": 0.328}
+{"path": "/auth/login/", "request_total": 0.329}
+{"path": "/auth/login/", "request_total": 1.985}
+{"path": "/auth/", "request_total": 0.0}
+{"path": "/auth/logout/", "request_total": 0.453}
+{"path": "/auth/", "request_total": 0.016}
+{"path": "/auth/login/", "request_total": 0.0}
+{"path": "/auth/login/", "request_total": 1.562}
+{"path": "/auth/", "request_total": 0.0}
+2021-06-23 23:22:25,524 django.utils.autoreload INFO     F:\git\GeekHub\usersapp\views.py changed, reloading.
+2021-06-23 23:22:25,525 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-23 23:22:26,800 django.utils.autoreload INFO     Watching for file changes with StatReloader
+{"path": "/auth/logout/", "request_total": 0.422}
+{"path": "/auth/", "request_total": 0.0}
+{"path": "/auth/registration/", "request_total": 0.109}
+{"path": "/auth/registration/", "request_total": 2.531}
+{"path": "/auth/", "request_total": 0.0}
+{"path": "/auth/verify/natalinut@yandex.ru/b0a93e500f854b42816808823681b135/", "request_total": 1.985}
+{"path": "/auth/", "request_total": 0.015}
+{"path": "/favicon.ico", "request_total": 0.016}
+2021-06-23 23:23:44,044 django.request WARNING  Not Found: /favicon.ico
+2021-06-23 23:25:09,669 django.utils.autoreload INFO     F:\git\GeekHub\usersapp\views.py changed, reloading.
+2021-06-23 23:25:09,670 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-23 23:25:10,925 django.utils.autoreload INFO     Watching for file changes with StatReloader
+{"path": "/auth/logout/", "request_total": 0.406}
+{"path": "/auth/login/", "request_total": 0.0}
+{"path": "/auth/login/", "request_total": 1.984}
+{"path": "/auth/", "request_total": 0.015}
+{"path": "/admin/", "request_total": 8.407}
+{"path": "/admin/usersapp/geekhubuser/", "request_total": 0.282}
+{"path": "/admin/jsi18n/", "request_total": 0.046}
+{"path": "/admin/usersapp/geekhubuser/2/change/", "request_total": 0.312}
+{"path": "/admin/jsi18n/", "request_total": 0.015}
+{"path": "/admin/usersapp/geekhubuser/2/delete/", "request_total": 0.078}
+{"path": "/admin/usersapp/geekhubuser/2/delete/", "request_total": 0.532}
+{"path": "/admin/usersapp/geekhubuser/", "request_total": 0.078}
+{"path": "/admin/jsi18n/", "request_total": 0.0}
+{"path": "/", "request_total": 0.0}
+{"path": "/auth/registration/", "request_total": 0.016}
+{"path": "/auth/registration/", "request_total": 2.0}
+{"path": "/auth/", "request_total": 0.0}
+{"path": "/auth/logout/", "request_total": 0.375}
+{"path": "/auth/verify/natalinut@yandex.ru/68e3a26f16d54996a93d979c2242fba9/", "request_total": 1.515}
+{"path": "/auth/", "request_total": 0.016}
+2021-06-23 23:29:17,437 django.utils.autoreload INFO     F:\git\GeekHub\usersapp\views.py changed, reloading.
+2021-06-23 23:29:17,437 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-23 23:29:18,712 django.utils.autoreload INFO     Watching for file changes with StatReloader
+{"path": "/auth/account/3", "request_total": 0.031}
+{"path": "/auth/logout/", "request_total": 0.437}
+{"path": "/auth/login/", "request_total": 0.0}
+{"path": "/auth/login/", "request_total": 1.484}
+{"path": "/auth/", "request_total": 0.016}
+{"path": "/admin/", "request_total": 8.063}
+{"path": "/admin/usersapp/geekhubuser/", "request_total": 0.078}
+{"path": "/admin/jsi18n/", "request_total": 0.016}
+{"path": "/admin/usersapp/geekhubuser/3/change/", "request_total": 0.125}
+{"path": "/admin/jsi18n/", "request_total": 0.0}
+{"path": "/admin/usersapp/geekhubuser/3/delete/", "request_total": 0.031}
+{"path": "/admin/usersapp/geekhubuser/3/delete/", "request_total": 0.531}
+{"path": "/admin/usersapp/geekhubuser/", "request_total": 0.063}
+{"path": "/admin/jsi18n/", "request_total": 0.016}
+{"path": "/", "request_total": 0.0}
+{"path": "/auth/login/", "request_total": 0.0}
+{"path": "/auth/registration/", "request_total": 0.0}
+{"path": "/auth/registration/", "request_total": 2.063}
+{"path": "/auth/", "request_total": 0.016}
+{"path": "/auth/account/1", "request_total": 0.0}
+{"path": "/auth/account/1", "request_total": 0.0}
+{"path": "/auth/logout/", "request_total": 0.406}
+2021-06-23 23:31:26,141 django.request ERROR    Internal Server Error: /auth/verify/natalinut@yandex.ru/e379bf41e6964f3a871dd7e799ae13a0/
+Traceback (most recent call last):
+  File "F:\git\GeekHub\usersapp\views.py", line 99, in verify
+    return render(request, 'usersapp/verification.html')
+  File "F:\git\venv\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "F:\git\venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "F:\git\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "F:\git\venv\lib\site-packages\django\template\defaulttags.py", line 446, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "F:\git\venv\lib\site-packages\django\urls\base.py", line 86, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "F:\git\venv\lib\site-packages\django\urls\resolvers.py", line 694, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'index' not found. 'index' is not a valid view function or pattern name.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\git\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "F:\git\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\git\GeekHub\usersapp\views.py", line 103, in verify
+    return HttpResponseRedirect(reverse('usersapp/verification.html'))
+  File "F:\git\venv\lib\site-packages\django\urls\base.py", line 86, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "F:\git\venv\lib\site-packages\django\urls\resolvers.py", line 694, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'usersapp/verification.html' not found. 'usersapp/verification.html' is not a valid view function or pattern name.
+{"path": "/auth/verify/natalinut@yandex.ru/e379bf41e6964f3a871dd7e799ae13a0/", "request_total": 1.766}
+2021-06-23 23:46:47,216 django.utils.autoreload INFO     F:\git\GeekHub\usersapp\views.py changed, reloading.
+2021-06-23 23:46:47,217 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-23 23:46:48,502 django.utils.autoreload INFO     Watching for file changes with StatReloader
+{"path": "/auth/logout/", "request_total": 0.031}
+2021-06-23 23:47:06,472 django.request ERROR    Internal Server Error: /auth/verify/natalinut@yandex.ru/e379bf41e6964f3a871dd7e799ae13a0/
+Traceback (most recent call last):
+  File "F:\git\GeekHub\usersapp\views.py", line 98, in verify
+    return render(request, 'usersapp/verification.html')
+  File "F:\git\venv\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "F:\git\venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "F:\git\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "F:\git\venv\lib\site-packages\django\template\defaulttags.py", line 446, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "F:\git\venv\lib\site-packages\django\urls\base.py", line 86, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "F:\git\venv\lib\site-packages\django\urls\resolvers.py", line 694, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'index' not found. 'index' is not a valid view function or pattern name.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\git\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "F:\git\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\git\GeekHub\usersapp\views.py", line 102, in verify
+    return HttpResponseRedirect(reverse('usersapp/verification.html'))
+  File "F:\git\venv\lib\site-packages\django\urls\base.py", line 86, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "F:\git\venv\lib\site-packages\django\urls\resolvers.py", line 694, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'usersapp/verification.html' not found. 'usersapp/verification.html' is not a valid view function or pattern name.
+{"path": "/auth/verify/natalinut@yandex.ru/e379bf41e6964f3a871dd7e799ae13a0/", "request_total": 8.172}
+2021-06-23 23:50:51,548 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-23 23:50:51,624 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-23 23:50:54,740 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-06-23 23:51:29,214 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-23 23:51:29,306 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-23 23:51:32,004 django.utils.autoreload INFO     Watching for file changes with StatReloader
+{"path": "/auth/registration/", "request_total": 0.032}
+{"path": "/auth/login/", "request_total": 0.016}
+{"path": "/auth/login/", "request_total": 1.422}
+{"path": "/auth/", "request_total": 0.016}
+{"path": "/admin/", "request_total": 8.062}
+{"path": "/admin/usersapp/geekhubuser/", "request_total": 0.078}
+{"path": "/admin/jsi18n/", "request_total": 0.0}
+{"path": "/admin/usersapp/geekhubuser/4/change/", "request_total": 0.141}
+{"path": "/admin/jsi18n/", "request_total": 0.015}
+{"path": "/admin/usersapp/geekhubuser/4/delete/", "request_total": 0.031}
+{"path": "/admin/usersapp/geekhubuser/4/delete/", "request_total": 0.547}
+{"path": "/admin/usersapp/geekhubuser/", "request_total": 0.062}
+{"path": "/admin/jsi18n/", "request_total": 0.016}
+{"path": "/", "request_total": 0.016}
+{"path": "/auth/registration/", "request_total": 0.016}
+{"path": "/auth/registration/", "request_total": 2.391}
+{"path": "/auth/", "request_total": 0.015}
+{"path": "/auth/logout/", "request_total": 0.422}
+2021-06-23 23:53:17,559 django.request ERROR    Internal Server Error: /auth/verify/natalinut@yandex.ru/f077ef469275490ba3c79d2df6b96048/
+Traceback (most recent call last):
+  File "F:\git\GeekHub\usersapp\views.py", line 98, in verify
+    return render(request, 'usersapp:success')
+  File "F:\git\venv\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "F:\git\venv\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "F:\git\venv\lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "F:\git\venv\lib\site-packages\django\template\backends\django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "F:\git\venv\lib\site-packages\django\template\engine.py", line 143, in get_template
+    template, origin = self.find_template(template_name)
+  File "F:\git\venv\lib\site-packages\django\template\engine.py", line 125, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "F:\git\venv\lib\site-packages\django\template\loaders\base.py", line 24, in get_template
+    contents = self.get_contents(origin)
+  File "F:\git\venv\lib\site-packages\django\template\loaders\filesystem.py", line 23, in get_contents
+    with open(origin.name, encoding=self.engine.file_charset) as fp:
+OSError: [Errno 22] Invalid argument: 'F:\\git\\venv\\lib\\site-packages\\django\\contrib\\admin\\templates\\usersapp:success'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\git\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "F:\git\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\git\GeekHub\usersapp\views.py", line 102, in verify
+    return HttpResponseRedirect(reverse('usersapp/verification.html'))
+  File "F:\git\venv\lib\site-packages\django\urls\base.py", line 86, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "F:\git\venv\lib\site-packages\django\urls\resolvers.py", line 694, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'usersapp/verification.html' not found. 'usersapp/verification.html' is not a valid view function or pattern name.
+{"path": "/auth/verify/natalinut@yandex.ru/f077ef469275490ba3c79d2df6b96048/", "request_total": 1.0}
+2021-06-23 23:55:09,481 django.utils.autoreload INFO     F:\git\GeekHub\usersapp\views.py changed, reloading.
+2021-06-23 23:55:09,482 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-23 23:55:11,168 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-06-23 23:56:20,047 django.utils.autoreload INFO     F:\git\GeekHub\usersapp\views.py changed, reloading.
+2021-06-23 23:56:20,048 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-23 23:56:21,335 django.utils.autoreload INFO     Watching for file changes with StatReloader
+{"path": "/auth/logout/", "request_total": 0.016}
+{"path": "/auth/login/", "request_total": 0.0}
+{"path": "/auth/login/", "request_total": 1.454}
+{"path": "/auth/", "request_total": 0.016}
+{"path": "/admin/", "request_total": 8.047}
+{"path": "/admin/usersapp/geekhubuser/", "request_total": 0.078}
+{"path": "/admin/jsi18n/", "request_total": 0.016}
+{"path": "/admin/usersapp/geekhubuser/5/change/", "request_total": 0.14}
+{"path": "/admin/jsi18n/", "request_total": 0.0}
+{"path": "/admin/usersapp/geekhubuser/5/delete/", "request_total": 0.047}
+{"path": "/admin/usersapp/geekhubuser/5/delete/", "request_total": 0.531}
+{"path": "/admin/usersapp/geekhubuser/", "request_total": 0.063}
+{"path": "/admin/jsi18n/", "request_total": 0.0}
+{"path": "/", "request_total": 0.0}
+{"path": "/auth/login/", "request_total": 0.0}
+{"path": "/auth/registration/", "request_total": 0.0}
+{"path": "/auth/registration/", "request_total": 2.046}
+{"path": "/auth/", "request_total": 0.0}
+{"path": "/auth/logout/", "request_total": 0.438}
+2021-06-23 23:59:02,388 django.request ERROR    Internal Server Error: /auth/verify/natalinut@yandex.ru/3794b3c82e3a4cf8b4e3cbf364765376/
+Traceback (most recent call last):
+  File "F:\git\GeekHub\usersapp\views.py", line 98, in verify
+    return render(None, 'usersapp/verification.html')
+  File "F:\git\venv\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "F:\git\venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "F:\git\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "F:\git\venv\lib\site-packages\django\template\defaulttags.py", line 446, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "F:\git\venv\lib\site-packages\django\urls\base.py", line 86, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "F:\git\venv\lib\site-packages\django\urls\resolvers.py", line 694, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'index' not found. 'index' is not a valid view function or pattern name.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\git\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "F:\git\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\git\GeekHub\usersapp\views.py", line 102, in verify
+    return HttpResponseRedirect(reverse('usersapp/verification.html'))
+  File "F:\git\venv\lib\site-packages\django\urls\base.py", line 86, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "F:\git\venv\lib\site-packages\django\urls\resolvers.py", line 694, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'usersapp/verification.html' not found. 'usersapp/verification.html' is not a valid view function or pattern name.
+{"path": "/auth/verify/natalinut@yandex.ru/3794b3c82e3a4cf8b4e3cbf364765376/", "request_total": 1.032}
+{"path": "/auth/logout/", "request_total": 0.0}
+{"path": "/auth/login/", "request_total": 0.015}
+{"path": "/auth/login/", "request_total": 1.406}
+{"path": "/auth/", "request_total": 0.0}
+{"path": "/admin/", "request_total": 0.015}
+{"path": "/admin/usersapp/geekhubuser/", "request_total": 0.078}
+{"path": "/admin/jsi18n/", "request_total": 0.015}
+{"path": "/admin/usersapp/geekhubuser/6/change/", "request_total": 0.125}
+{"path": "/admin/jsi18n/", "request_total": 0.016}
+{"path": "/admin/usersapp/geekhubuser/6/delete/", "request_total": 0.032}
+{"path": "/admin/usersapp/geekhubuser/6/delete/", "request_total": 1.14}
+{"path": "/admin/usersapp/geekhubuser/", "request_total": 0.078}
+{"path": "/admin/jsi18n/", "request_total": 0.0}
+{"path": "/", "request_total": 0.015}
+{"path": "/auth/registration/", "request_total": 0.016}
+{"path": "/auth/registration/", "request_total": 2.125}
+{"path": "/auth/", "request_total": 0.0}
+{"path": "/auth/logout/", "request_total": 0.422}
+2021-06-24 00:03:15,192 django.request ERROR    Internal Server Error: /auth/verify/natalinut@yandex.ru/093b9ae9b0564bc4aa374697892447c7/
+Traceback (most recent call last):
+  File "F:\git\GeekHub\usersapp\views.py", line 98, in verify
+    return render(None, 'usersapp/verification.html')
+  File "F:\git\venv\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "F:\git\venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "F:\git\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "F:\git\venv\lib\site-packages\django\template\defaulttags.py", line 446, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "F:\git\venv\lib\site-packages\django\urls\base.py", line 86, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "F:\git\venv\lib\site-packages\django\urls\resolvers.py", line 694, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for '/' not found. '/' is not a valid view function or pattern name.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\git\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "F:\git\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\git\GeekHub\usersapp\views.py", line 102, in verify
+    return HttpResponseRedirect(reverse('usersapp/verification.html'))
+  File "F:\git\venv\lib\site-packages\django\urls\base.py", line 86, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "F:\git\venv\lib\site-packages\django\urls\resolvers.py", line 694, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'usersapp/verification.html' not found. 'usersapp/verification.html' is not a valid view function or pattern name.
+{"path": "/auth/verify/natalinut@yandex.ru/093b9ae9b0564bc4aa374697892447c7/", "request_total": 0.515}
+2021-06-24 00:05:47,351 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 00:05:47,425 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 00:05:50,327 django.utils.autoreload INFO     Watching for file changes with StatReloader
+{"path": "/auth", "request_total": 0.0}
+{"path": "/auth/", "request_total": 0.016}
+{"path": "/auth/login/", "request_total": 0.0}
+{"path": "/auth/login/", "request_total": 1.921}
+{"path": "/auth/", "request_total": 0.0}
+{"path": "/admin/", "request_total": 8.094}
+{"path": "/admin/usersapp/geekhubuser/", "request_total": 0.094}
+{"path": "/admin/jsi18n/", "request_total": 0.0}
+{"path": "/admin/usersapp/geekhubuser/7/change/", "request_total": 0.125}
+{"path": "/admin/jsi18n/", "request_total": 0.015}
+{"path": "/admin/usersapp/geekhubuser/7/delete/", "request_total": 0.031}
+{"path": "/admin/usersapp/geekhubuser/7/delete/", "request_total": 0.547}
+{"path": "/admin/usersapp/geekhubuser/", "request_total": 0.062}
+{"path": "/admin/jsi18n/", "request_total": 0.016}
+{"path": "/", "request_total": 0.0}
+{"path": "/auth/registration/", "request_total": 0.016}
+{"path": "/auth/registration/", "request_total": 1.969}
+{"path": "/auth/", "request_total": 0.0}
+{"path": "/auth/logout/", "request_total": 0.531}
+2021-06-24 00:06:44,924 django.request ERROR    Internal Server Error: /auth/verify/natalinut@yandex.ru/ca9d560ffd1045ae8023e50cded05af8/
+Traceback (most recent call last):
+  File "F:\git\GeekHub\usersapp\views.py", line 99, in verify
+    return render(None, 'usersapp/verification.html')
+  File "F:\git\venv\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "F:\git\venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "F:\git\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "F:\git\venv\lib\site-packages\django\template\defaulttags.py", line 446, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "F:\git\venv\lib\site-packages\django\urls\base.py", line 86, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "F:\git\venv\lib\site-packages\django\urls\resolvers.py", line 694, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for '/' not found. '/' is not a valid view function or pattern name.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\git\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "F:\git\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\git\GeekHub\usersapp\views.py", line 103, in verify
+    return HttpResponseRedirect(reverse('usersapp/verification.html'))
+  File "F:\git\venv\lib\site-packages\django\urls\base.py", line 86, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "F:\git\venv\lib\site-packages\django\urls\resolvers.py", line 694, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'usersapp/verification.html' not found. 'usersapp/verification.html' is not a valid view function or pattern name.
+{"path": "/auth/verify/natalinut@yandex.ru/ca9d560ffd1045ae8023e50cded05af8/", "request_total": 1.25}
+2021-06-24 00:09:46,094 django.utils.autoreload INFO     F:\git\GeekHub\usersapp\views.py changed, reloading.
+2021-06-24 00:09:46,094 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 00:09:47,303 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-06-24 00:09:49,973 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 00:09:50,041 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 00:09:52,748 django.utils.autoreload INFO     Watching for file changes with StatReloader
+{"path": "/auth/login/", "request_total": 0.016}
+{"path": "/auth/login/", "request_total": 1.469}
+{"path": "/auth/", "request_total": 0.015}
+{"path": "/admin/", "request_total": 8.172}
+{"path": "/admin/usersapp/geekhubuser/", "request_total": 0.078}
+{"path": "/admin/jsi18n/", "request_total": 0.015}
+{"path": "/admin/usersapp/geekhubuser/8/change/", "request_total": 0.125}
+{"path": "/admin/jsi18n/", "request_total": 0.015}
+{"path": "/admin/usersapp/geekhubuser/8/delete/", "request_total": 0.047}
+{"path": "/admin/usersapp/geekhubuser/8/delete/", "request_total": 0.563}
+{"path": "/admin/usersapp/geekhubuser/", "request_total": 0.062}
+{"path": "/admin/jsi18n/", "request_total": 0.016}
+{"path": "/", "request_total": 0.015}
+{"path": "/auth/registration/", "request_total": 0.015}
+{"path": "/auth/registration/", "request_total": 1.922}
+{"path": "/auth/", "request_total": 0.016}
+{"path": "/auth/logout/", "request_total": 0.375}
+2021-06-24 00:10:51,955 django.request ERROR    Internal Server Error: /auth/verify/natalinut@yandex.ru/a9c794174dae41b08a1909fa51ec582d/
+Traceback (most recent call last):
+  File "F:\git\GeekHub\usersapp\views.py", line 99, in verify
+    return HttpResponseRedirect(reverse('usersapp/verification.html'))
+  File "F:\git\venv\lib\site-packages\django\urls\base.py", line 86, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "F:\git\venv\lib\site-packages\django\urls\resolvers.py", line 694, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'usersapp/verification.html' not found. 'usersapp/verification.html' is not a valid view function or pattern name.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\git\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "F:\git\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\git\GeekHub\usersapp\views.py", line 103, in verify
+    return HttpResponseRedirect(reverse('usersapp/verification.html'))
+  File "F:\git\venv\lib\site-packages\django\urls\base.py", line 86, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "F:\git\venv\lib\site-packages\django\urls\resolvers.py", line 694, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'usersapp/verification.html' not found. 'usersapp/verification.html' is not a valid view function or pattern name.
+{"path": "/auth/verify/natalinut@yandex.ru/a9c794174dae41b08a1909fa51ec582d/", "request_total": 1.187}
+2021-06-24 00:13:16,737 django.utils.autoreload INFO     F:\git\GeekHub\usersapp\views.py changed, reloading.
+2021-06-24 00:13:16,737 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 00:13:21,829 django.utils.autoreload INFO     Watching for file changes with StatReloader
+{"path": "/auth/", "request_total": 0.125}
+{"path": "/auth/login/", "request_total": 0.015}
+{"path": "/auth/login/", "request_total": 1.422}
+{"path": "/auth/", "request_total": 0.0}
+{"path": "/admin/", "request_total": 8.204}
+{"path": "/admin/usersapp/geekhubuser/", "request_total": 0.688}
+{"path": "/admin/jsi18n/", "request_total": 0.047}
+{"path": "/admin/usersapp/geekhubuser/9/change/", "request_total": 0.313}
+{"path": "/admin/jsi18n/", "request_total": 0.015}
+{"path": "/admin/usersapp/geekhubuser/9/delete/", "request_total": 0.063}
+{"path": "/admin/usersapp/geekhubuser/9/delete/", "request_total": 0.593}
+{"path": "/admin/usersapp/geekhubuser/", "request_total": 0.062}
+{"path": "/admin/jsi18n/", "request_total": 0.0}
+{"path": "/", "request_total": 0.016}
+{"path": "/auth/registration/", "request_total": 0.032}
+{"path": "/auth/registration/", "request_total": 0.844}
+{"path": "/auth/registration/", "request_total": 2.437}
+{"path": "/auth/", "request_total": 0.015}
+{"path": "/auth/verify/natalinut@yandex.ru/ba75740dd73b4df9ab9250d5a44be8ba/", "request_total": 1.406}
+{"path": "/auth/verify/natalinut@yandex.ru/ba75740dd73b4df9ab9250d5a44be8ba/usersapp/verification.html", "request_total": 0.172}
+2021-06-24 00:16:13,985 django.request WARNING  Not Found: /auth/verify/natalinut@yandex.ru/ba75740dd73b4df9ab9250d5a44be8ba/usersapp/verification.html
+{"path": "/favicon.ico", "request_total": 0.0}
+2021-06-24 00:16:29,129 django.request WARNING  Not Found: /favicon.ico
+2021-06-24 00:19:24,193 django.utils.autoreload INFO     F:\git\GeekHub\usersapp\urls.py changed, reloading.
+2021-06-24 00:19:24,194 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 00:19:25,506 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-06-24 00:23:49,527 django.utils.autoreload INFO     F:\git\GeekHub\usersapp\views.py changed, reloading.
+2021-06-24 00:23:49,528 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 00:23:50,803 django.utils.autoreload INFO     Watching for file changes with StatReloader
+{"path": "/auth/verification", "request_total": 0.016}
+2021-06-24 00:24:04,585 django.request WARNING  Not Found: /auth/verification
+2021-06-24 00:24:42,555 django.request ERROR    Internal Server Error: /auth/verify/
+Traceback (most recent call last):
+  File "F:\git\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "F:\git\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\git\GeekHub\usersapp\views.py", line 106, in verification
+    return render(request, 'usersapp/verification.html')
+  File "F:\git\venv\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "F:\git\venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "F:\git\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "F:\git\venv\lib\site-packages\django\template\defaulttags.py", line 446, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "F:\git\venv\lib\site-packages\django\urls\base.py", line 86, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "F:\git\venv\lib\site-packages\django\urls\resolvers.py", line 694, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for '/' not found. '/' is not a valid view function or pattern name.
+{"path": "/auth/verify/", "request_total": 8.25}
+2021-06-24 00:26:41,714 django.utils.autoreload INFO     F:\git\GeekHub\intergalactic\urls.py changed, reloading.
+2021-06-24 00:26:41,716 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 00:26:43,205 django.utils.autoreload INFO     Watching for file changes with StatReloader
+{"path": "/auth/verify", "request_total": 0.0}
+{"path": "/auth/verify/", "request_total": 0.031}
+{"path": "/", "request_total": 0.016}
+{"path": "/auth/login/", "request_total": 0.0}
+{"path": "/auth/login/", "request_total": 1.437}
+{"path": "/auth/", "request_total": 0.016}
+{"path": "/admin/", "request_total": 8.093}
+{"path": "/admin/usersapp/geekhubuser/", "request_total": 0.078}
+{"path": "/admin/jsi18n/", "request_total": 0.0}
+{"path": "/admin/usersapp/geekhubuser/10/change/", "request_total": 0.125}
+{"path": "/admin/jsi18n/", "request_total": 0.016}
+{"path": "/admin/usersapp/geekhubuser/10/delete/", "request_total": 0.031}
+{"path": "/admin/usersapp/geekhubuser/10/delete/", "request_total": 0.641}
+{"path": "/admin/usersapp/geekhubuser/", "request_total": 0.078}
+{"path": "/admin/jsi18n/", "request_total": 0.016}
+{"path": "/", "request_total": 0.0}
+{"path": "/auth/login/", "request_total": 0.0}
+{"path": "/auth/login/", "request_total": 1.062}
+{"path": "/auth/", "request_total": 0.0}
+{"path": "/", "request_total": 0.016}
+{"path": "/", "request_total": 0.016}
+{"path": "/", "request_total": 0.016}
+{"path": "/auth/login/", "request_total": 0.0}
+{"path": "/auth/login/", "request_total": 1.141}
+{"path": "/auth/", "request_total": 0.016}
+{"path": "/auth/account/1", "request_total": 0.016}
+{"path": "/", "request_total": 0.0}
+{"path": "/", "request_total": 0.015}
+{"path": "/", "request_total": 0.0}
+{"path": "/", "request_total": 0.015}
+{"path": "/", "request_total": 0.015}
+{"path": "/auth/account/1", "request_total": 0.016}
+{"path": "/auth/logout/", "request_total": 0.407}
+{"path": "/auth/", "request_total": 0.0}
+{"path": "/auth/logout/", "request_total": 0.0}
+{"path": "/auth/logout/", "request_total": 0.0}
+{"path": "/auth/logout/", "request_total": 0.0}
+{"path": "/auth/logout/", "request_total": 0.015}
+2021-06-24 00:33:37,201 django.utils.autoreload INFO     F:\git\GeekHub\mainapp\views.py changed, reloading.
+2021-06-24 00:33:37,201 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 00:33:38,830 django.utils.autoreload INFO     Watching for file changes with StatReloader
+{"path": "/auth/logout/", "request_total": 0.031}
+{"path": "/auth/", "request_total": 0.0}
+{"path": "/auth/login/", "request_total": 0.0}
+{"path": "/auth/login/", "request_total": 2.031}
+{"path": "/auth/", "request_total": 0.016}
+{"path": "/admin/", "request_total": 8.032}
+{"path": "/admin/usersapp/geekhubuser/", "request_total": 0.078}
+{"path": "/admin/jsi18n/", "request_total": 0.016}
+{"path": "/", "request_total": 0.016}
+{"path": "/auth/logout/", "request_total": 0.438}
+{"path": "/auth/logout/", "request_total": 0.015}
+{"path": "/auth/logout/", "request_total": 0.0}
+{"path": "/editor/", "request_total": 0.016}
+2021-06-24 00:40:24,959 django.request WARNING  Not Found: /editor/
+{"path": "/auth/logout/", "request_total": 0.016}
+{"path": "/auth/", "request_total": 0.0}
+2021-06-24 00:42:58,561 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 00:42:58,623 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 00:43:01,713 django.utils.autoreload INFO     Watching for file changes with StatReloader
+{"path": "/auth/logout/", "request_total": 0.016}
+{"path": "/auth/logout/", "request_total": 0.015}
+{"path": "/auth/logout/", "request_total": 0.0}
+{"path": "/auth/login/", "request_total": 0.0}
+{"path": "/auth/login/", "request_total": 1.454}
+{"path": "/auth/", "request_total": 0.016}
+{"path": "/admin/", "request_total": 8.047}
+{"path": "/admin/usersapp/geekhubuser/", "request_total": 0.078}
+{"path": "/admin/jsi18n/", "request_total": 0.015}
+{"path": "/", "request_total": 0.016}
+{"path": "/auth/logout/", "request_total": 0.437}
+{"path": "/auth/registration/", "request_total": 0.016}
+{"path": "/auth/registration/", "request_total": 2.266}
+{"path": "/auth/", "request_total": 0.0}
+{"path": "/auth/verify/natalinut@yandex.ru/715ccb8e6a8d4a19b39cb499f9febc47/", "request_total": 1.578}
+{"path": "/login", "request_total": 0.015}
+2021-06-24 00:44:03,032 django.request WARNING  Not Found: /login
+2021-06-24 00:45:03,012 django.utils.autoreload INFO     F:\git\GeekHub\intergalactic\settings.py changed, reloading.
+2021-06-24 00:45:03,013 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 00:45:04,323 django.utils.autoreload INFO     Watching for file changes with StatReloader
+{"path": "/auth/verify/natalinut@yandex.ru/715ccb8e6a8d4a19b39cb499f9febc47/", "request_total": 0.016}
+{"path": "/login", "request_total": 0.015}
+2021-06-24 00:45:05,906 django.request WARNING  Not Found: /login
+2021-06-24 00:45:12,765 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 00:45:12,830 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 00:45:15,487 django.utils.autoreload INFO     Watching for file changes with StatReloader
+{"path": "/auth/verify/natalinut@yandex.ru/715ccb8e6a8d4a19b39cb499f9febc47/", "request_total": 0.015}
+{"path": "/login", "request_total": 0.016}
+2021-06-24 00:45:18,754 django.request WARNING  Not Found: /login
+2021-06-24 00:46:34,202 django.utils.autoreload INFO     F:\git\GeekHub\usersapp\views.py changed, reloading.
+2021-06-24 00:46:34,202 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 00:46:35,480 django.utils.autoreload INFO     Watching for file changes with StatReloader
+{"path": "/auth/verify/natalinut@yandex.ru/715ccb8e6a8d4a19b39cb499f9febc47/", "request_total": 0.016}
+{"path": "/auth/verify/", "request_total": 0.015}
+{"path": "/", "request_total": 0.015}
+{"path": "/auth/logout/", "request_total": 0.859}
+{"path": "/auth/verify/natalinut@yandex.ru/715ccb8e6a8d4a19b39cb499f9febc47/", "request_total": 0.0}
+{"path": "/auth/verify/", "request_total": 0.0}
+{"path": "/auth/verify/natalinut@yandex.ru/715ccb8e6a8d4a19b39cb499f9febc47/", "request_total": 0.0}
+{"path": "/auth/verify/", "request_total": 0.0}
+{"path": "/", "request_total": 0.0}
+{"path": "/auth/login/", "request_total": 0.0}
+{"path": "/auth/login/", "request_total": 1.422}
+{"path": "/accounts/profile/", "request_total": 0.016}
+2021-06-24 00:47:43,516 django.request WARNING  Not Found: /accounts/profile/
+2021-06-24 00:48:41,892 django.utils.autoreload INFO     F:\git\GeekHub\intergalactic\settings.py changed, reloading.
+2021-06-24 00:48:41,892 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 00:48:43,146 django.utils.autoreload INFO     Watching for file changes with StatReloader
+{"path": "/auth/login/", "request_total": 0.016}
+{"path": "/auth/login/", "request_total": 1.109}
+{"path": "/", "request_total": 0.015}
+{"path": "/auth/account/1", "request_total": 0.016}
+{"path": "/auth/logout/", "request_total": 0.375}
+{"path": "/auth/login/", "request_total": 0.0}
+{"path": "/auth/login/", "request_total": 1.375}
+{"path": "/", "request_total": 0.015}
+{"path": "/auth/logout/", "request_total": 0.453}
+{"path": "/auth/registration/", "request_total": 0.016}
+{"path": "/auth/registration/", "request_total": 0.063}
+{"path": "/auth/registration/", "request_total": 0.015}
+{"path": "/auth/logout/", "request_total": 0.0}
+{"path": "/auth/", "request_total": 0.016}
+{"path": "/auth/logout/", "request_total": 0.015}
+{"path": "/auth/logout/", "request_total": 0.0}
+{"path": "/auth/login/", "request_total": 0.0}
+{"path": "/auth/login/", "request_total": 1.391}
+{"path": "/", "request_total": 0.016}
+{"path": "/auth/account/1", "request_total": 0.016}
+2021-06-24 00:51:10,043 django.request ERROR    Internal Server Error: /
+Traceback (most recent call last):
+  File "F:\git\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "F:\git\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\git\GeekHub\mainapp\views.py", line 8, in main
+    return render(request, 'mainapp/index.html')
+  File "F:\git\venv\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "F:\git\venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "F:\git\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "F:\git\venv\lib\site-packages\django\template\defaulttags.py", line 312, in render
+    return nodelist.render(context)
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "F:\git\venv\lib\site-packages\django\template\defaulttags.py", line 312, in render
+    return nodelist.render(context)
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "F:\git\venv\lib\site-packages\django\template\defaulttags.py", line 446, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "F:\git\venv\lib\site-packages\django\urls\base.py", line 86, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "F:\git\venv\lib\site-packages\django\urls\resolvers.py", line 694, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for '/admin/' not found. '/admin/' is not a valid view function or pattern name.
+{"path": "/", "request_total": 8.203}
+2021-06-24 00:51:34,240 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 00:51:34,314 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 00:51:36,812 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-06-24 00:51:50,121 django.request ERROR    Internal Server Error: /
+Traceback (most recent call last):
+  File "F:\git\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "F:\git\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\git\GeekHub\mainapp\views.py", line 8, in main
+    return render(request, 'mainapp/index.html')
+  File "F:\git\venv\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "F:\git\venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "F:\git\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "F:\git\venv\lib\site-packages\django\template\defaulttags.py", line 312, in render
+    return nodelist.render(context)
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "F:\git\venv\lib\site-packages\django\template\defaulttags.py", line 312, in render
+    return nodelist.render(context)
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "F:\git\venv\lib\site-packages\django\template\defaulttags.py", line 446, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "F:\git\venv\lib\site-packages\django\urls\base.py", line 86, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "F:\git\venv\lib\site-packages\django\urls\resolvers.py", line 694, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for '/admin/' not found. '/admin/' is not a valid view function or pattern name.
+{"path": "/", "request_total": 8.422}
+2021-06-24 00:52:06,131 django.request ERROR    Internal Server Error: /
+Traceback (most recent call last):
+  File "F:\git\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "F:\git\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\git\GeekHub\mainapp\views.py", line 8, in main
+    return render(request, 'mainapp/index.html')
+  File "F:\git\venv\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "F:\git\venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "F:\git\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "F:\git\venv\lib\site-packages\django\template\defaulttags.py", line 312, in render
+    return nodelist.render(context)
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "F:\git\venv\lib\site-packages\django\template\defaulttags.py", line 312, in render
+    return nodelist.render(context)
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "F:\git\venv\lib\site-packages\django\template\defaulttags.py", line 446, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "F:\git\venv\lib\site-packages\django\urls\base.py", line 86, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "F:\git\venv\lib\site-packages\django\urls\resolvers.py", line 694, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'admin' not found. 'admin' is not a valid view function or pattern name.
+{"path": "/", "request_total": 0.094}
+{"path": "/auth/login/", "request_total": 0.0}
+{"path": "/auth/login/", "request_total": 1.125}
+2021-06-24 00:52:11,191 django.request ERROR    Internal Server Error: /
+Traceback (most recent call last):
+  File "F:\git\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "F:\git\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\git\GeekHub\mainapp\views.py", line 8, in main
+    return render(request, 'mainapp/index.html')
+  File "F:\git\venv\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "F:\git\venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "F:\git\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "F:\git\venv\lib\site-packages\django\template\defaulttags.py", line 312, in render
+    return nodelist.render(context)
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "F:\git\venv\lib\site-packages\django\template\defaulttags.py", line 312, in render
+    return nodelist.render(context)
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "F:\git\venv\lib\site-packages\django\template\defaulttags.py", line 446, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "F:\git\venv\lib\site-packages\django\urls\base.py", line 86, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "F:\git\venv\lib\site-packages\django\urls\resolvers.py", line 694, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'admin' not found. 'admin' is not a valid view function or pattern name.
+{"path": "/", "request_total": 0.078}
+2021-06-24 00:52:45,442 django.utils.autoreload INFO     F:\git\GeekHub\intergalactic\urls.py changed, reloading.
+2021-06-24 00:52:45,442 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 00:52:46,702 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-06-24 00:52:55,340 django.request ERROR    Internal Server Error: /
+Traceback (most recent call last):
+  File "F:\git\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "F:\git\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "F:\git\GeekHub\mainapp\views.py", line 8, in main
+    return render(request, 'mainapp/index.html')
+  File "F:\git\venv\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "F:\git\venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "F:\git\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "F:\git\venv\lib\site-packages\django\template\defaulttags.py", line 312, in render
+    return nodelist.render(context)
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "F:\git\venv\lib\site-packages\django\template\defaulttags.py", line 312, in render
+    return nodelist.render(context)
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "F:\git\venv\lib\site-packages\django\template\defaulttags.py", line 446, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "F:\git\venv\lib\site-packages\django\urls\base.py", line 86, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "F:\git\venv\lib\site-packages\django\urls\resolvers.py", line 694, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'admin/' not found. 'admin/' is not a valid view function or pattern name.
+{"path": "/", "request_total": 8.36}
+{"path": "/", "request_total": 0.016}
+{"path": "/admin/", "request_total": 0.031}
+{"path": "/admin/usersapp/geekhubuser/", "request_total": 0.078}
+{"path": "/admin/jsi18n/", "request_total": 0.016}
+{"path": "/admin/usersapp/geekhubuser/11/change/", "request_total": 0.141}
+{"path": "/admin/jsi18n/", "request_total": 0.015}
+{"path": "/admin/usersapp/geekhubuser/11/delete/", "request_total": 0.031}
+{"path": "/admin/usersapp/geekhubuser/11/delete/", "request_total": 0.547}
+{"path": "/admin/usersapp/geekhubuser/", "request_total": 0.063}
+{"path": "/admin/jsi18n/", "request_total": 0.016}
+{"path": "/", "request_total": 0.016}
+{"path": "/auth/logout/", "request_total": 0.468}
+{"path": "/auth/registration/", "request_total": 0.016}
+{"path": "/auth/registration/", "request_total": 1.984}
+{"path": "/auth/", "request_total": 0.0}
+{"path": "/auth/verify/natalinut@yandex.ru/1e1269285ba349a9ab19072b4e8ec568/", "request_total": 1.953}
+{"path": "/auth/verify/", "request_total": 0.0}
+{"path": "/", "request_total": 0.016}
+{"path": "/auth/account/12", "request_total": 0.0}
+{"path": "/auth/logout/", "request_total": 0.375}
+{"path": "/auth/logout/", "request_total": 0.015}
+{"path": "/auth/logout/", "request_total": 0.0}
+{"path": "/auth/logout/", "request_total": 0.0}
+{"path": "/auth/logout/", "request_total": 0.0}
+{"path": "/auth/logout/", "request_total": 0.0}
+{"path": "/auth/logout/", "request_total": 0.0}
+{"path": "/auth/logout/", "request_total": 0.015}
+{"path": "/auth/logout/", "request_total": 0.0}
+{"path": "/auth/logout/", "request_total": 0.0}
+{"path": "/auth/logout/", "request_total": 0.0}
+{"path": "/auth/logout/", "request_total": 0.0}
+{"path": "/auth/logout/", "request_total": 0.0}
+{"path": "/auth/", "request_total": 0.0}
+{"path": "/auth/login/", "request_total": 0.0}
+{"path": "/auth/login/", "request_total": 1.485}
+{"path": "/", "request_total": 0.016}
+{"path": "/admin/", "request_total": 0.031}
+{"path": "/admin/usersapp/geekhubuser/", "request_total": 0.063}
+{"path": "/admin/jsi18n/", "request_total": 0.016}
+{"path": "/admin/usersapp/geekhubuser/12/change/", "request_total": 0.125}
+{"path": "/admin/jsi18n/", "request_total": 0.016}
+2021-06-24 00:56:58,347 django.utils.autoreload INFO     F:\git\GeekHub\usersapp\views.py changed, reloading.
+2021-06-24 00:56:58,348 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 00:56:59,650 django.utils.autoreload INFO     Watching for file changes with StatReloader
+{"path": "/", "request_total": 0.015}
+{"path": "/", "request_total": 0.015}
+{"path": "/", "request_total": 0.016}
+{"path": "/admin/usersapp/geekhubuser/", "request_total": 8.266}
+{"path": "/auth/logout/", "request_total": 0.469}
+2021-06-24 00:59:50,251 django.utils.autoreload INFO     F:\git\GeekHub\usersapp\views.py changed, reloading.
+2021-06-24 00:59:50,251 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 00:59:51,664 django.utils.autoreload INFO     Watching for file changes with StatReloader
+{"path": "/auth/logout/", "request_total": 0.016}
+{"path": "/auth/logout/", "request_total": 0.016}
+{"path": "/auth/logout/", "request_total": 0.0}
+{"path": "/auth/logout/", "request_total": 0.016}
+{"path": "/auth/logout/", "request_total": 0.0}
+{"path": "/auth/logout/", "request_total": 0.0}
+{"path": "/auth/logout/", "request_total": 0.0}
+{"path": "/auth/logout/", "request_total": 0.015}
+{"path": "/auth/logout/", "request_total": 0.015}
+{"path": "/auth/logout/", "request_total": 0.016}
+{"path": "/auth/logout/", "request_total": 0.0}
+{"path": "/auth/logout/", "request_total": 0.0}
+{"path": "/auth/logout/", "request_total": 0.015}
+{"path": "/auth/logout/", "request_total": 0.0}
+{"path": "/auth/logout/", "request_total": 0.0}
+{"path": "/auth/logout/", "request_total": 0.0}
+{"path": "/auth/logout/", "request_total": 0.0}
+{"path": "/auth/logout/", "request_total": 0.0}
+{"path": "/auth/logout/", "request_total": 0.016}
+{"path": "/auth/logout/", "request_total": 0.0}
+{"path": "/auth/logout/", "request_total": 0.0}
+{"path": "/auth/logout/", "request_total": 0.0}
+{"path": "/auth/logout/", "request_total": 0.0}
+{"path": "/auth/logout/", "request_total": 0.0}
+{"path": "/auth/logout/", "request_total": 0.016}
+{"path": "/auth/logout/", "request_total": 0.0}
+{"path": "/auth/logout/", "request_total": 0.0}
+{"path": "/auth/logout/", "request_total": 0.0}
+{"path": "/auth/logout/", "request_total": 0.0}
+{"path": "/auth/logout/", "request_total": 0.0}
+{"path": "/auth/logout/", "request_total": 0.016}
+{"path": "/auth/logout/", "request_total": 0.0}
+{"path": "/auth/logout/", "request_total": 0.016}
+{"path": "/auth/logout/", "request_total": 0.0}
+{"path": "/auth/logout/", "request_total": 0.0}
+{"path": "/auth/logout/", "request_total": 0.016}
+{"path": "/auth/logout/", "request_total": 0.0}
+{"path": "/auth/logout/", "request_total": 0.0}
+{"path": "/auth/logout/", "request_total": 0.015}
+{"path": "/auth/login/", "request_total": 0.0}
+{"path": "/auth/login/", "request_total": 1.375}
+{"path": "/", "request_total": 0.016}
+{"path": "/auth/logout/", "request_total": 0.39}
+{"path": "/auth/logout/", "request_total": 0.015}
+{"path": "/auth/logout/", "request_total": 0.015}
+{"path": "/auth/login/", "request_total": 0.0}
+{"path": "/auth/login/", "request_total": 1.422}
+{"path": "/", "request_total": 0.0}
+{"path": "/auth/logout/", "request_total": 0.375}
+{"path": "/auth/registration/", "request_total": 0.016}
+{"path": "/auth/logout/", "request_total": 0.0}
+{"path": "/auth/login/", "request_total": 0.0}
+{"path": "/auth/login/", "request_total": 1.485}
+{"path": "/", "request_total": 0.0}
+{"path": "/auth/account/1", "request_total": 0.016}
+{"path": "/auth/account/1", "request_total": 0.015}
+{"path": "/auth/account/1", "request_total": 0.0}
+2021-06-24 01:22:00,139 django.request ERROR    Internal Server Error: /auth/account/1
+Traceback (most recent call last):
+  File "F:\git\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "F:\git\venv\lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    response = response.render()
+  File "F:\git\venv\lib\site-packages\django\template\response.py", line 105, in render
+    self.content = self.rendered_content
+  File "F:\git\venv\lib\site-packages\django\template\response.py", line 83, in rendered_content
+    return template.render(context, self._request)
+  File "F:\git\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "F:\git\venv\lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "F:\git\venv\lib\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "F:\git\venv\lib\site-packages\django\template\defaulttags.py", line 446, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "F:\git\venv\lib\site-packages\django\urls\base.py", line 86, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "F:\git\venv\lib\site-packages\django\urls\resolvers.py", line 694, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'modify' with no arguments not found. 1 pattern(s) tried: ['auth/edit/(?P<pk>[0-9]+)$']
+{"path": "/auth/account/1", "request_total": 8.157}
+{"path": "/auth/account/1", "request_total": 0.016}
+{"path": "/auth/edit/1", "request_total": 0.062}
+{"path": "/auth/edit/1", "request_total": 0.047}
+{"path": "/auth/edit/1", "request_total": 0.906}
+{"path": "/auth/", "request_total": 0.016}
+{"path": "/auth/verify/", "request_total": 0.0}
+{"path": "/", "request_total": 0.015}
+2021-06-24 01:27:54,850 django.request ERROR    Internal Server Error: /auth/account/1
+Traceback (most recent call last):
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 470, in parse
+    compile_func = self.tags[command]
+KeyError: 'static'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\git\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "F:\git\venv\lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    response = response.render()
+  File "F:\git\venv\lib\site-packages\django\template\response.py", line 105, in render
+    self.content = self.rendered_content
+  File "F:\git\venv\lib\site-packages\django\template\response.py", line 83, in rendered_content
+    return template.render(context, self._request)
+  File "F:\git\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "F:\git\venv\lib\site-packages\django\template\loader_tags.py", line 127, in render
+    compiled_parent = self.get_parent(context)
+  File "F:\git\venv\lib\site-packages\django\template\loader_tags.py", line 124, in get_parent
+    return self.find_template(parent, context)
+  File "F:\git\venv\lib\site-packages\django\template\loader_tags.py", line 103, in find_template
+    template, origin = context.template.engine.find_template(
+  File "F:\git\venv\lib\site-packages\django\template\engine.py", line 125, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "F:\git\venv\lib\site-packages\django\template\loaders\base.py", line 29, in get_template
+    return Template(
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 155, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 193, in compile_nodelist
+    return parser.parse()
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 472, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "F:\git\venv\lib\site-packages\django\template\base.py", line 531, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 8: 'static'. Did you forget to register or load this tag?
+{"path": "/auth/account/1", "request_total": 0.125}
+{"path": "/auth/account/1", "request_total": 0.016}
+{"path": "/auth/account/1", "request_total": 0.016}
+{"path": "/auth/edit/1", "request_total": 0.031}
+{"path": "/auth/edit/1", "request_total": 0.031}
+{"path": "/auth/edit/1", "request_total": 0.032}
+{"path": "/auth/edit/1", "request_total": 0.031}
+{"path": "/auth/edit/1", "request_total": 0.031}
+{"path": "/auth/account/1", "request_total": 0.015}
+{"path": "/auth/account/1", "request_total": 0.031}
+{"path": "/auth/edit/1", "request_total": 0.032}
+{"path": "/auth/logout/", "request_total": 0.954}
+{"path": "/auth/login/", "request_total": 0.0}
+{"path": "/auth/login/", "request_total": 1.438}
+{"path": "/", "request_total": 0.015}
+{"path": "/auth/logout/", "request_total": 0.469}
+{"path": "/auth/login/", "request_total": 0.016}
+{"path": "/auth/login/", "request_total": 0.015}
+{"path": "/auth/login/", "request_total": 0.015}
+{"path": "/auth/registration/", "request_total": 0.063}
+{"path": "/auth/login/", "request_total": 0.016}
+{"path": "/auth/registration/", "request_total": 0.016}
+{"path": "/auth/login/", "request_total": 0.016}
+{"path": "/auth/login/", "request_total": 1.468}
+{"path": "/", "request_total": 0.0}
+{"path": "/admin/", "request_total": 0.031}
+{"path": "/admin/usersapp/geekhubuser/", "request_total": 0.078}
+{"path": "/admin/jsi18n/", "request_total": 0.015}
+{"path": "/admin/usersapp/geekhubuser/12/change/", "request_total": 0.125}
+{"path": "/admin/jsi18n/", "request_total": 0.016}
+{"path": "/admin/usersapp/geekhubuser/12/delete/", "request_total": 0.047}
+{"path": "/admin/usersapp/geekhubuser/12/delete/", "request_total": 0.579}
+{"path": "/admin/usersapp/geekhubuser/", "request_total": 0.078}
+{"path": "/admin/jsi18n/", "request_total": 0.016}
+{"path": "/", "request_total": 0.016}
+{"path": "/admin/", "request_total": 0.032}
+{"path": "/admin/usersapp/geekhubuser/", "request_total": 0.063}
+{"path": "/admin/jsi18n/", "request_total": 0.016}
+{"path": "/admin/usersapp/geekhubuser/add/", "request_total": 0.078}
+{"path": "/admin/jsi18n/", "request_total": 0.015}
+{"path": "/admin/usersapp/geekhubuser/add/", "request_total": 1.313}
+{"path": "/admin/usersapp/geekhubuser/13/change/", "request_total": 0.125}
+{"path": "/admin/jsi18n/", "request_total": 0.015}
+{"path": "/", "request_total": 0.016}
+{"path": "/auth/logout/", "request_total": 0.422}
+{"path": "/auth/login/", "request_total": 0.016}
+{"path": "/auth/login/", "request_total": 1.453}
+{"path": "/", "request_total": 0.016}
+{"path": "/auth/account/13", "request_total": 0.015}
+{"path": "/auth/delete/13", "request_total": 0.016}
+{"path": "/auth/delete/13", "request_total": 0.469}
+{"path": "/auth/", "request_total": 0.0}
+2021-06-24 01:54:52,375 django.utils.autoreload INFO     F:\git\GeekHub\intergalactic\settings.py changed, reloading.
+2021-06-24 01:54:52,376 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 01:54:53,654 django.utils.autoreload INFO     Watching for file changes with StatReloader
+{"path": "/auth/login/", "request_total": 8.297}
+{"path": "/auth/login/", "request_total": 0.359}
+{"path": "/auth/login/", "request_total": 0.359}
+{"path": "/auth/login/", "request_total": 0.359}
+{"path": "/auth/login/", "request_total": 1.39}
+{"path": "/", "request_total": 0.0}
+{"path": "/admin/", "request_total": 0.031}
+{"path": "/admin/usersapp/geekhubuser/", "request_total": 0.078}
+{"path": "/admin/jsi18n/", "request_total": 0.016}
+{"path": "/admin/usersapp/geekhubuser/13/change/", "request_total": 0.141}
+{"path": "/admin/jsi18n/", "request_total": 0.0}
+{"path": "/admin/usersapp/geekhubuser/13/change/", "request_total": 0.203}
+{"path": "/admin/jsi18n/", "request_total": 0.015}
+{"path": "/", "request_total": 0.015}
+{"path": "/auth/logout/", "request_total": 0.453}
+{"path": "/auth/login/", "request_total": 0.0}
+{"path": "/auth/login/", "request_total": 0.344}
+{"path": "/auth/login/", "request_total": 0.328}
+{"path": "/auth/login/", "request_total": 1.484}
+{"path": "/", "request_total": 0.016}
+{"path": "/admin/", "request_total": 0.031}
+{"path": "/admin/usersapp/geekhubuser/", "request_total": 0.078}
+{"path": "/admin/jsi18n/", "request_total": 0.0}
+{"path": "/admin/usersapp/geekhubuser/13/change/", "request_total": 0.141}
+{"path": "/admin/jsi18n/", "request_total": 0.0}
+{"path": "/admin/r/6/13/", "request_total": 0.016}
+{"path": "/auth/login/", "request_total": 0.015}
+{"path": "/auth/login/", "request_total": 0.359}
+{"path": "/auth/login/", "request_total": 1.078}
+{"path": "/", "request_total": 0.0}
+{"path": "/auth/account/1", "request_total": 0.016}
+{"path": "/auth/delete/1", "request_total": 0.016}
+{"path": "/auth/delete/1", "request_total": 0.016}
+{"path": "/auth/delete/1", "request_total": 0.031}
+{"path": "/auth/delete/1", "request_total": 0.016}
+{"path": "/auth/delete/1", "request_total": 0.016}
+{"path": "/auth/delete/1", "request_total": 0.016}
+{"path": "/auth/delete/1", "request_total": 0.016}
+{"path": "/auth/delete/1", "request_total": 0.016}
+{"path": "/auth/logout/", "request_total": 0.953}
+{"path": "/auth/registration/", "request_total": 0.016}
+{"path": "/auth/login/", "request_total": 0.0}
+{"path": "/auth/login/", "request_total": 1.953}
+{"path": "/", "request_total": 0.015}
+2021-06-24 01:59:10,798 django.utils.autoreload INFO     F:\git\GeekHub\intergalactic\settings.py changed, reloading.
+2021-06-24 01:59:10,798 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 01:59:12,064 django.utils.autoreload INFO     Watching for file changes with StatReloader
+{"path": "/auth/logout/", "request_total": 8.625}
+{"path": "/auth/login/", "request_total": 0.016}
+{"path": "/auth/login/", "request_total": 0.343}
+{"path": "/auth/login/", "request_total": 0.344}
+{"path": "/auth/login/", "request_total": 0.344}
+{"path": "/auth/login/", "request_total": 1.515}
+{"path": "/", "request_total": 0.015}
+{"path": "/admin/", "request_total": 0.031}
+{"path": "/admin/usersapp/geekhubuser/", "request_total": 0.078}
+{"path": "/admin/jsi18n/", "request_total": 0.016}
+{"path": "/admin/usersapp/geekhubuser/13/change/", "request_total": 0.141}
+{"path": "/admin/jsi18n/", "request_total": 0.016}
+{"path": "/admin/usersapp/geekhubuser/13/change/", "request_total": 0.203}
+{"path": "/admin/jsi18n/", "request_total": 0.016}
+{"path": "/admin/usersapp/geekhubuser/13/change/", "request_total": 0.641}
+{"path": "/admin/usersapp/geekhubuser/", "request_total": 0.078}
+{"path": "/admin/jsi18n/", "request_total": 0.016}
+{"path": "/", "request_total": 0.015}
+{"path": "/auth/logout/", "request_total": 0.421}
+{"path": "/auth/login/", "request_total": 0.0}
+{"path": "/auth/login/", "request_total": 1.516}
+{"path": "/", "request_total": 0.015}
+{"path": "/auth/logout/", "request_total": 0.438}
+{"path": "/auth/login/", "request_total": 0.0}
+{"path": "/auth/login/", "request_total": 0.328}
+{"path": "/auth/login/", "request_total": 1.75}
+{"path": "/", "request_total": 0.0}
+{"path": "/auth/account/13", "request_total": 0.016}
+{"path": "/auth/edit/13", "request_total": 0.031}
+{"path": "/auth/edit/13", "request_total": 0.438}
+{"path": "/auth/", "request_total": 0.0}
+2021-06-24 02:01:07,182 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 02:01:07,246 asyncio      DEBUG    Using proactor: IocpProactor

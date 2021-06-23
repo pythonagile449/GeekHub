@@ -1,11 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<p>{{ object.username }}</p>
+{% extends 'usersapp/base.html' %}
+{% load static %}
 
-</body>
-</html>
+{% block content %}
+    <p>{{ object.username }}</p>
+    <div class="alert " role="alert" style="margin-top: 50px;">
+        <button class="form-control">
+            <a href="{% url 'usersapp:modify' user.pk %}" class="">Редактировать данные</a>
+        </button>
+    </div>
+    <div class="alert " role="alert" style="margin-top: 50px;">
+        <button class="form-control">
+            <a href="{% url 'usersapp:delete' user.pk %}" class="">Удалить аккаунт</a>
+        </button>
+    </div>
+{% endblock %}

@@ -9,13 +9,14 @@
     <link rel="stylesheet" type="text/css" href="../../../static/css/style-login.css">
 </head>
 <body>
-    <div class="container-message">
-        <p>На Ваш почтовый ящик было отправлено письмо с ссылкой для подтверждения регистрации.</p>
-        <p>Для завершения регистрации перейдите по ссылке из полученного письма.</p>
-        <p class="p-end">Если вы не нашли письмо в своем ящике, обязательно проверьте папку <strong>&nbsp Спам. </strong></p>
-        <button name="from_message" role="alert" class="form-control" type="submit" >
-            <a href="{% url 'index' %}" >ОК</a>
-        </button>
-    </div>
+<div class="container-message">
+    <p>На Ваш почтовый ящик было отправлено письмо с ссылкой для подтверждения регистрации.</p>
+    <p>Для завершения регистрации перейдите по ссылке из полученного письма.</p>
+    <p class="p-end">Если вы не нашли письмо в своем ящике, обязательно проверьте папку <strong>&nbsp Спам. </strong>
+    </p>
+    <button name="from_message" role="alert" class="form-control" type="submit">
+        <a href="{% url 'index' %}">ОК</a>
+    </button>
+</div>
 </body>
 </html>

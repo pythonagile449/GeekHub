@@ -8,12 +8,13 @@ from django.core.management import call_command
 class TestUser(TestCase):
     def setUp(self):
         call_command('flush', '--noinput')
-        #call_command('loaddata', 'test_db.json')
+        # call_command('loaddata', 'test_db.json')
         self.client = Client()
 
         self.superuser = GeekHubUser.objects.create_superuser('GeekHubUser', 'admin@geekhub.ru', 'Geek@2021')
         self.user = GeekHubUser.objects.create_user('first_user', 'first_user@reqsoft.ru', 'Geek@2021')
-        self.user_with__first_name = GeekHubUser.objects.create_user('second_user', 'second_user@reqsoft.ru', 'Geek@2021', first_name='R2D2')
+        self.user_with__first_name = GeekHubUser.objects.create_user('second_user', 'second_user@reqsoft.ru',
+                                                                     'Geek@2021', first_name='R2D2')
 
     def test_user_registration_success(self):
         # Проверка регистрации

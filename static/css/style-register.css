@@ -2,7 +2,8 @@
     padding: 0px;
     /* margin-top: 70px; */
 }
-body{
+
+body {
     width: 100%;
 }
 
@@ -15,7 +16,7 @@ body{
     --header-bg-color: #000000;
     --text-color: #000000;
     --text-secondary-color: black;
-    --text-secondary-opacity: 0,6;
+    --text-secondary-opacity: 0, 6;
     --primary-opacity: 0.3; /*Ñ†Ð²ÐµÑ‚ ÐºÐ½Ð¾Ð¿ÐºÐ¸ "Ñ€ÐµÐ³Ð¸ÑÑ‚Ñ€Ð°Ñ†Ð¸Ñ"*/
     --secondary-opacity: 0.3; /*Ñ†Ð²ÐµÑ‚ Ñ€Ð°Ð¼ÐºÐ¸ "Ð§Ð¸Ñ‚Ð°Ñ‚ÑŒ Ð´Ð°Ð»ÐµÐµ"*/
     --header-opacity: 0.7; /*Ñ„Ð¾Ð½ header"*/
@@ -27,7 +28,7 @@ body{
     --success-color: green;
 }
 
-.wrapper-login, .container-login, .form-horizontal{
+.wrapper-login, .container-login, .form-horizontal {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
@@ -35,7 +36,7 @@ body{
 }
 
 .container-register {
-    
+
     border: none;
     margin: 290px auto;
     width: 366px;
@@ -44,15 +45,15 @@ body{
     border-radius: 5px;
 }
 
-.form-horizontal{
-    align-self:flex-start;
+.form-horizontal {
+    align-self: flex-start;
     justify-content: center;
     box-sizing: border-box;
 
 }
 
 
-.text-mail{
+.text-mail {
     border: none;
     justify-content: flex-start;
     margin-top: 70px;
@@ -60,31 +61,31 @@ body{
     height: 30px;
     background: #FFFFFF;
     border-radius: 5px;
-    
+
 }
 
-.text-password{
+.text-password {
     border: none;
-    margin-top:30px;
+    margin-top: 30px;
     width: 300px;
     height: 30px;
     background: #FFFFFF;
     border-radius: 5px;
-    
+
 }
 
-.text-password2{
+.text-password2 {
     border: none;
-    margin-top:10px;
+    margin-top: 10px;
     width: 300px;
     height: 30px;
     background: #FFFFFF;
     border-radius: 5px;
-    
+
 }
 
 
-.text-login-placeholder{
+.text-login-placeholder {
     outline: none;
     /*box-sizing: border-box;*/
     display: flex;
@@ -102,7 +103,7 @@ body{
     color: rgba(0, 0, 0, 0.4);
 }
 
-.vector-img{
+.vector-img {
     align-self: flex-end;
     margin-top: 3px;
     width: 11px;
@@ -111,9 +112,9 @@ body{
 }
 
 
-.form-control1{
+.form-control1 {
     border: none;
-    margin-top:40px;
+    margin-top: 40px;
     width: 156px;
     height: 30px;
     border-radius: 5px;
@@ -121,7 +122,7 @@ body{
 
 }
 
-.text-alternative1{
+.text-alternative1 {
     margin: 8px 83px;
     height: 14px;
     width: 100%;
@@ -130,12 +131,13 @@ body{
     font-weight: normal;
     font-size: 14px;
     line-height: 16px;
-    display:    inline-block;
+    display: inline-block;
     /*border: solid 1px aqua;*/
 
 
     color: #000000;
 }
+
 input {
     background-image: url("../../../static/svg/vector.svg");
     background-repeat: no-repeat; /*Убираем повтор изображения*/

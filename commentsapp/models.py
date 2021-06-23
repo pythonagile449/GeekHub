@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.hashers import make_password
 from usersapp.models import GeekHubUser
+
+
 # Create your models here.
 
 
@@ -10,7 +12,8 @@ class Comment(models.Model):
 
     parent_comment = models.ForeignKey('self', on_delete=models.SET_NULL, null=True, blank=True)
     description = models.TextField(verbose_name='Текст комментария', blank=True)
-    author = models.ForeignKey(GeekHubUser, verbose_name='Автор комментария', on_delete=models.SET_NULL, null=True, blank=True)
+    author = models.ForeignKey(GeekHubUser, verbose_name='Автор комментария', on_delete=models.SET_NULL, null=True,
+                               blank=True)
     created_at = models.DateTimeField(verbose_name='Время создания', auto_now_add=True)
     hash_view = models.CharField(max_length=256, blank=True)
 

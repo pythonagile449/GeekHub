@@ -12,4 +12,5 @@ urlpatterns = [
     path('edit/<int:pk>', users_view.UserAccountEdit.as_view(), name='modify'),
     path('delete/<int:pk>', users_view.UserAccountDeleteView.as_view(), name='delete'),
     path('verify/<email>/<activate_key>/', users_view.verify, name='verify'),
+    path('verify/', users_view.verification, name='verification'),
 ]

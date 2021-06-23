@@ -1,17 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<table>
-    <tr>
-        <td><a href="{% url 'usersapp:login' %}">Login</a></td>
-    </tr>
-    <tr>
-        <td><a href="{% url 'usersapp:registration' %}">Registration</a></td>
-    </tr>
-</table>
-</body>
-</html>
+{% extends 'usersapp/base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <h1>Вы успешно вышли из системы!</h1>
+
+{% endblock %}

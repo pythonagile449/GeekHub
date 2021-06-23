@@ -3,6 +3,7 @@ import json
 from threading import local
 import logging
 from django.http import HttpResponse
+
 logger = logging.getLogger(__name__)
 
 
@@ -16,11 +17,10 @@ class RequestTimeMiddleware():
         data = {
             'path': request.path,
             'request_total': round(time.monotonic() - timestamp, 3),
-            #'debug': self.log_debug,
+            # 'debug': self.log_debug,
 
         }
         with open('polls/debug.log', 'a') as f:
             f.write(json.dumps(data) + '\n')
-
 
         return response

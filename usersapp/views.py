@@ -93,13 +93,16 @@ def verify(request, email, activate_key):
         if user.activate_key == activate_key and not user.is_activate_key_expired():
             user.is_active = True
             user.activate_key = None
+            user.is_anonymous
             user.save()
             auth.login(request, user)
             # ToDo: тут логируем что активация пользователя прошла успешно
-            return render(request, 'usersapp/verification.html')
-        else:
-            # ToDo: тут логируем что пользователь уже прошел активацию
-            return render(request, 'usersapp/verification.html')
+        return HttpResponseRedirect('/auth/verify/')
     except Exception as e:
         # ToDo: тут логируем ошибку активации - {e.args}
-        return HttpResponseRedirect(reverse('usersapp:index'))
+        print(e, e.args)
+        return HttpResponseRedirect('/auth/verify/')
+
+
+def verification(request):
+    return render(request, 'usersapp/verification.html')

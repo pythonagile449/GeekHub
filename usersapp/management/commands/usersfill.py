@@ -7,6 +7,7 @@ import os
 
 JSON_PATH = 'usersapp/fixtures'
 
+
 def load_from_json(file_name):
     with open(os.path.join(JSON_PATH, file_name + '.json'), 'r', encoding='utf-8') as infile:
         return json.load(infile)

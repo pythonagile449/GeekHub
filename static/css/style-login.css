@@ -1,10 +1,12 @@
 * {
     padding: 0px;
 }
-body{
+
+body {
     width: 100%;
 }
-.wrapper-login, .container-login, .form-horizontal,.container-message{
+
+.wrapper-login, .container-login, .form-horizontal, .container-message {
     display: flex;
     flex-wrap: wrap;
     box-sizing: border-box;
@@ -18,14 +20,14 @@ body{
     background: #E9E9E9;
 }
 
-.form-horizontal{
-    align-self:flex-start;
+.form-horizontal {
+    align-self: flex-start;
     justify-content: center;
     box-sizing: border-box;
 }
 
 
-.text-login{
+.text-login {
     justify-content: flex-start;
     margin-top: 70px;
     width: 300px;
@@ -35,21 +37,22 @@ body{
 
 }
 
-.text-password{
-    margin-top:30px;
+.text-password {
+    margin-top: 30px;
     width: 300px;
     height: 30px;
     background: #FFFFFF;
     border-radius: 5px;
 
 }
-.text-login-placeholder{
+
+.text-login-placeholder {
     box-sizing: border-box;
     display: flex;
     width: 280px;
     margin-left: 12px;
     margin-top: 7px;
-    font-family: Roboto, "Times New Roman", serif ;
+    font-family: Roboto, "Times New Roman", serif;
     font-style: normal;
     font-weight: normal;
     font-size: 14px;
@@ -69,15 +72,15 @@ input {
 }
 
 
-.form-control{
-    margin-top:40px;
+.form-control {
+    margin-top: 40px;
     width: 156px;
     height: 30px;
     border-radius: 5px;
     background: rgba(72, 181, 255, 0.3)
 }
 
-.text-alternative{
+.text-alternative {
     margin: 15px 111px;
     height: 14px;
     width: 100%;
@@ -91,16 +94,17 @@ input {
 
 
 /*Sector for message text*/
-.container-message{
+.container-message {
     justify-content: center;
     padding-bottom: 22px;
     padding-top: 21px;
-    margin: 290px auto;  
+    margin: 290px auto;
     width: 754px;
     height: 170px;
     background: #E9E9E9;
 }
-.container-message p{
+
+.container-message p {
     display: flex;
     height: 16px;
     left: 123px;
@@ -114,20 +118,23 @@ input {
     margin-block-start: 0;
     margin-block-end: 0;
 }
-.p-end{
+
+.p-end {
     justify-content: center;
     padding-top: 24px;
     width: 100%;
 }
-.container-message button{
+
+.container-message button {
     width: 100px;
     margin-top: 10px;
     align-self: center;
 }
 
-.verification{
+.verification {
     height: 400px;
 }
+
 .alert {
     position: relative;
     padding: 0.75rem 1.25rem;
