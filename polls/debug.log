@@ -416,3 +416,23 @@ django.db.utils.OperationalError: no such table: usersapp_geekhubuser
 {"path": "/auth/", "request_total": 0.016}
 {"path": "/auth/login/", "request_total": 0.0}
 {"path": "/", "request_total": 0.0}
+2021-06-23 21:31:11,409 django.utils.autoreload INFO     Watching for file changes with StatReloader
+{"path": "/", "request_total": 0.0}
+{"path": "/auth/registration/", "request_total": 0.016}
+{"path": "/auth/", "request_total": 0.016}
+{"path": "/auth/login/", "request_total": 0.0}
+{"path": "/auth/login/", "request_total": 0.188}
+{"path": "/auth/", "request_total": 0.0}
+{"path": "/auth/login/", "request_total": 0.0}
+{"path": "/auth/registration/", "request_total": 0.015}
+{"path": "/auth/", "request_total": 0.016}
+{"path": "/auth/login/", "request_total": 0.0}
+{"path": "/auth/login/", "request_total": 0.187}
+{"path": "/auth/", "request_total": 0.016}
+{"path": "/auth/registration/", "request_total": 0.0}
+{"path": "/auth/login/", "request_total": 0.0}
+{"path": "/auth/login/", "request_total": 0.172}
+{"path": "/auth/", "request_total": 0.016}
+{"path": "/auth/login/", "request_total": 0.0}
+{"path": "/auth/registration/", "request_total": 0.0}
+{"path": "/auth/login/", "request_total": 0.0}

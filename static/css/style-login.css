@@ -97,7 +97,7 @@ input {
     padding-top: 21px;
     margin: 290px auto;  
     width: 754px;
-    height: 120px;
+    height: 170px;
     background: #E9E9E9;
 }
 .container-message p{
@@ -115,5 +115,39 @@ input {
     margin-block-end: 0;
 }
 .p-end{
+    justify-content: center;
     padding-top: 24px;
+    width: 100%;
+}
+.container-message button{
+    width: 100px;
+    margin-top: 10px;
+    align-self: center;
+}
+
+.verification{
+    height: 400px;
+}
+.alert {
+    position: relative;
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+}
+
+.alert-dismissible {
+    padding-right: 4rem;
+}
+
+.alert-success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+
+.alert-warning {
+    color: #856404;
+    background-color: #fff3cd;
+    border-color: #ffeeba;
 }
