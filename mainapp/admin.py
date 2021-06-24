@@ -1,3 +1,5 @@
 from django.contrib import admin
+from mainapp.models import Hub, Article
 
-# Register your models here.
+admin.site.register(Hub)
+admin.site.register(Article)

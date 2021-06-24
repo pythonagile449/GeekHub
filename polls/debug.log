@@ -1,5 +1,5 @@
 2021-06-21 16:00:07,558 django.utils.autoreload INFO     Watching for file changes with StatReloader
-2021-06-21 16:00:07,655 polls.middleware DEBUG    Информация:
+2021-06-21 16:00:07,655 polls.middleware DEBUG    пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ:
 {"path": "/auth/registration/", "request_total": 0.016, "debug": null}
 2021-06-21 16:29:04,747 django.utils.autoreload INFO     C:\Lession_online\Agile SCRUM\GeekHub\polls\middleware.py changed, reloading.
 2021-06-21 16:29:04,748 asyncio      DEBUG    Using proactor: IocpProactor
@@ -339,6 +339,15 @@ django.db.utils.OperationalError: no such table: usersapp_geekhubuser
 {"path": "/", "request_total": 0.002}
 {"path": "/auth/registration/", "request_total": 0.016}
 {"path": "/auth/", "request_total": 0.006}
+2021-06-22 17:33:51,991 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-22 17:34:18,775 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-22 17:34:23,442 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-22 18:29:51,322 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-06-22 18:31:14,554 django.utils.autoreload INFO     C:\Users\Work\PycharmProjects\GeekHub\GeekHub\mainapp\views.py changed, reloading.
+2021-06-22 18:31:14,555 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-22 18:31:15,036 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-06-22 18:54:54,328 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-22 18:54:54,410 asyncio      DEBUG    Using proactor: IocpProactor
 2021-06-23 00:42:32,862 django.utils.autoreload INFO     Watching for file changes with StatReloader
 2021-06-23 00:46:51,148 asyncio      DEBUG    Using proactor: IocpProactor
 2021-06-23 00:50:10,268 asyncio      DEBUG    Using proactor: IocpProactor
@@ -1654,3 +1663,1394 @@ django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 8: 'st
 {"path": "/auth/", "request_total": 0.0}
 2021-06-24 02:01:07,182 asyncio      DEBUG    Using proactor: IocpProactor
 2021-06-24 02:01:07,246 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 03:05:21,908 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-06-24 03:12:16,251 django.utils.autoreload INFO     C:\Users\Work\PycharmProjects\GeekHub\GeekHub\mainapp\views.py changed, reloading.
+2021-06-24 03:12:16,252 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 03:12:16,789 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-06-24 03:21:12,788 django.utils.autoreload INFO     C:\Users\Work\PycharmProjects\GeekHub\GeekHub\mainapp\views.py changed, reloading.
+2021-06-24 03:21:12,790 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 03:21:13,344 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-06-24 03:29:24,174 django.utils.autoreload INFO     C:\Users\Work\PycharmProjects\GeekHub\GeekHub\mainapp\views.py changed, reloading.
+2021-06-24 03:29:24,175 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 03:29:24,336 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 03:29:34,494 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 03:30:01,310 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 03:33:02,578 django.utils.autoreload INFO     Watching for file changes with StatReloader
+{"path": "/", "request_total": 0.016}
+{"path": "/favicon.ico", "request_total": 0.062}
+2021-06-24 03:33:07,691 django.request WARNING  Not Found: /favicon.ico
+{"path": "/auth/login/", "request_total": 2.125}
+{"path": "/auth/login/", "request_total": 0.187}
+{"path": "/", "request_total": 0.016}
+{"path": "/admin/", "request_total": 0.031}
+2021-06-24 03:36:23,678 django.utils.autoreload INFO     C:\Users\Work\PycharmProjects\GeekHub\GeekHub\mainapp\admin.py changed, reloading.
+2021-06-24 03:36:23,679 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 03:36:24,127 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-06-24 03:36:56,641 django.utils.autoreload INFO     C:\Users\Work\PycharmProjects\GeekHub\GeekHub\mainapp\admin.py changed, reloading.
+2021-06-24 03:36:56,641 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 03:36:57,059 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-06-24 03:37:46,597 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 03:37:46,678 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 03:37:48,760 django.utils.autoreload INFO     Watching for file changes with StatReloader
+{"path": "/admin/", "request_total": 0.094}
+{"path": "/admin/mainapp/hub/", "request_total": 0.047}
+{"path": "/admin/jsi18n/", "request_total": 0.015}
+{"path": "/", "request_total": 0.015}
+{"path": "/admin/mainapp/hub/add/", "request_total": 0.062}
+{"path": "/admin/jsi18n/", "request_total": 0.016}
+{"path": "/admin/mainapp/hub/add/", "request_total": 0.015}
+{"path": "/admin/mainapp/hub/", "request_total": 0.031}
+{"path": "/admin/jsi18n/", "request_total": 0.015}
+{"path": "/admin/mainapp/hub/add/", "request_total": 0.016}
+{"path": "/admin/jsi18n/", "request_total": 0.0}
+{"path": "/admin/mainapp/hub/add/", "request_total": 0.032}
+{"path": "/admin/mainapp/hub/", "request_total": 0.031}
+{"path": "/admin/jsi18n/", "request_total": 0.016}
+{"path": "/admin/mainapp/hub/add/", "request_total": 0.016}
+{"path": "/admin/jsi18n/", "request_total": 0.0}
+{"path": "/admin/mainapp/hub/add/", "request_total": 0.032}
+{"path": "/admin/mainapp/hub/", "request_total": 0.031}
+{"path": "/admin/jsi18n/", "request_total": 0.0}
+{"path": "/admin/mainapp/hub/add/", "request_total": 0.031}
+{"path": "/admin/jsi18n/", "request_total": 0.0}
+{"path": "/admin/mainapp/hub/add/", "request_total": 0.016}
+{"path": "/admin/mainapp/hub/", "request_total": 0.031}
+{"path": "/admin/jsi18n/", "request_total": 0.016}
+{"path": "/admin/mainapp/article/", "request_total": 0.031}
+{"path": "/admin/jsi18n/", "request_total": 0.0}
+{"path": "/admin/mainapp/article/add/", "request_total": 0.047}
+{"path": "/admin/jsi18n/", "request_total": 0.0}
+{"path": "/admin/mainapp/article/add/", "request_total": 0.031}
+{"path": "/admin/mainapp/article/", "request_total": 0.031}
+{"path": "/admin/jsi18n/", "request_total": 0.0}
+{"path": "/admin/mainapp/article/add/", "request_total": 0.031}
+{"path": "/admin/jsi18n/", "request_total": 0.0}
+{"path": "/admin/mainapp/article/add/", "request_total": 0.016}
+{"path": "/admin/mainapp/article/", "request_total": 0.031}
+{"path": "/admin/jsi18n/", "request_total": 0.0}
+2021-06-24 04:07:48,051 django.utils.autoreload INFO     C:\Users\Work\PycharmProjects\GeekHub\GeekHub\intergalactic\urls.py changed, reloading.
+2021-06-24 04:07:48,054 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 04:07:48,529 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-06-24 04:11:51,659 django.utils.autoreload INFO     C:\Users\Work\PycharmProjects\GeekHub\GeekHub\mainapp\urls.py changed, reloading.
+2021-06-24 04:11:51,660 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 04:11:52,065 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-06-24 04:16:26,180 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 04:16:26,258 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 04:16:28,940 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-06-24 04:16:33,169 django.request ERROR    Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\urls\base.py", line 71, in reverse
+    extra, resolver = resolver.namespace_dict[ns]
+KeyError: 'mainapp'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\mainapp\views.py", line 13, in mainpage
+    return render(request, 'mainapp/index.html', context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\defaulttags.py", line 211, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\defaulttags.py", line 446, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\urls\base.py", line 82, in reverse
+    raise NoReverseMatch("%s is not a registered namespace" % key)
+django.urls.exceptions.NoReverseMatch: 'mainapp' is not a registered namespace
+{"path": "/", "request_total": 0.157}
+2021-06-24 04:19:04,113 django.request ERROR    Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\urls\base.py", line 71, in reverse
+    extra, resolver = resolver.namespace_dict[ns]
+KeyError: 'mainapp'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\mainapp\views.py", line 13, in mainpage
+    return render(request, 'mainapp/index.html', context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\defaulttags.py", line 211, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\defaulttags.py", line 446, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\urls\base.py", line 82, in reverse
+    raise NoReverseMatch("%s is not a registered namespace" % key)
+django.urls.exceptions.NoReverseMatch: 'mainapp' is not a registered namespace
+{"path": "/", "request_total": 0.063}
+2021-06-24 04:20:06,909 django.utils.autoreload INFO     C:\Users\Work\PycharmProjects\GeekHub\GeekHub\intergalactic\urls.py changed, reloading.
+2021-06-24 04:20:06,911 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 04:20:07,397 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-06-24 04:31:36,340 django.utils.autoreload INFO     C:\Users\Work\PycharmProjects\GeekHub\GeekHub\mainapp\urls.py changed, reloading.
+2021-06-24 04:31:36,342 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 04:31:36,789 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-06-24 04:38:50,071 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 04:38:50,155 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 04:38:52,414 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-06-24 04:39:17,913 django.utils.autoreload INFO     C:\Users\Work\PycharmProjects\GeekHub\GeekHub\intergalactic\urls.py changed, reloading.
+2021-06-24 04:39:17,915 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 04:39:18,353 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-06-24 04:39:23,711 django.request ERROR    Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\urls\base.py", line 71, in reverse
+    extra, resolver = resolver.namespace_dict[ns]
+KeyError: 'mainapp'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\mainapp\views.py", line 13, in mainpage
+    return render(request, 'mainapp/index.html', context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\defaulttags.py", line 211, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\defaulttags.py", line 446, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\urls\base.py", line 82, in reverse
+    raise NoReverseMatch("%s is not a registered namespace" % key)
+django.urls.exceptions.NoReverseMatch: 'mainapp' is not a registered namespace
+{"path": "/", "request_total": 0.157}
+2021-06-24 04:41:25,171 django.utils.autoreload INFO     C:\Users\Work\PycharmProjects\GeekHub\GeekHub\intergalactic\urls.py changed, reloading.
+2021-06-24 04:41:25,172 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 04:41:25,592 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-06-24 04:41:28,568 django.request ERROR    Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\urls\base.py", line 71, in reverse
+    extra, resolver = resolver.namespace_dict[ns]
+KeyError: 'mainapp'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\mainapp\views.py", line 13, in mainpage
+    return render(request, 'mainapp/index.html', context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\defaulttags.py", line 211, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\defaulttags.py", line 446, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\urls\base.py", line 82, in reverse
+    raise NoReverseMatch("%s is not a registered namespace" % key)
+django.urls.exceptions.NoReverseMatch: 'mainapp' is not a registered namespace
+{"path": "/", "request_total": 0.109}
+2021-06-24 04:43:14,784 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 04:43:14,866 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 04:43:16,645 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-06-24 04:43:22,818 django.request ERROR    Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\urls\base.py", line 71, in reverse
+    extra, resolver = resolver.namespace_dict[ns]
+KeyError: 'mainapp'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\mainapp\views.py", line 13, in mainpage
+    return render(request, 'mainapp/index.html', context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\defaulttags.py", line 211, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\defaulttags.py", line 446, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\urls\base.py", line 82, in reverse
+    raise NoReverseMatch("%s is not a registered namespace" % key)
+django.urls.exceptions.NoReverseMatch: 'mainapp' is not a registered namespace
+{"path": "/", "request_total": 0.125}
+2021-06-24 04:43:25,168 django.request ERROR    Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\urls\base.py", line 71, in reverse
+    extra, resolver = resolver.namespace_dict[ns]
+KeyError: 'mainapp'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\mainapp\views.py", line 13, in mainpage
+    return render(request, 'mainapp/index.html', context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\defaulttags.py", line 211, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\defaulttags.py", line 446, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\urls\base.py", line 82, in reverse
+    raise NoReverseMatch("%s is not a registered namespace" % key)
+django.urls.exceptions.NoReverseMatch: 'mainapp' is not a registered namespace
+{"path": "/", "request_total": 0.047}
+2021-06-24 04:43:37,608 django.request ERROR    Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\urls\base.py", line 71, in reverse
+    extra, resolver = resolver.namespace_dict[ns]
+KeyError: 'mainapp'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\mainapp\views.py", line 13, in mainpage
+    return render(request, 'mainapp/index.html', context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\defaulttags.py", line 211, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\defaulttags.py", line 446, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\urls\base.py", line 82, in reverse
+    raise NoReverseMatch("%s is not a registered namespace" % key)
+django.urls.exceptions.NoReverseMatch: 'mainapp' is not a registered namespace
+{"path": "/", "request_total": 0.047}
+2021-06-24 04:44:21,384 django.utils.autoreload INFO     C:\Users\Work\PycharmProjects\GeekHub\GeekHub\intergalactic\urls.py changed, reloading.
+2021-06-24 04:44:21,384 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 04:44:21,797 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-06-24 04:44:24,168 django.request ERROR    Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\urls\base.py", line 71, in reverse
+    extra, resolver = resolver.namespace_dict[ns]
+KeyError: 'mainapp'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\mainapp\views.py", line 13, in mainpage
+    return render(request, 'mainapp/index.html', context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\defaulttags.py", line 211, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\defaulttags.py", line 446, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\urls\base.py", line 82, in reverse
+    raise NoReverseMatch("%s is not a registered namespace" % key)
+django.urls.exceptions.NoReverseMatch: 'mainapp' is not a registered namespace
+{"path": "/", "request_total": 0.141}
+2021-06-24 04:44:48,267 django.request ERROR    Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\mainapp\views.py", line 13, in mainpage
+    return render(request, 'mainapp/index.html', context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\defaulttags.py", line 211, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\defaulttags.py", line 446, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\urls\base.py", line 86, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\urls\resolvers.py", line 694, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'mainapp.hubs' not found. 'mainapp.hubs' is not a valid view function or pattern name.
+{"path": "/", "request_total": 0.062}
+2021-06-24 04:45:42,137 django.utils.autoreload INFO     C:\Users\Work\PycharmProjects\GeekHub\GeekHub\mainapp\views.py changed, reloading.
+2021-06-24 04:45:42,138 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 04:45:42,551 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-06-24 04:45:44,970 django.request ERROR    Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\mainapp\views.py", line 13, in mainpage
+    return render(request, 'mainapp/index.html', context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\defaulttags.py", line 211, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\defaulttags.py", line 446, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\urls\base.py", line 86, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\urls\resolvers.py", line 694, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'mainapp.hubs' not found. 'mainapp.hubs' is not a valid view function or pattern name.
+{"path": "/", "request_total": 0.172}
+2021-06-24 04:46:14,809 django.request ERROR    Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\mainapp\views.py", line 13, in mainpage
+    return render(request, 'mainapp/index.html', context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\defaulttags.py", line 211, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\defaulttags.py", line 446, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\urls\base.py", line 86, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\urls\resolvers.py", line 694, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'mainapp.hubs' not found. 'mainapp.hubs' is not a valid view function or pattern name.
+{"path": "/", "request_total": 0.047}
+2021-06-24 04:50:11,302 django.utils.autoreload INFO     C:\Users\Work\PycharmProjects\GeekHub\GeekHub\intergalactic\urls.py changed, reloading.
+2021-06-24 04:50:11,303 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 04:50:11,780 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-06-24 04:50:12,679 django.request ERROR    Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\mainapp\views.py", line 13, in mainpage
+    return render(request, 'mainapp/index.html', context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\defaulttags.py", line 211, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\defaulttags.py", line 446, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\urls\base.py", line 86, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\urls\resolvers.py", line 694, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'mainapp.hubs' not found. 'mainapp.hubs' is not a valid view function or pattern name.
+{"path": "/", "request_total": 0.125}
+2021-06-24 04:50:14,874 django.request ERROR    Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\mainapp\views.py", line 13, in mainpage
+    return render(request, 'mainapp/index.html', context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\defaulttags.py", line 211, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\defaulttags.py", line 446, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\urls\base.py", line 86, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\urls\resolvers.py", line 694, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'mainapp.hubs' not found. 'mainapp.hubs' is not a valid view function or pattern name.
+{"path": "/", "request_total": 0.047}
+2021-06-24 04:50:33,377 django.request ERROR    Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\urls\base.py", line 71, in reverse
+    extra, resolver = resolver.namespace_dict[ns]
+KeyError: 'mainapp'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\mainapp\views.py", line 13, in mainpage
+    return render(request, 'mainapp/index.html', context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\defaulttags.py", line 211, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\defaulttags.py", line 446, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\urls\base.py", line 82, in reverse
+    raise NoReverseMatch("%s is not a registered namespace" % key)
+django.urls.exceptions.NoReverseMatch: 'mainapp' is not a registered namespace
+{"path": "/", "request_total": 0.047}
+2021-06-24 04:53:19,755 django.utils.autoreload INFO     C:\Users\Work\PycharmProjects\GeekHub\GeekHub\intergalactic\urls.py changed, reloading.
+2021-06-24 04:53:19,756 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 04:53:20,205 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-06-24 04:53:21,586 django.request ERROR    Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\urls\base.py", line 71, in reverse
+    extra, resolver = resolver.namespace_dict[ns]
+KeyError: 'mainapp'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\mainapp\views.py", line 13, in mainpage
+    return render(request, 'mainapp/index.html', context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\defaulttags.py", line 211, in render
+    nodelist.append(node.render_annotated(context))
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\defaulttags.py", line 446, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\urls\base.py", line 82, in reverse
+    raise NoReverseMatch("%s is not a registered namespace" % key)
+django.urls.exceptions.NoReverseMatch: 'mainapp' is not a registered namespace
+{"path": "/", "request_total": 0.141}
+2021-06-24 04:55:18,825 django.utils.autoreload INFO     C:\Users\Work\PycharmProjects\GeekHub\GeekHub\intergalactic\urls.py changed, reloading.
+2021-06-24 04:55:18,826 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 04:55:19,235 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-06-24 04:55:40,549 django.utils.autoreload INFO     C:\Users\Work\PycharmProjects\GeekHub\GeekHub\mainapp\urls.py changed, reloading.
+2021-06-24 04:55:40,550 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 04:55:40,968 django.utils.autoreload INFO     Watching for file changes with StatReloader
+{"path": "/", "request_total": 0.016}
+2021-06-24 04:55:59,609 django.request ERROR    Internal Server Error: /hub/Дизайн
+Traceback (most recent call last):
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\mainapp\views.py", line 16, in hubs
+    filtered_articles = Article.objects.filter(name=hub_name)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\db\models\sql\query.py", line 1284, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\db\models\sql\query.py", line 1110, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\db\models\sql\query.py", line 1537, in names_to_path
+    raise FieldError("Cannot resolve keyword '%s' into field. "
+django.core.exceptions.FieldError: Cannot resolve keyword 'name' into field. Choices are: author, author_id, contents, front_image, hub, hub_id, id, publication_date, short_description, title
+{"path": "/hub/\u0414\u0438\u0437\u0430\u0439\u043d", "request_total": 0.094}
+2021-06-24 04:57:57,513 django.utils.autoreload INFO     C:\Users\Work\PycharmProjects\GeekHub\GeekHub\mainapp\models.py changed, reloading.
+2021-06-24 04:57:57,515 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 04:57:57,947 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-06-24 04:58:01,333 django.utils.autoreload INFO     C:\Users\Work\PycharmProjects\GeekHub\GeekHub\mainapp\models.py changed, reloading.
+2021-06-24 04:58:01,335 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 04:58:01,843 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-06-24 04:58:10,398 django.utils.autoreload INFO     C:\Users\Work\PycharmProjects\GeekHub\GeekHub\mainapp\models.py changed, reloading.
+2021-06-24 04:58:10,399 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 04:58:10,814 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-06-24 04:58:18,299 django.utils.autoreload INFO     C:\Users\Work\PycharmProjects\GeekHub\GeekHub\mainapp\models.py changed, reloading.
+2021-06-24 04:58:18,302 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 04:58:18,732 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-06-24 04:59:37,133 django.utils.autoreload INFO     C:\Users\Work\PycharmProjects\GeekHub\GeekHub\mainapp\models.py changed, reloading.
+2021-06-24 04:59:37,134 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 04:59:37,565 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-06-24 04:59:39,331 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 04:59:39,420 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 04:59:51,707 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 05:00:06,754 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 05:00:42,644 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 05:00:47,572 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 05:01:12,285 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 05:02:12,394 django.utils.autoreload INFO     Watching for file changes with StatReloader
+{"path": "/", "request_total": 0.032}
+{"path": "/auth/login/", "request_total": 0.094}
+{"path": "/auth/login/", "request_total": 0.141}
+{"path": "/", "request_total": 0.125}
+{"path": "/admin/", "request_total": 0.015}
+{"path": "/admin/mainapp/article/", "request_total": 0.016}
+{"path": "/admin/jsi18n/", "request_total": 0.016}
+{"path": "/admin/mainapp/article/add/", "request_total": 0.047}
+{"path": "/admin/jsi18n/", "request_total": 0.0}
+{"path": "/admin/mainapp/article/", "request_total": 0.063}
+{"path": "/admin/mainapp/hub/", "request_total": 0.016}
+{"path": "/admin/jsi18n/", "request_total": 0.015}
+{"path": "/admin/mainapp/hub/add/", "request_total": 0.015}
+{"path": "/admin/jsi18n/", "request_total": 0.0}
+{"path": "/admin/mainapp/hub/add/", "request_total": 0.031}
+{"path": "/admin/mainapp/hub/", "request_total": 0.031}
+{"path": "/admin/jsi18n/", "request_total": 0.015}
+{"path": "/admin/mainapp/hub/", "request_total": 0.0}
+{"path": "/admin/mainapp/hub/", "request_total": 0.031}
+{"path": "/admin/jsi18n/", "request_total": 0.016}
+{"path": "/admin/mainapp/hub/add/", "request_total": 0.031}
+{"path": "/admin/jsi18n/", "request_total": 0.015}
+{"path": "/admin/mainapp/hub/add/", "request_total": 0.031}
+{"path": "/admin/mainapp/hub/", "request_total": 0.031}
+{"path": "/admin/jsi18n/", "request_total": 0.0}
+{"path": "/admin/mainapp/hub/add/", "request_total": 0.016}
+{"path": "/admin/jsi18n/", "request_total": 0.015}
+{"path": "/admin/mainapp/hub/add/", "request_total": 0.047}
+{"path": "/admin/mainapp/hub/", "request_total": 0.031}
+{"path": "/admin/jsi18n/", "request_total": 0.0}
+{"path": "/admin/mainapp/hub/add/", "request_total": 0.031}
+{"path": "/admin/jsi18n/", "request_total": 0.016}
+{"path": "/admin/mainapp/hub/add/", "request_total": 0.031}
+{"path": "/admin/mainapp/hub/", "request_total": 0.031}
+{"path": "/admin/jsi18n/", "request_total": 0.0}
+{"path": "/admin/mainapp/hub/add/", "request_total": 0.078}
+{"path": "/admin/mainapp/article/", "request_total": 0.032}
+{"path": "/admin/jsi18n/", "request_total": 0.0}
+{"path": "/admin/mainapp/article/add/", "request_total": 0.032}
+{"path": "/admin/jsi18n/", "request_total": 0.0}
+2021-06-24 05:06:24,603 django.request ERROR    Internal Server Error: /admin/mainapp/article/add/
+Traceback (most recent call last):
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\db\backends\base\base.py", line 242, in _commit
+    return self.connection.commit()
+sqlite3.IntegrityError: FOREIGN KEY constraint failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\contrib\admin\options.py", line 616, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\contrib\admin\sites.py", line 232, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\contrib\admin\options.py", line 1657, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\utils\decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\contrib\admin\options.py", line 1540, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\db\transaction.py", line 246, in __exit__
+    connection.commit()
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\db\backends\base\base.py", line 266, in commit
+    self._commit()
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\db\backends\base\base.py", line 242, in _commit
+    return self.connection.commit()
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\db\backends\base\base.py", line 242, in _commit
+    return self.connection.commit()
+django.db.utils.IntegrityError: FOREIGN KEY constraint failed
+{"path": "/admin/mainapp/article/add/", "request_total": 0.14}
+{"path": "/admin/mainapp/article/add/", "request_total": 0.047}
+{"path": "/admin/mainapp/article/", "request_total": 0.047}
+{"path": "/admin/mainapp/article/", "request_total": 0.016}
+{"path": "/admin/jsi18n/", "request_total": 0.0}
+{"path": "/admin/mainapp/article/add/", "request_total": 0.032}
+{"path": "/admin/jsi18n/", "request_total": 0.0}
+2021-06-24 05:07:18,321 django.request ERROR    Internal Server Error: /admin/mainapp/article/add/
+Traceback (most recent call last):
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\db\backends\base\base.py", line 242, in _commit
+    return self.connection.commit()
+sqlite3.IntegrityError: FOREIGN KEY constraint failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\contrib\admin\options.py", line 616, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\contrib\admin\sites.py", line 232, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\contrib\admin\options.py", line 1657, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\utils\decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\contrib\admin\options.py", line 1540, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\db\transaction.py", line 246, in __exit__
+    connection.commit()
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\db\backends\base\base.py", line 266, in commit
+    self._commit()
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\db\backends\base\base.py", line 242, in _commit
+    return self.connection.commit()
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\db\backends\base\base.py", line 242, in _commit
+    return self.connection.commit()
+django.db.utils.IntegrityError: FOREIGN KEY constraint failed
+{"path": "/admin/mainapp/article/add/", "request_total": 0.047}
+{"path": "/admin/mainapp/article/add/", "request_total": 0.031}
+2021-06-24 05:10:37,629 django.request ERROR    Internal Server Error: /admin/mainapp/article/add/
+Traceback (most recent call last):
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\db\backends\base\base.py", line 242, in _commit
+    return self.connection.commit()
+sqlite3.IntegrityError: FOREIGN KEY constraint failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\contrib\admin\options.py", line 616, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\contrib\admin\sites.py", line 232, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\contrib\admin\options.py", line 1657, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\utils\decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\contrib\admin\options.py", line 1540, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\db\transaction.py", line 246, in __exit__
+    connection.commit()
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\db\backends\base\base.py", line 266, in commit
+    self._commit()
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\db\backends\base\base.py", line 242, in _commit
+    return self.connection.commit()
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\db\backends\base\base.py", line 242, in _commit
+    return self.connection.commit()
+django.db.utils.IntegrityError: FOREIGN KEY constraint failed
+{"path": "/admin/mainapp/article/add/", "request_total": 0.046}
+{"path": "/admin/mainapp/article/add/", "request_total": 0.047}
+{"path": "/admin/mainapp/article/", "request_total": 0.063}
+{"path": "/admin/mainapp/article/", "request_total": 0.032}
+{"path": "/admin/jsi18n/", "request_total": 0.0}
+{"path": "/admin/mainapp/article/add/", "request_total": 0.031}
+{"path": "/admin/jsi18n/", "request_total": 0.0}
+2021-06-24 05:10:54,296 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 05:10:54,393 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 05:10:56,531 django.utils.autoreload INFO     Watching for file changes with StatReloader
+{"path": "/admin/mainapp/article/add/", "request_total": 0.125}
+{"path": "/admin/jsi18n/", "request_total": 0.0}
+2021-06-24 05:11:24,914 django.request ERROR    Internal Server Error: /admin/mainapp/article/add/
+Traceback (most recent call last):
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\db\backends\base\base.py", line 242, in _commit
+    return self.connection.commit()
+sqlite3.IntegrityError: FOREIGN KEY constraint failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\contrib\admin\options.py", line 616, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\contrib\admin\sites.py", line 232, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\contrib\admin\options.py", line 1657, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\utils\decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\contrib\admin\options.py", line 1540, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\db\transaction.py", line 246, in __exit__
+    connection.commit()
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\db\backends\base\base.py", line 266, in commit
+    self._commit()
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\db\backends\base\base.py", line 242, in _commit
+    return self.connection.commit()
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\db\backends\base\base.py", line 242, in _commit
+    return self.connection.commit()
+django.db.utils.IntegrityError: FOREIGN KEY constraint failed
+{"path": "/admin/mainapp/article/add/", "request_total": 0.063}
+{"path": "/admin/mainapp/article/add/", "request_total": 0.063}
+2021-06-24 05:12:51,437 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 05:12:51,487 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 05:13:30,150 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 05:14:16,230 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 05:14:39,086 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 05:14:45,085 django.utils.autoreload INFO     Watching for file changes with StatReloader
+{"path": "/", "request_total": 0.016}
+{"path": "/auth/login/", "request_total": 0.063}
+{"path": "/auth/login/", "request_total": 0.156}
+{"path": "/", "request_total": 0.016}
+{"path": "/admin/", "request_total": 0.016}
+{"path": "/admin/mainapp/hub/", "request_total": 0.016}
+{"path": "/admin/jsi18n/", "request_total": 0.0}
+{"path": "/admin/mainapp/hub/add/", "request_total": 0.031}
+{"path": "/admin/jsi18n/", "request_total": 0.0}
+{"path": "/admin/mainapp/hub/add/", "request_total": 0.015}
+{"path": "/admin/mainapp/hub/", "request_total": 0.047}
+{"path": "/admin/jsi18n/", "request_total": 0.0}
+{"path": "/admin/mainapp/hub/add/", "request_total": 0.047}
+{"path": "/admin/jsi18n/", "request_total": 0.0}
+{"path": "/admin/mainapp/hub/add/", "request_total": 0.015}
+{"path": "/admin/mainapp/hub/", "request_total": 0.015}
+{"path": "/admin/jsi18n/", "request_total": 0.016}
+{"path": "/admin/mainapp/hub/add/", "request_total": 0.015}
+{"path": "/admin/jsi18n/", "request_total": 0.0}
+{"path": "/admin/mainapp/hub/add/", "request_total": 0.015}
+{"path": "/admin/mainapp/hub/", "request_total": 0.031}
+{"path": "/admin/jsi18n/", "request_total": 0.0}
+{"path": "/admin/mainapp/hub/add/", "request_total": 0.031}
+{"path": "/admin/jsi18n/", "request_total": 0.0}
+{"path": "/admin/mainapp/hub/add/", "request_total": 0.031}
+{"path": "/admin/mainapp/hub/", "request_total": 0.031}
+{"path": "/admin/jsi18n/", "request_total": 0.015}
+{"path": "/admin/mainapp/article/", "request_total": 0.016}
+{"path": "/admin/jsi18n/", "request_total": 0.016}
+{"path": "/admin/mainapp/article/add/", "request_total": 0.031}
+{"path": "/admin/jsi18n/", "request_total": 0.0}
+2021-06-24 05:18:14,718 django.request ERROR    Internal Server Error: /admin/mainapp/article/add/
+Traceback (most recent call last):
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\db\backends\base\base.py", line 242, in _commit
+    return self.connection.commit()
+sqlite3.IntegrityError: FOREIGN KEY constraint failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\contrib\admin\options.py", line 616, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\contrib\admin\sites.py", line 232, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\contrib\admin\options.py", line 1657, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\utils\decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\contrib\admin\options.py", line 1540, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\db\transaction.py", line 246, in __exit__
+    connection.commit()
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\db\backends\base\base.py", line 266, in commit
+    self._commit()
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\db\backends\base\base.py", line 242, in _commit
+    return self.connection.commit()
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\db\backends\base\base.py", line 242, in _commit
+    return self.connection.commit()
+django.db.utils.IntegrityError: FOREIGN KEY constraint failed
+{"path": "/admin/mainapp/article/add/", "request_total": 0.047}
+{"path": "/admin/mainapp/article/add/", "request_total": 0.078}
+{"path": "/admin/mainapp/article/", "request_total": 0.046}
+{"path": "/admin/mainapp/hub/", "request_total": 0.078}
+{"path": "/admin/mainapp/hub/add/", "request_total": 0.047}
+{"path": "/admin/mainapp/hub/", "request_total": 0.047}
+{"path": "/admin/mainapp/hub/add/", "request_total": 0.031}
+{"path": "/", "request_total": 0.0}
+{"path": "/admin/", "request_total": 0.0}
+{"path": "/admin/mainapp/article/", "request_total": 0.016}
+{"path": "/admin/jsi18n/", "request_total": 0.015}
+{"path": "/admin/mainapp/hub/", "request_total": 0.031}
+{"path": "/admin/jsi18n/", "request_total": 0.0}
+{"path": "/admin/mainapp/article/", "request_total": 0.015}
+{"path": "/admin/jsi18n/", "request_total": 0.0}
+{"path": "/admin/mainapp/article/add/", "request_total": 0.031}
+{"path": "/admin/jsi18n/", "request_total": 0.016}
+{"path": "/admin/mainapp/hub/add/", "request_total": 0.016}
+{"path": "/admin/jsi18n/", "request_total": 0.0}
+2021-06-24 05:22:03,362 django.request ERROR    Internal Server Error: /admin/mainapp/article/add/
+Traceback (most recent call last):
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\db\backends\base\base.py", line 242, in _commit
+    return self.connection.commit()
+sqlite3.IntegrityError: FOREIGN KEY constraint failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\contrib\admin\options.py", line 616, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\views\decorators\cache.py", line 44, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\contrib\admin\sites.py", line 232, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\contrib\admin\options.py", line 1657, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\utils\decorators.py", line 43, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\utils\decorators.py", line 130, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\contrib\admin\options.py", line 1540, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\db\transaction.py", line 246, in __exit__
+    connection.commit()
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\db\backends\base\base.py", line 266, in commit
+    self._commit()
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\db\backends\base\base.py", line 242, in _commit
+    return self.connection.commit()
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\db\backends\base\base.py", line 242, in _commit
+    return self.connection.commit()
+django.db.utils.IntegrityError: FOREIGN KEY constraint failed
+{"path": "/admin/mainapp/article/add/", "request_total": 0.063}
+{"path": "/admin/mainapp/article/add/", "request_total": 0.063}
+2021-06-24 05:23:38,245 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 05:23:38,331 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 05:23:48,078 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 05:23:58,816 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 05:24:06,234 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 05:24:31,394 django.utils.autoreload INFO     Watching for file changes with StatReloader
+{"path": "/", "request_total": 0.015}
+{"path": "/auth/login/", "request_total": 0.062}
+{"path": "/auth/login/", "request_total": 0.171}
+{"path": "/", "request_total": 0.016}
+{"path": "/admin/", "request_total": 0.015}
+{"path": "/admin/mainapp/hub/", "request_total": 0.016}
+{"path": "/admin/jsi18n/", "request_total": 0.015}
+{"path": "/admin/mainapp/hub/add/", "request_total": 0.016}
+{"path": "/admin/jsi18n/", "request_total": 0.015}
+{"path": "/admin/mainapp/hub/add/", "request_total": 0.016}
+{"path": "/admin/mainapp/hub/", "request_total": 0.015}
+{"path": "/admin/jsi18n/", "request_total": 0.0}
+{"path": "/admin/mainapp/hub/add/", "request_total": 0.015}
+{"path": "/admin/jsi18n/", "request_total": 0.015}
+{"path": "/admin/mainapp/hub/add/", "request_total": 0.031}
+{"path": "/admin/mainapp/hub/", "request_total": 0.031}
+{"path": "/admin/jsi18n/", "request_total": 0.016}
+{"path": "/admin/mainapp/hub/add/", "request_total": 0.031}
+{"path": "/admin/jsi18n/", "request_total": 0.0}
+{"path": "/admin/mainapp/hub/add/", "request_total": 0.031}
+{"path": "/admin/mainapp/hub/", "request_total": 0.032}
+{"path": "/admin/jsi18n/", "request_total": 0.0}
+{"path": "/admin/mainapp/hub/add/", "request_total": 0.015}
+{"path": "/admin/jsi18n/", "request_total": 0.0}
+{"path": "/admin/mainapp/hub/add/", "request_total": 0.015}
+{"path": "/admin/mainapp/hub/", "request_total": 0.031}
+{"path": "/admin/jsi18n/", "request_total": 0.016}
+{"path": "/admin/mainapp/article/add/", "request_total": 0.032}
+{"path": "/admin/jsi18n/", "request_total": 0.016}
+{"path": "/admin/mainapp/article/add/", "request_total": 0.015}
+{"path": "/admin/mainapp/article/", "request_total": 0.032}
+{"path": "/admin/jsi18n/", "request_total": 0.0}
+{"path": "/admin/mainapp/article/add/", "request_total": 0.032}
+{"path": "/admin/jsi18n/", "request_total": 0.0}
+{"path": "/admin/mainapp/article/add/", "request_total": 0.016}
+{"path": "/admin/mainapp/article/", "request_total": 0.015}
+{"path": "/admin/jsi18n/", "request_total": 0.0}
+{"path": "/", "request_total": 0.0}
+2021-06-24 05:27:00,794 django.request ERROR    Internal Server Error: /hub/Дизайн
+Traceback (most recent call last):
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\mainapp\views.py", line 16, in hubs
+    filtered_articles = Article.objects.filter(name=hub_name)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\db\models\sql\query.py", line 1284, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\db\models\sql\query.py", line 1110, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\db\models\sql\query.py", line 1537, in names_to_path
+    raise FieldError("Cannot resolve keyword '%s' into field. "
+django.core.exceptions.FieldError: Cannot resolve keyword 'name' into field. Choices are: author, author_id, contents, front_image, hub, hub_id, id, publication_date, short_description, title
+{"path": "/hub/\u0414\u0438\u0437\u0430\u0439\u043d", "request_total": 0.032}
+2021-06-24 05:27:24,786 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 05:27:24,875 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 05:28:29,680 django.utils.autoreload INFO     Watching for file changes with StatReloader
+{"path": "/", "request_total": 0.032}
+2021-06-24 05:28:36,832 django.request ERROR    Internal Server Error: /hub/Дизайн
+Traceback (most recent call last):
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\mainapp\views.py", line 16, in hubs
+    filtered_articles = Article.objects.filter(name=hub_name)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\db\models\sql\query.py", line 1284, in build_filter
+    lookups, parts, reffed_expression = self.solve_lookup_type(arg)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\db\models\sql\query.py", line 1110, in solve_lookup_type
+    _, field, _, lookup_parts = self.names_to_path(lookup_splitted, self.get_meta())
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\db\models\sql\query.py", line 1537, in names_to_path
+    raise FieldError("Cannot resolve keyword '%s' into field. "
+django.core.exceptions.FieldError: Cannot resolve keyword 'name' into field. Choices are: author, author_id, contents, front_image, hub, hub_id, id, publication_date, short_description, title
+{"path": "/hub/\u0414\u0438\u0437\u0430\u0439\u043d", "request_total": 0.094}
+{"path": "/", "request_total": 0.0}
+2021-06-24 05:35:15,231 django.utils.autoreload INFO     C:\Users\Work\PycharmProjects\GeekHub\GeekHub\mainapp\views.py changed, reloading.
+2021-06-24 05:35:15,231 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 05:35:15,640 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-06-24 05:35:19,124 django.request ERROR    Internal Server Error: /hub/Дизайн
+Traceback (most recent call last):
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\db\models\fields\__init__.py", line 2434, in to_python
+    return uuid.UUID(**{input_form: value})
+  File "C:\Users\Work\AppData\Local\Programs\Python\Python39\lib\uuid.py", line 177, in __init__
+    raise ValueError('badly formed hexadecimal UUID string')
+ValueError: badly formed hexadecimal UUID string
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\mainapp\views.py", line 16, in hubs
+    filtered_articles = Article.objects.filter(hub=hub_name)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\db\models\query.py", line 941, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\db\models\query.py", line 961, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\db\models\query.py", line 968, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\db\models\sql\query.py", line 1391, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\db\models\sql\query.py", line 1410, in _add_q
+    child_clause, needed_inner = self.build_filter(
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\db\models\sql\query.py", line 1345, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\db\models\sql\query.py", line 1191, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\db\models\lookups.py", line 25, in __init__
+    self.rhs = self.get_prep_lookup()
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\db\models\fields\related_lookups.py", line 117, in get_prep_lookup
+    self.rhs = target_field.get_prep_value(self.rhs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\db\models\fields\__init__.py", line 2418, in get_prep_value
+    return self.to_python(value)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\db\models\fields\__init__.py", line 2436, in to_python
+    raise exceptions.ValidationError(
+django.core.exceptions.ValidationError: ['Значение “Дизайн” не является верным UUID-ом.']
+{"path": "/hub/\u0414\u0438\u0437\u0430\u0439\u043d", "request_total": 0.156}
+2021-06-24 05:36:32,587 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 05:36:32,669 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 05:37:05,187 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 05:37:09,312 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 05:38:15,610 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 05:38:19,553 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 05:38:26,498 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 05:38:31,393 django.utils.autoreload INFO     Watching for file changes with StatReloader
+{"path": "/", "request_total": 0.016}
+{"path": "/auth/login/", "request_total": 0.063}
+{"path": "/auth/login/", "request_total": 0.188}
+{"path": "/", "request_total": 0.015}
+{"path": "/admin/", "request_total": 0.016}
+{"path": "/admin/mainapp/hub/", "request_total": 0.015}
+{"path": "/admin/jsi18n/", "request_total": 0.015}
+{"path": "/admin/mainapp/hub/add/", "request_total": 0.031}
+{"path": "/admin/jsi18n/", "request_total": 0.0}
+{"path": "/admin/mainapp/hub/add/", "request_total": 0.031}
+{"path": "/admin/mainapp/hub/", "request_total": 0.032}
+{"path": "/admin/jsi18n/", "request_total": 0.015}
+{"path": "/admin/mainapp/hub/add/", "request_total": 0.016}
+{"path": "/admin/jsi18n/", "request_total": 0.0}
+{"path": "/admin/mainapp/hub/add/", "request_total": 0.031}
+{"path": "/admin/mainapp/hub/", "request_total": 0.032}
+{"path": "/admin/jsi18n/", "request_total": 0.0}
+{"path": "/admin/mainapp/hub/add/", "request_total": 0.031}
+{"path": "/admin/jsi18n/", "request_total": 0.016}
+{"path": "/admin/mainapp/hub/add/", "request_total": 0.031}
+{"path": "/admin/mainapp/hub/", "request_total": 0.032}
+{"path": "/admin/jsi18n/", "request_total": 0.0}
+{"path": "/admin/mainapp/hub/add/", "request_total": 0.015}
+{"path": "/admin/jsi18n/", "request_total": 0.0}
+{"path": "/admin/mainapp/hub/add/", "request_total": 0.015}
+{"path": "/admin/mainapp/hub/", "request_total": 0.031}
+{"path": "/admin/jsi18n/", "request_total": 0.016}
+{"path": "/admin/mainapp/article/", "request_total": 0.015}
+{"path": "/admin/jsi18n/", "request_total": 0.0}
+{"path": "/admin/mainapp/article/add/", "request_total": 0.031}
+{"path": "/admin/jsi18n/", "request_total": 0.015}
+{"path": "/admin/mainapp/article/add/", "request_total": 0.031}
+{"path": "/admin/mainapp/article/", "request_total": 0.031}
+{"path": "/admin/jsi18n/", "request_total": 0.0}
+{"path": "/admin/mainapp/article/add/", "request_total": 0.047}
+{"path": "/admin/jsi18n/", "request_total": 0.0}
+{"path": "/admin/mainapp/article/add/", "request_total": 0.016}
+{"path": "/admin/mainapp/article/", "request_total": 0.031}
+{"path": "/admin/jsi18n/", "request_total": 0.015}
+{"path": "/", "request_total": 0.0}
+2021-06-24 05:40:21,666 django.request ERROR    Internal Server Error: /hub/Дизайн
+Traceback (most recent call last):
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\mainapp\views.py", line 23, in hubs
+    return render(request, 'mainapp/hub.html', context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\template\defaulttags.py", line 446, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\urls\base.py", line 86, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\Work\PycharmProjects\GeekHub\GeekHub\venv\lib\site-packages\django\urls\resolvers.py", line 694, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'mainapp.index' not found. 'mainapp.index' is not a valid view function or pattern name.
+{"path": "/hub/\u0414\u0438\u0437\u0430\u0439\u043d", "request_total": 0.063}
+2021-06-24 05:42:09,846 django.utils.autoreload INFO     C:\Users\Work\PycharmProjects\GeekHub\GeekHub\mainapp\views.py changed, reloading.
+2021-06-24 05:42:09,847 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 05:42:10,300 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-06-24 05:45:58,442 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 05:45:58,530 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 05:46:00,694 django.utils.autoreload INFO     Watching for file changes with StatReloader
+{"path": "/", "request_total": 0.016}
+{"path": "/", "request_total": 0.0}
+{"path": "/", "request_total": 0.016}
+{"path": "/hub/\u0414\u0438\u0437\u0430\u0439\u043d", "request_total": 0.0}
+{"path": "/", "request_total": 0.0}
+{"path": "/hub/\u0414\u0438\u0437\u0430\u0439\u043d", "request_total": 0.0}
+{"path": "/hub/\u0412\u0435\u0431-\u0440\u0430\u0437\u0440\u0430\u0431\u043e\u0442\u043a\u0430", "request_total": 0.0}
+{"path": "/hub/\u041c\u043e\u0431\u0438\u043b\u044c\u043d\u0430\u044f \u0440\u0430\u0437\u0440\u0430\u0431\u043e\u0442\u043a\u0430", "request_total": 0.015}
+{"path": "/hub/\u041c\u0430\u0440\u043a\u0435\u0442\u0438\u043d\u0433", "request_total": 0.0}
+{"path": "/", "request_total": 0.016}
+{"path": "/hub/\u0414\u0438\u0437\u0430\u0439\u043d", "request_total": 0.0}
+{"path": "/hub/\u0412\u0435\u0431-\u0440\u0430\u0437\u0440\u0430\u0431\u043e\u0442\u043a\u0430", "request_total": 0.016}
+{"path": "/hub/\u041c\u043e\u0431\u0438\u043b\u044c\u043d\u0430\u044f \u0440\u0430\u0437\u0440\u0430\u0431\u043e\u0442\u043a\u0430", "request_total": 0.0}
+{"path": "/hub/\u041c\u0430\u0440\u043a\u0435\u0442\u0438\u043d\u0433", "request_total": 0.016}
+{"path": "/", "request_total": 0.0}
+{"path": "/admin/", "request_total": 0.079}
+{"path": "/admin/mainapp/article/", "request_total": 0.031}
+{"path": "/admin/jsi18n/", "request_total": 0.0}
+{"path": "/admin/mainapp/article/0626c3f2-a729-426c-9d0b-94535916c070/change/", "request_total": 0.047}
+{"path": "/admin/jsi18n/", "request_total": 0.0}
+{"path": "/admin/mainapp/article/", "request_total": 0.047}
+{"path": "/admin/", "request_total": 0.047}
+{"path": "/admin/", "request_total": 0.016}
+{"path": "/admin/usersapp/geekhubuser/", "request_total": 0.031}
+{"path": "/admin/jsi18n/", "request_total": 0.0}
+{"path": "/admin/usersapp/geekhubuser/1/change/", "request_total": 0.093}
+{"path": "/admin/jsi18n/", "request_total": 0.0}
+{"path": "/admin/usersapp/geekhubuser/1/change/", "request_total": 0.282}
+{"path": "/admin/usersapp/geekhubuser/", "request_total": 0.078}
+{"path": "/admin/jsi18n/", "request_total": 0.0}
+{"path": "/admin/usersapp/geekhubuser/1/change/", "request_total": 0.078}
+{"path": "/admin/jsi18n/", "request_total": 0.015}
+{"path": "/", "request_total": 0.0}
+{"path": "/", "request_total": 0.016}
+{"path": "/hub/\u0414\u0438\u0437\u0430\u0439\u043d", "request_total": 0.0}
+{"path": "/hub/\u041c\u0430\u0440\u043a\u0435\u0442\u0438\u043d\u0433", "request_total": 0.016}
+{"path": "/", "request_total": 0.0}
+{"path": "/", "request_total": 0.0}
+{"path": "/hub/\u0414\u0438\u0437\u0430\u0439\u043d", "request_total": 0.0}
+{"path": "/hub/\u0412\u0435\u0431-\u0440\u0430\u0437\u0440\u0430\u0431\u043e\u0442\u043a\u0430", "request_total": 0.016}
+{"path": "/hub/\u041c\u043e\u0431\u0438\u043b\u044c\u043d\u0430\u044f \u0440\u0430\u0437\u0440\u0430\u0431\u043e\u0442\u043a\u0430", "request_total": 0.0}
+{"path": "/hub/\u041c\u0430\u0440\u043a\u0435\u0442\u0438\u043d\u0433", "request_total": 0.0}
+{"path": "/hub/\u0414\u0438\u0437\u0430\u0439\u043d", "request_total": 0.016}
+{"path": "/", "request_total": 0.015}
+{"path": "/hub/\u041c\u0430\u0440\u043a\u0435\u0442\u0438\u043d\u0433", "request_total": 0.0}
+{"path": "/hub/\u0414\u0438\u0437\u0430\u0439\u043d", "request_total": 0.016}
+{"path": "/", "request_total": 0.015}
+2021-06-24 06:01:36,614 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 06:01:36,699 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 06:02:03,428 django.utils.autoreload INFO     Watching for file changes with StatReloader
+{"path": "/", "request_total": 0.015}
+{"path": "/", "request_total": 0.016}
+{"path": "/hub/\u0414\u0438\u0437\u0430\u0439\u043d", "request_total": 0.0}
+{"path": "/hub/\u0412\u0435\u0431-\u0440\u0430\u0437\u0440\u0430\u0431\u043e\u0442\u043a\u0430", "request_total": 0.015}
+{"path": "/hub/\u041c\u043e\u0431\u0438\u043b\u044c\u043d\u0430\u044f \u0440\u0430\u0437\u0440\u0430\u0431\u043e\u0442\u043a\u0430", "request_total": 0.016}
+{"path": "/hub/\u041c\u0430\u0440\u043a\u0435\u0442\u0438\u043d\u0433", "request_total": 0.0}
+{"path": "/hub/\u041c\u043e\u0431\u0438\u043b\u044c\u043d\u0430\u044f \u0440\u0430\u0437\u0440\u0430\u0431\u043e\u0442\u043a\u0430", "request_total": 0.0}
+{"path": "/hub/\u0412\u0435\u0431-\u0440\u0430\u0437\u0440\u0430\u0431\u043e\u0442\u043a\u0430", "request_total": 0.0}
+{"path": "/", "request_total": 0.016}
+2021-06-24 06:02:39,507 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 06:02:39,618 asyncio      DEBUG    Using proactor: IocpProactor
