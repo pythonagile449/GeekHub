@@ -3547,3 +3547,245 @@ tz
 2021-06-24 10:31:27,505 asyncio      DEBUG    Using selector: EpollSelector
 2021-06-24 10:31:28,811 django.utils.autoreload INFO     Watching for file changes with StatReloader
 {"path": "/auth/registration/", "request_total": 0.128}
+2021-06-24 11:42:32,858 asyncio      DEBUG    Using selector: EpollSelector
+2021-06-24 11:42:33,024 asyncio      DEBUG    Using selector: EpollSelector
+2021-06-24 11:42:34,531 django.utils.autoreload INFO     Watching for file changes with StatReloader
+{"path": "/", "request_total": 0.073}
+{"path": "/auth/login/", "request_total": 0.061}
+{"path": "/", "request_total": 0.019}
+{"path": "/hub/\u043d\u043e\u0432\u043e\u0441\u0442\u0438", "request_total": 0.015}
+{"path": "/hub/\u0440\u0430\u0431\u043e\u0442\u0430", "request_total": 0.031}
+{"path": "/hub/\u043d\u043e\u0432\u043e\u0441\u0442\u0438", "request_total": 0.014}
+{"path": "/", "request_total": 0.016}
+{"path": "/", "request_total": 0.013}
+{"path": "/", "request_total": 0.026}
+{"path": "/", "request_total": 0.015}
+{"path": "/", "request_total": 0.016}
+{"path": "/hub/\u043d\u043e\u0432\u043e\u0441\u0442\u0438", "request_total": 0.023}
+{"path": "/hub/\u0440\u0430\u0431\u043e\u0442\u0430", "request_total": 0.012}
+{"path": "/hub/\u043d\u043e\u0432\u043e\u0441\u0442\u0438", "request_total": 0.022}
+{"path": "/", "request_total": 0.014}
+{"path": "/auth/login/", "request_total": 0.01}
+{"path": "/auth/login/", "request_total": 0.312}
+{"path": "/", "request_total": 0.035}
+{"path": "/admin/", "request_total": 0.093}
+{"path": "/admin/usersapp/geekhubuser/", "request_total": 0.116}
+{"path": "/admin/jsi18n/", "request_total": 0.027}
+{"path": "/admin/usersapp/geekhubuser/3/change/", "request_total": 0.226}
+{"path": "/admin/jsi18n/", "request_total": 0.063}
+{"path": "/admin/usersapp/geekhubuser/3/delete/", "request_total": 0.082}
+{"path": "/admin/usersapp/geekhubuser/3/delete/", "request_total": 0.084}
+{"path": "/admin/usersapp/geekhubuser/", "request_total": 0.075}
+{"path": "/admin/jsi18n/", "request_total": 0.022}
+{"path": "/", "request_total": 0.024}
+{"path": "/auth/logout/", "request_total": 0.03}
+{"path": "/auth/registration/", "request_total": 0.019}
+{"path": "/auth/registration/", "request_total": 1.774}
+2021-06-24 11:47:18,918 django.request ERROR    Internal Server Error: /auth/registration/
+Traceback (most recent call last):
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/db/backends/sqlite3/base.py", line 423, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.IntegrityError: UNIQUE constraint failed: usersapp_geekhubuser.email
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/views/generic/base.py", line 98, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/views/generic/edit.py", line 172, in post
+    return super().post(request, *args, **kwargs)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/views/generic/edit.py", line 142, in post
+    return self.form_valid(form)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/views/generic/edit.py", line 125, in form_valid
+    self.object = form.save()
+  File "/home/shakirov/PycharmProjects/GeekHub/usersapp/forms.py", line 39, in save
+    user.save()
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/contrib/auth/base_user.py", line 67, in save
+    super().save(*args, **kwargs)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/db/models/base.py", line 726, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/db/models/base.py", line 763, in save_base
+    updated = self._save_table(
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/db/models/base.py", line 868, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/db/models/base.py", line 906, in _do_insert
+    return manager._insert(
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/db/models/query.py", line 1270, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1416, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/db/backends/utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/db/backends/utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/db/backends/utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/db/backends/sqlite3/base.py", line 423, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.IntegrityError: UNIQUE constraint failed: usersapp_geekhubuser.email
+{"path": "/auth/registration/", "request_total": 1.691}
+{"path": "/auth/login/", "request_total": 0.009}
+{"path": "/auth/login/", "request_total": 0.332}
+{"path": "/", "request_total": 0.018}
+{"path": "/auth/account/1", "request_total": 0.028}
+{"path": "/media/pexels-matheus-bertelli-573299.jpg", "request_total": 0.014}
+2021-06-24 11:48:00,315 django.request WARNING  Not Found: /media/pexels-matheus-bertelli-573299.jpg
+{"path": "/admin/", "request_total": 0.075}
+{"path": "/admin/usersapp/geekhubuser/", "request_total": 0.104}
+{"path": "/admin/jsi18n/", "request_total": 0.015}
+{"path": "/admin/usersapp/geekhubuser/4/change/", "request_total": 0.16}
+{"path": "/admin/jsi18n/", "request_total": 0.029}
+{"path": "/admin/usersapp/geekhubuser/4/delete/", "request_total": 0.047}
+{"path": "/admin/usersapp/geekhubuser/4/delete/", "request_total": 0.087}
+{"path": "/admin/usersapp/geekhubuser/", "request_total": 0.12}
+{"path": "/admin/jsi18n/", "request_total": 0.014}
+{"path": "/admin/logout/", "request_total": 0.088}
+{"path": "/admin/", "request_total": 0.003}
+{"path": "/admin/login/", "request_total": 0.054}
+{"path": "/admin/logout/", "request_total": 0.002}
+{"path": "/admin/", "request_total": 0.002}
+{"path": "/admin/login/", "request_total": 0.033}
+{"path": "/admin/usersapp/geekhubuser/", "request_total": 0.003}
+{"path": "/admin/login/", "request_total": 0.026}
+{"path": "/admin/usersapp/geekhubuser/4/delete/", "request_total": 0.003}
+{"path": "/admin/login/", "request_total": 0.025}
+{"path": "/admin/usersapp/geekhubuser/4/change/", "request_total": 0.002}
+{"path": "/admin/login/", "request_total": 0.033}
+{"path": "/admin/usersapp/geekhubuser/", "request_total": 0.003}
+{"path": "/admin/login/", "request_total": 0.026}
+{"path": "/admin/", "request_total": 0.003}
+{"path": "/admin/login/", "request_total": 0.024}
+2021-06-24 11:48:31,171 django.request ERROR    Internal Server Error: /auth/account/1
+Traceback (most recent call last):
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/core/handlers/base.py", line 204, in _get_response
+    response = response.render()
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/template/response.py", line 105, in render
+    self.content = self.rendered_content
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/template/response.py", line 83, in rendered_content
+    return template.render(context, self._request)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/template/base.py", line 170, in render
+    return self._render(context)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/template/base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/template/base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/template/base.py", line 905, in render_annotated
+    return self.render(context)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/template/loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/template/base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/template/base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/template/base.py", line 905, in render_annotated
+    return self.render(context)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/template/base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/template/base.py", line 905, in render_annotated
+    return self.render(context)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/template/defaulttags.py", line 446, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/urls/base.py", line 86, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/urls/resolvers.py", line 694, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'modify' with arguments '(None,)' not found. 1 pattern(s) tried: ['auth/edit/(?P<pk>[0-9]+)$']
+{"path": "/auth/account/1", "request_total": 0.191}
+{"path": "/", "request_total": 0.019}
+{"path": "/auth/login/", "request_total": 0.022}
+{"path": "/auth/registration/", "request_total": 0.022}
+{"path": "/auth/registration/", "request_total": 1.382}
+{"path": "/auth/", "request_total": 0.005}
+{"path": "/auth/verify/shakirov.vitaliy@gmail.com/bd850a9039d947028655995dbbe3964c/", "request_total": 0.07}
+{"path": "/auth/verify/", "request_total": 0.014}
+{"path": "/favicon.ico", "request_total": 0.012}
+2021-06-24 11:49:08,343 django.request WARNING  Not Found: /favicon.ico
+{"path": "/", "request_total": 0.015}
+2021-06-24 11:50:05,160 django.utils.autoreload INFO     /home/shakirov/PycharmProjects/GeekHub/usersapp/views.py changed, reloading.
+2021-06-24 11:50:05,160 asyncio      DEBUG    Using selector: EpollSelector
+2021-06-24 11:50:05,882 django.utils.autoreload INFO     Watching for file changes with StatReloader
+{"path": "/auth/account/5", "request_total": 0.102}
+{"path": "/default.jpg", "request_total": 0.022}
+2021-06-24 11:50:07,618 django.request WARNING  Not Found: /default.jpg
+{"path": "/auth/delete/5", "request_total": 0.022}
+{"path": "/auth/delete/5", "request_total": 0.033}
+{"path": "/", "request_total": 0.019}
+{"path": "/auth/login/", "request_total": 0.018}
+{"path": "/auth/login/", "request_total": 0.289}
+{"path": "/", "request_total": 0.031}
+{"path": "/admin/", "request_total": 0.072}
+{"path": "/admin/usersapp/geekhubuser/", "request_total": 0.091}
+{"path": "/admin/jsi18n/", "request_total": 0.034}
+{"path": "/admin/usersapp/geekhubuser/5/change/", "request_total": 0.157}
+{"path": "/admin/jsi18n/", "request_total": 0.029}
+{"path": "/admin/usersapp/geekhubuser/5/delete/", "request_total": 0.05}
+{"path": "/admin/usersapp/geekhubuser/5/delete/", "request_total": 0.052}
+{"path": "/admin/usersapp/geekhubuser/", "request_total": 0.071}
+{"path": "/admin/jsi18n/", "request_total": 0.02}
+{"path": "/", "request_total": 0.016}
+{"path": "/auth/logout/", "request_total": 0.042}
+{"path": "/auth/registration/", "request_total": 0.022}
+{"path": "/auth/registration/", "request_total": 1.346}
+{"path": "/auth/login/", "request_total": 0.009}
+{"path": "/auth/verify/shakirov.vitaliy@gmail.com/1650796074c646d398b340960af73143/", "request_total": 0.084}
+{"path": "/auth/verify/", "request_total": 0.02}
+{"path": "/", "request_total": 0.017}
+{"path": "/auth/account/6", "request_total": 0.018}
+{"path": "/default.jpg", "request_total": 0.018}
+2021-06-24 11:51:15,863 django.request WARNING  Not Found: /default.jpg
+{"path": "/auth/edit/6", "request_total": 0.059}
+{"path": "/auth/edit/6", "request_total": 0.031}
+{"path": "/", "request_total": 0.044}
+{"path": "/auth/account/6", "request_total": 0.022}
+{"path": "/default.jpg", "request_total": 0.012}
+2021-06-24 11:51:24,638 django.request WARNING  Not Found: /default.jpg
+{"path": "/auth/delete/6", "request_total": 0.016}
+{"path": "/auth/delete/6", "request_total": 0.019}
+{"path": "/", "request_total": 0.017}
+{"path": "/auth/login/", "request_total": 0.013}
+{"path": "/auth/login/", "request_total": 0.259}
+{"path": "/", "request_total": 0.016}
+{"path": "/admin/", "request_total": 0.046}
+{"path": "/admin/usersapp/geekhubuser/", "request_total": 0.11}
+{"path": "/admin/jsi18n/", "request_total": 0.019}
+{"path": "/admin/usersapp/geekhubuser/6/change/", "request_total": 0.159}
+{"path": "/admin/jsi18n/", "request_total": 0.014}
+{"path": "/admin/usersapp/geekhubuser/6/delete/", "request_total": 0.047}
+{"path": "/admin/usersapp/geekhubuser/6/delete/", "request_total": 0.055}
+{"path": "/admin/usersapp/geekhubuser/", "request_total": 0.093}
+{"path": "/admin/jsi18n/", "request_total": 0.029}
+2021-06-24 11:52:29,170 django.utils.autoreload INFO     /home/shakirov/PycharmProjects/GeekHub/usersapp/views.py changed, reloading.
+2021-06-24 11:52:29,171 asyncio      DEBUG    Using selector: EpollSelector
+2021-06-24 11:52:29,916 django.utils.autoreload INFO     Watching for file changes with StatReloader
+{"path": "/", "request_total": 0.057}
+{"path": "/auth/logout/", "request_total": 0.072}
+{"path": "/auth/registration/", "request_total": 0.025}
+{"path": "/auth/registration/", "request_total": 1.43}
+{"path": "/auth/verify/", "request_total": 0.003}
+{"path": "/auth/verify/", "request_total": 0.005}
+{"path": "/", "request_total": 0.015}
+{"path": "/auth/verify/shakirov.vitaliy@gmail.com/35789f71eab9488aada1a512b126ffa0/", "request_total": 0.08}
+{"path": "/auth/verify/", "request_total": 0.019}
+{"path": "/", "request_total": 0.017}

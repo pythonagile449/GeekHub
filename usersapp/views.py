@@ -23,7 +23,7 @@ class RegistrationView(CreateView):
     '''
     model = GeekHubUser
     form_class = RegistrationForm
-    success_url = '/auth/'
+    success_url = '/auth/verify/'
 
 
 class AuthenticationView(LoginView):

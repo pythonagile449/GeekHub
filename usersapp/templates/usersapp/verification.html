@@ -18,12 +18,13 @@
     {% else %}
     <div class="alert alert-warning alert-dismissible fade show" role="alert" style="margin-top: 50px;">
         <h3>Верификация не пройдена.</h3>
+        <p>Перейдите по ссылке отправленной вам на адрес электронной почты указанный вами при регистрации.</p>
     </div>
     {% endif %}
     <br>
     <div class="alert " role="alert" style="margin-top: 50px;">
         <button class="form-control">
-            <a href="{% url 'index' %}" class="">на главную</a>
+            <a href="{% url 'mainapp:index' %}" class="">на главную</a>
         </button>
     </div>
 </div>
