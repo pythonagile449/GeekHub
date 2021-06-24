@@ -2,6 +2,7 @@ from django.db import models
 from usersapp.models import GeekHubUser
 from uuid import uuid4
 
+
 class Hub(models.Model):
     name = models.CharField(max_length=64, unique=True, primary_key=True)
     description = models.TextField(blank=True)
@@ -12,6 +13,7 @@ class Hub(models.Model):
 
     def __str__(self):
         return self.name
+
 
 class Article(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid4)

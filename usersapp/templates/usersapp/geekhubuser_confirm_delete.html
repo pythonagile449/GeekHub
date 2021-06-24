@@ -3,10 +3,10 @@
 
 {% block content %}
 
-    <h4>Вы действительно хотите удалить свой аккаунт???</h4>
-    <form action="{% url 'usersapp:delete' object.pk %}" method="post">
-        {% csrf_token %}
-        <input class="btn btn-danger btn-block" type="submit" value="Удалить">
-    </form>
+<h4>Вы действительно хотите удалить свой аккаунт???</h4>
+<form action="{% url 'usersapp:delete' object.pk %}" method="post">
+    {% csrf_token %}
+    <input class="btn btn-danger btn-block" type="submit" value="Удалить">
+</form>
 
 {% endblock %}

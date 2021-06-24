@@ -65,7 +65,7 @@ class UserAccountEdit(UpdateView):
     model = GeekHubUser
     form_class = UserProfileEditForm
     template_name_suffix = '_update'
-    success_url = reverse_lazy('usersapp:index')
+    success_url = reverse_lazy('mainapp:index')
 
 
 class UserAccountDeleteView(DeleteView):
@@ -75,7 +75,7 @@ class UserAccountDeleteView(DeleteView):
     Имя шаблона: geekhubuser_confirm_delete.html
     """
     model = GeekHubUser
-    success_url = reverse_lazy('usersapp:index')
+    success_url = reverse_lazy('mainapp:index')
 
     def delete(self, request, *args, **kwargs):
         self.object = self.get_object()
@@ -93,7 +93,6 @@ def verify(request, email, activate_key):
         if user.activate_key == activate_key and not user.is_activate_key_expired():
             user.is_active = True
             user.activate_key = None
-            user.is_anonymous
             user.save()
             auth.login(request, user)
             # ToDo: тут логируем что активация пользователя прошла успешно

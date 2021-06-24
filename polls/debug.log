@@ -3054,3 +3054,496 @@ django.urls.exceptions.NoReverseMatch: Reverse for 'mainapp.index' not found. 'm
 {"path": "/", "request_total": 0.016}
 2021-06-24 06:02:39,507 asyncio      DEBUG    Using proactor: IocpProactor
 2021-06-24 06:02:39,618 asyncio      DEBUG    Using proactor: IocpProactor
+2021-06-24 08:36:55,152 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-06-24 08:37:03,124 django.request ERROR    Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/db/backends/sqlite3/base.py", line 423, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such table: mainapp_hub
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/shakirov/PycharmProjects/GeekHub/mainapp/views.py", line 13, in mainpage
+    return render(request, 'mainapp/index.html', context)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/template/base.py", line 170, in render
+    return self._render(context)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/template/base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/template/base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/template/base.py", line 905, in render_annotated
+    return self.render(context)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/template/defaulttags.py", line 168, in render
+    len_values = len(values)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/db/models/query.py", line 262, in __len__
+    self._fetch_all()
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/db/models/query.py", line 1324, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/db/models/query.py", line 51, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/db/models/sql/compiler.py", line 1175, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/db/backends/utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/db/backends/utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/db/backends/utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/db/utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/db/backends/utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/db/backends/sqlite3/base.py", line 423, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such table: mainapp_hub
+{"path": "/", "request_total": 0.647}
+2021-06-24 08:37:26,407 asyncio      DEBUG    Using selector: EpollSelector
+2021-06-24 08:37:33,438 asyncio      DEBUG    Using selector: EpollSelector
+{"path": "/", "request_total": 0.062}
+{"path": "/", "request_total": 0.017}
+{"path": "/", "request_total": 0.015}
+{"path": "/", "request_total": 0.016}
+{"path": "/admin/", "request_total": 0.042}
+{"path": "/admin/mainapp/article/", "request_total": 0.068}
+{"path": "/admin/jsi18n/", "request_total": 0.025}
+{"path": "/admin/mainapp/article/add/", "request_total": 0.106}
+{"path": "/admin/jsi18n/", "request_total": 0.015}
+{"path": "/admin/mainapp/article/add/", "request_total": 0.1}
+{"path": "/admin/jsi18n/", "request_total": 0.015}
+{"path": "/admin/mainapp/hub/", "request_total": 0.051}
+{"path": "/admin/jsi18n/", "request_total": 0.021}
+{"path": "/admin/mainapp/hub/add/", "request_total": 0.061}
+{"path": "/admin/jsi18n/", "request_total": 0.009}
+{"path": "/admin/mainapp/hub/add/", "request_total": 0.039}
+{"path": "/admin/mainapp/hub/", "request_total": 0.091}
+{"path": "/admin/jsi18n/", "request_total": 0.017}
+{"path": "/admin/mainapp/hub/add/", "request_total": 0.055}
+{"path": "/admin/jsi18n/", "request_total": 0.022}
+{"path": "/admin/mainapp/hub/add/", "request_total": 0.023}
+{"path": "/admin/mainapp/hub/", "request_total": 0.075}
+{"path": "/admin/jsi18n/", "request_total": 0.034}
+{"path": "/admin/mainapp/article/", "request_total": 0.055}
+{"path": "/admin/jsi18n/", "request_total": 0.018}
+{"path": "/admin/mainapp/article/add/", "request_total": 0.086}
+{"path": "/admin/jsi18n/", "request_total": 0.014}
+{"path": "/admin/mainapp/article/add/", "request_total": 0.114}
+{"path": "/admin/mainapp/article/", "request_total": 0.07}
+{"path": "/admin/jsi18n/", "request_total": 0.012}
+{"path": "/", "request_total": 0.02}
+{"path": "/hub/\u043d\u043e\u0432\u043e\u0441\u0442\u0438", "request_total": 0.017}
+{"path": "/hub/\u0440\u0430\u0431\u043e\u0442\u0430", "request_total": 0.021}
+{"path": "/hub/\u043d\u043e\u0432\u043e\u0441\u0442\u0438", "request_total": 0.017}
+{"path": "/auth/logout/", "request_total": 0.027}
+{"path": "/auth/login/", "request_total": 0.009}
+{"path": "/auth/login/", "request_total": 0.278}
+{"path": "/", "request_total": 0.017}
+{"path": "/auth/account/1", "request_total": 0.019}
+{"path": "/auth/edit/1", "request_total": 0.039}
+{"path": "/auth/edit/1", "request_total": 0.018}
+{"path": "/auth/", "request_total": 0.012}
+{"path": "/auth/account/1", "request_total": 0.015}
+{"path": "/auth/edit/1", "request_total": 0.036}
+{"path": "/media/women-beautiful-67442.jpg", "request_total": 0.012}
+2021-06-24 09:17:59,037 django.request WARNING  Not Found: /media/women-beautiful-67442.jpg
+{"path": "/auth/edit/1", "request_total": 0.031}
+{"path": "/auth/", "request_total": 0.011}
+2021-06-24 09:19:31,000 django.utils.autoreload INFO     /home/shakirov/PycharmProjects/GeekHub/usersapp/views.py changed, reloading.
+2021-06-24 09:19:31,000 asyncio      DEBUG    Using selector: EpollSelector
+2021-06-24 09:19:31,737 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-06-24 09:19:49,716 django.utils.autoreload INFO     /home/shakirov/PycharmProjects/GeekHub/usersapp/views.py changed, reloading.
+2021-06-24 09:19:49,717 asyncio      DEBUG    Using selector: EpollSelector
+2021-06-24 09:19:50,397 django.utils.autoreload INFO     Watching for file changes with StatReloader
+{"path": "/auth/edit/1", "request_total": 0.128}
+2021-06-24 09:19:53,167 django.request ERROR    Internal Server Error: /auth/edit/1
+Traceback (most recent call last):
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/views/generic/base.py", line 98, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/views/generic/edit.py", line 194, in post
+    return super().post(request, *args, **kwargs)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/views/generic/edit.py", line 142, in post
+    return self.form_valid(form)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/views/generic/edit.py", line 126, in form_valid
+    return super().form_valid(form)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/views/generic/edit.py", line 57, in form_valid
+    return HttpResponseRedirect(self.get_success_url())
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/views/generic/edit.py", line 112, in get_success_url
+    if self.success_url:
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/utils/functional.py", line 135, in __wrapper__
+    res = func(*self.__args, **self.__kw)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/urls/base.py", line 86, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/urls/resolvers.py", line 694, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'index' not found. 'index' is not a valid view function or pattern name.
+{"path": "/auth/edit/1", "request_total": 0.121}
+2021-06-24 09:20:52,101 django.utils.autoreload INFO     /home/shakirov/PycharmProjects/GeekHub/usersapp/views.py changed, reloading.
+2021-06-24 09:20:52,102 asyncio      DEBUG    Using selector: EpollSelector
+2021-06-24 09:20:52,834 django.utils.autoreload INFO     Watching for file changes with StatReloader
+{"path": "/auth/edit/1", "request_total": 0.039}
+{"path": "/auth/login/", "request_total": 0.08}
+{"path": "/auth/login/", "request_total": 0.269}
+{"path": "/", "request_total": 0.017}
+{"path": "/auth/account/1", "request_total": 0.015}
+{"path": "/auth/edit/1", "request_total": 0.038}
+{"path": "/auth/edit/1", "request_total": 0.028}
+{"path": "/auth/login/", "request_total": 0.037}
+2021-06-24 09:21:26,146 django.utils.autoreload INFO     /home/shakirov/PycharmProjects/GeekHub/usersapp/views.py changed, reloading.
+2021-06-24 09:21:26,146 asyncio      DEBUG    Using selector: EpollSelector
+2021-06-24 09:21:26,780 django.utils.autoreload INFO     Watching for file changes with StatReloader
+{"path": "/auth/edit/1", "request_total": 0.158}
+2021-06-24 09:21:29,670 django.request ERROR    Internal Server Error: /auth/edit/1
+Traceback (most recent call last):
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/views/generic/base.py", line 98, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/views/generic/edit.py", line 194, in post
+    return super().post(request, *args, **kwargs)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/views/generic/edit.py", line 142, in post
+    return self.form_valid(form)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/views/generic/edit.py", line 126, in form_valid
+    return super().form_valid(form)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/views/generic/edit.py", line 57, in form_valid
+    return HttpResponseRedirect(self.get_success_url())
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/views/generic/edit.py", line 112, in get_success_url
+    if self.success_url:
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/utils/functional.py", line 135, in __wrapper__
+    res = func(*self.__args, **self.__kw)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/urls/base.py", line 86, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/urls/resolvers.py", line 694, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'modify' with no arguments not found. 1 pattern(s) tried: ['auth/edit/(?P<pk>[0-9]+)$']
+{"path": "/auth/edit/1", "request_total": 0.126}
+2021-06-24 09:22:51,820 django.utils.autoreload INFO     /home/shakirov/PycharmProjects/GeekHub/usersapp/views.py changed, reloading.
+2021-06-24 09:22:51,820 asyncio      DEBUG    Using selector: EpollSelector
+2021-06-24 09:22:52,590 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-06-24 09:22:55,369 django.request ERROR    Internal Server Error: /auth/edit/1
+Traceback (most recent call last):
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/urls/resolvers.py", line 600, in url_patterns
+    iter(patterns)
+TypeError: 'property' object is not iterable
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/views/generic/base.py", line 98, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/views/generic/edit.py", line 194, in post
+    return super().post(request, *args, **kwargs)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/views/generic/edit.py", line 142, in post
+    return self.form_valid(form)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/views/generic/edit.py", line 126, in form_valid
+    return super().form_valid(form)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/views/generic/edit.py", line 57, in form_valid
+    return HttpResponseRedirect(self.get_success_url())
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/views/generic/edit.py", line 112, in get_success_url
+    if self.success_url:
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/utils/functional.py", line 135, in __wrapper__
+    res = func(*self.__args, **self.__kw)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/urls/base.py", line 54, in reverse
+    app_list = resolver.app_dict[ns]
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/urls/resolvers.py", line 526, in app_dict
+    self._populate()
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/urls/resolvers.py", line 460, in _populate
+    for url_pattern in reversed(self.url_patterns):
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/utils/functional.py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/urls/resolvers.py", line 607, in url_patterns
+    raise ImproperlyConfigured(msg.format(name=self.urlconf_name)) from e
+django.core.exceptions.ImproperlyConfigured: The included URLconf '<property object at 0x7f6ccd3c6180>' does not appear to have any patterns in it. If you see valid patterns in the file then the issue is probably caused by a circular import.
+{"path": "/auth/edit/1", "request_total": 0.294}
+2021-06-24 09:38:15,154 django.utils.autoreload INFO     /home/shakirov/PycharmProjects/GeekHub/usersapp/views.py changed, reloading.
+2021-06-24 09:38:15,157 asyncio      DEBUG    Using selector: EpollSelector
+2021-06-24 09:38:15,983 django.utils.autoreload INFO     Watching for file changes with StatReloader
+{"path": "/auth/edit/1", "request_total": 0.043}
+{"path": "/auth/", "request_total": 0.033}
+2021-06-24 09:38:34,035 django.utils.autoreload INFO     /home/shakirov/PycharmProjects/GeekHub/usersapp/views.py changed, reloading.
+2021-06-24 09:38:34,035 asyncio      DEBUG    Using selector: EpollSelector
+2021-06-24 09:38:34,711 django.utils.autoreload INFO     Watching for file changes with StatReloader
+{"path": "/auth/edit/1", "request_total": 0.159}
+{"path": "/auth/edit/1", "request_total": 0.021}
+{"path": "/", "request_total": 0.02}
+2021-06-24 09:40:05,225 django.utils.autoreload INFO     /home/shakirov/PycharmProjects/GeekHub/usersapp/views.py changed, reloading.
+2021-06-24 09:40:05,226 asyncio      DEBUG    Using selector: EpollSelector
+2021-06-24 09:40:05,841 django.utils.autoreload INFO     Watching for file changes with StatReloader
+{"path": "/admin/", "request_total": 0.145}
+{"path": "/admin/usersapp/geekhubuser/", "request_total": 0.081}
+{"path": "/admin/jsi18n/", "request_total": 0.015}
+{"path": "/admin/usersapp/geekhubuser/add/", "request_total": 0.121}
+{"path": "/admin/jsi18n/", "request_total": 0.024}
+{"path": "/admin/usersapp/geekhubuser/add/", "request_total": 0.299}
+{"path": "/admin/usersapp/geekhubuser/2/change/", "request_total": 0.152}
+{"path": "/admin/jsi18n/", "request_total": 0.035}
+2021-06-24 09:40:33,059 django.security.csrf WARNING  Forbidden (CSRF token missing or incorrect.): /auth/login/
+{"path": "/auth/login/", "request_total": 0.008}
+{"path": "/auth/login/", "request_total": 0.019}
+{"path": "/auth/logout/", "request_total": 0.061}
+{"path": "/auth/login/", "request_total": 0.009}
+{"path": "/auth/login/", "request_total": 0.233}
+{"path": "/admin/usersapp/geekhubuser/", "request_total": 0.004}
+{"path": "/admin/login/", "request_total": 0.029}
+{"path": "/admin/login/", "request_total": 0.323}
+{"path": "/admin/usersapp/geekhubuser/", "request_total": 0.074}
+{"path": "/admin/jsi18n/", "request_total": 0.014}
+{"path": "/admin/usersapp/geekhubuser/2/change/", "request_total": 0.177}
+{"path": "/admin/jsi18n/", "request_total": 0.033}
+{"path": "/admin/usersapp/geekhubuser/2/delete/", "request_total": 0.087}
+{"path": "/admin/usersapp/geekhubuser/2/delete/", "request_total": 0.053}
+{"path": "/admin/usersapp/geekhubuser/", "request_total": 0.085}
+{"path": "/admin/jsi18n/", "request_total": 0.014}
+{"path": "/admin/usersapp/geekhubuser/add/", "request_total": 0.061}
+{"path": "/admin/jsi18n/", "request_total": 0.017}
+{"path": "/admin/usersapp/geekhubuser/add/", "request_total": 0.282}
+{"path": "/admin/usersapp/geekhubuser/3/change/", "request_total": 0.18}
+{"path": "/admin/jsi18n/", "request_total": 0.025}
+2021-06-24 09:41:36,601 django.security.csrf WARNING  Forbidden (CSRF token missing or incorrect.): /auth/login/
+{"path": "/auth/login/", "request_total": 0.007}
+2021-06-24 09:41:42,684 django.security.csrf WARNING  Forbidden (CSRF token missing or incorrect.): /auth/login/
+{"path": "/auth/login/", "request_total": 0.006}
+{"path": "/auth/login/", "request_total": 0.018}
+{"path": "/auth/login/", "request_total": 0.017}
+{"path": "/auth/login/", "request_total": 0.019}
+{"path": "/auth/login/", "request_total": 0.295}
+{"path": "/", "request_total": 0.019}
+{"path": "/auth/account/3", "request_total": 0.032}
+{"path": "/auth/delete/3", "request_total": 0.02}
+{"path": "/auth/delete/3", "request_total": 0.048}
+{"path": "/", "request_total": 0.017}
+{"path": "/auth/login/", "request_total": 0.016}
+{"path": "/auth/login/", "request_total": 0.253}
+{"path": "/auth/login/", "request_total": 0.241}
+{"path": "/auth/login/", "request_total": 0.289}
+{"path": "/", "request_total": 0.018}
+{"path": "/auth/account/1", "request_total": 0.019}
+2021-06-24 10:03:10,281 django.utils.autoreload INFO     /home/shakirov/PycharmProjects/GeekHub/usersapp/views.py changed, reloading.
+2021-06-24 10:03:10,281 asyncio      DEBUG    Using selector: EpollSelector
+2021-06-24 10:03:11,078 django.utils.autoreload INFO     Watching for file changes with StatReloader
+{"path": "/", "request_total": 0.059}
+{"path": "/auth/account/1", "request_total": 0.06}
+{"path": "/", "request_total": 0.02}
+{"path": "/auth/account/1", "request_total": 0.017}
+{"path": "/auth/account/1", "request_total": 0.018}
+{"path": "/auth/account/1", "request_total": 0.021}
+{"path": "/auth/account/1", "request_total": 0.018}
+{"path": "/auth/account/1", "request_total": 0.018}
+{"path": "/auth/account/media/women-beautiful-67442.jpg", "request_total": 0.025}
+2021-06-24 10:10:08,586 django.request WARNING  Not Found: /auth/account/media/women-beautiful-67442.jpg
+{"path": "/auth/account/1", "request_total": 0.018}
+2021-06-24 10:18:24,146 django.request ERROR    Internal Server Error: /auth/account/1
+Traceback (most recent call last):
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/core/handlers/base.py", line 204, in _get_response
+    response = response.render()
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/template/response.py", line 105, in render
+    self.content = self.rendered_content
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/template/response.py", line 81, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/template/response.py", line 63, in resolve_template
+    return select_template(template, using=self.using)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/template/loader.py", line 42, in select_template
+    return engine.get_template(template_name)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/template/backends/django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/template/engine.py", line 143, in get_template
+    template, origin = self.find_template(template_name)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/template/engine.py", line 125, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/template/loaders/base.py", line 29, in get_template
+    return Template(
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/template/base.py", line 155, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/template/base.py", line 193, in compile_nodelist
+    return parser.parse()
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/template/base.py", line 478, in parse
+    raise self.error(token, e)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/template/base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/template/loader_tags.py", line 278, in do_extends
+    nodelist = parser.parse()
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/template/base.py", line 478, in parse
+    raise self.error(token, e)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/template/base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/template/loader_tags.py", line 216, in do_block
+    nodelist = parser.parse(('endblock',))
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/template/base.py", line 449, in parse
+    raise self.error(token, e)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/template/base.py", line 447, in parse
+    filter_expression = self.compile_filter(token.contents)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/template/base.py", line 563, in compile_filter
+    return FilterExpression(token, self)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/template/base.py", line 657, in __init__
+    filter_func = parser.find_filter(filter_name)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/template/base.py", line 569, in find_filter
+    raise TemplateSyntaxError("Invalid filter: '%s'" % filter_name)
+django.template.exceptions.TemplateSyntaxError: Invalid filter: 'media_folder'
+{"path": "/auth/account/1", "request_total": 0.163}
+2021-06-24 10:18:52,107 django.request ERROR    Internal Server Error: /auth/account/1
+Traceback (most recent call last):
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/template/defaulttags.py", line 1034, in find_library
+    return parser.libraries[name]
+KeyError: 'custom'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/core/handlers/base.py", line 204, in _get_response
+    response = response.render()
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/template/response.py", line 105, in render
+    self.content = self.rendered_content
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/template/response.py", line 81, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/template/response.py", line 63, in resolve_template
+    return select_template(template, using=self.using)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/template/loader.py", line 42, in select_template
+    return engine.get_template(template_name)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/template/backends/django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/template/engine.py", line 143, in get_template
+    template, origin = self.find_template(template_name)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/template/engine.py", line 125, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/template/loaders/base.py", line 29, in get_template
+    return Template(
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/template/base.py", line 155, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/template/base.py", line 193, in compile_nodelist
+    return parser.parse()
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/template/base.py", line 478, in parse
+    raise self.error(token, e)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/template/base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/template/loader_tags.py", line 278, in do_extends
+    nodelist = parser.parse()
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/template/base.py", line 478, in parse
+    raise self.error(token, e)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/template/base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/template/defaulttags.py", line 1091, in load
+    lib = find_library(parser, name)
+  File "/home/shakirov/PycharmProjects/barkol/GeekHub/lib/python3.8/site-packages/django/template/defaulttags.py", line 1036, in find_library
+    raise TemplateSyntaxError(
+django.template.exceptions.TemplateSyntaxError: 'custom' is not a registered tag library. Must be one of:
+admin_list
+admin_modify
+admin_urls
+cache
+i18n
+l10n
+log
+static
+tz
+{"path": "/auth/account/1", "request_total": 0.115}
+2021-06-24 10:23:31,502 asyncio      DEBUG    Using selector: EpollSelector
+2021-06-24 10:23:32,945 django.utils.autoreload INFO     Watching for file changes with StatReloader
+{"path": "/auth/account/1", "request_total": 0.101}
+{"path": "/media/women-beautiful-67442.jpg", "request_total": 0.023}
+2021-06-24 10:23:39,558 django.request WARNING  Not Found: /media/women-beautiful-67442.jpg
+{"path": "/auth/edit/1", "request_total": 0.041}
+2021-06-24 10:24:05,691 PIL.Image    DEBUG    Importing BlpImagePlugin
+2021-06-24 10:24:05,693 PIL.Image    DEBUG    Importing BmpImagePlugin
+2021-06-24 10:24:05,694 PIL.Image    DEBUG    Importing BufrStubImagePlugin
+2021-06-24 10:24:05,695 PIL.Image    DEBUG    Importing CurImagePlugin
+2021-06-24 10:24:05,696 PIL.Image    DEBUG    Importing DcxImagePlugin
+2021-06-24 10:24:05,697 PIL.Image    DEBUG    Importing DdsImagePlugin
+2021-06-24 10:24:05,698 PIL.Image    DEBUG    Importing EpsImagePlugin
+2021-06-24 10:24:05,699 PIL.Image    DEBUG    Importing FitsStubImagePlugin
+2021-06-24 10:24:05,700 PIL.Image    DEBUG    Importing FliImagePlugin
+2021-06-24 10:24:05,701 PIL.Image    DEBUG    Importing FpxImagePlugin
+2021-06-24 10:24:05,702 PIL.Image    DEBUG    Image: failed to import FpxImagePlugin: No module named 'olefile'
+2021-06-24 10:24:05,702 PIL.Image    DEBUG    Importing FtexImagePlugin
+2021-06-24 10:24:05,703 PIL.Image    DEBUG    Importing GbrImagePlugin
+2021-06-24 10:24:05,703 PIL.Image    DEBUG    Importing GifImagePlugin
+2021-06-24 10:24:05,703 PIL.Image    DEBUG    Importing GribStubImagePlugin
+2021-06-24 10:24:05,704 PIL.Image    DEBUG    Importing Hdf5StubImagePlugin
+2021-06-24 10:24:05,705 PIL.Image    DEBUG    Importing IcnsImagePlugin
+2021-06-24 10:24:05,707 PIL.Image    DEBUG    Importing IcoImagePlugin
+2021-06-24 10:24:05,710 PIL.Image    DEBUG    Importing ImImagePlugin
+2021-06-24 10:24:05,712 PIL.Image    DEBUG    Importing ImtImagePlugin
+2021-06-24 10:24:05,713 PIL.Image    DEBUG    Importing IptcImagePlugin
+2021-06-24 10:24:05,714 PIL.Image    DEBUG    Importing JpegImagePlugin
+2021-06-24 10:24:05,714 PIL.Image    DEBUG    Importing Jpeg2KImagePlugin
+2021-06-24 10:24:05,714 PIL.Image    DEBUG    Importing McIdasImagePlugin
+2021-06-24 10:24:05,715 PIL.Image    DEBUG    Importing MicImagePlugin
+2021-06-24 10:24:05,716 PIL.Image    DEBUG    Image: failed to import MicImagePlugin: No module named 'olefile'
+2021-06-24 10:24:05,716 PIL.Image    DEBUG    Importing MpegImagePlugin
+2021-06-24 10:24:05,716 PIL.Image    DEBUG    Importing MpoImagePlugin
+2021-06-24 10:24:05,717 PIL.Image    DEBUG    Importing MspImagePlugin
+2021-06-24 10:24:05,718 PIL.Image    DEBUG    Importing PalmImagePlugin
+2021-06-24 10:24:05,719 PIL.Image    DEBUG    Importing PcdImagePlugin
+2021-06-24 10:24:05,720 PIL.Image    DEBUG    Importing PcxImagePlugin
+2021-06-24 10:24:05,720 PIL.Image    DEBUG    Importing PdfImagePlugin
+2021-06-24 10:24:05,737 PIL.Image    DEBUG    Importing PixarImagePlugin
+2021-06-24 10:24:05,738 PIL.Image    DEBUG    Importing PngImagePlugin
+2021-06-24 10:24:05,738 PIL.Image    DEBUG    Importing PpmImagePlugin
+2021-06-24 10:24:05,739 PIL.Image    DEBUG    Importing PsdImagePlugin
+2021-06-24 10:24:05,739 PIL.Image    DEBUG    Importing SgiImagePlugin
+2021-06-24 10:24:05,740 PIL.Image    DEBUG    Importing SpiderImagePlugin
+2021-06-24 10:24:05,741 PIL.Image    DEBUG    Importing SunImagePlugin
+2021-06-24 10:24:05,742 PIL.Image    DEBUG    Importing TgaImagePlugin
+2021-06-24 10:24:05,743 PIL.Image    DEBUG    Importing TiffImagePlugin
+2021-06-24 10:24:05,743 PIL.Image    DEBUG    Importing WebPImagePlugin
+2021-06-24 10:24:05,749 PIL.Image    DEBUG    Importing WmfImagePlugin
+2021-06-24 10:24:05,750 PIL.Image    DEBUG    Importing XbmImagePlugin
+2021-06-24 10:24:05,754 PIL.Image    DEBUG    Importing XpmImagePlugin
+2021-06-24 10:24:05,756 PIL.Image    DEBUG    Importing XVThumbImagePlugin
+{"path": "/auth/edit/1", "request_total": 0.169}
+{"path": "/", "request_total": 0.021}
+{"path": "/auth/account/1", "request_total": 0.021}
+{"path": "/media/pexels-matheus-bertelli-573299.jpg", "request_total": 0.017}
+2021-06-24 10:24:08,331 django.request WARNING  Not Found: /media/pexels-matheus-bertelli-573299.jpg
+{"path": "/auth/account/1", "request_total": 0.024}
+{"path": "/media/pexels-matheus-bertelli-573299.jpg", "request_total": 0.013}
+2021-06-24 10:25:40,757 django.request WARNING  Not Found: /media/pexels-matheus-bertelli-573299.jpg
+{"path": "/", "request_total": 0.022}
+{"path": "/auth/logout/", "request_total": 0.034}
+{"path": "/auth/login/", "request_total": 0.01}
+{"path": "/auth/login/svg/check-box1.svg", "request_total": 0.039}
+2021-06-24 10:27:41,529 django.request WARNING  Not Found: /auth/login/svg/check-box1.svg
+{"path": "/auth/login/svg/check-box2.svg", "request_total": 0.027}
+2021-06-24 10:27:41,541 django.request WARNING  Not Found: /auth/login/svg/check-box2.svg
+{"path": "/auth/login/", "request_total": 0.008}
+{"path": "/", "request_total": 0.015}
+{"path": "/hub/\u043d\u043e\u0432\u043e\u0441\u0442\u0438", "request_total": 0.015}
+{"path": "/hub/\u0440\u0430\u0431\u043e\u0442\u0430", "request_total": 0.014}
+{"path": "/auth/login/", "request_total": 0.016}
+{"path": "/auth/registration/", "request_total": 0.02}
+2021-06-24 10:31:27,504 django.utils.autoreload INFO     /home/shakirov/PycharmProjects/GeekHub/usersapp/migrations/0027_alter_geekhubuser_activate_key_expires.py changed, reloading.
+2021-06-24 10:31:27,505 asyncio      DEBUG    Using selector: EpollSelector
+2021-06-24 10:31:28,811 django.utils.autoreload INFO     Watching for file changes with StatReloader
+{"path": "/auth/registration/", "request_total": 0.128}

@@ -11,14 +11,14 @@
 <body>
 <div class="container-message verification">
     {% if user.is_authenticated %}
-        <div class="alert alert-success alert-dismissible fade show" role="alert" style="margin-top: 50px;">
-            <h3>Поздравляем!</h3>
-            <h4>Пользователь {{ user.username }} подтвержден.</h4>
-        </div>
+    <div class="alert alert-success alert-dismissible fade show" role="alert" style="margin-top: 50px;">
+        <h3>Поздравляем!</h3>
+        <h4>Пользователь {{ user.username }} подтвержден.</h4>
+    </div>
     {% else %}
-        <div class="alert alert-warning alert-dismissible fade show" role="alert" style="margin-top: 50px;">
-            <h3>Верификация не пройдена.</h3>
-        </div>
+    <div class="alert alert-warning alert-dismissible fade show" role="alert" style="margin-top: 50px;">
+        <h3>Верификация не пройдена.</h3>
+    </div>
     {% endif %}
     <br>
     <div class="alert " role="alert" style="margin-top: 50px;">

@@ -25,28 +25,27 @@
 
             <div class="menu-left">
                 <ul class="menu-left"> <!-- Прижат к левому краю блока-->
-                    <li><a href="/">Все потоки</a></li>
-                    <li><a href="/about/">Дизайн</a></li>
-                    <li><a href="/contacts/">Веб-разработка</a></li>
-                    <li><a href="/editor/">Мобильная разработка</a></li>
-                    <li><a href="/input/">Маркетинг</a></li>
+                    <li><a href="/">Все хабы</a></li>
+                    {% for hub in hubs %}
+                    <li><a href="{% url 'mainapp:hubs' hub.name %}">{{ hub.name }}</a></li>
+                    {% endfor %}
                 </ul>
             </div>
 
             <div class="menu-right"> <!-- Прижат к правому краю блока-->
                 <ul class="menu-right">
                     {% if user.is_authenticated %}
-                        <li><a href="{% url 'usersapp:account'  user.pk %}">{{ user.username }}</a></li>
-                        <li><a href="{% url 'usersapp:logout' %}" class="button1">Выход</a></li>
-                        {% if user.is_superuser %}
-                            <li><a href="{% url 'admin:index' %}" class="button1">Admin Panel</a></li>
-                        {% endif %}
-                        <!--Сделана как ссылка с кнопкой (не active)-->
+                    <li><a href="{% url 'usersapp:account'  user.pk %}">{{ user.username }}</a></li>
+                    <li><a href="{% url 'usersapp:logout' %}" class="button1">Выход</a></li>
+                    {% if user.is_superuser %}
+                    <li><a href="{% url 'admin:index' %}" class="button1">Admin Panel</a></li>
+                    {% endif %}
+                    <!--Сделана как ссылка с кнопкой (не active)-->
                     {% endif %}
                     {% if user.is_anonymous %}
-                        <li><a href="{% url 'usersapp:login' %}" class="button1">Вход</a></li>
-                        <li><a href="{% url 'usersapp:registration' %}" class="button1">Регистрация</a></li>
-                        <!--Сделана как ссылка с кнопкой (не active)-->
+                    <li><a href="{% url 'usersapp:login' %}" class="button1">Вход</a></li>
+                    <li><a href="{% url 'usersapp:registration' %}" class="button1">Регистрация</a></li>
+                    <!--Сделана как ссылка с кнопкой (не active)-->
                     {% endif %}
                 </ul>
             </div>
