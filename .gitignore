@@ -1,9 +1,10 @@
 *.pyc
 __pycache__
-/static/*
 /media/*
 db.sqlite3
 .DS_Store
 .idea
 settings_*
 gunicorn.*
+/venv/*
+debug.log

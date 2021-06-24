@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td><a href="{% url 'usersapp:login' %}">Login</a></td>
+    </tr>
+    <tr>
+        <td><a href="{% url 'usersapp:registration' %}">Registration</a></td>
+    </tr>
+    {% if user.is_authenticated %}
+    <tr>
+        <td><a href="{% url 'usersapp:account' user.pk %}">Account</a></td>
+    </tr>
+    <tr>
+        <td><a href="{% url 'usersapp:modify' user.pk %}">Update</a></td>
+    </tr>
+    <tr>
+        <td><a href="{% url 'usersapp:delete' user.pk %}">Delete</a></td>
+    </tr>
+    <tr>
+        <td><a href="{% url 'usersapp:logout' %}">Logout</a></td>
+    </tr>
+    {% endif %}
+    <tr>
+        <td><a href="{% url 'admin:index' %}">Admin</a></td>
+    </tr>
+
+</table>
+</body>
+</html>

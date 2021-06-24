@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta html-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Intergalactic Entertainment</title>
+    <link rel="stylesheet" type="text/css" href="../../../static/css/style-login.css">
+</head>
+<body>
+<div class="container-message verification">
+    {% if user.is_authenticated %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert" style="margin-top: 50px;">
+        <h3>Поздравляем!</h3>
+        <h4>Пользователь {{ user.username }} подтвержден.</h4>
+    </div>
+    {% else %}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert" style="margin-top: 50px;">
+        <h3>Верификация не пройдена.</h3>
+        <p>Перейдите по ссылке отправленной вам на адрес электронной почты указанный вами при регистрации.</p>
+    </div>
+    {% endif %}
+    <br>
+    <div class="alert " role="alert" style="margin-top: 50px;">
+        <button class="form-control">
+            <a href="{% url 'mainapp:index' %}" class="">на главную</a>
+        </button>
+    </div>
+</div>
+</body>
+</html>
