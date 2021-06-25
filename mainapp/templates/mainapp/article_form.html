@@ -1,0 +1,23 @@
+{% extends 'usersapp/base.html' %}
+{% load static %}
+
+{% block content %}
+    <form action="{% url 'mainapp:create_article' %}" method="post">
+        {% csrf_token %}
+
+        {% for field in form %}
+
+            {{ field.label_tag }}
+            <div>
+                {{ field }}
+            </div>
+
+        {% endfor %}
+
+
+        <button type="submit">Опубликовать</button>
+
+        {{ user.get_username }}
+        {{ user.pk }}
+    </form>
+{% endblock %}
