@@ -107,6 +107,9 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'intergalactic/static'), ]
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
@@ -168,7 +171,7 @@ MARTOR_THEME = 'bootstrap'
 MARTOR_ENABLE_CONFIGS = {
     'emoji': 'true',        # to enable/disable emoji icons.
     'imgur': 'true',        # to enable/disable imgur/custom uploader.
-    'mention': 'false',     # to enable/disable mention
+    'mention': 'true',     # to enable/disable mention
     'jquery': 'true',       # to include/revoke jquery (require for admin default django)
     'living': 'false',      # to enable/disable live updates in preview
     'spellcheck': 'false',  # to enable/disable spellcheck in form textareas
@@ -187,8 +190,8 @@ MARTOR_TOOLBAR_BUTTONS = [
 MARTOR_ENABLE_LABEL = False
 
 # Imgur API Keys
-MARTOR_IMGUR_CLIENT_ID = 'your-client-id'
-MARTOR_IMGUR_API_KEY   = 'your-api-key'
+# MARTOR_IMGUR_CLIENT_ID = 'your-client-id'
+# MARTOR_IMGUR_API_KEY   = 'your-api-key'
 
 # Markdownify
 MARTOR_MARKDOWNIFY_FUNCTION = 'martor.utils.markdownify' # default
@@ -213,9 +216,22 @@ MARTOR_MARKDOWN_EXTENSIONS = [
 # Markdown Extensions Configs
 MARTOR_MARKDOWN_EXTENSION_CONFIGS = {}
 
+import time
 # Markdown urls
-MARTOR_UPLOAD_URL = '/martor/uploader/' # default
+MARTOR_UPLOAD_PATH = 'images/uploads/{}'.format(time.strftime("%Y/%m/%d/"))
+MARTOR_UPLOAD_URL = '/api/uploader/' # default
 MARTOR_SEARCH_USERS_URL = '/martor/search-user/' # default
+
+# Maximum Upload Image
+# 2.5MB - 2621440
+# 5MB - 5242880
+# 10MB - 10485760
+# 20MB - 20971520
+# 50MB - 5242880
+# 100MB 104857600
+# 250MB - 214958080
+# 500MB - 429916160
+MAX_IMAGE_UPLOAD_SIZE = 5242880  # 5MB
 
 # Markdown Extensions
 # MARTOR_MARKDOWN_BASE_EMOJI_URL = 'https://www.webfx.com/tools/emoji-cheat-sheet/graphics/emojis/'     # from webfx
@@ -227,4 +243,3 @@ MARTOR_MARKDOWN_BASE_MENTION_URL = 'https://python.web.id/author/'              
 MARTOR_ALTERNATIVE_JS_FILE_THEME = "semantic-themed/semantic.min.js"   # default None
 MARTOR_ALTERNATIVE_CSS_FILE_THEME = "semantic-themed/semantic.min.css" # default None
 MARTOR_ALTERNATIVE_JQUERY_JS_FILE = "jquery/dist/jquery.min.js"        # default None
-

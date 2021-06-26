@@ -8,3 +8,5 @@ urlpatterns = [
     path('hub/<str:hub_name>', mainapp.hubs, name='hubs'),
     path('create-article/', mainapp.CreateArticle.as_view(), name='create_article'),
 ]
+
+
