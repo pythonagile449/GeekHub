@@ -34,6 +34,7 @@ class ArticlesByHub(ListView):
         context = super(ArticlesByHub, self).get_context_data()
         context['title'] = Hub.objects.get(pk=self.kwargs['hub_id'])
         context['hubs'] = Hub.objects.all()
+        context['active_hub'] = context['title']
         return context
 
 

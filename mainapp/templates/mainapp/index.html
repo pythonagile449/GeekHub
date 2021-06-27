@@ -8,7 +8,13 @@
 
 {% block content %}
     <div class="section-title">
-        <h2>Все потоки</h2>
+        <h2>
+            {% if active_hub %}
+                {{ active_hub }}
+            {% else %}
+                Все потоки
+            {% endif %}
+        </h2>
     </div>
 
     <div class="section-menu"></div>
@@ -22,7 +28,7 @@
                     <ul class="author-data">
                         <li><img src="{% static 'svg/icon2.svg' %}" alt="icon"></li>
                         <li>
-                            <h6-1>{{ article.author.first_name }} {{ article.author.last_name }}</h6-1>
+                            <h6-1>{{ article.author.username }}</h6-1>
                         </li>
                         <li>
                             <h6-2>{{ article.publication_date }}</h6-2>
