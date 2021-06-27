@@ -1,14 +1,8 @@
-from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DetailView
-from mainapp.forms import ArticleForm
-
-from mainapp.models import Hub, Article
-
-# Create your views here.
 from django.shortcuts import render
-
-from usersapp.models import GeekHubUser
+from mainapp.forms import ArticleForm
+from mainapp.models import Hub, Article
 
 
 def mainpage(request):

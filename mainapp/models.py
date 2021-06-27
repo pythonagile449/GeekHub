@@ -1,7 +1,7 @@
+from uuid import uuid4
 from django.db import models
 from martor.models import MartorField
 from usersapp.models import GeekHubUser
-from uuid import uuid4
 
 
 class Hub(models.Model):

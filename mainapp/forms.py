@@ -1,6 +1,7 @@
 from django import forms
-from martor.fields import MartorFormField
 from mainapp.models import Hub, Article
+
+from martor.fields import MartorFormField
 
 
 class ArticleForm(forms.ModelForm):
