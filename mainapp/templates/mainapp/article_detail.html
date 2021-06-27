@@ -1,6 +1,10 @@
-{% extends 'usersapp/base.html' %}
+{% extends 'base.html' %}
 {% load static %}
 {% load martortags %}
+
+{% block title %}
+{{ title }} :: {{ block.super }}
+{% endblock %}
 
 {% block content %}
     <div class="content-container">
@@ -45,7 +49,7 @@
                     <li>
                         <h5-2>435</h5-2>
                     </li>
-                    <li><a href="/"><img src="{% static 'svg/fluent_comment-24-filled_active.svgw' %}"
+                    <li><a href="/"><img src="{% static 'svg/fluent_comment-24-filled_active.svg' %}"
                                          alt="comm"></a></li>
                     <li>
                         <h5-2>12</h5-2>

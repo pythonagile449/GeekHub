@@ -1,22 +1,17 @@
-<!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta html-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Intergalactic Entertainment</title>
-    <link rel="stylesheet" type="text/css" href="../../../intergalactic/static/css/style-login.css">
-</head>
-<body>
-<div class="container-message">
-    <p>На Ваш почтовый ящик было отправлено письмо с ссылкой для подтверждения регистрации.</p>
-    <p>Для завершения регистрации перейдите по ссылке из полученного письма.</p>
-    <p class="p-end">Если вы не нашли письмо в своем ящике, обязательно проверьте папку <strong>&nbsp Спам. </strong>
-    </p>
-    <button name="from_message" role="alert" class="form-control" type="submit">
-        <a href="{% url 'index' %}">ОК</a>
-    </button>
-</div>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block menu %}{% endblock %}
+
+{% block content %}
+    <div class="container-message">
+        <p>На Ваш почтовый ящик было отправлено письмо с ссылкой для подтверждения регистрации.</p>
+        <p>Для завершения регистрации перейдите по ссылке из полученного письма.</p>
+        <p class="p-end">Если вы не нашли письмо в своем ящике, обязательно проверьте папку <strong>&nbsp
+            Спам. </strong>
+        </p>
+        <button name="from_message" role="alert" class="form-control" type="submit">
+            <a href="{% url 'index' %}">ОК</a>
+        </button>
+    </div>
+{% endblock %}
+
