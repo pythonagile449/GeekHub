@@ -87,7 +87,11 @@
 
                     <div class="section-left-title">
                         <h2>
-                            <h2-2>{{ article.title }}</h2-2>
+                            <h2-2>
+                                <a class="article-heading-link" href="{% url 'mainapp:article_detail' article.pk %}" style="">
+                                    {{ article.title }}
+                                </a>
+                            </h2-2>
                         </h2>
                     </div>
 
@@ -97,7 +101,8 @@
 
                     <div class="section-left-text">
                         <h5-1>
-                            {{ article.contents|safe_markdown }}
+                            {{ article.get_first_paragraph }}
+                            {#                            {{ article.contents|safe_markdown|truncatechars:500 }}#}
                         </h5-1>
                     </div>
 

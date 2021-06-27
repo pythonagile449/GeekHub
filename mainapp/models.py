@@ -34,3 +34,9 @@ class Article(models.Model):
 
     def __str__(self):
         return f'{self.title} {self.hub.name}'
+
+    def get_first_paragraph(self):
+        """
+        Возвращает первый абзац статьи для отображения в списке статей (на главной и по хабам).
+        """
+        return self.contents.split('\n')[0]

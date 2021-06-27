@@ -1,0 +1,67 @@
+{% extends 'usersapp/base.html' %}
+{% load static %}
+{% load martortags %}
+
+{% block content %}
+    <div class="content-container">
+        <div class="section-left">
+            <div class="section-indent"></div>
+            <div class="author-data">
+                <ul class="author-data">
+                    <li><img src="{% static 'svg/icon2.svg' %}" alt="icon"></li>
+                    <li>
+                        <h6-1>{{ article.author.username }}</h6-1>
+                    </li>
+                    <li>
+                        <h6-2>{{ article.publication_date }}</h6-2>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section-left-title">
+                <h2>
+                    <h2-2>{{ article.title }}</h2-2>
+                </h2>
+            </div>
+
+            <div class="chapter">
+                <h6-3>{{ article.hub.name }}</h6-3>
+            </div>
+
+            <div class="section-left-text">
+                <h5-1>
+                    {{ article.contents|safe_markdown }}
+                </h5-1>
+            </div>
+
+            <div class="like-comment">
+                <ul class="like-comment">
+                    <li><a href="/"><img src="{% static 'svg/flat-color-icons_like_active.svg' %}" alt="like"></a>
+                    </li>
+                    <li>
+                        <h5-2>56</h5-2>
+                    </li>
+                    <li><img src="{% static 'svg/carbon_view-filled_active.svg' %}" alt="view"></li>
+                    <li>
+                        <h5-2>435</h5-2>
+                    </li>
+                    <li><a href="/"><img src="{% static 'svg/fluent_comment-24-filled_active.svgw' %}"
+                                         alt="comm"></a></li>
+                    <li>
+                        <h5-2>12</h5-2>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="section-right">
+
+            <div class="section-right-block">
+
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}

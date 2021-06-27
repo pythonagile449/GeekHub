@@ -185,6 +185,17 @@ h2 {
     color: var(--primary-color);
 }
 
+.article-heading-link {
+    font-family: Roboto, Verdana, sans-serif;
+    font-weight: 400;
+    font-size: 1em;
+    color: var(--text-color);
+}
+
+.article-heading-link:hover {
+    text-decoration: none;
+}
+
 h2-2 {
     color: var(--text-color);
 }

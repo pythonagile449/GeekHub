@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy
-from django.views.generic import CreateView
+from django.views.generic import CreateView, DetailView
 from mainapp.forms import ArticleForm
 
 from mainapp.models import Hub, Article
@@ -42,7 +42,12 @@ class CreateArticle(CreateView):
 
     def form_valid(self, form):
         """
-        Устанавливаем инстанс автора для FK модели Article
+        Устанавливаем инстанс автора статьи для FK модели Article
         """
         form.instance.author = self.request.user
         return super(CreateArticle, self).form_valid(form)
+
+
+class ArticleDetail(DetailView):
+    model = Article
+    context_object_name = 'article'

@@ -9149,3 +9149,1352 @@ AttributeError: 'InMemoryUploadedFile' object has no attribute '_size'
 2021-06-26 10:22:17,628 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.escape_html.EscapeHtml".
 {"path": "/", "request_total": 0.05}
 {"path": "/media/images/uploads/2021/06/26/a90f91f81a-3.jpg", "request_total": 0.001}
+2021-06-26 10:42:01,963 django.utils.autoreload INFO     /Users/PanDa/Projects/GeekHub/mainapp/views.py changed, reloading.
+2021-06-26 10:42:01,963 asyncio      DEBUG    Using selector: KqueueSelector
+2021-06-26 10:42:02,378 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-06-27 09:04:22,481 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.extra".
+2021-06-27 09:04:22,493 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 09:04:22,495 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.footnotes.FootnoteExtension".
+2021-06-27 09:04:22,495 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.attr_list.AttrListExtension".
+2021-06-27 09:04:22,497 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.def_list.DefListExtension".
+2021-06-27 09:04:22,498 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2021-06-27 09:04:22,499 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.abbr.AbbrExtension".
+2021-06-27 09:04:22,501 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.md_in_html.MarkdownInHtmlExtension".
+2021-06-27 09:04:22,501 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.extra.ExtraExtension".
+2021-06-27 09:04:22,502 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.nl2br".
+2021-06-27 09:04:22,502 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.nl2br.Nl2BrExtension".
+2021-06-27 09:04:22,503 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.smarty".
+2021-06-27 09:04:22,505 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.smarty.SmartyExtension".
+2021-06-27 09:04:22,505 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.fenced_code".
+2021-06-27 09:04:22,505 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 09:04:22,509 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.urlize".
+2021-06-27 09:04:22,510 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.urlize.UrlizeExtension".
+2021-06-27 09:04:22,510 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.del_ins".
+2021-06-27 09:04:22,511 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.del_ins.DelInsExtension".
+2021-06-27 09:04:22,511 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mention".
+2021-06-27 09:04:22,512 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mention.MentionExtension".
+2021-06-27 09:04:22,512 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.emoji".
+2021-06-27 09:04:22,513 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.emoji.EmojiExtension".
+2021-06-27 09:04:22,513 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mdx_video".
+2021-06-27 09:04:22,516 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mdx_video.VideoExtension".
+2021-06-27 09:04:22,516 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.escape_html".
+2021-06-27 09:04:22,516 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.escape_html.EscapeHtml".
+2021-06-27 09:04:22,525 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.extra".
+2021-06-27 09:04:22,525 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 09:04:22,525 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.footnotes.FootnoteExtension".
+2021-06-27 09:04:22,525 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.attr_list.AttrListExtension".
+2021-06-27 09:04:22,525 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.def_list.DefListExtension".
+2021-06-27 09:04:22,525 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2021-06-27 09:04:22,526 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.abbr.AbbrExtension".
+2021-06-27 09:04:22,526 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.md_in_html.MarkdownInHtmlExtension".
+2021-06-27 09:04:22,526 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.extra.ExtraExtension".
+2021-06-27 09:04:22,526 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.nl2br".
+2021-06-27 09:04:22,526 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.nl2br.Nl2BrExtension".
+2021-06-27 09:04:22,526 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.smarty".
+2021-06-27 09:04:22,526 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.smarty.SmartyExtension".
+2021-06-27 09:04:22,526 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.fenced_code".
+2021-06-27 09:04:22,526 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 09:04:22,527 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.urlize".
+2021-06-27 09:04:22,527 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.urlize.UrlizeExtension".
+2021-06-27 09:04:22,527 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.del_ins".
+2021-06-27 09:04:22,527 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.del_ins.DelInsExtension".
+2021-06-27 09:04:22,527 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mention".
+2021-06-27 09:04:22,527 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mention.MentionExtension".
+2021-06-27 09:04:22,527 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.emoji".
+2021-06-27 09:04:22,527 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.emoji.EmojiExtension".
+2021-06-27 09:04:22,527 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mdx_video".
+2021-06-27 09:04:22,528 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mdx_video.VideoExtension".
+2021-06-27 09:04:22,528 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.escape_html".
+2021-06-27 09:04:22,528 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.escape_html.EscapeHtml".
+2021-06-27 09:04:22,530 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.extra".
+2021-06-27 09:04:22,530 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 09:04:22,531 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.footnotes.FootnoteExtension".
+2021-06-27 09:04:22,531 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.attr_list.AttrListExtension".
+2021-06-27 09:04:22,531 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.def_list.DefListExtension".
+2021-06-27 09:04:22,531 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2021-06-27 09:04:22,531 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.abbr.AbbrExtension".
+2021-06-27 09:04:22,531 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.md_in_html.MarkdownInHtmlExtension".
+2021-06-27 09:04:22,531 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.extra.ExtraExtension".
+2021-06-27 09:04:22,531 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.nl2br".
+2021-06-27 09:04:22,531 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.nl2br.Nl2BrExtension".
+2021-06-27 09:04:22,531 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.smarty".
+2021-06-27 09:04:22,532 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.smarty.SmartyExtension".
+2021-06-27 09:04:22,532 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.fenced_code".
+2021-06-27 09:04:22,532 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 09:04:22,532 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.urlize".
+2021-06-27 09:04:22,532 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.urlize.UrlizeExtension".
+2021-06-27 09:04:22,532 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.del_ins".
+2021-06-27 09:04:22,532 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.del_ins.DelInsExtension".
+2021-06-27 09:04:22,532 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mention".
+2021-06-27 09:04:22,532 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mention.MentionExtension".
+2021-06-27 09:04:22,533 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.emoji".
+2021-06-27 09:04:22,533 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.emoji.EmojiExtension".
+2021-06-27 09:04:22,533 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mdx_video".
+2021-06-27 09:04:22,533 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mdx_video.VideoExtension".
+2021-06-27 09:04:22,533 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.escape_html".
+2021-06-27 09:04:22,533 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.escape_html.EscapeHtml".
+2021-06-27 09:04:22,535 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.extra".
+2021-06-27 09:04:22,536 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 09:04:22,536 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.footnotes.FootnoteExtension".
+2021-06-27 09:04:22,536 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.attr_list.AttrListExtension".
+2021-06-27 09:04:22,536 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.def_list.DefListExtension".
+2021-06-27 09:04:22,536 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2021-06-27 09:04:22,536 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.abbr.AbbrExtension".
+2021-06-27 09:04:22,536 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.md_in_html.MarkdownInHtmlExtension".
+2021-06-27 09:04:22,536 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.extra.ExtraExtension".
+2021-06-27 09:04:22,536 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.nl2br".
+2021-06-27 09:04:22,537 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.nl2br.Nl2BrExtension".
+2021-06-27 09:04:22,537 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.smarty".
+2021-06-27 09:04:22,537 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.smarty.SmartyExtension".
+2021-06-27 09:04:22,537 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.fenced_code".
+2021-06-27 09:04:22,537 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 09:04:22,537 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.urlize".
+2021-06-27 09:04:22,537 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.urlize.UrlizeExtension".
+2021-06-27 09:04:22,537 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.del_ins".
+2021-06-27 09:04:22,537 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.del_ins.DelInsExtension".
+2021-06-27 09:04:22,537 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mention".
+2021-06-27 09:04:22,538 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mention.MentionExtension".
+2021-06-27 09:04:22,538 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.emoji".
+2021-06-27 09:04:22,538 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.emoji.EmojiExtension".
+2021-06-27 09:04:22,538 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mdx_video".
+2021-06-27 09:04:22,538 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mdx_video.VideoExtension".
+2021-06-27 09:04:22,538 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.escape_html".
+2021-06-27 09:04:22,538 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.escape_html.EscapeHtml".
+2021-06-27 09:04:22,541 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.extra".
+2021-06-27 09:04:22,541 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 09:04:22,541 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.footnotes.FootnoteExtension".
+2021-06-27 09:04:22,541 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.attr_list.AttrListExtension".
+2021-06-27 09:04:22,541 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.def_list.DefListExtension".
+2021-06-27 09:04:22,541 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2021-06-27 09:04:22,541 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.abbr.AbbrExtension".
+2021-06-27 09:04:22,541 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.md_in_html.MarkdownInHtmlExtension".
+2021-06-27 09:04:22,541 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.extra.ExtraExtension".
+2021-06-27 09:04:22,542 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.nl2br".
+2021-06-27 09:04:22,542 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.nl2br.Nl2BrExtension".
+2021-06-27 09:04:22,542 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.smarty".
+2021-06-27 09:04:22,542 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.smarty.SmartyExtension".
+2021-06-27 09:04:22,542 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.fenced_code".
+2021-06-27 09:04:22,542 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 09:04:22,542 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.urlize".
+2021-06-27 09:04:22,542 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.urlize.UrlizeExtension".
+2021-06-27 09:04:22,542 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.del_ins".
+2021-06-27 09:04:22,543 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.del_ins.DelInsExtension".
+2021-06-27 09:04:22,543 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mention".
+2021-06-27 09:04:22,543 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mention.MentionExtension".
+2021-06-27 09:04:22,543 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.emoji".
+2021-06-27 09:04:22,543 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.emoji.EmojiExtension".
+2021-06-27 09:04:22,543 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mdx_video".
+2021-06-27 09:04:22,543 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mdx_video.VideoExtension".
+2021-06-27 09:04:22,543 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.escape_html".
+2021-06-27 09:04:22,543 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.escape_html.EscapeHtml".
+2021-06-27 09:04:22,546 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.extra".
+2021-06-27 09:04:22,546 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 09:04:22,546 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.footnotes.FootnoteExtension".
+2021-06-27 09:04:22,546 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.attr_list.AttrListExtension".
+2021-06-27 09:04:22,546 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.def_list.DefListExtension".
+2021-06-27 09:04:22,546 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2021-06-27 09:04:22,546 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.abbr.AbbrExtension".
+2021-06-27 09:04:22,546 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.md_in_html.MarkdownInHtmlExtension".
+2021-06-27 09:04:22,546 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.extra.ExtraExtension".
+2021-06-27 09:04:22,546 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.nl2br".
+2021-06-27 09:04:22,546 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.nl2br.Nl2BrExtension".
+2021-06-27 09:04:22,547 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.smarty".
+2021-06-27 09:04:22,547 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.smarty.SmartyExtension".
+2021-06-27 09:04:22,547 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.fenced_code".
+2021-06-27 09:04:22,547 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 09:04:22,547 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.urlize".
+2021-06-27 09:04:22,547 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.urlize.UrlizeExtension".
+2021-06-27 09:04:22,547 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.del_ins".
+2021-06-27 09:04:22,547 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.del_ins.DelInsExtension".
+2021-06-27 09:04:22,547 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mention".
+2021-06-27 09:04:22,547 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mention.MentionExtension".
+2021-06-27 09:04:22,547 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.emoji".
+2021-06-27 09:04:22,548 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.emoji.EmojiExtension".
+2021-06-27 09:04:22,548 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mdx_video".
+2021-06-27 09:04:22,548 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mdx_video.VideoExtension".
+2021-06-27 09:04:22,548 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.escape_html".
+2021-06-27 09:04:22,548 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.escape_html.EscapeHtml".
+2021-06-27 09:04:22,550 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.extra".
+2021-06-27 09:04:22,550 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 09:04:22,551 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.footnotes.FootnoteExtension".
+2021-06-27 09:04:22,551 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.attr_list.AttrListExtension".
+2021-06-27 09:04:22,551 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.def_list.DefListExtension".
+2021-06-27 09:04:22,551 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2021-06-27 09:04:22,551 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.abbr.AbbrExtension".
+2021-06-27 09:04:22,551 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.md_in_html.MarkdownInHtmlExtension".
+2021-06-27 09:04:22,552 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.extra.ExtraExtension".
+2021-06-27 09:04:22,552 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.nl2br".
+2021-06-27 09:04:22,552 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.nl2br.Nl2BrExtension".
+2021-06-27 09:04:22,552 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.smarty".
+2021-06-27 09:04:22,552 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.smarty.SmartyExtension".
+2021-06-27 09:04:22,552 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.fenced_code".
+2021-06-27 09:04:22,552 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 09:04:22,552 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.urlize".
+2021-06-27 09:04:22,552 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.urlize.UrlizeExtension".
+2021-06-27 09:04:22,552 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.del_ins".
+2021-06-27 09:04:22,553 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.del_ins.DelInsExtension".
+2021-06-27 09:04:22,553 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mention".
+2021-06-27 09:04:22,553 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mention.MentionExtension".
+2021-06-27 09:04:22,553 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.emoji".
+2021-06-27 09:04:22,553 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.emoji.EmojiExtension".
+2021-06-27 09:04:22,553 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mdx_video".
+2021-06-27 09:04:22,553 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mdx_video.VideoExtension".
+2021-06-27 09:04:22,553 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.escape_html".
+2021-06-27 09:04:22,553 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.escape_html.EscapeHtml".
+2021-06-27 09:04:22,556 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.extra".
+2021-06-27 09:04:22,556 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 09:04:22,556 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.footnotes.FootnoteExtension".
+2021-06-27 09:04:22,556 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.attr_list.AttrListExtension".
+2021-06-27 09:04:22,556 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.def_list.DefListExtension".
+2021-06-27 09:04:22,556 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2021-06-27 09:04:22,556 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.abbr.AbbrExtension".
+2021-06-27 09:04:22,556 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.md_in_html.MarkdownInHtmlExtension".
+2021-06-27 09:04:22,557 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.extra.ExtraExtension".
+2021-06-27 09:04:22,557 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.nl2br".
+2021-06-27 09:04:22,557 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.nl2br.Nl2BrExtension".
+2021-06-27 09:04:22,557 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.smarty".
+2021-06-27 09:04:22,557 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.smarty.SmartyExtension".
+2021-06-27 09:04:22,557 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.fenced_code".
+2021-06-27 09:04:22,557 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 09:04:22,557 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.urlize".
+2021-06-27 09:04:22,557 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.urlize.UrlizeExtension".
+2021-06-27 09:04:22,557 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.del_ins".
+2021-06-27 09:04:22,557 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.del_ins.DelInsExtension".
+2021-06-27 09:04:22,558 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mention".
+2021-06-27 09:04:22,558 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mention.MentionExtension".
+2021-06-27 09:04:22,558 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.emoji".
+2021-06-27 09:04:22,558 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.emoji.EmojiExtension".
+2021-06-27 09:04:22,558 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mdx_video".
+2021-06-27 09:04:22,558 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mdx_video.VideoExtension".
+2021-06-27 09:04:22,558 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.escape_html".
+2021-06-27 09:04:22,558 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.escape_html.EscapeHtml".
+{"path": "/", "request_total": 0.181}
+{"path": "/media/images/uploads/2021/06/26/a90f91f81a-3.jpg", "request_total": 0.001}
+{"path": "/media/images/uploads/2021/06/26/c626ce67cb-3.jpg", "request_total": 0.001}
+2021-06-27 09:04:36,437 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.extra".
+2021-06-27 09:04:36,437 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 09:04:36,437 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.footnotes.FootnoteExtension".
+2021-06-27 09:04:36,437 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.attr_list.AttrListExtension".
+2021-06-27 09:04:36,437 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.def_list.DefListExtension".
+2021-06-27 09:04:36,437 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2021-06-27 09:04:36,438 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.abbr.AbbrExtension".
+2021-06-27 09:04:36,438 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.md_in_html.MarkdownInHtmlExtension".
+2021-06-27 09:04:36,438 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.extra.ExtraExtension".
+2021-06-27 09:04:36,438 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.nl2br".
+2021-06-27 09:04:36,438 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.nl2br.Nl2BrExtension".
+2021-06-27 09:04:36,438 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.smarty".
+2021-06-27 09:04:36,438 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.smarty.SmartyExtension".
+2021-06-27 09:04:36,438 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.fenced_code".
+2021-06-27 09:04:36,438 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 09:04:36,439 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.urlize".
+2021-06-27 09:04:36,439 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.urlize.UrlizeExtension".
+2021-06-27 09:04:36,439 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.del_ins".
+2021-06-27 09:04:36,439 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.del_ins.DelInsExtension".
+2021-06-27 09:04:36,439 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mention".
+2021-06-27 09:04:36,439 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mention.MentionExtension".
+2021-06-27 09:04:36,439 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.emoji".
+2021-06-27 09:04:36,439 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.emoji.EmojiExtension".
+2021-06-27 09:04:36,439 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mdx_video".
+2021-06-27 09:04:36,440 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mdx_video.VideoExtension".
+2021-06-27 09:04:36,440 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.escape_html".
+2021-06-27 09:04:36,440 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.escape_html.EscapeHtml".
+2021-06-27 09:04:36,443 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.extra".
+2021-06-27 09:04:36,443 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 09:04:36,444 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.footnotes.FootnoteExtension".
+2021-06-27 09:04:36,444 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.attr_list.AttrListExtension".
+2021-06-27 09:04:36,444 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.def_list.DefListExtension".
+2021-06-27 09:04:36,444 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2021-06-27 09:04:36,444 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.abbr.AbbrExtension".
+2021-06-27 09:04:36,444 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.md_in_html.MarkdownInHtmlExtension".
+2021-06-27 09:04:36,444 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.extra.ExtraExtension".
+2021-06-27 09:04:36,444 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.nl2br".
+2021-06-27 09:04:36,444 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.nl2br.Nl2BrExtension".
+2021-06-27 09:04:36,445 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.smarty".
+2021-06-27 09:04:36,445 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.smarty.SmartyExtension".
+2021-06-27 09:04:36,445 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.fenced_code".
+2021-06-27 09:04:36,445 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 09:04:36,445 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.urlize".
+2021-06-27 09:04:36,445 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.urlize.UrlizeExtension".
+2021-06-27 09:04:36,445 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.del_ins".
+2021-06-27 09:04:36,445 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.del_ins.DelInsExtension".
+2021-06-27 09:04:36,445 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mention".
+2021-06-27 09:04:36,446 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mention.MentionExtension".
+2021-06-27 09:04:36,446 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.emoji".
+2021-06-27 09:04:36,446 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.emoji.EmojiExtension".
+2021-06-27 09:04:36,446 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mdx_video".
+2021-06-27 09:04:36,446 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mdx_video.VideoExtension".
+2021-06-27 09:04:36,446 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.escape_html".
+2021-06-27 09:04:36,446 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.escape_html.EscapeHtml".
+2021-06-27 09:04:36,449 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.extra".
+2021-06-27 09:04:36,449 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 09:04:36,449 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.footnotes.FootnoteExtension".
+2021-06-27 09:04:36,449 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.attr_list.AttrListExtension".
+2021-06-27 09:04:36,449 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.def_list.DefListExtension".
+2021-06-27 09:04:36,449 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2021-06-27 09:04:36,450 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.abbr.AbbrExtension".
+2021-06-27 09:04:36,450 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.md_in_html.MarkdownInHtmlExtension".
+2021-06-27 09:04:36,450 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.extra.ExtraExtension".
+2021-06-27 09:04:36,450 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.nl2br".
+2021-06-27 09:04:36,450 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.nl2br.Nl2BrExtension".
+2021-06-27 09:04:36,450 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.smarty".
+2021-06-27 09:04:36,450 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.smarty.SmartyExtension".
+2021-06-27 09:04:36,450 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.fenced_code".
+2021-06-27 09:04:36,450 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 09:04:36,451 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.urlize".
+2021-06-27 09:04:36,451 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.urlize.UrlizeExtension".
+2021-06-27 09:04:36,451 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.del_ins".
+2021-06-27 09:04:36,451 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.del_ins.DelInsExtension".
+2021-06-27 09:04:36,451 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mention".
+2021-06-27 09:04:36,451 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mention.MentionExtension".
+2021-06-27 09:04:36,451 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.emoji".
+2021-06-27 09:04:36,451 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.emoji.EmojiExtension".
+2021-06-27 09:04:36,451 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mdx_video".
+2021-06-27 09:04:36,452 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mdx_video.VideoExtension".
+2021-06-27 09:04:36,452 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.escape_html".
+2021-06-27 09:04:36,452 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.escape_html.EscapeHtml".
+2021-06-27 09:04:36,454 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.extra".
+2021-06-27 09:04:36,454 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 09:04:36,454 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.footnotes.FootnoteExtension".
+2021-06-27 09:04:36,454 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.attr_list.AttrListExtension".
+2021-06-27 09:04:36,455 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.def_list.DefListExtension".
+2021-06-27 09:04:36,455 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2021-06-27 09:04:36,455 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.abbr.AbbrExtension".
+2021-06-27 09:04:36,455 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.md_in_html.MarkdownInHtmlExtension".
+2021-06-27 09:04:36,455 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.extra.ExtraExtension".
+2021-06-27 09:04:36,455 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.nl2br".
+2021-06-27 09:04:36,455 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.nl2br.Nl2BrExtension".
+2021-06-27 09:04:36,455 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.smarty".
+2021-06-27 09:04:36,455 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.smarty.SmartyExtension".
+2021-06-27 09:04:36,456 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.fenced_code".
+2021-06-27 09:04:36,456 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 09:04:36,456 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.urlize".
+2021-06-27 09:04:36,456 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.urlize.UrlizeExtension".
+2021-06-27 09:04:36,456 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.del_ins".
+2021-06-27 09:04:36,456 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.del_ins.DelInsExtension".
+2021-06-27 09:04:36,456 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mention".
+2021-06-27 09:04:36,456 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mention.MentionExtension".
+2021-06-27 09:04:36,456 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.emoji".
+2021-06-27 09:04:36,456 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.emoji.EmojiExtension".
+2021-06-27 09:04:36,457 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mdx_video".
+2021-06-27 09:04:36,457 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mdx_video.VideoExtension".
+2021-06-27 09:04:36,457 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.escape_html".
+2021-06-27 09:04:36,457 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.escape_html.EscapeHtml".
+2021-06-27 09:04:36,460 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.extra".
+2021-06-27 09:04:36,460 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 09:04:36,460 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.footnotes.FootnoteExtension".
+2021-06-27 09:04:36,460 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.attr_list.AttrListExtension".
+2021-06-27 09:04:36,460 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.def_list.DefListExtension".
+2021-06-27 09:04:36,460 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2021-06-27 09:04:36,461 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.abbr.AbbrExtension".
+2021-06-27 09:04:36,461 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.md_in_html.MarkdownInHtmlExtension".
+2021-06-27 09:04:36,461 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.extra.ExtraExtension".
+2021-06-27 09:04:36,461 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.nl2br".
+2021-06-27 09:04:36,461 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.nl2br.Nl2BrExtension".
+2021-06-27 09:04:36,461 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.smarty".
+2021-06-27 09:04:36,461 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.smarty.SmartyExtension".
+2021-06-27 09:04:36,461 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.fenced_code".
+2021-06-27 09:04:36,461 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 09:04:36,462 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.urlize".
+2021-06-27 09:04:36,462 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.urlize.UrlizeExtension".
+2021-06-27 09:04:36,462 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.del_ins".
+2021-06-27 09:04:36,462 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.del_ins.DelInsExtension".
+2021-06-27 09:04:36,462 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mention".
+2021-06-27 09:04:36,462 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mention.MentionExtension".
+2021-06-27 09:04:36,462 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.emoji".
+2021-06-27 09:04:36,462 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.emoji.EmojiExtension".
+2021-06-27 09:04:36,462 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mdx_video".
+2021-06-27 09:04:36,463 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mdx_video.VideoExtension".
+2021-06-27 09:04:36,463 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.escape_html".
+2021-06-27 09:04:36,463 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.escape_html.EscapeHtml".
+2021-06-27 09:04:36,465 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.extra".
+2021-06-27 09:04:36,465 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 09:04:36,465 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.footnotes.FootnoteExtension".
+2021-06-27 09:04:36,465 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.attr_list.AttrListExtension".
+2021-06-27 09:04:36,465 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.def_list.DefListExtension".
+2021-06-27 09:04:36,465 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2021-06-27 09:04:36,466 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.abbr.AbbrExtension".
+2021-06-27 09:04:36,466 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.md_in_html.MarkdownInHtmlExtension".
+2021-06-27 09:04:36,466 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.extra.ExtraExtension".
+2021-06-27 09:04:36,466 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.nl2br".
+2021-06-27 09:04:36,466 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.nl2br.Nl2BrExtension".
+2021-06-27 09:04:36,466 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.smarty".
+2021-06-27 09:04:36,466 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.smarty.SmartyExtension".
+2021-06-27 09:04:36,466 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.fenced_code".
+2021-06-27 09:04:36,466 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 09:04:36,466 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.urlize".
+2021-06-27 09:04:36,467 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.urlize.UrlizeExtension".
+2021-06-27 09:04:36,467 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.del_ins".
+2021-06-27 09:04:36,467 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.del_ins.DelInsExtension".
+2021-06-27 09:04:36,467 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mention".
+2021-06-27 09:04:36,467 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mention.MentionExtension".
+2021-06-27 09:04:36,467 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.emoji".
+2021-06-27 09:04:36,467 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.emoji.EmojiExtension".
+2021-06-27 09:04:36,467 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mdx_video".
+2021-06-27 09:04:36,467 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mdx_video.VideoExtension".
+2021-06-27 09:04:36,467 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.escape_html".
+2021-06-27 09:04:36,468 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.escape_html.EscapeHtml".
+2021-06-27 09:04:36,470 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.extra".
+2021-06-27 09:04:36,470 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 09:04:36,470 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.footnotes.FootnoteExtension".
+2021-06-27 09:04:36,470 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.attr_list.AttrListExtension".
+2021-06-27 09:04:36,471 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.def_list.DefListExtension".
+2021-06-27 09:04:36,471 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2021-06-27 09:04:36,471 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.abbr.AbbrExtension".
+2021-06-27 09:04:36,471 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.md_in_html.MarkdownInHtmlExtension".
+2021-06-27 09:04:36,471 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.extra.ExtraExtension".
+2021-06-27 09:04:36,471 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.nl2br".
+2021-06-27 09:04:36,471 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.nl2br.Nl2BrExtension".
+2021-06-27 09:04:36,471 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.smarty".
+2021-06-27 09:04:36,471 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.smarty.SmartyExtension".
+2021-06-27 09:04:36,471 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.fenced_code".
+2021-06-27 09:04:36,471 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 09:04:36,472 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.urlize".
+2021-06-27 09:04:36,472 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.urlize.UrlizeExtension".
+2021-06-27 09:04:36,472 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.del_ins".
+2021-06-27 09:04:36,472 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.del_ins.DelInsExtension".
+2021-06-27 09:04:36,472 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mention".
+2021-06-27 09:04:36,472 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mention.MentionExtension".
+2021-06-27 09:04:36,472 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.emoji".
+2021-06-27 09:04:36,472 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.emoji.EmojiExtension".
+2021-06-27 09:04:36,472 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mdx_video".
+2021-06-27 09:04:36,472 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mdx_video.VideoExtension".
+2021-06-27 09:04:36,473 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.escape_html".
+2021-06-27 09:04:36,473 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.escape_html.EscapeHtml".
+2021-06-27 09:04:36,475 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.extra".
+2021-06-27 09:04:36,475 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 09:04:36,475 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.footnotes.FootnoteExtension".
+2021-06-27 09:04:36,475 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.attr_list.AttrListExtension".
+2021-06-27 09:04:36,475 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.def_list.DefListExtension".
+2021-06-27 09:04:36,475 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2021-06-27 09:04:36,475 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.abbr.AbbrExtension".
+2021-06-27 09:04:36,476 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.md_in_html.MarkdownInHtmlExtension".
+2021-06-27 09:04:36,476 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.extra.ExtraExtension".
+2021-06-27 09:04:36,476 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.nl2br".
+2021-06-27 09:04:36,476 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.nl2br.Nl2BrExtension".
+2021-06-27 09:04:36,476 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.smarty".
+2021-06-27 09:04:36,476 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.smarty.SmartyExtension".
+2021-06-27 09:04:36,476 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.fenced_code".
+2021-06-27 09:04:36,476 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 09:04:36,476 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.urlize".
+2021-06-27 09:04:36,476 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.urlize.UrlizeExtension".
+2021-06-27 09:04:36,476 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.del_ins".
+2021-06-27 09:04:36,476 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.del_ins.DelInsExtension".
+2021-06-27 09:04:36,477 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mention".
+2021-06-27 09:04:36,477 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mention.MentionExtension".
+2021-06-27 09:04:36,477 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.emoji".
+2021-06-27 09:04:36,477 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.emoji.EmojiExtension".
+2021-06-27 09:04:36,477 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mdx_video".
+2021-06-27 09:04:36,477 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mdx_video.VideoExtension".
+2021-06-27 09:04:36,477 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.escape_html".
+2021-06-27 09:04:36,477 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.escape_html.EscapeHtml".
+{"path": "/", "request_total": 0.051}
+{"path": "/hub/\u0412\u0435\u0431-\u0440\u0430\u0437\u0440\u0430\u0431\u043e\u0442\u043a\u0430", "request_total": 0.014}
+{"path": "/hub/\u041c\u043e\u0431\u0438\u043b\u044c\u043d\u0430\u044f \u0440\u0430\u0437\u0440\u0430\u0431\u043e\u0442\u043a\u0430", "request_total": 0.009}
+{"path": "/hub/\u0412\u0435\u0431-\u0440\u0430\u0437\u0440\u0430\u0431\u043e\u0442\u043a\u0430", "request_total": 0.013}
+{"path": "/hub/\u0414\u0438\u0437\u0430\u0439\u043d", "request_total": 0.015}
+2021-06-27 09:05:13,253 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.extra".
+2021-06-27 09:05:13,253 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 09:05:13,253 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.footnotes.FootnoteExtension".
+2021-06-27 09:05:13,254 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.attr_list.AttrListExtension".
+2021-06-27 09:05:13,254 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.def_list.DefListExtension".
+2021-06-27 09:05:13,254 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2021-06-27 09:05:13,254 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.abbr.AbbrExtension".
+2021-06-27 09:05:13,254 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.md_in_html.MarkdownInHtmlExtension".
+2021-06-27 09:05:13,254 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.extra.ExtraExtension".
+2021-06-27 09:05:13,254 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.nl2br".
+2021-06-27 09:05:13,254 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.nl2br.Nl2BrExtension".
+2021-06-27 09:05:13,254 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.smarty".
+2021-06-27 09:05:13,255 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.smarty.SmartyExtension".
+2021-06-27 09:05:13,255 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.fenced_code".
+2021-06-27 09:05:13,255 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 09:05:13,255 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.urlize".
+2021-06-27 09:05:13,255 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.urlize.UrlizeExtension".
+2021-06-27 09:05:13,255 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.del_ins".
+2021-06-27 09:05:13,255 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.del_ins.DelInsExtension".
+2021-06-27 09:05:13,255 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mention".
+2021-06-27 09:05:13,255 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mention.MentionExtension".
+2021-06-27 09:05:13,255 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.emoji".
+2021-06-27 09:05:13,256 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.emoji.EmojiExtension".
+2021-06-27 09:05:13,256 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mdx_video".
+2021-06-27 09:05:13,256 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mdx_video.VideoExtension".
+2021-06-27 09:05:13,256 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.escape_html".
+2021-06-27 09:05:13,256 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.escape_html.EscapeHtml".
+2021-06-27 09:05:13,260 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.extra".
+2021-06-27 09:05:13,260 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 09:05:13,260 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.footnotes.FootnoteExtension".
+2021-06-27 09:05:13,260 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.attr_list.AttrListExtension".
+2021-06-27 09:05:13,260 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.def_list.DefListExtension".
+2021-06-27 09:05:13,260 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2021-06-27 09:05:13,260 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.abbr.AbbrExtension".
+2021-06-27 09:05:13,261 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.md_in_html.MarkdownInHtmlExtension".
+2021-06-27 09:05:13,261 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.extra.ExtraExtension".
+2021-06-27 09:05:13,261 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.nl2br".
+2021-06-27 09:05:13,261 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.nl2br.Nl2BrExtension".
+2021-06-27 09:05:13,261 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.smarty".
+2021-06-27 09:05:13,261 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.smarty.SmartyExtension".
+2021-06-27 09:05:13,261 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.fenced_code".
+2021-06-27 09:05:13,261 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 09:05:13,261 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.urlize".
+2021-06-27 09:05:13,261 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.urlize.UrlizeExtension".
+2021-06-27 09:05:13,262 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.del_ins".
+2021-06-27 09:05:13,262 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.del_ins.DelInsExtension".
+2021-06-27 09:05:13,262 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mention".
+2021-06-27 09:05:13,262 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mention.MentionExtension".
+2021-06-27 09:05:13,262 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.emoji".
+2021-06-27 09:05:13,262 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.emoji.EmojiExtension".
+2021-06-27 09:05:13,262 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mdx_video".
+2021-06-27 09:05:13,262 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mdx_video.VideoExtension".
+2021-06-27 09:05:13,262 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.escape_html".
+2021-06-27 09:05:13,263 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.escape_html.EscapeHtml".
+2021-06-27 09:05:13,265 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.extra".
+2021-06-27 09:05:13,265 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 09:05:13,265 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.footnotes.FootnoteExtension".
+2021-06-27 09:05:13,266 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.attr_list.AttrListExtension".
+2021-06-27 09:05:13,266 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.def_list.DefListExtension".
+2021-06-27 09:05:13,266 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2021-06-27 09:05:13,266 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.abbr.AbbrExtension".
+2021-06-27 09:05:13,266 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.md_in_html.MarkdownInHtmlExtension".
+2021-06-27 09:05:13,266 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.extra.ExtraExtension".
+2021-06-27 09:05:13,266 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.nl2br".
+2021-06-27 09:05:13,266 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.nl2br.Nl2BrExtension".
+2021-06-27 09:05:13,266 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.smarty".
+2021-06-27 09:05:13,267 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.smarty.SmartyExtension".
+2021-06-27 09:05:13,267 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.fenced_code".
+2021-06-27 09:05:13,267 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 09:05:13,267 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.urlize".
+2021-06-27 09:05:13,267 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.urlize.UrlizeExtension".
+2021-06-27 09:05:13,267 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.del_ins".
+2021-06-27 09:05:13,267 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.del_ins.DelInsExtension".
+2021-06-27 09:05:13,267 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mention".
+2021-06-27 09:05:13,267 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mention.MentionExtension".
+2021-06-27 09:05:13,267 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.emoji".
+2021-06-27 09:05:13,268 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.emoji.EmojiExtension".
+2021-06-27 09:05:13,268 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mdx_video".
+2021-06-27 09:05:13,268 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mdx_video.VideoExtension".
+2021-06-27 09:05:13,268 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.escape_html".
+2021-06-27 09:05:13,268 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.escape_html.EscapeHtml".
+2021-06-27 09:05:13,271 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.extra".
+2021-06-27 09:05:13,271 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 09:05:13,271 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.footnotes.FootnoteExtension".
+2021-06-27 09:05:13,271 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.attr_list.AttrListExtension".
+2021-06-27 09:05:13,271 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.def_list.DefListExtension".
+2021-06-27 09:05:13,271 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2021-06-27 09:05:13,271 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.abbr.AbbrExtension".
+2021-06-27 09:05:13,271 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.md_in_html.MarkdownInHtmlExtension".
+2021-06-27 09:05:13,272 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.extra.ExtraExtension".
+2021-06-27 09:05:13,272 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.nl2br".
+2021-06-27 09:05:13,272 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.nl2br.Nl2BrExtension".
+2021-06-27 09:05:13,272 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.smarty".
+2021-06-27 09:05:13,272 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.smarty.SmartyExtension".
+2021-06-27 09:05:13,272 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.fenced_code".
+2021-06-27 09:05:13,272 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 09:05:13,272 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.urlize".
+2021-06-27 09:05:13,272 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.urlize.UrlizeExtension".
+2021-06-27 09:05:13,272 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.del_ins".
+2021-06-27 09:05:13,273 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.del_ins.DelInsExtension".
+2021-06-27 09:05:13,273 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mention".
+2021-06-27 09:05:13,273 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mention.MentionExtension".
+2021-06-27 09:05:13,273 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.emoji".
+2021-06-27 09:05:13,273 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.emoji.EmojiExtension".
+2021-06-27 09:05:13,273 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mdx_video".
+2021-06-27 09:05:13,273 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mdx_video.VideoExtension".
+2021-06-27 09:05:13,273 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.escape_html".
+2021-06-27 09:05:13,273 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.escape_html.EscapeHtml".
+2021-06-27 09:05:13,276 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.extra".
+2021-06-27 09:05:13,276 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 09:05:13,276 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.footnotes.FootnoteExtension".
+2021-06-27 09:05:13,277 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.attr_list.AttrListExtension".
+2021-06-27 09:05:13,277 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.def_list.DefListExtension".
+2021-06-27 09:05:13,277 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2021-06-27 09:05:13,277 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.abbr.AbbrExtension".
+2021-06-27 09:05:13,277 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.md_in_html.MarkdownInHtmlExtension".
+2021-06-27 09:05:13,277 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.extra.ExtraExtension".
+2021-06-27 09:05:13,277 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.nl2br".
+2021-06-27 09:05:13,277 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.nl2br.Nl2BrExtension".
+2021-06-27 09:05:13,277 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.smarty".
+2021-06-27 09:05:13,278 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.smarty.SmartyExtension".
+2021-06-27 09:05:13,278 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.fenced_code".
+2021-06-27 09:05:13,278 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 09:05:13,278 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.urlize".
+2021-06-27 09:05:13,278 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.urlize.UrlizeExtension".
+2021-06-27 09:05:13,278 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.del_ins".
+2021-06-27 09:05:13,278 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.del_ins.DelInsExtension".
+2021-06-27 09:05:13,278 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mention".
+2021-06-27 09:05:13,278 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mention.MentionExtension".
+2021-06-27 09:05:13,278 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.emoji".
+2021-06-27 09:05:13,278 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.emoji.EmojiExtension".
+2021-06-27 09:05:13,279 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mdx_video".
+2021-06-27 09:05:13,279 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mdx_video.VideoExtension".
+2021-06-27 09:05:13,279 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.escape_html".
+2021-06-27 09:05:13,279 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.escape_html.EscapeHtml".
+2021-06-27 09:05:13,281 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.extra".
+2021-06-27 09:05:13,281 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 09:05:13,281 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.footnotes.FootnoteExtension".
+2021-06-27 09:05:13,281 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.attr_list.AttrListExtension".
+2021-06-27 09:05:13,282 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.def_list.DefListExtension".
+2021-06-27 09:05:13,282 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2021-06-27 09:05:13,282 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.abbr.AbbrExtension".
+2021-06-27 09:05:13,282 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.md_in_html.MarkdownInHtmlExtension".
+2021-06-27 09:05:13,282 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.extra.ExtraExtension".
+2021-06-27 09:05:13,282 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.nl2br".
+2021-06-27 09:05:13,282 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.nl2br.Nl2BrExtension".
+2021-06-27 09:05:13,282 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.smarty".
+2021-06-27 09:05:13,282 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.smarty.SmartyExtension".
+2021-06-27 09:05:13,283 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.fenced_code".
+2021-06-27 09:05:13,283 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 09:05:13,283 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.urlize".
+2021-06-27 09:05:13,283 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.urlize.UrlizeExtension".
+2021-06-27 09:05:13,283 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.del_ins".
+2021-06-27 09:05:13,283 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.del_ins.DelInsExtension".
+2021-06-27 09:05:13,283 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mention".
+2021-06-27 09:05:13,283 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mention.MentionExtension".
+2021-06-27 09:05:13,283 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.emoji".
+2021-06-27 09:05:13,283 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.emoji.EmojiExtension".
+2021-06-27 09:05:13,283 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mdx_video".
+2021-06-27 09:05:13,284 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mdx_video.VideoExtension".
+2021-06-27 09:05:13,284 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.escape_html".
+2021-06-27 09:05:13,284 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.escape_html.EscapeHtml".
+2021-06-27 09:05:13,286 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.extra".
+2021-06-27 09:05:13,286 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 09:05:13,286 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.footnotes.FootnoteExtension".
+2021-06-27 09:05:13,287 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.attr_list.AttrListExtension".
+2021-06-27 09:05:13,287 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.def_list.DefListExtension".
+2021-06-27 09:05:13,287 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2021-06-27 09:05:13,287 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.abbr.AbbrExtension".
+2021-06-27 09:05:13,287 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.md_in_html.MarkdownInHtmlExtension".
+2021-06-27 09:05:13,287 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.extra.ExtraExtension".
+2021-06-27 09:05:13,287 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.nl2br".
+2021-06-27 09:05:13,287 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.nl2br.Nl2BrExtension".
+2021-06-27 09:05:13,287 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.smarty".
+2021-06-27 09:05:13,287 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.smarty.SmartyExtension".
+2021-06-27 09:05:13,287 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.fenced_code".
+2021-06-27 09:05:13,288 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 09:05:13,288 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.urlize".
+2021-06-27 09:05:13,288 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.urlize.UrlizeExtension".
+2021-06-27 09:05:13,288 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.del_ins".
+2021-06-27 09:05:13,288 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.del_ins.DelInsExtension".
+2021-06-27 09:05:13,288 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mention".
+2021-06-27 09:05:13,288 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mention.MentionExtension".
+2021-06-27 09:05:13,288 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.emoji".
+2021-06-27 09:05:13,288 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.emoji.EmojiExtension".
+2021-06-27 09:05:13,288 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mdx_video".
+2021-06-27 09:05:13,288 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mdx_video.VideoExtension".
+2021-06-27 09:05:13,289 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.escape_html".
+2021-06-27 09:05:13,289 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.escape_html.EscapeHtml".
+2021-06-27 09:05:13,291 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.extra".
+2021-06-27 09:05:13,291 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 09:05:13,291 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.footnotes.FootnoteExtension".
+2021-06-27 09:05:13,291 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.attr_list.AttrListExtension".
+2021-06-27 09:05:13,291 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.def_list.DefListExtension".
+2021-06-27 09:05:13,291 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2021-06-27 09:05:13,291 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.abbr.AbbrExtension".
+2021-06-27 09:05:13,291 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.md_in_html.MarkdownInHtmlExtension".
+2021-06-27 09:05:13,292 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.extra.ExtraExtension".
+2021-06-27 09:05:13,292 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.nl2br".
+2021-06-27 09:05:13,292 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.nl2br.Nl2BrExtension".
+2021-06-27 09:05:13,292 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.smarty".
+2021-06-27 09:05:13,292 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.smarty.SmartyExtension".
+2021-06-27 09:05:13,292 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.fenced_code".
+2021-06-27 09:05:13,292 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 09:05:13,292 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.urlize".
+2021-06-27 09:05:13,292 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.urlize.UrlizeExtension".
+2021-06-27 09:05:13,292 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.del_ins".
+2021-06-27 09:05:13,292 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.del_ins.DelInsExtension".
+2021-06-27 09:05:13,292 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mention".
+2021-06-27 09:05:13,293 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mention.MentionExtension".
+2021-06-27 09:05:13,293 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.emoji".
+2021-06-27 09:05:13,293 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.emoji.EmojiExtension".
+2021-06-27 09:05:13,293 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mdx_video".
+2021-06-27 09:05:13,293 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mdx_video.VideoExtension".
+2021-06-27 09:05:13,293 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.escape_html".
+2021-06-27 09:05:13,293 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.escape_html.EscapeHtml".
+{"path": "/", "request_total": 0.051}
+{"path": "/hub/\u0412\u0435\u0431-\u0440\u0430\u0437\u0440\u0430\u0431\u043e\u0442\u043a\u0430", "request_total": 0.013}
+2021-06-27 09:07:57,145 django.request ERROR    Internal Server Error: /hub/Веб-разработка
+Traceback (most recent call last):
+  File "/Users/PanDa/Projects/GeekHub/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/PanDa/Projects/GeekHub/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/PanDa/Projects/GeekHub/mainapp/views.py", line 32, in hubs
+    return render(request, 'mainapp/hub.html', context)
+  File "/Users/PanDa/Projects/GeekHub/venv/lib/python3.8/site-packages/django/shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Users/PanDa/Projects/GeekHub/venv/lib/python3.8/site-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/Users/PanDa/Projects/GeekHub/venv/lib/python3.8/site-packages/django/template/loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "/Users/PanDa/Projects/GeekHub/venv/lib/python3.8/site-packages/django/template/backends/django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/Users/PanDa/Projects/GeekHub/venv/lib/python3.8/site-packages/django/template/engine.py", line 143, in get_template
+    template, origin = self.find_template(template_name)
+  File "/Users/PanDa/Projects/GeekHub/venv/lib/python3.8/site-packages/django/template/engine.py", line 125, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "/Users/PanDa/Projects/GeekHub/venv/lib/python3.8/site-packages/django/template/loaders/base.py", line 29, in get_template
+    return Template(
+  File "/Users/PanDa/Projects/GeekHub/venv/lib/python3.8/site-packages/django/template/base.py", line 155, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/Users/PanDa/Projects/GeekHub/venv/lib/python3.8/site-packages/django/template/base.py", line 193, in compile_nodelist
+    return parser.parse()
+  File "/Users/PanDa/Projects/GeekHub/venv/lib/python3.8/site-packages/django/template/base.py", line 478, in parse
+    raise self.error(token, e)
+  File "/Users/PanDa/Projects/GeekHub/venv/lib/python3.8/site-packages/django/template/base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "/Users/PanDa/Projects/GeekHub/venv/lib/python3.8/site-packages/django/template/defaulttags.py", line 814, in do_for
+    nodelist_loop = parser.parse(('empty', 'endfor',))
+  File "/Users/PanDa/Projects/GeekHub/venv/lib/python3.8/site-packages/django/template/base.py", line 449, in parse
+    raise self.error(token, e)
+  File "/Users/PanDa/Projects/GeekHub/venv/lib/python3.8/site-packages/django/template/base.py", line 447, in parse
+    filter_expression = self.compile_filter(token.contents)
+  File "/Users/PanDa/Projects/GeekHub/venv/lib/python3.8/site-packages/django/template/base.py", line 563, in compile_filter
+    return FilterExpression(token, self)
+  File "/Users/PanDa/Projects/GeekHub/venv/lib/python3.8/site-packages/django/template/base.py", line 657, in __init__
+    filter_func = parser.find_filter(filter_name)
+  File "/Users/PanDa/Projects/GeekHub/venv/lib/python3.8/site-packages/django/template/base.py", line 569, in find_filter
+    raise TemplateSyntaxError("Invalid filter: '%s'" % filter_name)
+django.template.exceptions.TemplateSyntaxError: Invalid filter: 'safe_markdown'
+{"path": "/hub/\u0412\u0435\u0431-\u0440\u0430\u0437\u0440\u0430\u0431\u043e\u0442\u043a\u0430", "request_total": 0.111}
+2021-06-27 09:07:58,952 django.request ERROR    Internal Server Error: /hub/Веб-разработка
+Traceback (most recent call last):
+  File "/Users/PanDa/Projects/GeekHub/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/PanDa/Projects/GeekHub/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/PanDa/Projects/GeekHub/mainapp/views.py", line 32, in hubs
+    return render(request, 'mainapp/hub.html', context)
+  File "/Users/PanDa/Projects/GeekHub/venv/lib/python3.8/site-packages/django/shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/Users/PanDa/Projects/GeekHub/venv/lib/python3.8/site-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/Users/PanDa/Projects/GeekHub/venv/lib/python3.8/site-packages/django/template/loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "/Users/PanDa/Projects/GeekHub/venv/lib/python3.8/site-packages/django/template/backends/django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/Users/PanDa/Projects/GeekHub/venv/lib/python3.8/site-packages/django/template/engine.py", line 143, in get_template
+    template, origin = self.find_template(template_name)
+  File "/Users/PanDa/Projects/GeekHub/venv/lib/python3.8/site-packages/django/template/engine.py", line 125, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "/Users/PanDa/Projects/GeekHub/venv/lib/python3.8/site-packages/django/template/loaders/base.py", line 29, in get_template
+    return Template(
+  File "/Users/PanDa/Projects/GeekHub/venv/lib/python3.8/site-packages/django/template/base.py", line 155, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/Users/PanDa/Projects/GeekHub/venv/lib/python3.8/site-packages/django/template/base.py", line 193, in compile_nodelist
+    return parser.parse()
+  File "/Users/PanDa/Projects/GeekHub/venv/lib/python3.8/site-packages/django/template/base.py", line 478, in parse
+    raise self.error(token, e)
+  File "/Users/PanDa/Projects/GeekHub/venv/lib/python3.8/site-packages/django/template/base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "/Users/PanDa/Projects/GeekHub/venv/lib/python3.8/site-packages/django/template/defaulttags.py", line 814, in do_for
+    nodelist_loop = parser.parse(('empty', 'endfor',))
+  File "/Users/PanDa/Projects/GeekHub/venv/lib/python3.8/site-packages/django/template/base.py", line 449, in parse
+    raise self.error(token, e)
+  File "/Users/PanDa/Projects/GeekHub/venv/lib/python3.8/site-packages/django/template/base.py", line 447, in parse
+    filter_expression = self.compile_filter(token.contents)
+  File "/Users/PanDa/Projects/GeekHub/venv/lib/python3.8/site-packages/django/template/base.py", line 563, in compile_filter
+    return FilterExpression(token, self)
+  File "/Users/PanDa/Projects/GeekHub/venv/lib/python3.8/site-packages/django/template/base.py", line 657, in __init__
+    filter_func = parser.find_filter(filter_name)
+  File "/Users/PanDa/Projects/GeekHub/venv/lib/python3.8/site-packages/django/template/base.py", line 569, in find_filter
+    raise TemplateSyntaxError("Invalid filter: '%s'" % filter_name)
+django.template.exceptions.TemplateSyntaxError: Invalid filter: 'safe_markdown'
+{"path": "/hub/\u0412\u0435\u0431-\u0440\u0430\u0437\u0440\u0430\u0431\u043e\u0442\u043a\u0430", "request_total": 0.071}
+2021-06-27 09:09:57,465 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.extra".
+2021-06-27 09:09:57,465 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 09:09:57,465 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.footnotes.FootnoteExtension".
+2021-06-27 09:09:57,465 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.attr_list.AttrListExtension".
+2021-06-27 09:09:57,466 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.def_list.DefListExtension".
+2021-06-27 09:09:57,466 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2021-06-27 09:09:57,466 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.abbr.AbbrExtension".
+2021-06-27 09:09:57,466 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.md_in_html.MarkdownInHtmlExtension".
+2021-06-27 09:09:57,466 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.extra.ExtraExtension".
+2021-06-27 09:09:57,467 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.nl2br".
+2021-06-27 09:09:57,467 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.nl2br.Nl2BrExtension".
+2021-06-27 09:09:57,467 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.smarty".
+2021-06-27 09:09:57,467 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.smarty.SmartyExtension".
+2021-06-27 09:09:57,467 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.fenced_code".
+2021-06-27 09:09:57,467 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 09:09:57,467 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.urlize".
+2021-06-27 09:09:57,467 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.urlize.UrlizeExtension".
+2021-06-27 09:09:57,468 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.del_ins".
+2021-06-27 09:09:57,468 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.del_ins.DelInsExtension".
+2021-06-27 09:09:57,468 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mention".
+2021-06-27 09:09:57,468 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mention.MentionExtension".
+2021-06-27 09:09:57,468 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.emoji".
+2021-06-27 09:09:57,468 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.emoji.EmojiExtension".
+2021-06-27 09:09:57,468 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mdx_video".
+2021-06-27 09:09:57,469 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mdx_video.VideoExtension".
+2021-06-27 09:09:57,469 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.escape_html".
+2021-06-27 09:09:57,469 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.escape_html.EscapeHtml".
+2021-06-27 09:09:57,472 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.extra".
+2021-06-27 09:09:57,472 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 09:09:57,472 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.footnotes.FootnoteExtension".
+2021-06-27 09:09:57,473 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.attr_list.AttrListExtension".
+2021-06-27 09:09:57,473 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.def_list.DefListExtension".
+2021-06-27 09:09:57,473 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2021-06-27 09:09:57,473 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.abbr.AbbrExtension".
+2021-06-27 09:09:57,473 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.md_in_html.MarkdownInHtmlExtension".
+2021-06-27 09:09:57,473 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.extra.ExtraExtension".
+2021-06-27 09:09:57,473 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.nl2br".
+2021-06-27 09:09:57,474 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.nl2br.Nl2BrExtension".
+2021-06-27 09:09:57,474 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.smarty".
+2021-06-27 09:09:57,474 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.smarty.SmartyExtension".
+2021-06-27 09:09:57,474 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.fenced_code".
+2021-06-27 09:09:57,474 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 09:09:57,474 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.urlize".
+2021-06-27 09:09:57,474 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.urlize.UrlizeExtension".
+2021-06-27 09:09:57,475 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.del_ins".
+2021-06-27 09:09:57,475 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.del_ins.DelInsExtension".
+2021-06-27 09:09:57,475 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mention".
+2021-06-27 09:09:57,475 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mention.MentionExtension".
+2021-06-27 09:09:57,475 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.emoji".
+2021-06-27 09:09:57,475 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.emoji.EmojiExtension".
+2021-06-27 09:09:57,475 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mdx_video".
+2021-06-27 09:09:57,476 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mdx_video.VideoExtension".
+2021-06-27 09:09:57,476 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.escape_html".
+2021-06-27 09:09:57,476 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.escape_html.EscapeHtml".
+2021-06-27 09:09:57,479 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.extra".
+2021-06-27 09:09:57,479 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 09:09:57,479 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.footnotes.FootnoteExtension".
+2021-06-27 09:09:57,479 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.attr_list.AttrListExtension".
+2021-06-27 09:09:57,480 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.def_list.DefListExtension".
+2021-06-27 09:09:57,480 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2021-06-27 09:09:57,480 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.abbr.AbbrExtension".
+2021-06-27 09:09:57,480 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.md_in_html.MarkdownInHtmlExtension".
+2021-06-27 09:09:57,480 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.extra.ExtraExtension".
+2021-06-27 09:09:57,480 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.nl2br".
+2021-06-27 09:09:57,480 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.nl2br.Nl2BrExtension".
+2021-06-27 09:09:57,481 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.smarty".
+2021-06-27 09:09:57,481 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.smarty.SmartyExtension".
+2021-06-27 09:09:57,481 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.fenced_code".
+2021-06-27 09:09:57,481 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 09:09:57,481 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.urlize".
+2021-06-27 09:09:57,481 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.urlize.UrlizeExtension".
+2021-06-27 09:09:57,481 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.del_ins".
+2021-06-27 09:09:57,482 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.del_ins.DelInsExtension".
+2021-06-27 09:09:57,482 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mention".
+2021-06-27 09:09:57,482 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mention.MentionExtension".
+2021-06-27 09:09:57,482 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.emoji".
+2021-06-27 09:09:57,482 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.emoji.EmojiExtension".
+2021-06-27 09:09:57,482 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mdx_video".
+2021-06-27 09:09:57,483 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mdx_video.VideoExtension".
+2021-06-27 09:09:57,483 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.escape_html".
+2021-06-27 09:09:57,483 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.escape_html.EscapeHtml".
+{"path": "/hub/\u0412\u0435\u0431-\u0440\u0430\u0437\u0440\u0430\u0431\u043e\u0442\u043a\u0430", "request_total": 0.033}
+2021-06-27 09:10:02,147 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.extra".
+2021-06-27 09:10:02,147 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 09:10:02,147 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.footnotes.FootnoteExtension".
+2021-06-27 09:10:02,147 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.attr_list.AttrListExtension".
+2021-06-27 09:10:02,147 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.def_list.DefListExtension".
+2021-06-27 09:10:02,147 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2021-06-27 09:10:02,147 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.abbr.AbbrExtension".
+2021-06-27 09:10:02,148 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.md_in_html.MarkdownInHtmlExtension".
+2021-06-27 09:10:02,148 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.extra.ExtraExtension".
+2021-06-27 09:10:02,148 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.nl2br".
+2021-06-27 09:10:02,148 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.nl2br.Nl2BrExtension".
+2021-06-27 09:10:02,148 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.smarty".
+2021-06-27 09:10:02,148 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.smarty.SmartyExtension".
+2021-06-27 09:10:02,148 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.fenced_code".
+2021-06-27 09:10:02,148 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 09:10:02,148 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.urlize".
+2021-06-27 09:10:02,148 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.urlize.UrlizeExtension".
+2021-06-27 09:10:02,149 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.del_ins".
+2021-06-27 09:10:02,149 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.del_ins.DelInsExtension".
+2021-06-27 09:10:02,149 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mention".
+2021-06-27 09:10:02,149 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mention.MentionExtension".
+2021-06-27 09:10:02,149 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.emoji".
+2021-06-27 09:10:02,149 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.emoji.EmojiExtension".
+2021-06-27 09:10:02,149 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mdx_video".
+2021-06-27 09:10:02,149 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mdx_video.VideoExtension".
+2021-06-27 09:10:02,150 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.escape_html".
+2021-06-27 09:10:02,150 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.escape_html.EscapeHtml".
+{"path": "/hub/\u041c\u043e\u0431\u0438\u043b\u044c\u043d\u0430\u044f \u0440\u0430\u0437\u0440\u0430\u0431\u043e\u0442\u043a\u0430", "request_total": 0.014}
+2021-06-27 09:12:48,342 django.utils.autoreload INFO     /Users/PanDa/Projects/GeekHub/mainapp/models.py changed, reloading.
+2021-06-27 09:12:48,344 asyncio      DEBUG    Using selector: KqueueSelector
+2021-06-27 09:12:48,976 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-06-27 09:13:15,427 django.utils.autoreload INFO     /Users/PanDa/Projects/GeekHub/mainapp/models.py changed, reloading.
+2021-06-27 09:13:15,428 asyncio      DEBUG    Using selector: KqueueSelector
+2021-06-27 09:13:15,720 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-06-27 09:14:13,505 django.utils.autoreload INFO     /Users/PanDa/Projects/GeekHub/mainapp/models.py changed, reloading.
+2021-06-27 09:14:13,506 asyncio      DEBUG    Using selector: KqueueSelector
+2021-06-27 09:14:13,997 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-06-27 09:16:19,458 django.utils.autoreload INFO     /Users/PanDa/Projects/GeekHub/mainapp/models.py changed, reloading.
+2021-06-27 09:16:19,459 asyncio      DEBUG    Using selector: KqueueSelector
+2021-06-27 09:16:19,835 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-06-27 09:16:20,545 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.extra".
+2021-06-27 09:16:20,553 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 09:16:20,554 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.footnotes.FootnoteExtension".
+2021-06-27 09:16:20,554 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.attr_list.AttrListExtension".
+2021-06-27 09:16:20,555 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.def_list.DefListExtension".
+2021-06-27 09:16:20,556 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2021-06-27 09:16:20,556 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.abbr.AbbrExtension".
+2021-06-27 09:16:20,557 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.md_in_html.MarkdownInHtmlExtension".
+2021-06-27 09:16:20,557 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.extra.ExtraExtension".
+2021-06-27 09:16:20,557 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.nl2br".
+2021-06-27 09:16:20,557 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.nl2br.Nl2BrExtension".
+2021-06-27 09:16:20,558 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.smarty".
+2021-06-27 09:16:20,559 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.smarty.SmartyExtension".
+2021-06-27 09:16:20,559 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.fenced_code".
+2021-06-27 09:16:20,559 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 09:16:20,560 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.urlize".
+2021-06-27 09:16:20,560 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.urlize.UrlizeExtension".
+2021-06-27 09:16:20,561 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.del_ins".
+2021-06-27 09:16:20,561 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.del_ins.DelInsExtension".
+2021-06-27 09:16:20,561 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mention".
+2021-06-27 09:16:20,562 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mention.MentionExtension".
+2021-06-27 09:16:20,562 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.emoji".
+2021-06-27 09:16:20,562 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.emoji.EmojiExtension".
+2021-06-27 09:16:20,563 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mdx_video".
+2021-06-27 09:16:20,564 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mdx_video.VideoExtension".
+2021-06-27 09:16:20,565 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.escape_html".
+2021-06-27 09:16:20,565 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.escape_html.EscapeHtml".
+{"path": "/hub/\u041c\u043e\u0431\u0438\u043b\u044c\u043d\u0430\u044f \u0440\u0430\u0437\u0440\u0430\u0431\u043e\u0442\u043a\u0430", "request_total": 0.053}
+{"path": "/", "request_total": 0.021}
+2021-06-27 09:16:28,033 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.extra".
+2021-06-27 09:16:28,034 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 09:16:28,034 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.footnotes.FootnoteExtension".
+2021-06-27 09:16:28,034 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.attr_list.AttrListExtension".
+2021-06-27 09:16:28,034 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.def_list.DefListExtension".
+2021-06-27 09:16:28,034 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2021-06-27 09:16:28,034 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.abbr.AbbrExtension".
+2021-06-27 09:16:28,034 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.md_in_html.MarkdownInHtmlExtension".
+2021-06-27 09:16:28,034 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.extra.ExtraExtension".
+2021-06-27 09:16:28,034 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.nl2br".
+2021-06-27 09:16:28,035 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.nl2br.Nl2BrExtension".
+2021-06-27 09:16:28,035 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.smarty".
+2021-06-27 09:16:28,035 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.smarty.SmartyExtension".
+2021-06-27 09:16:28,035 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.fenced_code".
+2021-06-27 09:16:28,035 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 09:16:28,035 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.urlize".
+2021-06-27 09:16:28,035 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.urlize.UrlizeExtension".
+2021-06-27 09:16:28,035 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.del_ins".
+2021-06-27 09:16:28,035 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.del_ins.DelInsExtension".
+2021-06-27 09:16:28,036 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mention".
+2021-06-27 09:16:28,036 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mention.MentionExtension".
+2021-06-27 09:16:28,036 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.emoji".
+2021-06-27 09:16:28,036 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.emoji.EmojiExtension".
+2021-06-27 09:16:28,036 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mdx_video".
+2021-06-27 09:16:28,036 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mdx_video.VideoExtension".
+2021-06-27 09:16:28,036 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.escape_html".
+2021-06-27 09:16:28,036 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.escape_html.EscapeHtml".
+2021-06-27 09:16:28,039 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.extra".
+2021-06-27 09:16:28,039 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 09:16:28,039 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.footnotes.FootnoteExtension".
+2021-06-27 09:16:28,039 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.attr_list.AttrListExtension".
+2021-06-27 09:16:28,039 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.def_list.DefListExtension".
+2021-06-27 09:16:28,040 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2021-06-27 09:16:28,040 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.abbr.AbbrExtension".
+2021-06-27 09:16:28,040 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.md_in_html.MarkdownInHtmlExtension".
+2021-06-27 09:16:28,040 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.extra.ExtraExtension".
+2021-06-27 09:16:28,040 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.nl2br".
+2021-06-27 09:16:28,040 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.nl2br.Nl2BrExtension".
+2021-06-27 09:16:28,040 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.smarty".
+2021-06-27 09:16:28,040 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.smarty.SmartyExtension".
+2021-06-27 09:16:28,040 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.fenced_code".
+2021-06-27 09:16:28,040 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 09:16:28,041 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.urlize".
+2021-06-27 09:16:28,041 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.urlize.UrlizeExtension".
+2021-06-27 09:16:28,041 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.del_ins".
+2021-06-27 09:16:28,041 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.del_ins.DelInsExtension".
+2021-06-27 09:16:28,041 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mention".
+2021-06-27 09:16:28,041 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mention.MentionExtension".
+2021-06-27 09:16:28,041 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.emoji".
+2021-06-27 09:16:28,041 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.emoji.EmojiExtension".
+2021-06-27 09:16:28,041 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mdx_video".
+2021-06-27 09:16:28,042 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mdx_video.VideoExtension".
+2021-06-27 09:16:28,042 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.escape_html".
+2021-06-27 09:16:28,042 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.escape_html.EscapeHtml".
+2021-06-27 09:16:28,044 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.extra".
+2021-06-27 09:16:28,044 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 09:16:28,045 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.footnotes.FootnoteExtension".
+2021-06-27 09:16:28,045 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.attr_list.AttrListExtension".
+2021-06-27 09:16:28,045 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.def_list.DefListExtension".
+2021-06-27 09:16:28,045 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2021-06-27 09:16:28,045 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.abbr.AbbrExtension".
+2021-06-27 09:16:28,045 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.md_in_html.MarkdownInHtmlExtension".
+2021-06-27 09:16:28,045 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.extra.ExtraExtension".
+2021-06-27 09:16:28,045 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.nl2br".
+2021-06-27 09:16:28,045 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.nl2br.Nl2BrExtension".
+2021-06-27 09:16:28,045 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.smarty".
+2021-06-27 09:16:28,046 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.smarty.SmartyExtension".
+2021-06-27 09:16:28,046 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.fenced_code".
+2021-06-27 09:16:28,046 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 09:16:28,046 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.urlize".
+2021-06-27 09:16:28,046 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.urlize.UrlizeExtension".
+2021-06-27 09:16:28,046 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.del_ins".
+2021-06-27 09:16:28,046 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.del_ins.DelInsExtension".
+2021-06-27 09:16:28,046 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mention".
+2021-06-27 09:16:28,046 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mention.MentionExtension".
+2021-06-27 09:16:28,047 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.emoji".
+2021-06-27 09:16:28,047 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.emoji.EmojiExtension".
+2021-06-27 09:16:28,047 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mdx_video".
+2021-06-27 09:16:28,047 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mdx_video.VideoExtension".
+2021-06-27 09:16:28,047 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.escape_html".
+2021-06-27 09:16:28,047 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.escape_html.EscapeHtml".
+2021-06-27 09:16:28,050 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.extra".
+2021-06-27 09:16:28,050 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 09:16:28,051 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.footnotes.FootnoteExtension".
+2021-06-27 09:16:28,051 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.attr_list.AttrListExtension".
+2021-06-27 09:16:28,051 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.def_list.DefListExtension".
+2021-06-27 09:16:28,051 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2021-06-27 09:16:28,051 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.abbr.AbbrExtension".
+2021-06-27 09:16:28,051 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.md_in_html.MarkdownInHtmlExtension".
+2021-06-27 09:16:28,051 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.extra.ExtraExtension".
+2021-06-27 09:16:28,051 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.nl2br".
+2021-06-27 09:16:28,051 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.nl2br.Nl2BrExtension".
+2021-06-27 09:16:28,051 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.smarty".
+2021-06-27 09:16:28,052 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.smarty.SmartyExtension".
+2021-06-27 09:16:28,052 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.fenced_code".
+2021-06-27 09:16:28,052 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 09:16:28,052 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.urlize".
+2021-06-27 09:16:28,052 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.urlize.UrlizeExtension".
+2021-06-27 09:16:28,052 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.del_ins".
+2021-06-27 09:16:28,052 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.del_ins.DelInsExtension".
+2021-06-27 09:16:28,052 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mention".
+2021-06-27 09:16:28,052 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mention.MentionExtension".
+2021-06-27 09:16:28,052 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.emoji".
+2021-06-27 09:16:28,053 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.emoji.EmojiExtension".
+2021-06-27 09:16:28,053 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mdx_video".
+2021-06-27 09:16:28,053 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mdx_video.VideoExtension".
+2021-06-27 09:16:28,053 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.escape_html".
+2021-06-27 09:16:28,053 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.escape_html.EscapeHtml".
+{"path": "/hub/\u0414\u0438\u0437\u0430\u0439\u043d", "request_total": 0.03}
+{"path": "/", "request_total": 0.022}
+{"path": "/auth/account/1", "request_total": 0.045}
+{"path": "/media/default.jpg", "request_total": 0.006}
+2021-06-27 09:16:40,360 django.request WARNING  Not Found: /media/default.jpg
+{"path": "/create-article/", "request_total": 0.032}
+2021-06-27 09:16:41,721 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.extra".
+2021-06-27 09:16:41,721 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 09:16:41,721 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.footnotes.FootnoteExtension".
+2021-06-27 09:16:41,721 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.attr_list.AttrListExtension".
+2021-06-27 09:16:41,721 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.def_list.DefListExtension".
+2021-06-27 09:16:41,721 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2021-06-27 09:16:41,721 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.abbr.AbbrExtension".
+2021-06-27 09:16:41,721 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.md_in_html.MarkdownInHtmlExtension".
+2021-06-27 09:16:41,721 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.extra.ExtraExtension".
+2021-06-27 09:16:41,722 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.nl2br".
+2021-06-27 09:16:41,722 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.nl2br.Nl2BrExtension".
+2021-06-27 09:16:41,722 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.smarty".
+2021-06-27 09:16:41,722 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.smarty.SmartyExtension".
+2021-06-27 09:16:41,722 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.fenced_code".
+2021-06-27 09:16:41,722 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 09:16:41,722 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.urlize".
+2021-06-27 09:16:41,722 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.urlize.UrlizeExtension".
+2021-06-27 09:16:41,722 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.del_ins".
+2021-06-27 09:16:41,722 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.del_ins.DelInsExtension".
+2021-06-27 09:16:41,722 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mention".
+2021-06-27 09:16:41,722 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mention.MentionExtension".
+2021-06-27 09:16:41,723 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.emoji".
+2021-06-27 09:16:41,723 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.emoji.EmojiExtension".
+2021-06-27 09:16:41,723 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mdx_video".
+2021-06-27 09:16:41,723 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mdx_video.VideoExtension".
+2021-06-27 09:16:41,723 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.escape_html".
+2021-06-27 09:16:41,723 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.escape_html.EscapeHtml".
+{"path": "/martor/markdownify/", "request_total": 0.004}
+{"path": "/api/uploader/", "request_total": 0.006}
+{"path": "/create-article/", "request_total": 0.008}
+{"path": "/", "request_total": 0.022}
+2021-06-27 09:25:52,070 django.utils.autoreload INFO     /Users/PanDa/Projects/GeekHub/mainapp/views.py changed, reloading.
+2021-06-27 09:25:52,070 asyncio      DEBUG    Using selector: KqueueSelector
+2021-06-27 09:25:52,431 django.utils.autoreload INFO     Watching for file changes with StatReloader
+{"path": "/", "request_total": 0.053}
+2021-06-27 10:23:41,008 django.utils.autoreload INFO     /Users/PanDa/Projects/GeekHub/mainapp/urls.py changed, reloading.
+2021-06-27 10:23:41,009 asyncio      DEBUG    Using selector: KqueueSelector
+2021-06-27 10:23:41,680 django.utils.autoreload INFO     Watching for file changes with StatReloader
+{"path": "/", "request_total": 0.045}
+{"path": "/", "request_total": 0.024}
+{"path": "/", "request_total": 0.024}
+{"path": "/", "request_total": 0.025}
+{"path": "/article/f680bf7e-24f1-4efe-a6f9-ba268d008ac1", "request_total": 0.065}
+2021-06-27 10:24:05,677 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.extra".
+2021-06-27 10:24:05,685 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 10:24:05,687 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.footnotes.FootnoteExtension".
+2021-06-27 10:24:05,687 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.attr_list.AttrListExtension".
+2021-06-27 10:24:05,688 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.def_list.DefListExtension".
+2021-06-27 10:24:05,689 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2021-06-27 10:24:05,690 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.abbr.AbbrExtension".
+2021-06-27 10:24:05,690 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.md_in_html.MarkdownInHtmlExtension".
+2021-06-27 10:24:05,690 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.extra.ExtraExtension".
+2021-06-27 10:24:05,691 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.nl2br".
+2021-06-27 10:24:05,691 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.nl2br.Nl2BrExtension".
+2021-06-27 10:24:05,692 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.smarty".
+2021-06-27 10:24:05,693 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.smarty.SmartyExtension".
+2021-06-27 10:24:05,693 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.fenced_code".
+2021-06-27 10:24:05,694 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 10:24:05,695 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.urlize".
+2021-06-27 10:24:05,695 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.urlize.UrlizeExtension".
+2021-06-27 10:24:05,695 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.del_ins".
+2021-06-27 10:24:05,696 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.del_ins.DelInsExtension".
+2021-06-27 10:24:05,696 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mention".
+2021-06-27 10:24:05,697 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mention.MentionExtension".
+2021-06-27 10:24:05,697 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.emoji".
+2021-06-27 10:24:05,697 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.emoji.EmojiExtension".
+2021-06-27 10:24:05,698 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mdx_video".
+2021-06-27 10:24:05,700 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mdx_video.VideoExtension".
+2021-06-27 10:24:05,700 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.escape_html".
+2021-06-27 10:24:05,700 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.escape_html.EscapeHtml".
+{"path": "/martor/markdownify/", "request_total": 0.027}
+2021-06-27 10:27:51,558 django.utils.autoreload INFO     /Users/PanDa/Projects/GeekHub/intergalactic/settings.py changed, reloading.
+2021-06-27 10:27:51,559 asyncio      DEBUG    Using selector: KqueueSelector
+2021-06-27 10:27:51,991 django.utils.autoreload INFO     Watching for file changes with StatReloader
+{"path": "/", "request_total": 0.051}
+{"path": "/", "request_total": 0.026}
+{"path": "/", "request_total": 0.026}
+{"path": "/", "request_total": 0.026}
+{"path": "/", "request_total": 0.029}
+{"path": "/", "request_total": 0.026}
+{"path": "/favicon.ico", "request_total": 0.014}
+2021-06-27 10:31:02,443 django.request WARNING  Not Found: /favicon.ico
+{"path": "/", "request_total": 0.024}
+{"path": "/", "request_total": 0.025}
+{"path": "/favicon.ico", "request_total": 0.005}
+2021-06-27 10:57:14,123 django.request WARNING  Not Found: /favicon.ico
+{"path": "/", "request_total": 0.024}
+{"path": "/favicon.ico", "request_total": 0.004}
+2021-06-27 10:57:19,040 django.request WARNING  Not Found: /favicon.ico
+{"path": "/", "request_total": 0.024}
+{"path": "/", "request_total": 0.026}
+{"path": "/", "request_total": 0.025}
+{"path": "/favicon.ico", "request_total": 0.005}
+2021-06-27 10:59:20,705 django.request WARNING  Not Found: /favicon.ico
+{"path": "/", "request_total": 0.026}
+{"path": "/favicon.ico", "request_total": 0.004}
+2021-06-27 10:59:22,684 django.request WARNING  Not Found: /favicon.ico
+{"path": "/", "request_total": 0.024}
+{"path": "/article/f680bf7e-24f1-4efe-a6f9-ba268d008ac1", "request_total": 0.069}
+2021-06-27 11:00:02,765 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.extra".
+2021-06-27 11:00:02,775 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 11:00:02,776 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.footnotes.FootnoteExtension".
+2021-06-27 11:00:02,776 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.attr_list.AttrListExtension".
+2021-06-27 11:00:02,777 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.def_list.DefListExtension".
+2021-06-27 11:00:02,779 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2021-06-27 11:00:02,780 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.abbr.AbbrExtension".
+2021-06-27 11:00:02,781 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.md_in_html.MarkdownInHtmlExtension".
+2021-06-27 11:00:02,781 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.extra.ExtraExtension".
+2021-06-27 11:00:02,782 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.nl2br".
+2021-06-27 11:00:02,782 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.nl2br.Nl2BrExtension".
+2021-06-27 11:00:02,783 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.smarty".
+2021-06-27 11:00:02,785 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.smarty.SmartyExtension".
+2021-06-27 11:00:02,785 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.fenced_code".
+2021-06-27 11:00:02,785 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 11:00:02,787 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.urlize".
+2021-06-27 11:00:02,787 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.urlize.UrlizeExtension".
+2021-06-27 11:00:02,788 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.del_ins".
+2021-06-27 11:00:02,788 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.del_ins.DelInsExtension".
+2021-06-27 11:00:02,789 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mention".
+2021-06-27 11:00:02,789 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mention.MentionExtension".
+2021-06-27 11:00:02,790 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.emoji".
+2021-06-27 11:00:02,790 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.emoji.EmojiExtension".
+2021-06-27 11:00:02,791 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mdx_video".
+2021-06-27 11:00:02,793 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mdx_video.VideoExtension".
+2021-06-27 11:00:02,793 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.escape_html".
+2021-06-27 11:00:02,793 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.escape_html.EscapeHtml".
+{"path": "/martor/markdownify/", "request_total": 0.034}
+{"path": "/", "request_total": 0.025}
+{"path": "/article/f680bf7e-24f1-4efe-a6f9-ba268d008ac1", "request_total": 0.025}
+2021-06-27 11:00:47,267 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.extra".
+2021-06-27 11:00:47,267 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 11:00:47,267 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.footnotes.FootnoteExtension".
+2021-06-27 11:00:47,267 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.attr_list.AttrListExtension".
+2021-06-27 11:00:47,267 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.def_list.DefListExtension".
+2021-06-27 11:00:47,267 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2021-06-27 11:00:47,268 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.abbr.AbbrExtension".
+2021-06-27 11:00:47,268 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.md_in_html.MarkdownInHtmlExtension".
+2021-06-27 11:00:47,268 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.extra.ExtraExtension".
+2021-06-27 11:00:47,268 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.nl2br".
+2021-06-27 11:00:47,268 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.nl2br.Nl2BrExtension".
+2021-06-27 11:00:47,268 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.smarty".
+2021-06-27 11:00:47,268 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.smarty.SmartyExtension".
+2021-06-27 11:00:47,268 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.fenced_code".
+2021-06-27 11:00:47,268 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 11:00:47,268 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.urlize".
+2021-06-27 11:00:47,268 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.urlize.UrlizeExtension".
+2021-06-27 11:00:47,268 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.del_ins".
+2021-06-27 11:00:47,269 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.del_ins.DelInsExtension".
+2021-06-27 11:00:47,269 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mention".
+2021-06-27 11:00:47,269 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mention.MentionExtension".
+2021-06-27 11:00:47,269 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.emoji".
+2021-06-27 11:00:47,269 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.emoji.EmojiExtension".
+2021-06-27 11:00:47,269 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mdx_video".
+2021-06-27 11:00:47,269 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mdx_video.VideoExtension".
+2021-06-27 11:00:47,269 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.escape_html".
+2021-06-27 11:00:47,269 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.escape_html.EscapeHtml".
+{"path": "/martor/markdownify/", "request_total": 0.004}
+2021-06-27 11:02:50,841 django.utils.autoreload INFO     /Users/PanDa/Projects/GeekHub/mainapp/views.py changed, reloading.
+2021-06-27 11:02:50,841 asyncio      DEBUG    Using selector: KqueueSelector
+2021-06-27 11:02:51,481 django.utils.autoreload INFO     Watching for file changes with StatReloader
+{"path": "/article/f680bf7e-24f1-4efe-a6f9-ba268d008ac1", "request_total": 0.104}
+{"path": "/article/f680bf7e-24f1-4efe-a6f9-ba268d008ac1", "request_total": 0.067}
+2021-06-27 11:02:52,414 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.extra".
+2021-06-27 11:02:52,421 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 11:02:52,422 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.footnotes.FootnoteExtension".
+2021-06-27 11:02:52,422 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.attr_list.AttrListExtension".
+2021-06-27 11:02:52,423 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.def_list.DefListExtension".
+2021-06-27 11:02:52,424 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2021-06-27 11:02:52,424 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.abbr.AbbrExtension".
+2021-06-27 11:02:52,425 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.md_in_html.MarkdownInHtmlExtension".
+2021-06-27 11:02:52,425 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.extra.ExtraExtension".
+2021-06-27 11:02:52,425 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.nl2br".
+2021-06-27 11:02:52,425 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.nl2br.Nl2BrExtension".
+2021-06-27 11:02:52,425 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.smarty".
+2021-06-27 11:02:52,427 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.smarty.SmartyExtension".
+2021-06-27 11:02:52,427 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.fenced_code".
+2021-06-27 11:02:52,427 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 11:02:52,428 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.urlize".
+2021-06-27 11:02:52,429 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.urlize.UrlizeExtension".
+2021-06-27 11:02:52,429 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.del_ins".
+2021-06-27 11:02:52,429 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.del_ins.DelInsExtension".
+2021-06-27 11:02:52,430 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mention".
+2021-06-27 11:02:52,430 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mention.MentionExtension".
+2021-06-27 11:02:52,430 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.emoji".
+2021-06-27 11:02:52,431 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.emoji.EmojiExtension".
+2021-06-27 11:02:52,431 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mdx_video".
+2021-06-27 11:02:52,433 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mdx_video.VideoExtension".
+2021-06-27 11:02:52,434 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.escape_html".
+2021-06-27 11:02:52,434 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.escape_html.EscapeHtml".
+{"path": "/martor/markdownify/", "request_total": 0.023}
+2021-06-27 11:03:34,582 django.utils.autoreload INFO     /Users/PanDa/Projects/GeekHub/mainapp/views.py changed, reloading.
+2021-06-27 11:03:34,582 asyncio      DEBUG    Using selector: KqueueSelector
+2021-06-27 11:03:34,964 django.utils.autoreload INFO     Watching for file changes with StatReloader
+{"path": "/", "request_total": 0.052}
+2021-06-27 11:03:38,284 django.request ERROR    Internal Server Error: /article/f680bf7e-24f1-4efe-a6f9-ba268d008ac1
+Traceback (most recent call last):
+  File "/Users/PanDa/Projects/GeekHub/venv/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/PanDa/Projects/GeekHub/venv/lib/python3.8/site-packages/django/core/handlers/base.py", line 204, in _get_response
+    response = response.render()
+  File "/Users/PanDa/Projects/GeekHub/venv/lib/python3.8/site-packages/django/template/response.py", line 105, in render
+    self.content = self.rendered_content
+  File "/Users/PanDa/Projects/GeekHub/venv/lib/python3.8/site-packages/django/template/response.py", line 81, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/Users/PanDa/Projects/GeekHub/venv/lib/python3.8/site-packages/django/template/response.py", line 63, in resolve_template
+    return select_template(template, using=self.using)
+  File "/Users/PanDa/Projects/GeekHub/venv/lib/python3.8/site-packages/django/template/loader.py", line 42, in select_template
+    return engine.get_template(template_name)
+  File "/Users/PanDa/Projects/GeekHub/venv/lib/python3.8/site-packages/django/template/backends/django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/Users/PanDa/Projects/GeekHub/venv/lib/python3.8/site-packages/django/template/engine.py", line 143, in get_template
+    template, origin = self.find_template(template_name)
+  File "/Users/PanDa/Projects/GeekHub/venv/lib/python3.8/site-packages/django/template/engine.py", line 125, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "/Users/PanDa/Projects/GeekHub/venv/lib/python3.8/site-packages/django/template/loaders/base.py", line 29, in get_template
+    return Template(
+  File "/Users/PanDa/Projects/GeekHub/venv/lib/python3.8/site-packages/django/template/base.py", line 155, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/Users/PanDa/Projects/GeekHub/venv/lib/python3.8/site-packages/django/template/base.py", line 193, in compile_nodelist
+    return parser.parse()
+  File "/Users/PanDa/Projects/GeekHub/venv/lib/python3.8/site-packages/django/template/base.py", line 478, in parse
+    raise self.error(token, e)
+  File "/Users/PanDa/Projects/GeekHub/venv/lib/python3.8/site-packages/django/template/base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "/Users/PanDa/Projects/GeekHub/venv/lib/python3.8/site-packages/django/template/loader_tags.py", line 278, in do_extends
+    nodelist = parser.parse()
+  File "/Users/PanDa/Projects/GeekHub/venv/lib/python3.8/site-packages/django/template/base.py", line 478, in parse
+    raise self.error(token, e)
+  File "/Users/PanDa/Projects/GeekHub/venv/lib/python3.8/site-packages/django/template/base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "/Users/PanDa/Projects/GeekHub/venv/lib/python3.8/site-packages/django/template/loader_tags.py", line 216, in do_block
+    nodelist = parser.parse(('endblock',))
+  File "/Users/PanDa/Projects/GeekHub/venv/lib/python3.8/site-packages/django/template/base.py", line 449, in parse
+    raise self.error(token, e)
+  File "/Users/PanDa/Projects/GeekHub/venv/lib/python3.8/site-packages/django/template/base.py", line 447, in parse
+    filter_expression = self.compile_filter(token.contents)
+  File "/Users/PanDa/Projects/GeekHub/venv/lib/python3.8/site-packages/django/template/base.py", line 563, in compile_filter
+    return FilterExpression(token, self)
+  File "/Users/PanDa/Projects/GeekHub/venv/lib/python3.8/site-packages/django/template/base.py", line 657, in __init__
+    filter_func = parser.find_filter(filter_name)
+  File "/Users/PanDa/Projects/GeekHub/venv/lib/python3.8/site-packages/django/template/base.py", line 569, in find_filter
+    raise TemplateSyntaxError("Invalid filter: '%s'" % filter_name)
+django.template.exceptions.TemplateSyntaxError: Invalid filter: 'safe_markdown'
+{"path": "/article/f680bf7e-24f1-4efe-a6f9-ba268d008ac1", "request_total": 0.103}
+2021-06-27 11:04:00,699 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.extra".
+2021-06-27 11:04:00,707 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 11:04:00,709 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.footnotes.FootnoteExtension".
+2021-06-27 11:04:00,709 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.attr_list.AttrListExtension".
+2021-06-27 11:04:00,711 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.def_list.DefListExtension".
+2021-06-27 11:04:00,713 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2021-06-27 11:04:00,714 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.abbr.AbbrExtension".
+2021-06-27 11:04:00,715 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.md_in_html.MarkdownInHtmlExtension".
+2021-06-27 11:04:00,715 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.extra.ExtraExtension".
+2021-06-27 11:04:00,716 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.nl2br".
+2021-06-27 11:04:00,716 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.nl2br.Nl2BrExtension".
+2021-06-27 11:04:00,716 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.smarty".
+2021-06-27 11:04:00,718 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.smarty.SmartyExtension".
+2021-06-27 11:04:00,718 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.fenced_code".
+2021-06-27 11:04:00,718 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 11:04:00,719 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.urlize".
+2021-06-27 11:04:00,720 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.urlize.UrlizeExtension".
+2021-06-27 11:04:00,720 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.del_ins".
+2021-06-27 11:04:00,720 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.del_ins.DelInsExtension".
+2021-06-27 11:04:00,721 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mention".
+2021-06-27 11:04:00,721 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mention.MentionExtension".
+2021-06-27 11:04:00,722 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.emoji".
+2021-06-27 11:04:00,722 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.emoji.EmojiExtension".
+2021-06-27 11:04:00,723 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mdx_video".
+2021-06-27 11:04:00,728 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mdx_video.VideoExtension".
+2021-06-27 11:04:00,728 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.escape_html".
+2021-06-27 11:04:00,728 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.escape_html.EscapeHtml".
+{"path": "/article/f680bf7e-24f1-4efe-a6f9-ba268d008ac1", "request_total": 0.044}
+{"path": "/auth/account/1", "request_total": 0.009}
+{"path": "/media/default.jpg", "request_total": 0.005}
+2021-06-27 11:04:16,476 django.request WARNING  Not Found: /media/default.jpg
+{"path": "/create-article/", "request_total": 0.025}
+2021-06-27 11:04:18,555 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.extra".
+2021-06-27 11:04:18,555 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 11:04:18,555 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.footnotes.FootnoteExtension".
+2021-06-27 11:04:18,556 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.attr_list.AttrListExtension".
+2021-06-27 11:04:18,556 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.def_list.DefListExtension".
+2021-06-27 11:04:18,556 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2021-06-27 11:04:18,556 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.abbr.AbbrExtension".
+2021-06-27 11:04:18,556 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.md_in_html.MarkdownInHtmlExtension".
+2021-06-27 11:04:18,556 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.extra.ExtraExtension".
+2021-06-27 11:04:18,556 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.nl2br".
+2021-06-27 11:04:18,556 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.nl2br.Nl2BrExtension".
+2021-06-27 11:04:18,556 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.smarty".
+2021-06-27 11:04:18,557 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.smarty.SmartyExtension".
+2021-06-27 11:04:18,557 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.fenced_code".
+2021-06-27 11:04:18,557 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 11:04:18,557 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.urlize".
+2021-06-27 11:04:18,557 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.urlize.UrlizeExtension".
+2021-06-27 11:04:18,557 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.del_ins".
+2021-06-27 11:04:18,557 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.del_ins.DelInsExtension".
+2021-06-27 11:04:18,557 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mention".
+2021-06-27 11:04:18,557 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mention.MentionExtension".
+2021-06-27 11:04:18,557 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.emoji".
+2021-06-27 11:04:18,558 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.emoji.EmojiExtension".
+2021-06-27 11:04:18,558 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mdx_video".
+2021-06-27 11:04:18,558 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mdx_video.VideoExtension".
+2021-06-27 11:04:18,558 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.escape_html".
+2021-06-27 11:04:18,558 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.escape_html.EscapeHtml".
+{"path": "/martor/markdownify/", "request_total": 0.004}
+{"path": "/", "request_total": 0.024}
+{"path": "/", "request_total": 0.025}
+2021-06-27 11:04:29,847 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.extra".
+2021-06-27 11:04:29,847 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 11:04:29,847 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.footnotes.FootnoteExtension".
+2021-06-27 11:04:29,848 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.attr_list.AttrListExtension".
+2021-06-27 11:04:29,848 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.def_list.DefListExtension".
+2021-06-27 11:04:29,848 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.tables.TableExtension".
+2021-06-27 11:04:29,848 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.abbr.AbbrExtension".
+2021-06-27 11:04:29,848 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.md_in_html.MarkdownInHtmlExtension".
+2021-06-27 11:04:29,848 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.extra.ExtraExtension".
+2021-06-27 11:04:29,848 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.nl2br".
+2021-06-27 11:04:29,848 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.nl2br.Nl2BrExtension".
+2021-06-27 11:04:29,848 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.smarty".
+2021-06-27 11:04:29,849 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.smarty.SmartyExtension".
+2021-06-27 11:04:29,849 MARKDOWN     DEBUG    Successfully imported extension module "markdown.extensions.fenced_code".
+2021-06-27 11:04:29,849 MARKDOWN     DEBUG    Successfully loaded extension "markdown.extensions.fenced_code.FencedCodeExtension".
+2021-06-27 11:04:29,849 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.urlize".
+2021-06-27 11:04:29,849 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.urlize.UrlizeExtension".
+2021-06-27 11:04:29,849 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.del_ins".
+2021-06-27 11:04:29,849 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.del_ins.DelInsExtension".
+2021-06-27 11:04:29,849 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mention".
+2021-06-27 11:04:29,849 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mention.MentionExtension".
+2021-06-27 11:04:29,850 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.emoji".
+2021-06-27 11:04:29,850 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.emoji.EmojiExtension".
+2021-06-27 11:04:29,850 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.mdx_video".
+2021-06-27 11:04:29,850 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.mdx_video.VideoExtension".
+2021-06-27 11:04:29,850 MARKDOWN     DEBUG    Successfully imported extension module "martor.extensions.escape_html".
+2021-06-27 11:04:29,850 MARKDOWN     DEBUG    Successfully loaded extension "martor.extensions.escape_html.EscapeHtml".
+{"path": "/article/2d0a8b23-b36f-41cb-81a7-bc36e313a51e", "request_total": 0.015}
+{"path": "/media/images/uploads/2021/06/27/8fff2043df-2.jpg", "request_total": 0.001}
