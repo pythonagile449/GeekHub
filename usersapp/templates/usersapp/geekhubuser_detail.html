@@ -1,26 +1,37 @@
-{% extends 'usersapp/base.html' %}
+{% extends 'base.html' %}
 {% load static %}
 {% load custom %}
 
-{% block content %}
-<div class="alert " role="alert" style="margin-top: 50px;">
-    <p>Имя пользователя: {{ object.username }}</p>
-    <p>E-mail: {{ object.email }}</p>
-    <p>Имя: {{ object.first_name }}</p>
-    <p>Фамилия: {{ object.last_name }}</p>
-    <p>Пол: {{ object.gender }}</p>
-    <p>Дата рождения: {{ object.birthday }}</p>
-    <p>О себе: {{ object.user_information }}</p>
-    <img src="{{ object.profile_photo|media_folder }}"></img>
+{% block title %}
+{{ tite }} :: {{ block.super }}
+{% endblock %}
 
-</div>
-<div class="alert " role="alert" style="margin-top: 50px;">
-    <button class="form-control">
-        <a href="{% url 'usersapp:modify' user.pk %}" class="">Редактировать данные</a>
-    </button>
-    <button class="form-control">
-        <a href="{% url 'usersapp:delete' user.pk %}" class="">Удалить аккаунт</a>
-    </button>
-</div>
+{# {% block menu %}  #}
+{#    {% include '_inc/no_hubs_menu.html' %}#}
+{# {% endblock %} #}
+
+
+{% block content %}
+    <div class="alert " role="alert" style="margin-top: 50px;">
+        <p>Имя пользователя: {{ object.username }}</p>
+        <p>E-mail: {{ object.email }}</p>
+        <p>Имя: {{ object.first_name }}</p>
+        <p>Фамилия: {{ object.last_name }}</p>
+        <p>Пол: {{ object.gender }}</p>
+        <p>Дата рождения: {{ object.birthday }}</p>
+        <p>О себе: {{ object.user_information }}</p>
+        <img src="{{ object.profile_photo|media_folder }}"></img>
+        <button>
+            <a href="{% url 'mainapp:create_article' %}">Создать статью</a>
+        </button>
+    </div>
+    <div class="alert " role="alert" style="margin-top: 50px;">
+        <button class="form-control">
+            <a href="{% url 'usersapp:modify' user.pk %}" class="">Редактировать данные</a>
+        </button>
+        <button class="form-control">
+            <a href="{% url 'usersapp:delete' user.pk %}" class="">Удалить аккаунт</a>
+        </button>
+    </div>
 
 {% endblock %}

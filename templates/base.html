@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta html-equiv="X-UA-Compatible" content="ie=edge">
+    <title>
+        {% block title %}Intergalactic Entertainment{% endblock %}
+    </title>
+
+    {#    TODO поправить съехавшие отступы из-за бутстрапа#}
+    {% block bootstrap_css %}{% endblock %}
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    {% block css %}{% endblock %}
+</head>
+
+<body>
+<div class="wrapper">
+
+    <div class="header">
+        <div class="header-container">
+            <a href="/"><img src="{% static 'svg/logo.svg' %}" alt="logo"></a>
+        </div>
+    </div>
+
+    <div class="container">
+        {% block menu %}
+            {% include '_inc/full_menu.html' %}
+        {% endblock %}
+
+        <div class="container">
+            {% block content %} {% endblock %}
+        </div>
+
+    </div>
+    <br>
+    <div class="footer">
+        <div class="footer-container">
+            <p>All right reserved. </p>
+            <p>{% now "jS F Y " %} </p>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="{% static 'plugins/js/jquery.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'plugins/js/bootstrap.min.js' %}"></script>
+{% block js %}{% endblock %}
+</body>
+</html>

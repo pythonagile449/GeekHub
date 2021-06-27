@@ -1,0 +1,25 @@
+<div class="menu"> <!-- Блок меню. Состоит из двух групп: левого меню и правого.-->
+    <div class="menu-left">
+        <ul class="menu-left"> <!-- Прижат к левому краю блока-->
+            <li><a href="/" class="link-menu">Все хабы</a></li>
+        </ul>
+    </div>
+
+    <div class="menu-right"> <!-- Прижат к правому краю блока-->
+        <ul class="menu-right">
+            {% if user.is_authenticated %}
+                <li><a href="{% url 'usersapp:account'  user.pk %}" class="link-menu">{{ user.username }}</a></li>
+                <li><a href="{% url 'usersapp:logout' %}" class="button1">Выход</a></li>
+                {% if user.is_superuser %}
+                    <li><a href="{% url 'admin:index' %}" class="button1">Admin Panel</a></li>
+                {% endif %}
+                <!--Сделана как ссылка с кнопкой (не active)-->
+            {% endif %}
+            {% if user.is_anonymous %}
+                <li><a href="{% url 'usersapp:login' %}" class="button1">Вход</a></li>
+                <li><a href="{% url 'usersapp:registration' %}" class="button1">Регистрация</a></li>
+                <!--Сделана как ссылка с кнопкой (не active)-->
+            {% endif %}
+        </ul>
+    </div>
+</div>

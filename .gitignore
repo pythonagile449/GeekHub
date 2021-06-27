@@ -8,3 +8,4 @@ settings_*
 gunicorn.*
 /venv/*
 debug.log
+.vscode

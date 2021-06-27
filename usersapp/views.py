@@ -5,6 +5,8 @@ from django.urls import reverse, reverse_lazy
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import DetailView
 from django.contrib.auth.views import LoginView, LogoutView
+
+from mainapp.models import Hub
 from usersapp.models import GeekHubUser
 from usersapp.forms import RegistrationForm, LoginForm, UserProfileForm, UserProfileEditForm
 
@@ -53,6 +55,13 @@ class UserAccountView(DetailView):
     """
     model = GeekHubUser
     form_class = UserProfileForm
+
+    def get_context_data(self, **kwargs):
+        context = super(UserAccountView, self).get_context_data()
+        context['hubs'] = Hub.objects.all()
+        context['title'] = f'Профиль пользователя {self.object.username}'
+        return context
+
 
 
 class UserAccountEdit(UpdateView):
