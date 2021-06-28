@@ -32338,3 +32338,8 @@ django.urls.exceptions.NoReverseMatch: Reverse for 'article_detail' with argumen
 {"path": "/auth/account/1", "request_total": 0.011}
 {"path": "/media/default.jpg", "request_total": 0.005}
 2021-06-28 14:37:22,441 django.request WARNING  Not Found: /media/default.jpg
+2021-06-28 14:44:01,998 django.utils.autoreload INFO     /Users/PanDa/Projects/GeekHub/usersapp/admin.py changed, reloading.
+2021-06-28 14:44:01,999 asyncio      DEBUG    Using selector: KqueueSelector
+2021-06-28 14:44:02,757 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-06-28 14:52:10,240 asyncio      DEBUG    Using selector: KqueueSelector
+2021-06-28 14:52:10,363 asyncio      DEBUG    Using selector: KqueueSelector

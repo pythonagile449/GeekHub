@@ -1,0 +1,14 @@
+<div class="section-title">
+    <h2>Профиль</h2>
+</div>
+
+<div class="section-menu">
+    <ul style="display: flex;">
+        <li><a href="{% url 'usersapp:account' user.pk %}">О себе</a></li>
+        <li><a href="{% url 'mainapp:create_article' %}">Редактор статей</a></li>
+        <li><a href="{% url 'mainapp:drafts' %}">Черновики</a></li>
+        <li><a href="{% url 'mainapp:user_moderation_articles' %}">Модерация</a></li>
+        <li><a href="{% url 'mainapp:user_articles' %}">Мои статьи</a></li>
+    </ul>
+</div>
+
