@@ -6,7 +6,7 @@
     {{ title }} :: {{ block.super }}
 {% endblock %}
 
-{% block content %}
+{% block toolbar %}
     <div class="section-title">
         <h2>
             {% if active_hub %}
@@ -20,6 +20,9 @@
     <div class="section-menu"></div>
 
     </div>
+{% endblock %}
+
+{% block content %}
     <div class="content-container">
         <div class="section-left">
             {% for article in articles %}

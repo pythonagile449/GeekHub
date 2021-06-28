@@ -16,7 +16,7 @@
 {% endblock %}
 
 {% block content %}
-    <form class="form" action="{% url 'mainapp:create_article' %}" method="post">
+    <form class="create-article-form" action="{% url 'mainapp:create_article' %}" method="post">
         {% csrf_token %}
 
         {% for field in form %}
@@ -34,11 +34,14 @@
         {% endfor %}
 
         <button type="submit">Опубликовать</button>
+        <button type="button" class="save-as-draft-button">Сохранить как черновик</button>
 
     </form>
 {% endblock %}
 
 {% block js %}
+    <script type="text/javascript" src="{% static "js/mainapp/create-article-js.js" %}" defer></script>
+    
     <script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
     <script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
 

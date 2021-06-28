@@ -9,9 +9,7 @@
         {% block title %}Intergalactic Entertainment{% endblock %}
     </title>
 
-    {#    TODO поправить съехавшие отступы из-за бутстрапа#}
     {% block bootstrap_css %}{% endblock %}
-
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
     {% block css %}{% endblock %}
 </head>
@@ -28,6 +26,9 @@
     <div class="container">
         {% block menu %}
             {% include '_inc/full_menu.html' %}
+        {% endblock %}
+
+        {% block toolbar %}
         {% endblock %}
 
         <div class="container">

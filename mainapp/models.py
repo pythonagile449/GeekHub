@@ -29,6 +29,11 @@ class Article(models.Model):
     contents = models.TextField(blank=True)
     short_description = models.CharField(max_length=256, blank=True)
     publication_date = models.DateField(auto_now=True, blank=False, null=False)
+    created_at = models.DateField(auto_now_add=True, null=False)
+
+    is_draft = models.BooleanField(default=True)
+    is_published = models.BooleanField(default=False)
+    is_moderation_in_progress = models.BooleanField(default=False)
 
     hub = models.ForeignKey(Hub, on_delete=models.CASCADE)
     author = models.ForeignKey(GeekHubUser, on_delete=models.CASCADE)
