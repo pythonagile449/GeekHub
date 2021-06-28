@@ -1,7 +1,9 @@
 from uuid import uuid4
+
 from django.db import models
 from django.urls import reverse
 from martor.models import MartorField
+from ckeditor_uploader.fields import RichTextUploadingField
 from usersapp.models import GeekHubUser
 
 
@@ -24,8 +26,7 @@ class Article(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid4)
     title = models.CharField(max_length=256)
     front_image = models.ImageField(upload_to='article_front_img', blank=True)
-    # contents = models.TextField(blank=True)
-    contents = MartorField()
+    contents = models.TextField(blank=True)
     short_description = models.CharField(max_length=256, blank=True)
     publication_date = models.DateField(auto_now=True, blank=False, null=False)
 

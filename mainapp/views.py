@@ -1,6 +1,6 @@
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DetailView, ListView
-from mainapp.forms import ArticleForm
+from mainapp.forms import ArticleCkForm, ArticleMdForm
 from mainapp.models import Hub, Article
 
 
@@ -41,12 +41,21 @@ class ArticlesByHub(ListView):
 class CreateArticle(CreateView):
     """ Создание статьи. """
     model = Article
-    form_class = ArticleForm
     success_url = reverse_lazy('mainapp:index')
+
+    def get_form_class(self):
+        """ Установка редактора (self.form_class) в зависимости от настроек пользователя. """
+        user = self.request.user
+        if user.article_redactor == 'CK':
+            self.form_class = ArticleCkForm
+        if user.article_redactor == 'MD':
+            self.form_class = ArticleMdForm
+        return self.form_class
 
     def form_valid(self, form):
         """ Устанавливает инстанс автора статьи для FK модели Article."""
         form.instance.author = self.request.user
+        form.instance.contents += f'<{form.instance.author.article_redactor}>'
         return super(CreateArticle, self).form_valid(form)
 
     def get_context_data(self, **kwargs):

@@ -25,6 +25,16 @@ class GeekHubUser(AbstractUser):
     user_information = models.CharField(blank=True, max_length=512, verbose_name='Обо мне', default='')
     gender = models.CharField(max_length=1, choices=GENDER_CHOISES, verbose_name='Пол', default=other)
 
+    md_editor = 'MD'
+    ckeditor = 'CK'
+
+    REDACTOR_CHOISES = (
+        (md_editor, 'markdown'),
+        (ckeditor, 'сkeditor'),
+    )
+    article_redactor = models.CharField(max_length=8, choices=REDACTOR_CHOISES, verbose_name='Редактор статей',
+                                        default=ckeditor)
+
     def is_activate_key_expired(self):
         if now() <= self.activate_key_expires:
             # ToDo: тут логируем что активация невозможна из-за устаревания активационного кода

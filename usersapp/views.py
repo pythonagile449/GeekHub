@@ -63,7 +63,6 @@ class UserAccountView(DetailView):
         return context
 
 
-
 class UserAccountEdit(UpdateView):
     """
     Редактирование профиля пользователя
