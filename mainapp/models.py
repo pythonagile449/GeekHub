@@ -35,6 +35,7 @@ class Article(models.Model):
     is_draft = models.BooleanField(default=True)
     is_published = models.BooleanField(default=False)
     is_moderation_in_progress = models.BooleanField(default=False)
+    is_deleted = models.BooleanField(default=False)
 
     hub = models.ForeignKey(Hub, on_delete=models.CASCADE)
     author = models.ForeignKey(GeekHubUser, on_delete=models.CASCADE)

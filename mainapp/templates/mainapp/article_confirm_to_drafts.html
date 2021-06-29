@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <h4>Вы действительно хотите отправить свою статью в черновики?</h4>
+    <form action="{% url 'mainapp:user_article_to_drafts' object.pk %}" method="post">
+        {% csrf_token %}
+        <input class="btn btn-danger btn-block" type="submit" value="В черновики">
+    </form>
+
+{% endblock %}
