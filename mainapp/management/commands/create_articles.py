@@ -46,7 +46,7 @@ class Command(BaseCommand):
             try:
                 new_article = Article.objects.create(
                     title=faker.sentence(nb_words=10),
-                    contents=faker.post(size='medium')+'<MD>',
+                    contents=faker.post(size='medium') + '<MD>',
                     short_description=faker.sentence(nb_words=3),
                     created_at=faker.date_between(start_date='-1y', end_date='today'),
                     publication_date=faker.date_between(start_date='-1m', end_date='today'),

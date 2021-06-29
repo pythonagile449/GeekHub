@@ -23,6 +23,10 @@ class TestGeekHubUserModel(TestCase):
         field_label = user._meta.get_field('gender').verbose_name
         self.assertEquals(field_label, 'Пол')
 
+    def test_get_absolute_url(self):
+        user = GeekHubUser.objects.get(id=1)
+        self.assertEquals(user.get_absolute_url(), '/auth/login/')
+
 
 class TestHubModel(TestCase):
 

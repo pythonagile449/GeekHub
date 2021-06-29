@@ -4,6 +4,8 @@ from martor.widgets import AdminMartorWidget
 from mainapp.models import Hub, Article
 
 admin.site.register(Hub)
+
+
 # admin.site.register(Article)
 
 
