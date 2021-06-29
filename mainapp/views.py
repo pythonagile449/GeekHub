@@ -1,3 +1,4 @@
+import markdown
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DetailView, ListView
 from mainapp.forms import ArticleCkForm, ArticleMdForm
@@ -65,7 +66,12 @@ class CreateArticle(CreateView):
             form.instance.is_draft = False
 
         # добавляем посфикс для определения редактора в шаблоне вида '<CK>' или '<MD>'
-        form.instance.contents += f'<{form.instance.author.article_redactor}>'
+        # form.instance.contents += f'<{form.instance.author.article_redactor}>'
+
+        # если используется маркдаун - конвертируем его в html
+        if form.instance.author.article_redactor == "MD":
+            form.instance.contents = markdown.markdown(form.instance.contents)
+
         return super(CreateArticle, self).form_valid(form)
 
     def get_context_data(self, **kwargs):

@@ -1,7 +1,7 @@
 import datetime
 from django.test import TestCase
-from mainapp.models import Hub, Article
 from django.core.management import call_command
+from mainapp.models import Hub, Article
 from usersapp.models import GeekHubUser
 
 

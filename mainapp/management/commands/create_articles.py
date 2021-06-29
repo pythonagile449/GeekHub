@@ -1,4 +1,5 @@
 import random
+import markdown
 from django.core.management import BaseCommand
 from faker import Faker
 from mdgen import MarkdownPostProvider
@@ -39,20 +40,25 @@ class Command(BaseCommand):
 
         users_ids_list = GeekHubUser.objects.all().values_list('id', flat=True)
         hubs_ids_list = Hub.objects.all().values_list('id', flat=True)
-        print(users_ids_list)
-        print(hubs_ids_list)
 
-        for _ in range(10):
+        md_text = faker.post(size='medium')
+        html_text = '<p>html text</p><b>Статья на HTML</b>'
+
+        for i in range(10):
             try:
                 new_article = Article.objects.create(
                     title=faker.sentence(nb_words=10),
-                    contents=faker.post(size='medium')+'<MD>',
                     short_description=faker.sentence(nb_words=3),
                     created_at=faker.date_between(start_date='-1y', end_date='today'),
                     publication_date=faker.date_between(start_date='-1m', end_date='today'),
                     hub=Hub.objects.get(id=random.choice(hubs_ids_list)),
                     author=GeekHubUser.objects.get(id=random.choice(users_ids_list)),
                 )
+
+                if not i % 2:
+                    new_article.contents = markdown.markdown(md_text)
+                else:
+                    new_article.contents = html_text
 
                 if options['moderation']:
                     new_article.is_draft = False
