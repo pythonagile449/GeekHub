@@ -578,3 +578,7 @@
 	    background: rgba(72, 181, 255, 0.6);
 	    color: var(--main-bg-color);
 	}
+
+    .active-menu-link {
+        color: var(--primary-color);
+    }

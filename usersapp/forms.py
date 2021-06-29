@@ -54,4 +54,5 @@ class UserProfileForm(UserChangeForm):
 class UserProfileEditForm(UserChangeForm):
     class Meta:
         model = GeekHubUser
-        fields = ['first_name', 'last_name', 'profile_photo', 'user_information', 'birthday', 'gender']
+        fields = ['first_name', 'last_name', 'profile_photo', 'user_information', 'birthday', 'gender',
+                  'article_redactor']

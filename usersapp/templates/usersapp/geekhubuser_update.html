@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block toolbar %}
+ {% include '_inc/profile_toolbar.html' %}
+{% endblock %}
+
 {% block content %}
 <p>Редактируем профиль: {{ object.username }}</p>
 <form class="form-horizontal" method="post"

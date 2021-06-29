@@ -3,7 +3,7 @@
 {% load martortags %}
 
 {% block title %}
-{{ title }} :: {{ block.super }}
+    {{ title }} :: {{ block.super }}
 {% endblock %}
 
 {% block content %}
@@ -34,28 +34,34 @@
 
             <div class="section-left-text">
                 <h5-1>
-                    {{ article.contents|safe_markdown }}
+                    {% if article.contents|slice:'-4:' == '<CK>' %}
+                        {{ article.contents|slice:":-4"|safe }}
+                    {% elif article.contents|slice:'-4:' == '<MD>' %}
+                        {{ article.contents|slice:":-4"|safe_markdown }}
+                    {% endif %}
                 </h5-1>
             </div>
 
-            <div class="like-comment">
-                <ul class="like-comment">
-                    <li><a href="/"><img src="{% static 'svg/flat-color-icons_like_active.svg' %}" alt="like"></a>
-                    </li>
-                    <li>
-                        <h5-2>56</h5-2>
-                    </li>
-                    <li><img src="{% static 'svg/carbon_view-filled_active.svg' %}" alt="view"></li>
-                    <li>
-                        <h5-2>435</h5-2>
-                    </li>
-                    <li><a href="/"><img src="{% static 'svg/fluent_comment-24-filled_active.svg' %}"
-                                         alt="comm"></a></li>
-                    <li>
-                        <h5-2>12</h5-2>
-                    </li>
-                </ul>
-            </div>
+            {% if not article.is_draft %}
+                <div class="like-comment">
+                    <ul class="like-comment">
+                        <li><a href="/"><img src="{% static 'svg/flat-color-icons_like_active.svg' %}" alt="like"></a>
+                        </li>
+                        <li>
+                            <h5-2>56</h5-2>
+                        </li>
+                        <li><img src="{% static 'svg/carbon_view-filled_active.svg' %}" alt="view"></li>
+                        <li>
+                            <h5-2>435</h5-2>
+                        </li>
+                        <li><a href="/"><img src="{% static 'svg/fluent_comment-24-filled_active.svg' %}"
+                                             alt="comm"></a></li>
+                        <li>
+                            <h5-2>12</h5-2>
+                        </li>
+                    </ul>
+                </div>
+            {% endif %}
 
         </div>
 

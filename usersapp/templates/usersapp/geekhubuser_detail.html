@@ -3,13 +3,16 @@
 {% load custom %}
 
 {% block title %}
-{{ tite }} :: {{ block.super }}
+    {{ tite }} :: {{ block.super }}
 {% endblock %}
 
 {# {% block menu %}  #}
 {#    {% include '_inc/no_hubs_menu.html' %}#}
 {# {% endblock %} #}
 
+{% block toolbar %}
+    {% include '_inc/profile_toolbar.html' %}
+{% endblock %}
 
 {% block content %}
     <div class="alert " role="alert" style="margin-top: 50px;">
@@ -21,9 +24,6 @@
         <p>Дата рождения: {{ object.birthday }}</p>
         <p>О себе: {{ object.user_information }}</p>
         <img src="{{ object.profile_photo|media_folder }}"></img>
-        <button>
-            <a href="{% url 'mainapp:create_article' %}">Создать статью</a>
-        </button>
     </div>
     <div class="alert " role="alert" style="margin-top: 50px;">
         <button class="form-control">

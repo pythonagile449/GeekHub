@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load martortags %}
+
+{% block title %}
+    {{ title }} :: {{ block.super }}
+{% endblock %}
+
+{% block toolbar %}
+    {% include '_inc/profile_toolbar.html' %}
+{% endblock %}
+
+{% block content %}
+    <div class="content-container">
+        <div class="section-left">
+            {% for article in articles %}
+                <div class="section-indent"></div>
+                <div class="author-data">
+                    <ul class="author-data">
+                        <li><img src="{% static 'svg/icon2.svg' %}" alt="icon"></li>
+                        <li>
+                            <h6-1>{{ article.author.username }}</h6-1>
+                        </li>
+                        <li>
+                            <h6-2>{{ article.publication_date }}</h6-2>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="section-left-title">
+                    <h2>
+                        <h2-2>
+                            {{ article.title }}
+                        </h2-2>
+                    </h2>
+                </div>
+
+                <div class="chapter">
+                    <h6-3>{{ article.hub.name }}</h6-3>
+                </div>
+
+                <div class="section-left-text">
+                    <h5-1>
+                        {% if article.contents|slice:'-4:' == '<CK>' %}
+                            {{ article.contents|slice:":-4"|safe }}
+                        {% elif article.contents|slice:'-4:' == '<MD>' %}
+                            {% if article.get_first_paragraph|slice:'-4:' == '<MD>' %}
+                                {{ article.get_first_paragraph|slice:':-4'|safe_markdown }}
+                            {% else %}
+                                {{ article.get_first_paragraph|safe_markdown }}
+                            {% endif %}
+                        {% endif %}
+                    </h5-1>
+                </div>
+                <ul data-article-id="{{ article.id }}">
+                    {% if article.is_draft %}
+                        <li>
+                            <a href="#">Редактировать</a>
+                        </li>
+                        <li>
+                            <a href="#">Отправить на модерацию</a>
+                        </li>
+                        <li>
+                            <a href="#">Удалить</a>
+                        </li>
+                    {% elif article.is_published %}
+                        <li>
+                            <a href="#">Снять с публикации</a>
+                        </li>
+                    {% elif article.is_moderation_in_progress %}
+                        <li>
+                            <a href="#">Снять с модерации</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            {% endfor %}
+        </div>
+
+        <div class="section-right">
+
+            <div class="section-right-block">
+
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

@@ -12,6 +12,8 @@ urlpatterns = [
     # mardown editor urls
     path('martor/', include('martor.urls')),
     path('api/uploader/', markdown_uploader, name='markdown_uploader_page'),
+    # ckeditor urls
+    path('ckeditor/', include('ckeditor_uploader.urls')),
 ]
 
 if settings.DEBUG:
