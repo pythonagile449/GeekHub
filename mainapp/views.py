@@ -1,6 +1,7 @@
 import markdown
+from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, DetailView, ListView
+from django.views.generic import CreateView, DetailView, ListView, DeleteView
 from mainapp.forms import ArticleCkForm, ArticleMdForm
 from mainapp.models import Hub, Article
 
@@ -28,7 +29,7 @@ class ArticlesByHub(ListView):
     context_object_name = 'articles'
 
     def get_queryset(self):
-        queryset = Article.objects.filter(hub=self.kwargs['hub_id'], is_published=True)
+        queryset = Article.objects.filter(hub=self.kwargs['hub_id'], is_published=True, is_deleted=False)
         return queryset
 
     def get_context_data(self, *, object_list=None, **kwargs):
@@ -99,7 +100,7 @@ class UserArticles(ListView):
     context_object_name = 'articles'
 
     def get_queryset(self):
-        queryset = Article.objects.filter(author=self.request.user, is_published=True)
+        queryset = Article.objects.filter(author=self.request.user, is_published=True, is_deleted=False)
         return queryset
 
     def get_context_data(self, *, object_list=None, **kwargs):
@@ -113,7 +114,7 @@ class UserDrafts(UserArticles):
     """ Черновики пользователя. """
 
     def get_queryset(self):
-        queryset = Article.objects.filter(author=self.request.user, is_draft=True)
+        queryset = Article.objects.filter(author=self.request.user, is_draft=True, is_deleted=False)
         return queryset
 
 
@@ -121,5 +122,34 @@ class UserModeratingArticles(UserArticles):
     """ Статьи пользователя на модерации. """
 
     def get_queryset(self):
-        queryset = Article.objects.filter(author=self.request.user, is_moderation_in_progress=True)
+        queryset = Article.objects.filter(author=self.request.user, is_moderation_in_progress=True, is_deleted=False)
         return queryset
+
+
+class ArticleDelete(DeleteView):
+    model = Article
+    template_name = 'mainapp/article_confirm_delete.html'
+    success_url = reverse_lazy('mainapp:drafts')
+
+    def delete(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        self.object.is_published = False
+        self.object.is_moderation_in_progress = False
+        self.object.is_draft = False
+        self.object.is_deleted = True
+        self.object.save()
+        return HttpResponseRedirect(self.success_url)
+
+
+class ArticleReturnToDrafts(DeleteView):
+    model = Article
+    template_name = 'mainapp/article_confirm_to_drafts.html'
+    success_url = reverse_lazy('mainapp:user_articles')
+
+    def delete(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        self.object.is_published = False
+        self.object.is_moderation_in_progress = False
+        self.object.is_draft = True
+        self.object.save()
+        return HttpResponseRedirect(self.get_success_url())

@@ -53,15 +53,15 @@
                             <a href="#">Отправить на модерацию</a>
                         </li>
                         <li>
-                            <a href="#">Удалить</a>
+                            <a href="{% url 'mainapp:user_article_delete' article.pk %}">Удалить</a>
                         </li>
                     {% elif article.is_published %}
                         <li>
-                            <a href="#">Снять с публикации</a>
+                            <a href="{% url 'mainapp:user_article_to_drafts' article.pk %}">Снять с публикации</a>
                         </li>
                     {% elif article.is_moderation_in_progress %}
                         <li>
-                            <a href="#">Снять с модерации</a>
+                            <a href="{% url 'mainapp:user_article_to_drafts' article.pk %}">Снять с модерации</a>
                         </li>
                     {% endif %}
                 </ul>

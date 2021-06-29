@@ -17,6 +17,9 @@
       --text-color: #000000;
       --text-secondary-color: black;
       --text-secondary-opacity: 0,6;
+      --text-sup-color1: #48B5FF; /*основной синий*/      /*Профиль - О себе*/
+      --text-sup-color2: #00A17B; /*зеленый*/             /*Профиль - О себе*/
+      --text-sup-color3: #6B6B6B; /*серый*/               /*Профиль - О себе*/
       --primary-opacity: 0.3; /*цвет кнопки "регистрация"*/
       --secondary-opacity: 0.3; /*цвет рамки "Читать далее"*/
       --header-opacity: 0.7; /*фон header"*/
@@ -35,8 +38,8 @@
 
     .container {
         width: 1140px;
-        margin: 0 auto;
-        padding: 0;
+        margin: 0 auto
+        /*padding: 0;*/
     }
 
     .header {
@@ -155,10 +158,20 @@
 	    padding-left: 20px;
 	}
 
-	.section-menu {
+	ul.section-menu {
 	    background: var(--section-bg-color);
-	    height: 60px;
+	    display: flex;
+        height: 60px;
+        align-items: center;
 	}
+
+	ul.section-menu li {   /* Пункты списка меню */
+        font-family: Roboto, Verdana, sans-serif;
+        display: inline; /* Отображать как строчный элемент */
+        /*margin-right: 20px; Отступ слева */
+        margin-left: 20px;  /* Отступ справа */
+        text-align: center;
+    }
 
 	.section-indent {
 	    background: var(--main-bg-color);
@@ -340,7 +353,6 @@
     }
     .indent-30 {
         height: 30px;
-        height: 30px;
         margin: 0 auto;
         display: flex;
         justify-content: center;
@@ -369,19 +381,12 @@
 	    margin: 0 auto;
 	    flex-direction: row;
     }
+
     .placeholder{
-        outline: none;
-        display: flex;
-        font-family: Roboto;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 14px;
-        line-height: 16px;
         border: none;
-        outline: none;
-        color: rgba(0, 0, 0, 0.4);
-        margin-left: 12px;
+        margin-left: 20px;
     }
+
     .button3 {
         transition: color 0.3s ease 0s;
         font-weight: 500;
@@ -406,14 +411,17 @@
 	    color: var(--text-color);
         outline: none;
         font-size: 14px;
-        font-family: Roboto;
+        font-family: Roboto, Verdana, sans-serif;
+        font-weight: 500;
+        width:240px;
 	}
 
 	input[type="password"] {
 	    color: var(--text-color);
         outline: none;
         font-size: 14px;
-        font-family: Roboto;
+        font-family: Roboto, Verdana, sans-serif;
+        font-weight: 500;
 	}
 
     input-text-left{
@@ -455,7 +463,7 @@
 
         /*Шаблон geekhub-message*/
     .indent-20 {
-        height: auto;
+        min-height: 20px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -577,4 +585,452 @@
     .button8:hover {
 	    background: rgba(72, 181, 255, 0.6);
 	    color: var(--main-bg-color);
+	}
+
+	.active-menu-link {
+        color: var(--primary-color);
+    }
+
+    /*Профиль - О себе*/
+
+    s-1 { /*цвет и стиль верхнего индекса в списке section-menu, Черновики, Модерация*/
+        font-family: Roboto, Verdana, sans-serif;
+        color: var(--text-sup-color1);
+        font-weight: 700;
+    }
+
+    s-2 { /*цвет и стиль верхнего индекса в списке section-menu, Мои статьи*/
+        font-family: Roboto, Verdana, sans-serif;
+        color: var(--text-sup-color2);
+        font-weight: 700;
+    }
+
+    s-3 { /*цвет и стиль верхнего индекса в списке section-menu, Корзина*/
+        font-family: Roboto, Verdana, sans-serif;
+        color: var(--text-sup-color3);
+        font-weight: 700;
+    }
+
+    .section-part {
+        display: flex;
+	    justify-content: space-between;
+	    flex-wrap: nowrap;
+	    margin: 0;
+	    padding: 0;
+	    flex-direction: row;
+    }
+
+	.section-left-part {
+        width: 463px;
+        height: 580px;
+        background: var(--section-bg-color); /* цвет фона */
+        border-radius: 5px;
+	}
+
+	.section-right-part {
+        width: 270px;
+        height: 580px;
+	}
+
+	.block-foto {
+	    width: 270px;
+        height: 270px;
+	}
+
+	.block-foto-button {
+		width: 270px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+	}
+
+	.block-settings {
+	    width: 270px;
+        height: 260px;
+        background: var(--section-bg-color); /* цвет фона */
+        border-radius: 5px;
+	}
+    .button9 {
+        transition: color 0.3s ease 0s;
+        font-weight: 500;
+        background: rgba(72, 181, 255, 0.2);
+        border-radius: 5px;
+        color: var(--text-color);
+        padding: 8px 12px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 14px;
+        cursor: pointer;
+        border: none;
+        font-family: Roboto, Verdana, sans-serif;
+    }
+
+    .button9:hover {
+	    background: rgba(72, 181, 255, 0.6);
+	    color: var(--main-bg-color);
+	}
+
+    .button10 {
+        transition: color 0.3s ease 0s;
+        font-weight: 500;
+        background: rgba(255, 216, 216, 1);
+        border-radius: 5px;
+        color: var(--text-color);
+        padding: 8px 12px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 14px;
+        cursor: pointer;
+        border: none;
+        font-family: Roboto, Verdana, sans-serif;
+        margin-right: 20px;
+    }
+
+    .button10:hover {
+	    background: rgba(255, 160, 160, 1);
+	    color: var(--main-bg-color);
+	}
+
+    .button11 {
+        transition: color 0.3s ease 0s;
+        font-weight: 500;
+        background: rgba(72, 181, 255, 0.2);
+        border-radius: 5px;
+        color: var(--text-color);
+        padding: 8px 12px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 14px;
+        cursor: pointer;
+        border: none;
+        font-family: Roboto, Verdana, sans-serif;
+    }
+
+    .button11:hover {
+	    background: rgba(72, 181, 255, 0.6);
+	    color: var(--main-bg-color);
+	}
+
+	.field-50 {
+	    height: 50px;
+        display: flex;
+	}
+
+	.field-110 {
+	    height: 110px;
+        display: flex;
+	    align-items: center;
+	}
+
+	.field-text-left{
+	    width: 300px;
+        height: 30px;
+        display: flex;
+        justify-content: left;
+        background: var(--section-bg-color);
+        align-items: center;
+	}
+
+    .block-text {
+        width: 97px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+    }
+
+    .block-info {
+        width: 366px;
+        height: 50px;
+        align-items: center;
+        display: flex;
+    }
+
+	h5-3 {
+	    font-family: Roboto, Verdana, sans-serif;
+	    font-size: 14px;
+	    font-weight: 500;
+	    color: var(--text-color);
+	    margin-left: 20px;
+	}
+
+	.input-text-right_bg {
+	    display: flex;
+        align-items: center;
+        background: var(--section-bg-color);
+	}
+
+	.input-textarea {
+        display: flex;
+        width: 80%;
+        height: 90px;
+        align-items: center;
+        background: var(--main-bg-color);
+        border-radius: 5px;
+        color: var(--text-color);
+	    justify-content: space-between;
+	    flex-wrap: nowrap;
+	    margin: 0 auto;
+	    flex-direction: row;
+    }
+
+	textarea {
+	    color: var(--text-color);
+        outline: none;
+        font-size: 14px;
+        font-family: Roboto, Verdana, sans-serif;
+        font-weight: 500;
+        width: 245px;
+        height: 87px;
+        border: none;
+        resize: none;
+        maxlength="100";
+	}
+
+	.select-1 {
+		color: var(--text-color);
+        outline: none;
+        font-size: 14px;
+        font-family: Roboto, Verdana, sans-serif;
+        font-weight: 500;
+        width: 245px;
+        border: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        margin-left: 20px;
+	}
+
+	.select-2 {
+		color: var(--text-color);
+        outline: none;
+        font-size: 14px;
+        font-family: Roboto, Verdana, sans-serif;
+        font-weight: 500;
+        width: 100px;
+        border: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        margin-left: 20px;
+	}
+
+	input[type="date"] {
+	    color: var(--text-color);
+        outline: none;
+        font-size: 14px;
+        font-family: Roboto, Verdana, sans-serif;
+        font-weight: 500;
+        width:220px;
+        border: none;
+        margin-left: 20px;
+	}
+
+	    /*Профиль - О себе - удалить профиль*/
+
+    .button12 {
+        transition: color 0.3s ease 0s;
+        font-weight: 500;
+        background: rgba(255, 190, 190, 1);
+        border-radius: 5px;
+        color: var(--text-color);
+        padding: 8px 12px;
+        margin-right: 20px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 14px;
+        cursor: pointer;
+        border: none;
+        font-family: Roboto, Verdana, sans-serif;
+    }
+
+    .button12:hover {
+	    background: rgba(255, 160, 160, 1);
+	    color: var(--main-bg-color);
+	}
+    .button13 {
+        transition: color 0.3s ease 0s;
+        font-weight: 500;
+        background: rgba(72, 181, 255, 0.2);
+        border-radius: 5px;
+        color: var(--text-color);
+        padding: 8px 12px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 14px;
+        cursor: pointer;
+        border: none;
+        font-family: Roboto, Verdana, sans-serif;
+    }
+
+    .button13:hover {
+	    background: rgba(72, 181, 255, 0.6);
+	    color: var(--main-bg-color);
+	}
+
+	    /*Профиль - Редактор статей*/
+
+    .indent-30-2 {
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .button14 {
+        transition: color 0.3s ease 0s;
+        background: var(--main-bg-color);
+        border-radius: 5px;
+        border-style:solid;
+        border-width: 1px;
+        border-color: var(--secondary-color);
+        color: var(--link-hover-color);
+        padding: 8px 8px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 14px;
+        cursor: pointer;
+        margin-left: 20px;
+        margin-right: 10px;
+    }
+
+    .button14:hover {
+	    background: rgba(72, 181, 255, 0.2);
+	    color: var(--header-bg-color);
+	    border-color: rgba(72, 181, 255, 0.2);
+	}
+
+    .button15 {
+        transition: color 0.3s ease 0s;
+        background: var(--main-bg-color);
+        border-radius: 5px;
+        border-style:solid;
+        border-width: 1px;
+        border-color: var(--secondary-color);
+        color: var(--link-hover-color);
+        padding: 8px 8px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 14px;
+        cursor: pointer;
+        margin-right: 10px;
+    }
+
+    .button15:hover {
+	    background: rgba(72, 181, 255, 0.2);
+	    color: var(--header-bg-color);
+	    border-color: rgba(72, 181, 255, 0.2);
+	}
+
+    .button16 {
+        transition: color 0.3s ease 0s;
+        background: var(--main-bg-color);
+        border-radius: 5px;
+        border-style:solid;
+        border-width: 1px;
+        border-color: var(--secondary-color);
+        color: var(--link-hover-color);
+        padding: 8px 8px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 14px;
+        cursor: pointer;
+        margin-right: 10px;
+    }
+
+    .button16:hover {
+	    background: rgba(152, 240, 149, 0.6);
+	    color: var(--header-bg-color);
+	    border-color: rgba(72, 181, 255, 0.2);
+	}
+
+    .button17 {
+        transition: color 0.3s ease 0s;
+        background: var(--main-bg-color);
+        border-radius: 5px;
+        border-style:solid;
+        border-width: 1px;
+        border-color: var(--secondary-color);
+        color: var(--link-hover-color);
+        padding: 8px 8px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 14px;
+        cursor: pointer;
+        margin-right: 10px;
+    }
+
+    .button17:hover {
+	    background: rgba(255, 230, 230, 1);
+	    color: var(--header-bg-color);
+	    border-color: rgba(72, 181, 255, 0.2);
+	}
+
+    .button18 {
+        transition: color 0.3s ease 0s;
+        background: var(--main-bg-color);
+        border-radius: 5px;
+        border-style:solid;
+        border-width: 1px;
+        border-color: var(--secondary-color);
+        color: var(--link-hover-color);
+        padding: 8px 8px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 14px;
+        cursor: pointer;
+        margin-left: 20px;
+        margin-right: 10px;
+    }
+
+    .button18:hover {
+	    background: rgba(72, 181, 255, 0.2);
+	    color: var(--header-bg-color);
+	    border-color: rgba(72, 181, 255, 0.2);
+	}
+
+    .button19 {
+        transition: color 0.3s ease 0s;
+        background: var(--main-bg-color);
+        border-radius: 5px;
+        border-style:solid;
+        border-width: 1px;
+        border-color: var(--secondary-color);
+        color: var(--link-hover-color);
+        padding: 8px 8px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 14px;
+        cursor: pointer;
+        margin-right: 10px;
+        margin-left: 20px;
+    }
+
+    .button19:hover {
+	    background: rgba(255, 230, 230, 1);
+	    color: var(--header-bg-color);
+	    border-color: rgba(72, 181, 255, 0.2);
+	}
+
+    .button20 {
+        transition: color 0.3s ease 0s;
+        background: var(--main-bg-color);
+        border-radius: 5px;
+        border-style:solid;
+        border-width: 1px;
+        border-color: var(--secondary-color);
+        color: var(--link-hover-color);
+        padding: 8px 8px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 14px;
+        cursor: pointer;
+        margin-left: 20px;
+        margin-right: 10px;
+    }
+
+    .button20:hover {
+	    background: rgba(72, 181, 255, 0.2);
+	    color: var(--header-bg-color);
+	    border-color: rgba(72, 181, 255, 0.2);
 	}

@@ -12,4 +12,7 @@ urlpatterns = [
     path('drafts/', mainapp.UserDrafts.as_view(), name='drafts'),
     path('user-articles/', mainapp.UserArticles.as_view(), name='user_articles'),
     path('user-wait-moderation-articles/', mainapp.UserModeratingArticles.as_view(), name='user_moderation_articles'),
+    path('user-article-delete/<uuid:pk>/', mainapp.ArticleDelete.as_view(), name='user_article_delete'),
+    path('user-article-return-to-drafts/<uuid:pk>/', mainapp.ArticleReturnToDrafts.as_view(),
+         name='user_article_to_drafts'),
 ]

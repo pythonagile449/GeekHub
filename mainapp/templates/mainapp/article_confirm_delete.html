@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <h4>Вы действительно хотите удалить свою статью?</h4>
+    <form action="{% url 'mainapp:user_article_delete' object.pk %}" method="post">
+        {% csrf_token %}
+        <input class="btn btn-danger btn-block" type="submit" value="Удалить">
+    </form>
+
+{% endblock %}
