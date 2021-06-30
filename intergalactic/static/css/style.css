@@ -35,6 +35,14 @@
     --success-color: green;
 }
 
+sup {
+    position: relative;
+    font-size: 75%;
+    line-height: 0;
+    vertical-align: baseline;
+    top: -.5em;
+}
+
 a:hover {
     text-decoration: none;
 }
@@ -211,8 +219,7 @@ ul.section-menu li { /* Пункты списка меню */
 
 .section-right-block {
     width: 367px;
-    background: var(--section-bg-color); /* цвет фона правой секции контента*/
-    height: 520px;
+    /*height: 520px;*/
 }
 
 .chapter {
