@@ -6,7 +6,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import DetailView
 from django.contrib.auth.views import LoginView, LogoutView
 
-from mainapp.models import Hub
+from mainapp.models import Hub, Article
 from usersapp.models import GeekHubUser
 from usersapp.forms import RegistrationForm, LoginForm, UserProfileForm, UserProfileEditForm
 
@@ -60,6 +60,9 @@ class UserAccountView(DetailView):
         context = super(UserAccountView, self).get_context_data()
         context['hubs'] = Hub.objects.all()
         context['title'] = f'Профиль пользователя {self.object.username}'
+        # TODO написать контекстные процессоры для количества статей
+        context['user_drafts_count'] = Article.objects.filter(author=self.object, is_draft=True).count()
+        context['user_articles_published_count'] = Article.objects.filter(author=self.object, is_published=True).count()
         return context
 
 

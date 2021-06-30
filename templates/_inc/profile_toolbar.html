@@ -3,12 +3,13 @@
 </div>
 
 <div class="section-menu">
-    <ul style="display: flex;">
-        <li><a href="{% url 'usersapp:account' user.pk %}">О себе</a></li>
-        <li><a href="{% url 'mainapp:create_article' %}">Редактор статей</a></li>
-        <li><a href="{% url 'mainapp:drafts' %}">Черновики</a></li>
-        <li><a href="{% url 'mainapp:user_moderation_articles' %}">Модерация</a></li>
-        <li><a href="{% url 'mainapp:user_articles' %}">Мои статьи</a></li>
+    <ul class="section-menu"> <!-- Прижат к левому краю блока-->
+        <li><a class="link-menu" href="{% url 'usersapp:account' user.pk %}">О себе</a></li>
+        <li><a class="link-menu" href="{% url 'mainapp:create_article' %}">Редактор статей</a></li>
+        <li><a class="link-menu" href="{% url 'mainapp:drafts' %}">Черновики</a><sup><s-1>{{ user_drafts_count }}</s-1></sup></li>
+        {#        <li><a class="link-menu" href="{% url 'mainapp:user_moderation_articles' %}">Модерация</a></li>#}
+        <li><a class="link-menu" href="{% url 'mainapp:user_articles' %}">Мои статьи</a><sup><s-2>{{ user_articles_published_count }}</s-2></sup>
+{#        <li><a class="link-menu" href="{% url 'mainapp:' %}">Корзина</a></a><sup><s-2>22</s-2></sup>#}
+        </li>
     </ul>
 </div>
-

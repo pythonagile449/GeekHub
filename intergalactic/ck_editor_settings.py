@@ -8,7 +8,9 @@ CKEDITOR_CONFIGS = {
     'default': {
         'skin': 'moono',
         'toolbar': 'full',
+        'width': 'auto',
     },
+
 }
 
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
