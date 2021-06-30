@@ -2,19 +2,19 @@
 {% load static %}
 
 {% block css %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/style-login.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style-login.css' %}">
 {% endblock %}
 
 {% block content %}
-<div class="wrapper-login">
-    <div class="container-login">
-        <form class="form-horizontal" method="post"
-              enctype="multipart/form-data">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <br>
-            <input class="form-control" type="submit" value="Зарегистрироваться">
-        </form>
+    <div class="wrapper-login">
+        <div class="container-login">
+            <form class="form-horizontal" method="post"
+                  enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <br>
+                <input class="form-control" type="submit" value="Зарегистрироваться">
+            </form>
+        </div>
     </div>
-</div>
 {% endblock %}

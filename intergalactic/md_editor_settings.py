@@ -2,6 +2,7 @@
 Настройки редактора markdown-editor.
 """
 import time
+
 # Choices are: "semantic", "bootstrap"
 MARTOR_THEME = 'bootstrap'
 

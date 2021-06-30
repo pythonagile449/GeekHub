@@ -2,16 +2,16 @@
 {% load static %}
 
 {% block toolbar %}
- {% include '_inc/profile_toolbar.html' %}
+    {% include '_inc/profile_toolbar.html' %}
 {% endblock %}
 
 {% block content %}
-<p>Редактируем профиль: {{ object.username }}</p>
-<form class="form-horizontal" method="post"
-      enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <br>
-    <input class="form-control" type="submit" value="Сохранить изменения">
-</form>
+    <p>Редактируем профиль: {{ object.username }}</p>
+    <form class="form-horizontal" method="post"
+          enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <br>
+        <input class="form-control" type="submit" value="Сохранить изменения">
+    </form>
 {% endblock %}

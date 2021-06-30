@@ -4,7 +4,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ('mainapp', '0007_rename_is_puslished_article_is_published'),
     ]

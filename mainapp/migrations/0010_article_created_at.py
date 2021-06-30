@@ -4,7 +4,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ('mainapp', '0009_alter_article_is_moderation_in_progress'),
     ]
