@@ -6,7 +6,6 @@ from django.utils.timezone import utc
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ('usersapp', '0036_alter_geekhubuser_activate_key_expires'),
     ]
@@ -15,11 +14,13 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='geekhubuser',
             name='article_redactor',
-            field=models.CharField(choices=[('MD', 'markdown'), ('CK', 'сkeditor')], default='CK', max_length=8, verbose_name='Редактор статей'),
+            field=models.CharField(choices=[('MD', 'markdown'), ('CK', 'сkeditor')], default='CK', max_length=8,
+                                   verbose_name='Редактор статей'),
         ),
         migrations.AlterField(
             model_name='geekhubuser',
             name='activate_key_expires',
-            field=models.DateTimeField(default=datetime.datetime(2021, 6, 27, 21, 31, 34, 786887, tzinfo=utc), verbose_name='Время действия кода активации'),
+            field=models.DateTimeField(default=datetime.datetime(2021, 6, 27, 21, 31, 34, 786887, tzinfo=utc),
+                                       verbose_name='Время действия кода активации'),
         ),
     ]
