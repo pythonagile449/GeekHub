@@ -15,6 +15,10 @@
     {{ title }} :: {{ block.super }}
 {% endblock %}
 
+{% block toolbar %}
+{% include '_inc/profile_toolbar.html' %}
+{% endblock %}
+
 {% block content %}
     <form class="create-article-form container-editor" action="{% url 'mainapp:create_article' %}" method="post">
         {% csrf_token %}
@@ -61,26 +65,9 @@
             <div class="field-50" style="height: auto">
                 {{ form.contents }}
             </div>
-            {#            {% for field in form %}#}
-            {#                {% if field.name == 'contents' %}#}
-            {#                    <div class="form-group">#}
-            {#                        {{ field }}#}
-            {#                    </div>#}
-            {#                {% else %}#}
-            {#                    {{ field.label_tag }}#}
-            {#                    <div>#}
-            {#                        {{ field }}#}
-            {#                    </div>#}
-            {#                {% endif %}#}
-            {##}
-            {#            {% endfor %}#}
         </div>
 
-        {#            <button type="submit">Опубликовать</button>#}
-        {#            <button type="button" class="save-as-draft-button">Сохранить как черновик</button>#}
-
     </form>
-    {#    </div>#}
 
 {% endblock %}
 

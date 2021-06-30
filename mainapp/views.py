@@ -61,13 +61,12 @@ class CreateArticle(CreateView):
         """
         form.instance.author = self.request.user
 
+        # TODO временно статьи создаются в статусе опубликовано, необходимо изменить на модерацию
         # если запрос на публикацию статьи - устанавливаем статус 'на модерации', снимаем статус 'черновик'
         if self.request.path != '/create-draft/':
-            form.instance.is_moderation_in_progress = True
+            # form.instance.is_moderation_in_progress = True
+            form.instance.is_published = True
             form.instance.is_draft = False
-
-        # добавляем посфикс для определения редактора в шаблоне вида '<CK>' или '<MD>'
-        # form.instance.contents += f'<{form.instance.author.article_redactor}>'
 
         # если используется маркдаун - конвертируем его в html
         if form.instance.author.article_redactor == "MD":
@@ -79,6 +78,10 @@ class CreateArticle(CreateView):
         context = super(CreateArticle, self).get_context_data()
         context['hubs'] = Hub.objects.all()
         context['title'] = 'Создание новой статьи'
+        # TODO написать контекстные процессоры для количества статей
+        context['user_drafts_count'] = Article.objects.filter(author=self.request.user, is_draft=True).count()
+        context['user_articles_published_count'] = Article.objects.filter(author=self.request.user,
+                                                                          is_published=True).count()
         return context
 
 
@@ -107,6 +110,10 @@ class UserArticles(ListView):
         context = super().get_context_data(**kwargs)
         context['hubs'] = Hub.objects.all()
         context['title'] = 'Мои статьи'
+        # TODO написать контекстные процессоры для количества статей
+        context['user_drafts_count'] = Article.objects.filter(author=self.request.user, is_draft=True).count()
+        context['user_articles_published_count'] = Article.objects.filter(author=self.request.user,
+                                                                          is_published=True).count()
         return context
 
 

@@ -13,7 +13,7 @@ class ArticleCkForm(forms.ModelForm):
     contents = forms.CharField(widget=CKEditorUploadingWidget(attrs={'style': 'width: auto'}))
     short_description = forms.CharField(label='Краткое описание',
                                         widget=forms.TextInput(attrs={'class': 'form-control'}),
-                                        max_length=256, required=True)
+                                        max_length=256, required=False)
 
     class Meta:
         model = Article
