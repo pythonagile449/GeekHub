@@ -16,10 +16,11 @@
 {% endblock %}
 
 {% block toolbar %}
-{% include '_inc/profile_toolbar.html' %}
+    {% include '_inc/profile_toolbar.html' %}
 {% endblock %}
 
 {% block content %}
+    <div class="indent-20"></div>
     <form class="create-article-form container-editor" action="{% url 'mainapp:create_article' %}" method="post">
         {% csrf_token %}
 
