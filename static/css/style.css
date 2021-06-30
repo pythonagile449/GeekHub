@@ -1,4 +1,4 @@
-    /*Общие свойства, свойства для главной*/
+﻿    /*Общие свойства, свойства для главной*/
 
     * {
         padding: 0px;
@@ -218,6 +218,13 @@
 	    color: var(--text-color);
 	}
 
+	h3 {
+	    font-family: Roboto, Verdana, sans-serif;
+	    font-weight: 400;
+	    color: var(--text-color);
+	}
+
+
 	h5-1 {
 	    font-family: Roboto, Verdana, sans-serif;
 	    font-size: 14px;
@@ -407,13 +414,13 @@
 	    color: var(--main-bg-color);
 	}
 
-	input[type="text"] {
+	input.editor-placeholder[type="text"] {
 	    color: var(--text-color);
         outline: none;
         font-size: 14px;
         font-family: Roboto, Verdana, sans-serif;
         font-weight: 500;
-        width:240px;
+        width: 850px;
 	}
 
 	input[type="password"] {
@@ -913,7 +920,8 @@
         text-decoration: none;
         font-size: 14px;
         cursor: pointer;
-        margin-right: 10px;
+        margin-left: 12px;
+        margin-right: 18px;
     }
 
     .button15:hover {
@@ -1034,3 +1042,152 @@
 	    color: var(--header-bg-color);
 	    border-color: rgba(72, 181, 255, 0.2);
 	}
+
+    /*Для страницы index_view_article.html*/
+
+	.my-text {
+        justify-content: center;
+	    border-color: rgba(72, 181, 255, 0.2);
+	    border-radius: 5px;
+	    border-width: 3px;
+        border-style:solid;
+        background: var(--section-bg-color);
+	}
+
+	.editor-field {
+	    height: 170px;
+	    background: var(--main-bg-color);
+	}
+
+    .button21 {
+        transition: color 0.3s ease 0s;
+        background: var(--main-bg-color);
+        border-radius: 5px;
+        border-style:solid;
+        border-width: 1px;
+        border-color: var(--secondary-color);
+        color: var(--link-hover-color);
+        padding: 8px 8px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 14px;
+        cursor: pointer;
+        margin-left: 20px;
+        margin-right: 10px;
+    }
+
+    .button21:hover {
+	    background: rgba(72, 181, 255, 0.2);
+	    color: var(--header-bg-color);
+	    border-color: rgba(72, 181, 255, 0.2);
+	}
+
+    .button22 {
+        transition: color 0.3s ease 0s;
+        background: var(--main-bg-color);
+        border-radius: 5px;
+        border-style:solid;
+        border-width: 1px;
+        border-color: var(--secondary-color);
+        color: var(--link-hover-color);
+        padding: 8px 8px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 14px;
+        cursor: pointer;
+        margin-right: 10px;
+    }
+
+    .button22:hover {
+	    background: rgba(152, 240, 149, 0.6);
+	    color: var(--header-bg-color);
+	    border-color: rgba(72, 181, 255, 0.2);
+	}
+	.container-editor {
+	    width: 1140px;
+	}
+
+	.indent-50-2 {
+        height: 50px;
+        display: flex;
+        align-items: center;
+        background-color: var(--section-bg-color);
+    }
+
+    .editor-block-text {
+        width: 150px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        background-color: var(--section-bg-color);
+    }
+
+    .editor-input-text {
+        display: flex;
+        width: 900px;
+        height: 30px;
+        align-items: center;
+        background: var(--main-bg-color);
+        border-radius: 5px;
+        color: var(--text-color);
+	    justify-content: space-between;
+	    flex-wrap: nowrap;
+	    margin-left: 58px;
+	    flex-direction: row;
+    }
+
+    .editor-select-text {
+        display: flex;
+        width: 210px;
+        height: 30px;
+        align-items: center;
+        background: var(--main-bg-color);
+        border-radius: 5px;
+        color: var(--text-color);
+	    justify-content: space-between;
+	    flex-wrap: nowrap;
+	    margin-left: 58px;
+	    flex-direction: row;
+    }
+
+    .editor-block-info {
+        width: 1000px;
+        height: 50px;
+        align-items: center;
+        display: flex;
+        background-color: var(--section-bg-color);
+    }
+
+    /*Для страницы article_editor.html*/
+
+    .select-3 {
+		color: var(--text-color);
+        outline: none;
+        font-size: 14px;
+        font-family: Roboto, Verdana, sans-serif;
+        font-weight: 500;
+        width: 180px;
+        border: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        margin-left: 8px;
+	}
+
+	input.placeholder[type="text"] {
+	    color: var(--text-color);
+        outline: none;
+        font-size: 14px;
+        font-family: Roboto, Verdana, sans-serif;
+        font-weight: 500;
+        width: 240px;
+	}
+
+	.editor-placeholder{
+        border: none;
+        margin-left: 8px;
+    }
+
+    .block-editor-body {
+        height: 500px;
+    }

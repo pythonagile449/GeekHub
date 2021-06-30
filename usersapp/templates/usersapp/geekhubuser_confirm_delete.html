@@ -2,11 +2,28 @@
 {% load static %}
 
 {% block content %}
-
-    <h4>Вы действительно хотите удалить свой аккаунт???</h4>
-    <form action="{% url 'usersapp:delete' object.pk %}" method="post">
-        {% csrf_token %}
-        <input class="btn btn-danger btn-block" type="submit" value="Удалить">
-    </form>
-
+    <div class="wrapper-login">
+        <div class="container">
+            <div class="upper-margin"></div>
+            <div class="message-fail">
+                <div class="indent-10"></div>
+                <div class="indent-20">
+                    <h5>Внимание!</h5>
+                </div>
+                <div class="indent-20">
+                    <h5>Вы действительно хотите удалить свой профиль?</h5>
+                </div>
+                <div class="indent-20">
+                    <h5>Вы больше не сможете пользоваться данным ресурсом, а личная информация будет стерта!</h5>
+                </div>
+                <div class="indent-50">
+                    <form action="{% url 'usersapp:delete' object.pk %}" method="post">
+                        {% csrf_token %}
+                        <a><button class="button12" type="submit">Да, удалить</button></a>
+                    </form>
+                    <a href="{% url 'usersapp:account' object.pk %}"><button class="button13" type="submit">Нет, отмена</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
