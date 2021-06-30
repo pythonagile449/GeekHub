@@ -76,7 +76,9 @@ class UserAccountEdit(UpdateView):
     model = GeekHubUser
     form_class = UserProfileEditForm
     template_name_suffix = '_update'
-    success_url = reverse_lazy('mainapp:index')
+
+    def get_success_url(self):
+        return reverse_lazy('usersapp:account', kwargs={'pk': self.object.id})
 
 
 class UserAccountDeleteView(DeleteView):
