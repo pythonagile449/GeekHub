@@ -3,10 +3,24 @@
 
 {% block content %}
 
-    <h4>Вы действительно хотите отправить свою статью в черновики?</h4>
-    <form action="{% url 'mainapp:user_article_to_drafts' object.pk %}" method="post">
-        {% csrf_token %}
-        <input class="btn btn-danger btn-block" type="submit" value="В черновики">
-    </form>
+<div class="container">
+    <div class="upper-margin"></div>
+    <div class="message-fail">
+        <div class="indent-10"></div>
+        <div class="indent-20">
+            <h5>Внимание!</h5>
+        </div>
+        <div class="indent-20">
+            <h4>Вы действительно хотите отправить свою статью в черновики?</h4>
+        </div>
+        <div class="indent-50">
+            <form action="{% url 'mainapp:user_article_to_drafts' object.pk %}"  method="post">
+                {% csrf_token %}
+                <a><button class="button12" type="submit">Да, В черновики</button></a>
+            </form>
+            <a href="{% url 'mainapp:drafts' %}"><button class="button13" type="submit">Нет, отмена</button></a>
+        </div>
+    </div>
+</div>
 
 {% endblock %}
