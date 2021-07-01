@@ -10,8 +10,9 @@
     </title>
 
     {% block bootstrap_css %}{% endblock %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-    {% block css %}{% endblock %}
+    {% block css %}
+        <link rel="stylesheet" type="text/css" media="all" href="{% static 'css/style.css' %}">
+    {% endblock %}
 </head>
 
 <body>

@@ -4,8 +4,11 @@
 
 body {
     width: 100%;
+    height: 100%;
 }
-
+html{
+    height: 100%;
+}
 .wrapper-login, .container-login, .form-horizontal, .container-message {
     display: flex;
     flex-wrap: wrap;
