@@ -1,4 +1,4 @@
-﻿/*Общие свойства, свойства для главной*/
+/*Общие свойства, свойства для главной*/
 
 * {
     padding: 0px;
@@ -9,11 +9,11 @@
     box-sizing: initial;
 }
 
-
 :root {
     --main-bg-color: #FFFFFF;
     --section-bg-color: #E9E9E9;
     --section-fail-color: #FFD8D8;
+    --section-warning-color:#FCFFD8;
     --section-success-color: #DDFFDC;
     --footer-bg-color: #C8C8C8;
     --primary-color: #48B5FF; /*цвет синих элементов*/
@@ -35,23 +35,6 @@
     --warning-color: yellow;
     --success-color: green;
 }
-.wrapper {
-    width: 100%;
-    max-width: 1140px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    justify-content: space-between;
-}
-
-body {
-    height: 100%;
-}
-
-html {
-    height: 100%;
-}
 
 sup {
     position: relative;
@@ -72,7 +55,6 @@ a:hover {
 
 .container {
     width: 1140px;
-    flex: 1 0 auto;
     margin: 0 auto;
     padding: 0;
 }
@@ -155,6 +137,7 @@ ul.menu-right li { /* Пункты списка меню */
 }
 
 .button1 {
+    transition: color 0.3s ease 0s;
     background: rgba(72, 181, 255, 0.2);
     border-radius: 5px;
     color: var(--text-color);
@@ -166,6 +149,7 @@ ul.menu-right li { /* Пункты списка меню */
 }
 
 .button2 {
+    transition: color 0.3s ease 0s;
     background: var(--main-bg-color);
     border-radius: 5px;
     border-style: solid;
@@ -320,7 +304,6 @@ ul.author-data {
     display: flex;
     height: 40px;
     align-items: center;
-    border-top: solid 1px dimgrey;
 }
 
 ul.author-data li { /* Пункты списка меню */
@@ -361,12 +344,12 @@ ul.like-comment li { /* Пункты списка меню */
 
 /*Шаблоны регистрации, входа и geekhub-message*/
 .upper-margin {
-    height: 190px;
+    height: 65px;
 }
 
 .container-register {
     display: flex;
-    flex-flow: row;
+    flex-flow: row-wrap;
     justify-content: space-between;
 }
 
@@ -466,14 +449,6 @@ ul.like-comment li { /* Пункты списка меню */
     color: var(--main-bg-color);
 }
 
-input.editor-placeholder[type="text"] {
-    color: var(--text-color);
-    outline: none;
-    font-size: 14px;
-    font-family: Roboto, Verdana, sans-serif;
-    font-weight: 500;
-    width: 850px;
-}
 
 input[type="password"] {
     color: var(--text-color);
@@ -481,6 +456,15 @@ input[type="password"] {
     font-size: 14px;
     font-family: Roboto, Verdana, sans-serif;
     font-weight: 500;
+}
+
+input.editor-placeholder[type="text"] {
+    color: var(--text-color);
+    outline: none;
+    font-size: 14px;
+    font-family: Roboto, Verdana, sans-serif;
+    font-weight: 500;
+    width: 850px;
 }
 
 input-text-left {
@@ -497,7 +481,7 @@ input-text-right {
 
 .container-login {
     display: flex;
-    flex-flow: row;
+    flex-flow: row-wrap;
     justify-content: space-between;
 }
 
@@ -572,6 +556,16 @@ input-text-right {
 
 .message-success {
     background: var(--section-success-color);
+    height: auto;
+    width: 75%;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    border-radius: 5px;
+}
+
+.message-warning {
+    background: var(--section-warning-color);
     height: auto;
     width: 75%;
     justify-content: center;
@@ -851,7 +845,7 @@ textarea {
     height: 87px;
     border: none;
     resize: none;
-    maxlength: "100";
+    /*maxlength: "100";*/
 }
 
 .select-1 {
@@ -1048,7 +1042,7 @@ input[type="date"] {
     text-decoration: none;
     font-size: 14px;
     cursor: pointer;
-    margin-left: 20px;
+    /*margin-left: 20px;*/
     margin-right: 10px;
 }
 

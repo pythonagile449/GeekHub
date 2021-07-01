@@ -4,11 +4,8 @@
 
 body {
     width: 100%;
-    height: 100%;
 }
-html{
-    height: 100%;
-}
+
 .wrapper-login, .container-login, .form-horizontal, .container-message {
     display: flex;
     flex-wrap: wrap;
@@ -65,7 +62,7 @@ html{
 }
 
 input {
-    background-image: url("../../../static/svg/vector.svg");
+    /*background-image: url("../../../static/svg/vector.svg");*/
     background-repeat: no-repeat; /*Убираем повтор изображения*/
     background-position: bottom 0px right 0px; /*Позиционируем*/
     border: none;
@@ -75,12 +72,32 @@ input {
 }
 
 
-.form-control {
+/*.form-control {
     margin-top: 40px;
     width: 156px;
     height: 30px;
     border-radius: 5px;
     background: rgba(72, 181, 255, 0.3)
+}*/
+
+.button4 {
+    transition: color 0.3s ease 0s;
+    font-weight: 500;
+    background: rgba(72, 181, 255, 0.2);
+    border-radius: 5px;
+    color: var(--text-color);
+    padding: 8px 12px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    font-family: Roboto, Verdana, sans-serif;
+}
+
+.button4:hover {
+    background: rgba(72, 181, 255, 0.6);
+    color: var(--main-bg-color);
 }
 
 .text-alternative {

@@ -26,23 +26,7 @@
                             <h6-2>{{ article.publication_date }}</h6-2>
                         </li>
                     </ul>
-                    <ul data-article-id="{{ article.id }}">
-                        {% if article.is_draft %}
-                        <a><button  class="button20" type="submit">Сохранить</button></a>
-                        <a><button  class="button16" type="submit">Отправить на модерацию</button></a>
-                        <a href="{% url 'mainapp:user_article_delete' article.pk %}"><button  class="button17" type="submit">Удалить</button></a>
 
-                        {% elif article.is_published %}
-                        <li>
-                            <a href="{% url 'mainapp:user_article_to_drafts' article.pk %}"><button  class="button17" type="submit">Снять с публикации</button></a>
-
-                        </li>
-                        {% elif article.is_moderation_in_progress %}
-                        <li>
-                            <a href="{% url 'mainapp:user_article_to_drafts' article.pk %}">Снять с модерации</a>
-                        </li>
-                        {% endif %}
-                    </ul>
                 </div>
 
                 <div class="section-left-title">
@@ -62,7 +46,22 @@
                         {{ article.contents|safe }}
                     </h5-1>
                 </div>
-
+                {% if article.is_draft %}
+                    <a href="#">
+                        <button class="button18" type="submit">Редактировать</button>
+                    </a>
+                    <a href="#">
+                        <button class="button16" type="submit">Отправить на модерацию</button>
+                    </a>
+                    <a href="{% url 'mainapp:user_article_delete' article.pk %}">
+                        <button class="button17" type="submit">Удалить</button>
+                    </a>
+                {% elif article.is_published %}
+                    <a href="{% url 'mainapp:user_article_to_drafts' article.pk %}" class="button18">Снять с
+                        публикации</a>
+                {% elif article.is_moderation_in_progress %}
+                    <a href="{% url 'mainapp:user_article_to_drafts' article.pk %}">Снять с модерации</a>
+                {% endif %}
             {% endfor %}
         </div>
 
