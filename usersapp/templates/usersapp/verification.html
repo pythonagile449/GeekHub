@@ -6,21 +6,57 @@
 {% block content %}
     <div class="container-message verification">
         {% if user.is_authenticated %}
-            <div class="alert alert-success alert-dismissible fade show" role="alert" style="margin-top: 50px;">
-                <h3>Поздравляем!</h3>
-                <h4>Пользователь {{ user.username }} подтвержден.</h4>
+            <div class="wrapper-login">
+                <div class="container">
+                    <div class="upper-margin"></div>
+                    <div class="message-success">
+                        <div class="indent-10"></div>
+                        <div class="indent-20">
+                            <h5>Поздравляем!</h5>
+                        </div>
+                        <div class="indent-20">
+                            <h5> Вы успешно прошли регистрацию и подтвердили свой почтовый ящик!</h5>
+                        </div>
+                        <!--            <div class="indent-20">-->
+                        <!--                <h5>Теперь вы можете войти в свой личный кабинет, используя логин и пароль.</h5>-->
+                        <!--            </div>-->
+                        <div class="indent-50">
+                            <a href="{% url 'mainapp:index' %}" class="button8">На главную</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         {% else %}
-            <div class="alert alert-warning alert-dismissible fade show" role="alert" style="margin-top: 50px;">
-                <h3>Верификация не пройдена.</h3>
-                <p>Перейдите по ссылке отправленной вам на адрес электронной почты указанный вами при регистрации.</p>
+            <div class="wrapper-login">
+                <div class="container">
+                    <div class="upper-margin"></div>
+                    <div class="message">
+                        <div class="indent-10"></div>
+                        <div class="indent-20">
+                            <h5>На Ваш почтовый ящик было отправлено письмо с ссылкой для подтверждения
+                                регистрации.</h5>
+                        </div>
+                        <div class="indent-20">
+                            <h5> Для завершения регистрации перейдите по ссылке из полученного письма.</h5>
+                        </div>
+                        <div class="indent-20">
+                            <h5>Если вы не нашли письмо в своем ящике, обязательно проверьте папку Спам</h5>
+                        </div>
+                        <div class="indent-15">
+                            <!--                <a><button  class="button5" type="submit">Ок</button></a>-->
+                        </div>
+                    </div>
+                </div>
             </div>
         {% endif %}
-        <br>
-        <div class="alert " role="alert" style="margin-top: 50px;">
-            <button class="form-control">
-                <a href="{% url 'mainapp:index' %}" class="">на главную</a>
-            </button>
-        </div>
+        <!--        <br>-->
+        <!--        <div class="alert " role="alert" style="margin-top: 50px;">-->
+        <!--            <button class="form-control">-->
+        {#<a href="{% url 'mainapp:index' %}" class="">на главную</a>#}
+        <!--            </button>-->
+        <!--        </div>-->
     </div>
+{% endblock %}
+
+{% block footer %}
 {% endblock %}

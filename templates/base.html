@@ -36,13 +36,14 @@
         </div>
 
     </div>
-
-    <div class="footer">
-        <div class="footer-container">
-            <p>All right reserved. </p>
-            <p>{% now "jS F Y " %} </p>
+    {% block footer %}
+        <div class="footer">
+            <div class="footer-container">
+                <p>All right reserved. </p>
+                <p>{% now "jS F Y " %} </p>
+            </div>
         </div>
-    </div>
+    {% endblock %}
 </div>
 <script type="text/javascript" src="{% static 'plugins/js/jquery.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'plugins/js/bootstrap.min.js' %}"></script>

@@ -3,15 +3,28 @@
 {% block menu %}{% endblock %}
 
 {% block content %}
-    <div class="container-message">
-        <p>На Ваш почтовый ящик было отправлено письмо с ссылкой для подтверждения регистрации.</p>
-        <p>Для завершения регистрации перейдите по ссылке из полученного письма.</p>
-        <p class="p-end">Если вы не нашли письмо в своем ящике, обязательно проверьте папку <strong>&nbsp
-            Спам. </strong>
-        </p>
-        <button name="from_message" role="alert" class="form-control" type="submit">
-            <a href="{% url 'index' %}">ОК</a>
-        </button>
+<div class="wrapper-login">
+    <div class="container">
+        <div class="upper-margin"></div>
+        <div class="message">
+            <div class="indent-10"></div>
+            <div class="indent-20">
+                <h5>На Ваш почтовый ящик было отправлено письмо с ссылкой для подтверждения регистрации.</h5>
+            </div>
+            <div class="indent-20">
+                <h5> Для завершения регистрации перейдите по ссылке из полученного письма.</h5>
+            </div>
+            <div class="indent-20">
+                <h5>Если вы не нашли письмо в своем ящике, обязательно проверьте папку Спам</h5>
+            </div>
+            <div class="indent-15">
+<!--                <a><button  class="button5" type="submit">Ок</button></a>-->
+            </div>
+        </div>
     </div>
+</div>
+{% endblock %}
+
+{% block footer %}
 {% endblock %}
 
