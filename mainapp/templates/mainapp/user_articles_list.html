@@ -10,6 +10,7 @@
     {% include '_inc/profile_toolbar.html' %}
 {% endblock %}
 
+
 {% block content %}
     <div class="content-container">
         <div class="section-left">
@@ -25,6 +26,7 @@
                             <h6-2>{{ article.publication_date }}</h6-2>
                         </li>
                     </ul>
+
                 </div>
 
                 <div class="section-left-title">
@@ -44,27 +46,22 @@
                         {{ article.contents|safe }}
                     </h5-1>
                 </div>
-                <ul data-article-id="{{ article.id }}">
-                    {% if article.is_draft %}
-                        <li>
-                            <a href="#">Редактировать</a>
-                        </li>
-                        <li>
-                            <a href="#">Отправить на модерацию</a>
-                        </li>
-                        <li>
-                            <a href="{% url 'mainapp:user_article_delete' article.pk %}">Удалить</a>
-                        </li>
-                    {% elif article.is_published %}
-                        <li>
-                            <a href="{% url 'mainapp:user_article_to_drafts' article.pk %}">Снять с публикации</a>
-                        </li>
-                    {% elif article.is_moderation_in_progress %}
-                        <li>
-                            <a href="{% url 'mainapp:user_article_to_drafts' article.pk %}">Снять с модерации</a>
-                        </li>
-                    {% endif %}
-                </ul>
+                {% if article.is_draft %}
+                    <a href="#">
+                        <button class="button18" type="submit">Редактировать</button>
+                    </a>
+                    <a href="#">
+                        <button class="button16" type="submit">Отправить на модерацию</button>
+                    </a>
+                    <a href="{% url 'mainapp:user_article_delete' article.pk %}">
+                        <button class="button17" type="submit">Удалить</button>
+                    </a>
+                {% elif article.is_published %}
+                    <a href="{% url 'mainapp:user_article_to_drafts' article.pk %}" class="button18">Снять с
+                        публикации</a>
+                {% elif article.is_moderation_in_progress %}
+                    <a href="{% url 'mainapp:user_article_to_drafts' article.pk %}">Снять с модерации</a>
+                {% endif %}
             {% endfor %}
         </div>
 
