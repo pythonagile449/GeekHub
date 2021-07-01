@@ -1,8 +1,28 @@
-{% extends 'base.html' %}
+{% extends 'message.html' %}
 {% load static %}
 
 {% block content %}
 
-    <h1>Вы успешно вышли из системы!</h1>
+<div class="wrapper-login">
+    <div class="container">
+        <div class="upper-margin"></div>
+        <div class="message-fail">
+            <div class="indent-10"></div>
+            <div class="indent-20">
+                <h5>Вы вышли из аккаунта!</h5>
+            </div>
+            <div class="indent-20">
+                <h5> Функционал ресурса для Вас ограничен!</h5>
+            </div>
+            <div class="indent-20">
+                <h5>Вы можете снова войти в свой аккаунт или вернуться на главную страницу.</h5>
+            </div>
+            <div class="indent-50">
+                    <a href="{% url 'usersapp:login' %}" class="button7">Войти</a>
+                    <a href="{% url 'mainapp:index' %}" class="button8">На главную</a>
+            </div>
+        </div>
+    </div>
+</div>
 
 {% endblock %}

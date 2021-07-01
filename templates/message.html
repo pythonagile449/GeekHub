@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta html-equiv="X-UA-Compatible" content="ie=edge">
+    <title>
+        {% block title %}Intergalactic Entertainment{% endblock %}
+    </title>
+
+    {% block bootstrap_css %}{% endblock %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    {% block css %}{% endblock %}
+</head>
+
+<body>
+<div class="wrapper">
+
+
+    <div class="container">
+
+        <div class="container">
+            {% block content %} {% endblock %}
+        </div>
+
+    </div>
+
+</div>
+<script type="text/javascript" src="{% static 'plugins/js/jquery.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'plugins/js/bootstrap.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/mainapp/active-menu-link.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/mainapp/active-toolbar-link.js' %}"></script>
+{% block js %}{% endblock %}
+</body>
+</html>
