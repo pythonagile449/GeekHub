@@ -1,9 +1,12 @@
 import uuid
+
 from django import forms
 from django.conf import settings
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, UserChangeForm
 from django.core.mail import send_mail
+from django.forms import ModelForm
 from django.urls import reverse
+
 from usersapp.models import GeekHubUser
 
 
@@ -52,7 +55,14 @@ class UserProfileForm(UserChangeForm):
         fields = '__all__'
 
 
-class UserProfileEditForm(UserChangeForm):
+class UserProfileEditForm(ModelForm):
+    first_name = forms.CharField(label='Имя', widget=forms.TextInput(attrs={'class': 'placeholder'}), required=False)
+    last_name = forms.CharField(label='Фамилия', widget=forms.TextInput(attrs={'class': 'placeholder'}), required=False)
+    user_information = forms.CharField(label='О себе', widget=forms.Textarea(attrs={'class': 'placeholder'}),
+                                       required=False)
+    birthday = forms.DateField(label='Дата рождения', widget=forms.DateInput(attrs={'class': 'form-control'}),
+                               required=False)
+
     class Meta:
         model = GeekHubUser
         fields = ['first_name', 'last_name', 'profile_photo', 'user_information', 'birthday', 'gender',

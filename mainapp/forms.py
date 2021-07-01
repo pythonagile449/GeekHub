@@ -1,8 +1,8 @@
-from django import forms
-from mainapp.models import Hub, Article
-
-from martor.fields import MartorFormField
 from ckeditor_uploader.widgets import CKEditorUploadingWidget
+from django import forms
+from martor.fields import MartorFormField
+
+from mainapp.models import Hub, Article
 
 
 class ArticleCkForm(forms.ModelForm):

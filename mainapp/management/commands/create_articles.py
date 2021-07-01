@@ -41,10 +41,16 @@ class Command(BaseCommand):
         users_ids_list = GeekHubUser.objects.all().values_list('id', flat=True)
         hubs_ids_list = Hub.objects.all().values_list('id', flat=True)
 
-        md_text = faker.post(size='medium')
-        html_text = '<p>html text</p><b>Статья на HTML</b>'
+        html_text = '<p>Как-то раз, крася и двигая кнопки, я заметил, что ресайклер вью на одном из наших экранов ' \
+                    'немного проседал по отрисовке при активном скролле из-за большого разнообразия ' \
+                    '<code>viewType</code> (и, как следствие, частого создания новых вьюхолдеров), и, глядя на это, ' \
+                    'вспомнил о <a href="https://medium.com/google-developers/recyclerview-prefetch-c2f269075710">' \
+                    'старой статье Chet Haase</a> про то, как появилась возможность нагружать ресайклер работой по ' \
+                    'префетчингу элементов в моменты простоя мэйн трэда. Но мне показалось этого мало, и захотелось ' \
+                    'создавать элементы в моменты простоя...не мэйн трэда.</p>'
 
         for i in range(10):
+            md_text = faker.post(size='medium')
             try:
                 new_article = Article.objects.create(
                     title=faker.sentence(nb_words=10),
