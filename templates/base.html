@@ -9,10 +9,11 @@
         {% block title %}Intergalactic Entertainment{% endblock %}
     </title>
 
-    {% block bootstrap_css %}{% endblock %}
-    {% block css %}
-        <link rel="stylesheet" type="text/css" media="all" href="{% static 'css/style.css' %}">
+    {% block bootstrap_css %}
+        <link href="{% static 'plugins/css/bootstrap.min.css' %}" type="text/css" media="all" rel="stylesheet"/>
     {% endblock %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    {% block css %}{% endblock %}
 </head>
 
 <body>
@@ -37,13 +38,14 @@
         </div>
 
     </div>
-
-    <div class="footer">
-        <div class="footer-container">
-            <p>All right reserved. </p>
-            <p>{% now "jS F Y " %} </p>
+    {% block footer %}
+        <div class="footer">
+            <div class="footer-container">
+                <p>All right reserved. </p>
+                <p>{% now "jS F Y " %} </p>
+            </div>
         </div>
-    </div>
+    {% endblock %}
 </div>
 <script type="text/javascript" src="{% static 'plugins/js/jquery.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'plugins/js/bootstrap.min.js' %}"></script>

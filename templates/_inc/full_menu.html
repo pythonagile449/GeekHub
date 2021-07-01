@@ -17,17 +17,19 @@
     <div class="menu-right"> <!-- Прижат к правому краю блока-->
         <ul class="menu-right">
             {% if user.is_authenticated %}
-                <li><a href="{% url 'usersapp:account'  user.pk %}" class="link-menu">{{ user.username }}</a></li>
-                <li><a href="{% url 'usersapp:logout' %}" class="button1">Выход</a></li>
                 {% if user.is_superuser %}
-                    <li><a href="{% url 'admin:index' %}" class="button1">Admin Panel</a></li>
+                    <li><a href="{% url 'admin:index' %}" class="link-menu">Админка</a></li>
                 {% endif %}
-                <!--Сделана как ссылка с кнопкой (не active)-->
+
+                {# При входе в аккаунт сразу возможность изменения данных о себе#}
+                {# <li><a href="{% url 'usersapp:account'  user.pk %}" class="link-menu">{{ user.username }}</a></li>#}
+                <li><a href="{% url 'usersapp:modify'  user.pk %}" class="link-menu">{{ user.username }}</a></li>
+
+                <li><a href="{% url 'usersapp:logout' %}" class="link-menu">Выйти</a></li>
             {% endif %}
             {% if user.is_anonymous %}
-                <li><a href="{% url 'usersapp:login' %}" class="button1">Вход</a></li>
+                <li><a href="{% url 'usersapp:login' %}" class="link-menu">Войти</a></li>
                 <li><a href="{% url 'usersapp:registration' %}" class="button1">Регистрация</a></li>
-                <!--Сделана как ссылка с кнопкой (не active)-->
             {% endif %}
         </ul>
     </div>

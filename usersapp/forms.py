@@ -1,9 +1,12 @@
 import uuid
+
 from django import forms
 from django.conf import settings
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, UserChangeForm
 from django.core.mail import send_mail
+from django.forms import ModelForm
 from django.urls import reverse
+
 from usersapp.models import GeekHubUser
 
 
@@ -17,11 +20,12 @@ def send_verify_mail(user):
 
 
 class RegistrationForm(UserCreationForm):
-    username = forms.CharField(label='Имя пользователя', widget=forms.TextInput(attrs={'class': 'form-control'}))
-    email = forms.EmailField(label='E-mail', widget=forms.EmailInput(attrs={'class': 'form-control'}))
-    password1 = forms.CharField(label='Пароль', widget=forms.PasswordInput(attrs={'class': 'form-control'}))
+    username = forms.CharField(label='Имя пользователя', widget=forms.TextInput(attrs={'class': 'button3'}))
+    # username = forms.CharField(label='Имя пользователя', widget=forms.TextInput(attrs={'class': 'form-control'}))
+    email = forms.EmailField(label='E-mail', widget=forms.EmailInput(attrs={'class': 'button3'}))
+    password1 = forms.CharField(label='Пароль', widget=forms.PasswordInput(attrs={'class': 'button3'}))
     password2 = forms.CharField(label='Подтверждение пароля',
-                                widget=forms.PasswordInput(attrs={'class': 'form-control'}))
+                                widget=forms.PasswordInput(attrs={'class': 'button3'}))
 
     class Meta(object):
         model = GeekHubUser
@@ -41,8 +45,8 @@ class RegistrationForm(UserCreationForm):
 
 
 class LoginForm(AuthenticationForm):
-    username = forms.CharField(label='Имя пользователя', widget=forms.TextInput(attrs={'class': 'form-control'}))
-    password = forms.CharField(label='Пароль', widget=forms.PasswordInput(attrs={'class': 'form-control'}))
+    username = forms.CharField(label='Имя пользователя', widget=forms.TextInput(attrs={'class': 'button4"'}))
+    password = forms.CharField(label='Пароль', widget=forms.PasswordInput(attrs={'class': 'button4"'}))
 
 
 class UserProfileForm(UserChangeForm):
@@ -51,7 +55,14 @@ class UserProfileForm(UserChangeForm):
         fields = '__all__'
 
 
-class UserProfileEditForm(UserChangeForm):
+class UserProfileEditForm(ModelForm):
+    first_name = forms.CharField(label='Имя', widget=forms.TextInput(attrs={'class': 'placeholder'}), required=False)
+    last_name = forms.CharField(label='Фамилия', widget=forms.TextInput(attrs={'class': 'placeholder'}), required=False)
+    user_information = forms.CharField(label='О себе', widget=forms.Textarea(attrs={'class': 'placeholder'}),
+                                       required=False)
+    birthday = forms.DateField(label='Дата рождения', widget=forms.DateInput(attrs={'class': 'form-control'}),
+                               required=False)
+
     class Meta:
         model = GeekHubUser
         fields = ['first_name', 'last_name', 'profile_photo', 'user_information', 'birthday', 'gender',
