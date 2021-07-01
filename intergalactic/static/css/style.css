@@ -13,6 +13,7 @@
     --main-bg-color: #FFFFFF;
     --section-bg-color: #E9E9E9;
     --section-fail-color: #FFD8D8;
+    --section-warning-color:#FCFFD8;
     --section-success-color: #DDFFDC;
     --footer-bg-color: #C8C8C8;
     --primary-color: #48B5FF; /*цвет синих элементов*/
@@ -136,6 +137,7 @@ ul.menu-right li { /* Пункты списка меню */
 }
 
 .button1 {
+    transition: color 0.3s ease 0s;
     background: rgba(72, 181, 255, 0.2);
     border-radius: 5px;
     color: var(--text-color);
@@ -147,6 +149,7 @@ ul.menu-right li { /* Пункты списка меню */
 }
 
 .button2 {
+    transition: color 0.3s ease 0s;
     background: var(--main-bg-color);
     border-radius: 5px;
     border-style: solid;
@@ -341,7 +344,7 @@ ul.like-comment li { /* Пункты списка меню */
 
 /*Шаблоны регистрации, входа и geekhub-message*/
 .upper-margin {
-    height: 290px;
+    height: 65px;
 }
 
 .container-register {
@@ -446,14 +449,6 @@ ul.like-comment li { /* Пункты списка меню */
     color: var(--main-bg-color);
 }
 
-input.editor-placeholder[type="text"] {
-    color: var(--text-color);
-    outline: none;
-    font-size: 14px;
-    font-family: Roboto, Verdana, sans-serif;
-    font-weight: 500;
-    width: 850px;
-}
 
 input[type="password"] {
     color: var(--text-color);
@@ -461,6 +456,15 @@ input[type="password"] {
     font-size: 14px;
     font-family: Roboto, Verdana, sans-serif;
     font-weight: 500;
+}
+
+input.editor-placeholder[type="text"] {
+    color: var(--text-color);
+    outline: none;
+    font-size: 14px;
+    font-family: Roboto, Verdana, sans-serif;
+    font-weight: 500;
+    width: 850px;
 }
 
 input-text-left {
@@ -552,6 +556,16 @@ input-text-right {
 
 .message-success {
     background: var(--section-success-color);
+    height: auto;
+    width: 75%;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    border-radius: 5px;
+}
+
+.message-warning {
+    background: var(--section-warning-color);
     height: auto;
     width: 75%;
     justify-content: center;
@@ -831,7 +845,7 @@ textarea {
     height: 87px;
     border: none;
     resize: none;
-    maxlength: "100";
+    /*maxlength: "100";*/
 }
 
 .select-1 {
