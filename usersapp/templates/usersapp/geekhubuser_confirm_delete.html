@@ -3,7 +3,7 @@
 
 {% block content %}
 
-    <form action="{% url 'usersapp:delete' object.pk %}" method="post">
+    <form method="post" id="confirm-delete-form">
         {% csrf_token %}
 
         <div class="wrapper-login">
@@ -21,23 +21,15 @@
                         <h5>Вы больше не сможете пользоваться данным ресурсом, а личная информация будет стерта!</h5>
                     </div>
                     <div class="indent-50">
-                        <a>
-                            <button class="button12" type="submit">Да, удалить</button>
-                        </a>
-                        <a href="{% url 'usersapp:account' %}">
-                            <button class="button13">Нет, отмена</button>
+                        <button class="button12" type="submit">Да, удалить</button>
+                        <a href="{% url 'usersapp:modify' object.pk %}">
+                            <button class="button13" id="back" type="button">Нет, отмена</button>
                         </a>
                     </div>
                 </div>
             </div>
+        </div>
     </form>
-    </div>
-
-    {#    <h4>Вы действительно хотите удалить свой аккаунт???</h4>#}
-    {#    <form action="{% url 'usersapp:delete' object.pk %}" method="post">#}
-    {#        {% csrf_token %}#}
-    {#        <input class="btn btn-danger btn-block" type="submit" value="Удалить">#}
-    {#    </form>#}
 
 {% endblock %}
 
