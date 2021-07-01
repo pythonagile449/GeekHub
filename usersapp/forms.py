@@ -1,9 +1,11 @@
 import uuid
+
 from django import forms
 from django.conf import settings
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, UserChangeForm
 from django.core.mail import send_mail
 from django.urls import reverse
+
 from usersapp.models import GeekHubUser
 
 
