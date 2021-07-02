@@ -7,4 +7,5 @@ db.sqlite3
 settings_*
 gunicorn.*
 /venv/*
-debug.log
+/polls/*
+.vscode

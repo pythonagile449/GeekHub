@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load martortags %}
+
+{% block title %}
+    {{ title }} :: {{ block.super }}
+{% endblock %}
+
+{% block toolbar %}
+    {% include '_inc/profile_toolbar.html' %}
+{% endblock %}
+
+
+{% block content %}
+    <div class="content-container">
+        <div class="section-left">
+            {% for article in articles %}
+                <div class="section-indent"></div>
+                <div class="author-data">
+                    <ul class="author-data">
+                        <li><img src="{% static 'svg/icon2.svg' %}" alt="icon"></li>
+                        <li>
+                            <h6-1>{{ article.author.username }}</h6-1>
+                        </li>
+                        <li>
+                            <h6-2>{{ article.publication_date }}</h6-2>
+                        </li>
+                    </ul>
+
+                </div>
+
+                <div class="section-left-title">
+                    <h2>
+                        <h2-2>
+                            {{ article.title }}
+                        </h2-2>
+                    </h2>
+                </div>
+
+                <div class="chapter">
+                    <h6-3>{{ article.hub.name }}</h6-3>
+                </div>
+
+                <div class="section-left-text">
+                    <h5-1>
+                        {{ article.contents|safe }}
+                    </h5-1>
+                </div>
+                {% if article.is_draft %}
+                    <a href="#">
+                        <button class="button18" type="submit">Редактировать</button>
+                    </a>
+                    <a href="#">
+                        <button class="button16" type="submit">Отправить на модерацию</button>
+                    </a>
+                    <a href="{% url 'mainapp:user_article_delete' article.pk %}">
+                        <button class="button17" type="submit">Удалить</button>
+                    </a>
+                {% elif article.is_published %}
+                    <a href="{% url 'mainapp:user_article_to_drafts' article.pk %}" class="button18">Снять с
+                        публикации</a>
+                {% elif article.is_moderation_in_progress %}
+                    <a href="{% url 'mainapp:user_article_to_drafts' article.pk %}">Снять с модерации</a>
+                {% endif %}
+            {% endfor %}
+        </div>
+
+        <div class="section-right">
+
+            <div class="section-right-block">
+
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

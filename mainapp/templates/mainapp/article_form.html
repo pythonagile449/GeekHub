@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block bootstrap_css %}
+    <link href="{% static 'plugins/css/bootstrap.min.css' %}" type="text/css" media="all" rel="stylesheet"/>
+{% endblock %}
+
+{% block css %}
+    <link href="{% static 'plugins/css/ace.min.css' %}" type="text/css" media="all" rel="stylesheet"/>
+    <link href="{% static 'plugins/css/resizable.min.css' %}" type="text/css" media="all" rel="stylesheet"/>
+    <link href="{% static 'martor/css/martor.bootstrap.min.css' %}" type="text/css" media="all" rel="stylesheet"/>
+{% endblock %}
+
+{% block title %}
+    {{ title }} :: {{ block.super }}
+{% endblock %}
+
+{% block toolbar %}
+    {% include '_inc/profile_toolbar.html' %}
+{% endblock %}
+
+{% block content %}
+    <div class="indent-20"></div>
+    <form class="create-article-form container-editor" action="{% url 'mainapp:create_article' %}" method="post">
+        {% csrf_token %}
+
+        {# form buttons #}
+        <div class="indent-50-2">
+            <a>
+                <button class="button15 save-as-draft-button" type="button">Сохранить как черновик</button>
+            </a>
+            <a>
+                <button class="button16" type="submit">Опубликовать</button>
+            </a>
+        </div>
+
+        {# form inputs #}
+        <div class="block-editor">
+
+            <div class="field-50">
+                <div class="editor-block-text">
+                    <h5-3>{{ form.title.label_tag }}</h5-3>
+                </div>
+                <div class="editor-block-info">
+                    <div class="editor-input-text">
+                        <div class="input-text-left">
+                            {{ form.title }}
+                        </div>
+                        <div class="input-text-right"><img src="{% static 'svg/check-box1.svg' %}" alt="+"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="field-50">
+                <div class="editor-block-text">
+                    <h5-3>{{ form.hub.label_tag }}</h5-3>
+                </div>
+                <div class="editor-block-info">
+                    <div class="editor-select-text">
+                        <div class="select">
+                            {{ form.hub }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="field-50" style="height: auto">
+                {{ form.contents }}
+            </div>
+        </div>
+
+    </form>
+
+{% endblock %}
+
+{% block js %}
+    <script type="text/javascript" src="{% static "js/mainapp/create-article-js.js" %}" defer></script>
+
+    <script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
+    <script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
+
+    <script type="text/javascript" src="{% static 'plugins/js/ace.js' %}"></script>
+    <script type="text/javascript" src="{% static 'plugins/js/mode-markdown.js' %}"></script>
+    <script type="text/javascript" src="{% static 'plugins/js/ext-language_tools.js' %}"></script>
+    <script type="text/javascript" src="{% static 'plugins/js/theme-github.js' %}"></script>
+    <script type="text/javascript" src="{% static 'plugins/js/typo.js' %}"></script>
+    <script type="text/javascript" src="{% static 'plugins/js/spellcheck.js' %}"></script>
+    <script type="text/javascript" src="{% static 'plugins/js/highlight.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'plugins/js/resizable.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'plugins/js/emojis.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'martor/js/martor.bootstrap.min.js' %}"></script>
+    <script>
+        $('.martor-preview pre').each(function (i, block) {
+            hljs.highlightBlock(block);
+        });
+        $('.django-ckeditor-widget').css({"width": "100%"});
+        $('.main-martor-contents').css({"width": "100%", 'margin': '0 0 10px 0'});
+
+    </script>
+{% endblock %}

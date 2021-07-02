@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta html-equiv="X-UA-Compatible" content="ie=edge">
+    <title>
+        {% block title %}Intergalactic Entertainment{% endblock %}
+    </title>
+
+    {% block bootstrap_css %}
+        <link href="{% static 'plugins/css/bootstrap.min.css' %}" type="text/css" media="all" rel="stylesheet"/>
+    {% endblock %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    {% block css %}{% endblock %}
+</head>
+
+<body>
+<div class="wrapper">
+
+    <div class="header">
+        <div class="header-container">
+            <a href="/"><img src="{% static 'svg/logo.svg' %}" alt="logo"></a>
+        </div>
+    </div>
+
+    <div class="container">
+        {% block menu %}
+            {% include '_inc/full_menu.html' %}
+        {% endblock %}
+
+        {% block toolbar %}
+        {% endblock %}
+
+        <div class="container">
+            {% block content %} {% endblock %}
+        </div>
+
+    </div>
+    {% block footer %}
+        <div class="footer">
+            <div class="footer-container">
+                <p>All right reserved. </p>
+                <p>{% now "jS F Y " %} </p>
+            </div>
+        </div>
+    {% endblock %}
+</div>
+<script type="text/javascript" src="{% static 'plugins/js/jquery.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'plugins/js/bootstrap.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/mainapp/active-menu-link.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/mainapp/active-toolbar-link.js' %}"></script>
+{% block js %}{% endblock %}
+</body>
+</html>

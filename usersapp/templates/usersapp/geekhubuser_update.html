@@ -1,13 +1,202 @@
-{% extends 'usersapp/base.html' %}
+{% extends 'base.html' %}
 {% load static %}
+{% load custom %}
+
+{% block toolbar %}
+    {% include '_inc/profile_toolbar.html' %}
+{% endblock %}
 
 {% block content %}
-<p>Редактируем профиль: {{ object.username }}</p>
-<form class="form-horizontal" method="post"
-      enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <br>
-    <input class="form-control" type="submit" value="Сохранить изменения">
-</form>
+    <div class="indent-20"></div>
+
+    <div class="content-container">
+        <div class="section-left">
+            <div class="section-part">
+                <div class="section-left-part">
+
+                    <div class="indent-30"></div>
+                    <form action="{% url 'usersapp:modify' object.pk %}" class="form-register" method="post"
+                          enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="field-50">
+                            <div class="block-text">
+                                <h5-3>Никнейм:</h5-3>
+                            </div>
+                            <div class="block-info">
+                                <div class="input-text">
+                                    <div class="field-text-left">
+                                        <h5-3> {{ object.username }} </h5-3>
+                                    </div>
+                                    <div class="input-text-right_bg"><img src="{% static 'svg/check-box1.svg' %}"
+                                                                          alt="+"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="field-50">
+                            <div class="block-text">
+                                <h5-3>E-mail:</h5-3>
+                            </div>
+                            <div class="block-info">
+                                <div class="input-text">
+                                    <div class="field-text-left">
+                                        <h5-3>{{ object.email }}</h5-3>
+                                    </div>
+                                    <div class="input-text-right_bg"><img src="{% static 'svg/check-box1.svg' %}"
+                                                                          alt="+"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="field-50">
+                            <div class="block-text">
+                                <h5-3>{{ form.first_name.label_tag }}</h5-3>
+                            </div>
+                            <div class="block-info">
+                                <div class="input-text">
+                                    <div class="input-text-left">
+                                        {{ form.first_name }}
+                                    </div>
+                                    <div class="input-text-right"><img src="{% static 'svg/check-box1.svg' %}" alt="+">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="field-50">
+                            <div class="block-text">
+                                <h5-3>{{ form.last_name.label_tag }}</h5-3>
+                            </div>
+                            <div class="block-info">
+                                <div class="input-text">
+                                    <div class="input-text-left">
+                                        {{ form.last_name }}
+                                    </div>
+                                    <div class="input-text-right"><img src="{% static 'svg/check-box1.svg' %}" alt="+">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="field-110">
+                            <div class="block-text">
+                                <h5-3>{{ form.user_information.label_tag }}</h5-3>
+
+                            </div>
+                            <div class="block-info">
+                                <div class="input-textarea">
+                                    <div class="input-text-left">
+                                        {{ form.user_information }}
+                                    </div>
+                                    <div class="input-text-right"><img src="{% static 'svg/check-box1.svg' %}" alt="+">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="field-50">
+                            <div class="block-text">
+                                <h5-3>Пол:</h5-3>
+                            </div>
+                            <div class="block-info">
+                                <div class="input-text">
+                                    <div class="input-text-left">
+                                        <div class="select-1">
+                                            {{ form.gender }}
+                                        </div>
+                                    </div>
+                                    <div class="input-text-right"><img src="{% static 'svg/check-box1.svg' %}" alt="+">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="field-50">
+                            <div class="block-text">
+                                <h5-3>{{ form.birthday.label_tag }}</h5-3>
+                            </div>
+                            <div class="block-info">
+                                <div class="input-text">
+                                    <div class="input-text-left">
+                                        {{ form.birthday }}
+                                    </div>
+                                    <div class="input-text-right"><img src="{% static 'svg/check-box1.svg' %}" alt="+">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="field-50">
+                            <div class="block-text">
+                                <h5-3>Статус:</h5-3>
+                            </div>
+                            <div class="block-info">
+                                <div class="input-text">
+                                    <div class="field-text-left">
+                                        <h5-3>Пользователь</h5-3>
+                                    </div>
+                                    <div class="input-text-right_bg"><img src="{% static 'svg/check-box1.svg' %}"
+                                                                          alt="+"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="indent-30"></div>
+                        <div class="indent-30">
+                            <a href="{% url 'usersapp:delete' object.pk %}">
+                                <button class="button10" type="button">
+                                    Удалить аккаунт
+                                </button>
+                            </a>
+                            <input class="button11" type="submit" value="Сохранить изменения">
+
+                        </div>
+
+
+                        <div class="indent-30"></div>
+
+                </div>
+                <div class="section-right-part">
+                    <div class="block-foto">
+                        {% if not object.profile_photo %}
+                            <img src="{% static 'svg/block_foto.svg' %}" alt="std-avatar">
+                        {% else %}
+                            <img src="{{ object.profile_photo|media_folder }}" alt="photo"
+                                 style="max-width: 100%; max-height: 100%;">
+                        {% endif %}
+                    </div>
+                    <div class="block-foto-button">
+{#                        <a href="#" class="button9">Сменить фото</a>#}
+{#                        TODO изменить отображение и поведение кнопки загрузки файла#}
+                        {{ form.profile_photo }}
+                    </div>
+                    <div class="block-settings">
+                        <div class="indent-20"></div>
+                        <div class="field-50">
+                            <div class="block-text">
+                                <h5-3>Редактор:</h5-3>
+                            </div>
+                            <div class="block-info">
+                                <div class="input-text">
+                                    <div class="input-text-left">
+                                        <div class="select">
+                                            {{ form.article_redactor }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="section-right">
+
+            <div class="section-right-block">
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="indent-20"></div>
+
 {% endblock %}

@@ -24,7 +24,7 @@ class CustomUserAdmin(UserAdmin):
             'Профиль',
             {
                 'fields': (
-                    'profile_photo', 'birthday', 'user_information', 'gender',
+                    'profile_photo', 'birthday', 'user_information', 'gender', 'article_redactor',
                 ),
             },
         ),
