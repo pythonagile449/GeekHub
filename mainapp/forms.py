@@ -20,7 +20,8 @@ class ArticleCkForm(forms.ModelForm):
         fields = [
             'hub',
             'title',
-            'contents',
+            'contents_ck',
+            'contents_md',
             'short_description',
         ]
 
