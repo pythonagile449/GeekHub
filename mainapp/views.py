@@ -1,5 +1,5 @@
 import markdown
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse, JsonResponse
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DetailView, ListView, DeleteView, UpdateView
 from mainapp.forms import ArticleCkForm, ArticleMdForm
@@ -14,7 +14,6 @@ class Index(ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        # context['hubs'] = Hub.objects.all()
         context['title'] = 'Главная'
         return context
 
@@ -99,12 +98,35 @@ class ArticleDetail(DetailView):
 
 
 class ArticleUpdate(UpdateView):
+    """ Editing an article. """
     model = Article
     fields = ['title', 'hub']
+
+    def form_invalid(self, form):
+        """ Processing an incorrect ajax request to change data. """
+        if self.request.method == 'POST' and self.request.is_ajax():
+            return JsonResponse('Error', safe=False)
+        else:
+            return super(ArticleUpdate, self).form_invalid(form)
+
+    def form_valid(self, form):
+        """ Processing a correct ajax request to change data. """
+        print('valid')
+        print(form.cleaned_data)
+        if self.request.method == 'POST' and self.request.is_ajax():
+            if self.object.editor == 'CK':
+                self.object.contents_ck = form.cleaned_data['contents']
+            if self.object.editor == 'MD':
+                self.object.contents_md = form.cleaned_data['contents']
+            self.object.save()
+            return JsonResponse('Success', safe=False)
+        else:
+            return super(ArticleUpdate, self).form_valid(form)
 
     def get_context_data(self, **kwargs):
         context = super(ArticleUpdate, self).get_context_data()
         context['title'] = f'Редактирование статьи {self.object.title[:10]}'
+        context['edit_flag'] = True  # set a flag to tell the template to render the "save changes" buttons
         return context
 
     def get_initial(self):

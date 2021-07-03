@@ -13,7 +13,7 @@
     --main-bg-color: #FFFFFF;
     --section-bg-color: #E9E9E9;
     --section-fail-color: #FFD8D8;
-    --section-warning-color:#FCFFD8;
+    --section-warning-color: #FCFFD8;
     --section-success-color: #DDFFDC;
     --footer-bg-color: #C8C8C8;
     --primary-color: #48B5FF; /*цвет синих элементов*/
@@ -1256,4 +1256,25 @@ div.martor-preview {
 
 code {
     color: inherit;
+}
+
+div.answer {
+    transition: color 0.3s ease 0s;
+    background-color: rgb(217, 255, 190);
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--secondary-color);
+    color: var(--link-hover-color);
+    padding: 8px 8px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+    /*cursor: pointer;*/
+    margin-left: 12px;
+    margin-right: 18px;
+}
+
+div.error {
+    background-color: rgba(255, 190, 190, 1);
 }
