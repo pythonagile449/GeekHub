@@ -985,6 +985,10 @@ input[type="date"] {
     border-color: rgba(72, 181, 255, 0.2);
 }
 
+.button15:focus {
+    outline: none;
+}
+
 .button16 {
     transition: color 0.3s ease 0s;
     background: var(--main-bg-color);
