@@ -1248,3 +1248,12 @@ input.placeholder[type="text"] {
 .block-editor-body {
     height: 500px;
 }
+
+/* reset bootstrap styles for markdown editor */
+div.martor-preview {
+    background-color: transparent;
+}
+
+code {
+    color: inherit;
+}
