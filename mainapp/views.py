@@ -14,7 +14,7 @@ class Index(ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['hubs'] = Hub.objects.all()
+        # context['hubs'] = Hub.objects.all()
         context['title'] = 'Главная'
         return context
 
@@ -30,13 +30,12 @@ class ArticlesByHub(ListView):
 
     def get_queryset(self):
         queryset = Article.objects.filter(hub=self.kwargs['hub_id'], is_published=True, is_deleted=False) \
-            .oreder_by('-publication_date')
+            .order_by('-publication_date')
         return queryset
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(ArticlesByHub, self).get_context_data()
         context['title'] = Hub.objects.get(pk=self.kwargs['hub_id'])
-        context['hubs'] = Hub.objects.all()
         context['active_hub'] = context['title']
         return context
 
@@ -84,12 +83,7 @@ class CreateArticle(CreateView):
 
     def get_context_data(self, **kwargs):
         context = super(CreateArticle, self).get_context_data()
-        context['hubs'] = Hub.objects.all()
         context['title'] = 'Создание новой статьи'
-        # TODO написать контекстные процессоры для количества статей
-        context['user_drafts_count'] = Article.objects.filter(author=self.request.user, is_draft=True).count()
-        context['user_articles_published_count'] = Article.objects.filter(author=self.request.user,
-                                                                          is_published=True).count()
         return context
 
 
@@ -101,7 +95,6 @@ class ArticleDetail(DetailView):
     def get_context_data(self, **kwargs):
         context = super(ArticleDetail, self).get_context_data()
         context['title'] = self.get_object().title
-        context['hubs'] = Hub.objects.all()
         return context
 
 
@@ -112,11 +105,6 @@ class ArticleUpdate(UpdateView):
     def get_context_data(self, **kwargs):
         context = super(ArticleUpdate, self).get_context_data()
         context['title'] = f'Редактирование статьи {self.object.title[:10]}'
-        # TODO написать контекстные процессоры для количества статей и хабов
-        context['hubs'] = Hub.objects.all()
-        context['user_drafts_count'] = Article.objects.filter(author=self.object.author, is_draft=True).count()
-        context['user_articles_published_count'] = Article.objects.filter(author=self.object.author,
-                                                                          is_published=True).count()
         return context
 
     def get_initial(self):
@@ -148,12 +136,7 @@ class UserArticles(ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['hubs'] = Hub.objects.all()
         context['title'] = 'Мои статьи'
-        # TODO написать контекстные процессоры для количества статей
-        context['user_drafts_count'] = Article.objects.filter(author=self.request.user, is_draft=True).count()
-        context['user_articles_published_count'] = Article.objects.filter(author=self.request.user,
-                                                                          is_published=True).count()
         return context
 
 

@@ -5,7 +5,6 @@ from django.urls import reverse, reverse_lazy
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.views import LoginView, LogoutView
 
-from mainapp.models import Hub, Article
 from usersapp.models import GeekHubUser
 from usersapp.forms import RegistrationForm, LoginForm, UserProfileEditForm
 
@@ -62,11 +61,7 @@ class UserAccountEdit(UpdateView):
 
     def get_context_data(self, **kwargs):
         context = super(UserAccountEdit, self).get_context_data()
-        context['hubs'] = Hub.objects.all()
         context['title'] = f'Профиль пользователя {self.object.username}'
-        # TODO написать контекстные процессоры для количества статей
-        context['user_drafts_count'] = Article.objects.filter(author=self.object, is_draft=True).count()
-        context['user_articles_published_count'] = Article.objects.filter(author=self.object, is_published=True).count()
         return context
 
     def get_success_url(self):
