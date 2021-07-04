@@ -24,7 +24,6 @@ INSTALLED_APPS = [
     # user apps
     'mainapp',
     'ratingsapp',
-    'commentsapp',
     # other apps
     'martor',
     'ckeditor',
