@@ -28,8 +28,8 @@ function like()
         data : { 'obj' : pk },
 
         success : function (json) {
-            like.find("[data-count='positive']").text(json.positive);
-            dislike.find("[data-count='negative']").text(json.negative);
+            $('.positive').html(json.positive)
+            $('.negative').html(json.negative)
         }
     });
     return false;
@@ -49,8 +49,8 @@ function dislike()
         data : { 'obj' : pk },
 
         success : function (json) {
-            dislike.find("[data-count='negative']").text(json.negative);
-            like.find("[data-count='positive']").text(json.positive);
+            $('.positive').html(json.positive)
+            $('.negative').html(json.negative)
         }
     });
 

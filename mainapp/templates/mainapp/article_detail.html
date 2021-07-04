@@ -58,7 +58,7 @@
                                 <ul class="lvc-group">
                                     <li data-id="{{ article.id }}" data-type="article" data-action="like"
                                         title="Нравится"><img src="{% static 'svg/up+.svg' %}" alt="like"></li>
-                                    <h5-2-lvc data-count="positive">
+                                    <h5-2-lvc data-count="positive" class="positive">
                                         {% if article.rating.like.count %}
                                             {{ article.rating.like.count }}
                                         {% else %}
@@ -67,7 +67,7 @@
                                     </h5-2-lvc>
                                     <li data-id="{{ article.id }}" data-type="article" data-action="dislike"
                                         title="Не нравится"><img src="{% static 'svg/down.svg' %}" alt="like"></li>
-                                    <h5-2-lvc data-count="negative">
+                                    <h5-2-lvc data-count="negative" class="negative">
                                         {% if article.rating.dislikes.count %}
                                             {{ article.rating.dislikes.count }}
                                         {% else %}
