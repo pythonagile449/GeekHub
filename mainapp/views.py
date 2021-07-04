@@ -111,8 +111,6 @@ class ArticleUpdate(UpdateView):
 
     def form_valid(self, form):
         """ Processing a correct ajax request to change data. """
-        print('valid')
-        print(form.cleaned_data)
         if self.request.method == 'POST' and self.request.is_ajax():
             if self.object.editor == 'CK':
                 self.object.contents_ck = form.cleaned_data['contents']
