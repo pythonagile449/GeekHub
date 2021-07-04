@@ -8,18 +8,13 @@ urlpatterns = [
     path('hub/<int:hub_id>/', mainapp.ArticlesByHub.as_view(), name='hubs'),
     path('create-article/', mainapp.CreateArticle.as_view(), name='create_article'),
     path('create-draft/', mainapp.CreateArticle.as_view(), name='create_draft'),
-<<<<<<< HEAD
     path('article/<uuid:pk>/rating/', include('ratingsapp.urls', namespace='ratingsapp')),
-=======
     path('edit-draft/<uuid:pk>/', mainapp.ArticleUpdate.as_view(), name='edit_draft'),
->>>>>>> d134099037994510139240aa3308bcd9ddefd0cd
     path('article/<uuid:pk>/', mainapp.ArticleDetail.as_view(), name='article_detail'),
-
     path('drafts/', mainapp.UserDrafts.as_view(), name='drafts'),
     path('user-articles/', mainapp.UserArticles.as_view(), name='user_articles'),
     path('user-wait-moderation-articles/', mainapp.UserModeratingArticles.as_view(), name='user_moderation_articles'),
     path('user-article-delete/<uuid:pk>/', mainapp.ArticleDelete.as_view(), name='user_article_delete'),
     path('user-article-return-to-drafts/<uuid:pk>/', mainapp.ArticleReturnToDrafts.as_view(),
-
          name='user_article_to_drafts'),
 ]

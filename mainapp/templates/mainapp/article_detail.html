@@ -49,70 +49,59 @@
                     </div>
                 {% endif %}
 
-<<<<<<< HEAD
-            {% if not article.is_draft %}
-                <div class="like-comment">
-                    <ul class="like-comment">
-                        <li data-id="{{ article.id }}" data-type="article" data-action="like" title="Нравится">
-                            <img src="{% static 'svg/like.svg' %}" height="20px" alt="like">
-                            <h5-2 data-count="positive">
-                                {% if article.rating.like.count %}
-                                    {{ article.rating.like.count }}
-                                {% else %}
-                                    {{ article.id|rating_positive }}
-                                {% endif %}
-                            </h5-2>
-                        </li>
-                        <li data-id="{{ article.id }}" data-type="article" data-action="dislike" title="Не нравится">
-                            <img src="{% static 'svg/dislike.svg' %}" height="20px" alt="dislike">
-                            <h5-2 data-count="negative">
-                                {% if article.rating.dislikes.count %}
-                                    {{ article.rating.dislikes.count }}
-                                {% else %}
-                                    {{ article.id|rating_negative }}
-                                {% endif %}
-                            </h5-2>
-                        </li>
-                        {#                        <li><img src="{% static 'svg/carbon_view-filled_active.svg' %}" alt="view"></li>#}
-                        {#                        <li>#}
-                        {#                            <h5-2>435</h5-2>#}
-                        {#                        </li>#}
-                        {#                        <li><a href="/"><img src="{% static 'svg/fluent_comment-24-filled_active.svg' %}"#}
-                        {#                                             alt="comm"></a></li>#}
-                        {#                        <li>#}
-                        {#                            <h5-2>12</h5-2>#}
-                        {#                        </li>#}
-                    </ul>
-                </div>
 
-            {% endif %}
-=======
                 {#            {% if not article.is_draft %}#}
-                    <div class="like-comment">
-                        <ul class="lvc-field">
-                            <li><div class="lvc-group">
+                <div class="like-comment">
+                    <ul class="lvc-field">
+                        <li>
+                            <div class="lvc-group">
                                 <ul class="lvc-group">
-                                    <li><a href="/"><img src="{% static 'svg/up+.svg' %}" alt="like"></a></li>
-                                    <li><h5-2-lvc>+56</h5-2-lvc></li>
-                                    <li><a href="/"><img src="{% static 'svg/down.svg' %}" alt="like"></a></li>
+                                    <li data-id="{{ article.id }}" data-type="article" data-action="like"
+                                        title="Нравится"><img src="{% static 'svg/up+.svg' %}" alt="like"></li>
+                                    <h5-2-lvc data-count="positive">
+                                        {% if article.rating.like.count %}
+                                            {{ article.rating.like.count }}
+                                        {% else %}
+                                            {{ article.id|rating_positive }}
+                                        {% endif %}
+                                    </h5-2-lvc>
+                                    <li data-id="{{ article.id }}" data-type="article" data-action="dislike"
+                                        title="Не нравится"><img src="{% static 'svg/down.svg' %}" alt="like"></li>
+                                    <h5-2-lvc data-count="negative">
+                                        {% if article.rating.dislikes.count %}
+                                            {{ article.rating.dislikes.count }}
+                                        {% else %}
+                                            {{ article.id|rating_negative }}
+                                        {% endif %}
+                                    </h5-2-lvc>
                                 </ul>
-                            </div></li>
-                            <li><div class="lvc-group">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="lvc-group">
                                 <ul class="lvc-group">
                                     <li><img src="{% static 'svg/carbon_view-filled_active.svg' %}" alt="view"></li>
-                                    <li><h5-2-lvc>435</h5-2-lvc></li>
+                                    <li>
+                                        <h5-2-lvc>435</h5-2-lvc>
+                                    </li>
                                 </ul>
-                            </div></li>
-                            <li><div class="lvc-group">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="lvc-group">
                                 <ul class="lvc-group">
-                                    <li><a href="/"><img src="{% static 'svg/fluent_comment-24-filled_active.svg' %}" alt="comm"></a></li>
-                                    <li><h5-2-lvc>12</h5-2-lvc></li>
+                                    <li><a href="/"><img src="{% static 'svg/fluent_comment-24-filled_active.svg' %}"
+                                                         alt="comm"></a></li>
+                                    <li>
+                                        <h5-2-lvc>12</h5-2-lvc>
+                                    </li>
                                 </ul>
-                            </div></li>
-                        </ul>
-                    </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
                 {#            {% endif %}#}
->>>>>>> d134099037994510139240aa3308bcd9ddefd0cd
+
 
             </div>
 
