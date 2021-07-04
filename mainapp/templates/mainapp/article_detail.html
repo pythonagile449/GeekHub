@@ -49,24 +49,29 @@
             {% endif %}
 
             {#            {% if not article.is_draft %}#}
-            {#                <div class="like-comment">#}
-            {#                    <ul class="like-comment">#}
-            {#                        <li><a href="/"><img src="{% static 'svg/flat-color-icons_like_active.svg' %}" alt="like"></a>#}
-            {#                        </li>#}
-            {#                        <li>#}
-            {#                            <h5-2>56</h5-2>#}
-            {#                        </li>#}
-            {#                        <li><img src="{% static 'svg/carbon_view-filled_active.svg' %}" alt="view"></li>#}
-            {#                        <li>#}
-            {#                            <h5-2>435</h5-2>#}
-            {#                        </li>#}
-            {#                        <li><a href="/"><img src="{% static 'svg/fluent_comment-24-filled_active.svg' %}"#}
-            {#                                             alt="comm"></a></li>#}
-            {#                        <li>#}
-            {#                            <h5-2>12</h5-2>#}
-            {#                        </li>#}
-            {#                    </ul>#}
-            {#                </div>#}
+                <div class="like-comment">
+                    <ul class="lvc-field">
+                        <li><div class="lvc-group">
+                            <ul class="lvc-group">
+                                <li><a href="/"><img src="{% static 'svg/up+.svg' %}" alt="like"></a></li>
+                                <li><h5-2-lvc>+56</h5-2-lvc></li>
+                                <li><a href="/"><img src="{% static 'svg/down.svg' %}" alt="like"></a></li>
+                            </ul>
+                        </div></li>
+                        <li><div class="lvc-group">
+                            <ul class="lvc-group">
+                                <li><img src="{% static 'svg/carbon_view-filled_active.svg' %}" alt="view"></li>
+                                <li><h5-2-lvc>435</h5-2-lvc></li>
+                            </ul>
+                        </div></li>
+                        <li><div class="lvc-group">
+                            <ul class="lvc-group">
+                                <li><a href="/"><img src="{% static 'svg/fluent_comment-24-filled_active.svg' %}" alt="comm"></a></li>
+                                <li><h5-2-lvc>12</h5-2-lvc></li>
+                            </ul>
+                        </div></li>
+                    </ul>
+                </div>
             {#            {% endif %}#}
 
         </div>
