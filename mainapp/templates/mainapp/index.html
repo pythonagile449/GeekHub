@@ -65,7 +65,7 @@
                         </div>
                     {% elif article.editor == 'MD' %}
                         <div class="martor-preview">
-                            {{ article.get_article_preview|safe_markdown|truncatechars:750git }}
+                            {{ article.get_article_preview|safe_markdown|truncatechars:750 }}
                         </div>
                     {% endif %}
                 </div>
