@@ -62,9 +62,11 @@ class Command(BaseCommand):
                 )
 
                 if not i % 2:
-                    new_article.contents = markdown.markdown(md_text)
+                    new_article.contents_md = md_text
+                    new_article.editor = 'MD'
                 else:
-                    new_article.contents = html_text
+                    new_article.editor = 'CK'
+                    new_article.contents_ck = html_text
 
                 if options['moderation']:
                     new_article.is_draft = False
