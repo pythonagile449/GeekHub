@@ -32,7 +32,7 @@ class GeekHubUser(AbstractUser):
         (md_editor, 'markdown'),
         (ckeditor, 'сkeditor'),
     )
-    article_redactor = models.CharField(max_length=8, choices=REDACTOR_CHOISES, verbose_name='Редактор статей',
+    article_redactor = models.CharField(max_length=2, choices=REDACTOR_CHOISES, verbose_name='Редактор статей',
                                         default=ckeditor)
 
     def is_activate_key_expired(self):
