@@ -57,7 +57,7 @@
                             <div class="lvc-group">
                                 <ul class="lvc-group">
                                     <li data-id="{{ article.id }}" data-type="article" data-action="like"
-                                        title="Нравится"><img src="{% static 'svg/up+.svg' %}" alt="like"></li>
+                                        title="Нравится"><img src="{% static 'svg/up3+.svg' %}" alt="like"></li>
                                     <h5-2-lvc data-count="positive" class="positive">
                                         {% if article.rating.like.count %}
                                             {{ article.rating.like.count }}
@@ -66,7 +66,7 @@
                                         {% endif %}
                                     </h5-2-lvc>
                                     <li data-id="{{ article.id }}" data-type="article" data-action="dislike"
-                                        title="Не нравится"><img src="{% static 'svg/down.svg' %}" alt="like"></li>
+                                        title="Не нравится"><img src="{% static 'svg/down3.svg' %}" alt="like"></li>
                                     <h5-2-lvc data-count="negative" class="negative">
                                         {% if article.rating.dislikes.count %}
                                             {{ article.rating.dislikes.count }}
@@ -90,8 +90,8 @@
                         <li>
                             <div class="lvc-group">
                                 <ul class="lvc-group">
-                                    <li><a href="/"><img src="{% static 'svg/fluent_comment-24-filled_active.svg' %}"
-                                                         alt="comm"></a></li>
+                                    <li><img src="{% static 'svg/fluent_comment-24-filled_active.svg' %}"
+                                             alt="comm"></li>
                                     <li>
                                         <h5-2-lvc>12</h5-2-lvc>
                                     </li>
@@ -99,6 +99,16 @@
                             </div>
                         </li>
                     </ul>
+                    <form class="comment-form" style="background-color: #5b80b2">
+                        {% csrf_token %}
+                        <textarea name="comment" class="comment-area"></textarea>
+                        <button
+                                class="send-comment-button"
+                                type="button"
+                                data-article-id="{{ article.pk }}">
+                            Отправить
+                        </button>
+                    </form>
                 </div>
                 {#            {% endif %}#}
 
@@ -117,6 +127,7 @@
 {% endblock %}
 
 {% block js %}
+    <script type="text/javascript" src="{% static "js/mainapp/comment-form.js" %}"></script>
     <script type="text/javascript" src="{% static 'plugins/js/highlight.min.js' %}"></script>
     <script>
         $('.martor-preview pre').each(function (i, block) {
