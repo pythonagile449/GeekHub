@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load martortags %}
+{% load ratings %}
 
 {% block title %}
     {{ title }} :: {{ block.super }}
@@ -64,25 +65,25 @@
                     <a href="{% url 'mainapp:article_detail' article.pk %}" class="button2">Читать далее</a>
                 </div>
 
-                {#                <div class="like-comment">#}
-                {#                    <ul class="like-comment">#}
-                {#                        <li><a href="/"><img src="{% static 'svg/flat-color-icons_like_active.svg' %}"#}
-                {#                                             alt="like"></a>#}
-                {#                        </li>#}
-                {#                        <li>#}
-                {#                            <h5-2>56</h5-2>#}
-                {#                        </li>#}
-                {#                        <li><img src="{% static 'svg/carbon_view-filled_active.svg' %}" alt="view"></li>#}
-                {#                        <li>#}
-                {#                            <h5-2>435</h5-2>#}
-                {#                        </li>#}
-                {#                        <li><a href="/"><img src="{% static 'svg/fluent_comment-24-filled_active.svg' %}"#}
-                {#                                             alt="comm"></a></li>#}
-                {#                        <li>#}
-                {#                            <h5-2>12</h5-2>#}
-                {#                        </li>#}
-                {#                    </ul>#}
-                {#                </div>#}
+                <div class="like-comment">
+                    <ul class="like-comment">
+                        <li>
+                            <img src="{% static 'svg/rating.svg' %}" height="20px" alt="rating">
+                        </li>
+                        <li>
+                            <h5-2>{{ article.id|rating_total }}</h5-2>
+                        </li>
+                        {#                        <li><img src="{% static 'svg/carbon_view-filled_active.svg' %}" alt="view"></li>#}
+                        {#                        <li>#}
+                        {#                            <h5-2>435</h5-2>#}
+                        {#                        </li>#}
+                        {#                        <li><a href="/"><img src="{% static 'svg/fluent_comment-24-filled_active.svg' %}"#}
+                        {#                                             alt="comm"></a></li>#}
+                        {#                        <li>#}
+                        {#                            <h5-2>12</h5-2>#}
+                        {#                        </li>#}
+                    </ul>
+                </div>
             {% endfor %}
 
 

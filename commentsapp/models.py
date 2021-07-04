@@ -34,13 +34,3 @@ class Comment(models.Model):
 class CommentsBranch(Comment):
     def __init__(self, *args, **kwargs):
         super(CommentsBranch, self).__init__(*args, **kwargs)
-
-
-class LikeArticle(models.Model):
-    article = models.ForeignKey(Article, on_delete=models.CASCADE)
-    users = models.ForeignKey(GeekHubUser, on_delete=models.CASCADE)
-
-
-class LikeComments(models.Model):
-    comment = models.ForeignKey(CommentsBranch, on_delete=models.CASCADE)
-    users = models.ForeignKey(GeekHubUser, on_delete=models.CASCADE)

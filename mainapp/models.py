@@ -1,11 +1,13 @@
 from uuid import uuid4
 
 from ckeditor.fields import RichTextField
+from django.contrib.contenttypes.fields import GenericRelation
 from django.db import models
 from django.urls import reverse
 from martor.models import MartorField
 from ckeditor_uploader.fields import RichTextUploadingField
 from usersapp.models import GeekHubUser
+from ratingsapp.models import RatingCount
 
 
 class Hub(models.Model):
@@ -39,6 +41,7 @@ class Article(models.Model):
 
     hub = models.ForeignKey(Hub, on_delete=models.CASCADE)
     author = models.ForeignKey(GeekHubUser, on_delete=models.CASCADE)
+    rating = GenericRelation(RatingCount, related_query_name='articles')
 
     class Meta:
         verbose_name = 'Статья'

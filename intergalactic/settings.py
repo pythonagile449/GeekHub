@@ -23,6 +23,8 @@ INSTALLED_APPS = [
     'usersapp.apps.UsersappConfig',
     # user apps
     'mainapp',
+    'ratingsapp',
+    'commentsapp',
     # other apps
     'martor',
     'ckeditor',
@@ -101,8 +103,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'intergalactic/static'), ]
+#STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ] # [os.path.join(BASE_DIR, 'intergalactic/static'), ]
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
