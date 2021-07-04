@@ -23,6 +23,7 @@ INSTALLED_APPS = [
     'usersapp.apps.UsersappConfig',
     # user apps
     'mainapp',
+    'ratingsapp',
     # other apps
     'martor',
     'ckeditor',
@@ -104,6 +105,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'intergalactic/static'), ]
 
 MEDIA_URL = '/media/'

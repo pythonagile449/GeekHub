@@ -1,4 +1,5 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,16 +42,19 @@
     {% block footer %}
         <div class="footer">
             <div class="footer-container">
-                <p>All right reserved. </p>
-                <p>{% now "jS F Y " %} </p>
+                <p>All right reserved. {% now " Y " %} <a href="{% url 'mainapp:index' %}">InEn</a> </p>
+                <p> </p>
             </div>
         </div>
     {% endblock %}
 </div>
+
 <script type="text/javascript" src="{% static 'plugins/js/jquery.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/mainapp/rating.js' %}"></script>
 <script type="text/javascript" src="{% static 'plugins/js/bootstrap.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/mainapp/active-menu-link.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/mainapp/active-toolbar-link.js' %}"></script>
+
 {% block js %}{% endblock %}
 </body>
 </html>

@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load martortags %}
+{% load ratings %}
 
 {% block css %}
     <link href="{% static 'plugins/css/ace.min.css' %}" type="text/css" media="all" rel="stylesheet"/>
@@ -79,7 +80,7 @@
                         <li><div class="lvc-group">
                             <ul class="lvc-group">
                                 <li><img src="{% static 'svg/chart.svg' %}" alt="like"></li>
-                                <li><h5-2-lvc>+56</h5-2-lvc></li>
+                                <li><h5-2-lvc>{{ article.id|rating_total }}</h5-2-lvc></li>
                             </ul>
                         </div></li>
                         <li><div class="lvc-group">
