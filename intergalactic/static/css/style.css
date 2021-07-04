@@ -1323,3 +1323,11 @@ div.martor-preview {
 code {
     color: inherit;
 }
+
+.answer {
+    color: rgb(90, 162, 71);
+}
+
+.error {
+    color: rgb(255, 129, 129);
+}

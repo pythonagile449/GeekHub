@@ -61,11 +61,11 @@
                 <div class="section-left-text">
                     {% if article.editor == 'CK' %}
                         <div class="ck-preview">
-                            {{ article.contents_ck|safe }}
+                            {{ article.get_article_preview|safe|truncatechars:750 }}
                         </div>
                     {% elif article.editor == 'MD' %}
                         <div class="martor-preview">
-                            {{ article.contents_md|safe_markdown }}
+                            {{ article.get_article_preview|safe_markdown|truncatechars:750 }}
                         </div>
                     {% endif %}
                 </div>
