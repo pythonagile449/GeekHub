@@ -32,8 +32,9 @@ class Article(models.Model):
     contents_md = MartorField(blank=True)
     editor = models.CharField(max_length=2, verbose_name='Редактор статьи')
     short_description = models.CharField(max_length=256, blank=True)
-    publication_date = models.DateTimeField(auto_now=True, blank=False, null=False)
+    publication_date = models.DateTimeField(auto_now_add=True, blank=False, null=False)
     created_at = models.DateField(auto_now_add=True, null=False)
+    views = models.PositiveIntegerField(verbose_name='Просмотры статьи', default=0)
 
     is_draft = models.BooleanField(default=True)
     is_published = models.BooleanField(default=False)
