@@ -21,14 +21,26 @@
         {% csrf_token %}
 
         {# form buttons #}
-        <div class="indent-50-2">
-            <a>
+        {% if edit_flag %}
+            {# render buttons for editing article form #}
+            <div class="indent-50-2">
+                <button class="button15"
+                        id="save-editing-draft-button"
+                        type="button"
+                        data-uuid="{{ object.pk }}">
+                    Сохранить изменения
+                </button>
+                {# TODO скрыть блок при первичном отображении #}
+                <div class="answer hidden"></div>
+            </div>
+        {% else %}
+            {# render buttons for save article form #}
+            <div class="indent-50-2">
                 <button class="button15 save-as-draft-button" type="button">Сохранить как черновик</button>
-            </a>
-            <a>
                 <button class="button16" type="submit">Опубликовать</button>
-            </a>
-        </div>
+            </div>
+        {% endif %}
+
 
         {# form inputs #}
         <div class="block-editor">
@@ -69,7 +81,7 @@
 {% endblock %}
 
 {% block js %}
-    <script type="text/javascript" src="{% static "js/mainapp/create-article-js.js" %}" defer></script>
+    <script type="text/javascript" src="{% static "js/mainapp/create-article-js.js" %}"></script>
 
     <script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
     <script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
