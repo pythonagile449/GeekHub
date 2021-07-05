@@ -50,67 +50,71 @@
                 {% endif %}
 
 
-                {#            {% if not article.is_draft %}#}
-                <div class="like-comment">
-                    <ul class="lvc-field">
-                        <li>
-                            <div class="lvc-group">
-                                <ul class="lvc-group">
-                                    <li data-id="{{ article.id }}" data-type="article" data-action="like"
-                                        title="Нравится"><img src="{% static 'svg/up3+.svg' %}" alt="like"></li>
-                                    <h5-2-lvc data-count="positive" class="positive">
-                                        {% if article.rating.like.count %}
-                                            {{ article.rating.like.count }}
-                                        {% else %}
-                                            {{ article.id|rating_positive }}
-                                        {% endif %}
-                                    </h5-2-lvc>
-                                    <li data-id="{{ article.id }}" data-type="article" data-action="dislike"
-                                        title="Не нравится"><img src="{% static 'svg/down3.svg' %}" alt="like"></li>
-                                    <h5-2-lvc data-count="negative" class="negative">
-                                        {% if article.rating.dislikes.count %}
-                                            {{ article.rating.dislikes.count }}
-                                        {% else %}
-                                            {{ article.id|rating_negative }}
-                                        {% endif %}
-                                    </h5-2-lvc>
-                                </ul>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="lvc-group">
-                                <ul class="lvc-group">
-                                    <li><img src="{% static 'svg/carbon_view-filled_active.svg' %}" alt="view"></li>
-                                    <li>
-                                        <h5-2-lvc>{{ article.views }}</h5-2-lvc>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="lvc-group">
-                                <ul class="lvc-group">
-                                    <li><img src="{% static 'svg/fluent_comment-24-filled_active.svg' %}"
-                                             alt="comm"></li>
-                                    <li>
-                                        <h5-2-lvc>12</h5-2-lvc>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                    </ul>
-                    <form class="comment-form" style="background-color: #5b80b2">
-                        {% csrf_token %}
-                        <textarea name="comment" class="comment-area"></textarea>
-                        <button
-                                class="send-comment-button"
-                                type="button"
-                                data-article-id="{{ article.pk }}">
-                            Отправить
-                        </button>
-                    </form>
-                </div>
-                {#            {% endif %}#}
+                {% if not article.is_draft %}
+                    <div class="like-comment">
+                        <ul class="lvc-field">
+                            <li>
+                                <div class="lvc-group">
+                                    <ul class="lvc-group">
+                                        <li data-id="{{ article.id }}" data-type="article" data-action="like"
+                                            title="Нравится"><img src="{% static 'svg/up3+.svg' %}" alt="like"></li>
+                                        <h5-2-lvc data-count="positive" class="positive">
+                                            {% if article.rating.like.count %}
+                                                {{ article.rating.like.count }}
+                                            {% else %}
+                                                {{ article.id|rating_positive }}
+                                            {% endif %}
+                                        </h5-2-lvc>
+                                        <li data-id="{{ article.id }}" data-type="article" data-action="dislike"
+                                            title="Не нравится"><img src="{% static 'svg/down3.svg' %}" alt="like"></li>
+                                        <h5-2-lvc data-count="negative" class="negative">
+                                            {% if article.rating.dislikes.count %}
+                                                {{ article.rating.dislikes.count }}
+                                            {% else %}
+                                                {{ article.id|rating_negative }}
+                                            {% endif %}
+                                        </h5-2-lvc>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="lvc-group">
+                                    <ul class="lvc-group">
+                                        <li><img src="{% static 'svg/carbon_view-filled_active.svg' %}" alt="view"></li>
+                                        <li>
+                                            <h5-2-lvc>{{ article.views }}</h5-2-lvc>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="lvc-group">
+                                    <ul class="lvc-group show-comments">
+                                        <li><img src="{% static 'svg/fluent_comment-24-filled_active.svg' %}"
+                                                 alt="comm"></li>
+                                        <li>
+                                            <h5-2-lvc>12</h5-2-lvc>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="comments-tree-block hidden"
+                             data-article-id="{{ article.pk }}">
+                            <form class="comment-form">
+                                {% csrf_token %}
+                                <textarea name="comment" class="comment-area"></textarea>
+                                <button
+                                        class="send-comment-button"
+                                        type="button"
+                                        data-article-id="{{ article.pk }}">
+                                    Отправить
+                                </button>
+                            </form>
+                        </div>
+
+                    </div>
+                {% endif %}
 
 
             </div>
