@@ -2,6 +2,7 @@
 {% load static %}
 {% load martortags %}
 {% load ratings %}
+{% load comments %}
 
 {% block css %}
     <link href="{% static 'plugins/css/ace.min.css' %}" type="text/css" media="all" rel="stylesheet"/>
@@ -77,24 +78,38 @@
 
                 <div class="like-comment">
                     <ul class="lvc-field">
-                        <li><div class="lvc-group">
-                            <ul class="lvc-group">
-                                <li><img src="{% static 'svg/chart.svg' %}" alt="like"></li>
-                                <li><h5-2-lvc>{{ article.id|rating_total }}</h5-2-lvc></li>
-                            </ul>
-                        </div></li>
-                        <li><div class="lvc-group">
-                            <ul class="lvc-group">
-                                <li><img src="{% static 'svg/carbon_view-filled_active.svg' %}" alt="view"></li>
-                                <li><h5-2-lvc>{{ article.views }}</h5-2-lvc></li>
-                            </ul>
-                        </div></li>
-                        <li><div class="lvc-group">
-                            <ul class="lvc-group">
-                                <li><a href="#"><img src="{% static 'svg/fluent_comment-24-filled_active.svg' %}" alt="comm"></a></li>
-                                <li><h5-2-lvc>12</h5-2-lvc></li>
-                            </ul>
-                        </div></li>
+                        <li>
+                            <div class="lvc-group">
+                                <ul class="lvc-group">
+                                    <li><img src="{% static 'svg/chart.svg' %}" alt="like"></li>
+                                    <li>
+                                        <h5-2-lvc>{{ article.id|rating_total }}</h5-2-lvc>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="lvc-group">
+                                <ul class="lvc-group">
+                                    <li><img src="{% static 'svg/carbon_view-filled_active.svg' %}" alt="view"></li>
+                                    <li>
+                                        <h5-2-lvc>{{ article.views }}</h5-2-lvc>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="lvc-group">
+                                <ul class="lvc-group">
+                                    {# TODO при нажатии на комментарий редирект на страницу статьи и фокус в поле ввода комментария#}
+                                    <li><a href="#"><img src="{% static 'svg/fluent_comment-24-filled_active.svg' %}"
+                                                         alt="comm"></a></li>
+                                    <li>
+                                        <h5-2-lvc>{{ article.pk|get_comments_count }}</h5-2-lvc>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
                     </ul>
                 </div>
             {% endfor %}

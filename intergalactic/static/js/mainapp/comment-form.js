@@ -7,20 +7,42 @@ class Comment {
         this.setHandlers();
     }
 
-    sendAjax(url = '', method = '', formData = null, renderResultTo = '') {
-        return $.ajax({
+    renderCommentsList() {
+        let articleId = this.commentsTreeBlock.dataset.articleId,
+            url = `/comments/get-comments-tree/${articleId}`;
+
+        $.ajax({
             url: url,
-            type: method,
+            type: "GET",
+            success: data => {
+                console.log(data)
+                $(`.comments-tree-root`).html(data)
+            },
+            error: d => {
+                console.log(d);
+            }
+        });
+    }
+
+    postComment(evt) {
+        let articleId = evt.currentTarget.dataset.articleId,
+            url = '/comments/create-comment/';
+
+        let formData = new FormData(this.commentForm);
+        formData.append('article_id', articleId);
+
+        $.ajax({
+            url: url,
+            type: 'POST',
             data: formData,
             cache: false,
             processData: false,
             contentType: false,
             enctype: 'multipart/form-data',
             success: data => {
-                console.log(data)
-                if (renderResultTo) {
-                    renderResultTo.insertAdjacentHTML('afterbegin', data);
-                }
+                console.log(data);
+                this.renderCommentsList();
+                $('.comments-counter').html(data.comments_count);
             },
             error: d => {
                 console.log(d);
@@ -31,21 +53,13 @@ class Comment {
     setHandlers() {
         this.showCommentsButton.addEventListener('click', evt => {
             this.commentsTreeBlock.classList.toggle('hidden');
-            let articleId = this.commentsTreeBlock.dataset.articleId;
-            let url = `/comments/get-comments-tree/${articleId}`;
-            this.sendAjax(url, "GET", null, this.commentsTreeBlock);
-
+            this.renderCommentsList();
         })
 
         if (this.commentSubmitButton) {
             this.commentSubmitButton.addEventListener('click', (evt => {
-                let articleId = evt.currentTarget.dataset.articleId,
-                    url = '/comments/create-comment/';
-
-                let formData = new FormData(this.commentForm);
-                formData.append('article_id', articleId);
-
-                this.sendAjax(url, 'POST', formData, this.commentsTreeBlock)
+                this.postComment(evt);
+                this.commentForm.reset();
             }))
 
         }

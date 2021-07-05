@@ -2,6 +2,7 @@
 {% load static %}
 {% load martortags %}
 {% load ratings %}
+{% load comments %}
 
 {% block title %}
     {{ title }} :: {{ block.super }}
@@ -93,7 +94,7 @@
                                         <li><img src="{% static 'svg/fluent_comment-24-filled_active.svg' %}"
                                                  alt="comm"></li>
                                         <li>
-                                            <h5-2-lvc>12</h5-2-lvc>
+                                            <h5-2-lvc class="comments-counter">{{ article.pk|get_comments_count }}</h5-2-lvc>
                                         </li>
                                     </ul>
                                 </div>
@@ -101,6 +102,7 @@
                         </ul>
                         <div class="comments-tree-block hidden"
                              data-article-id="{{ article.pk }}">
+                            <div class="comments-tree-root"></div>
                             <form class="comment-form">
                                 {% csrf_token %}
                                 <textarea name="comment" class="comment-area"></textarea>

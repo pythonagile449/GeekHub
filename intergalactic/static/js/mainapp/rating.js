@@ -49,6 +49,7 @@ function dislike()
         data : { 'obj' : pk },
 
         success : function (json) {
+            console.log(json)
             $('.positive').html(json.positive)
             $('.negative').html(json.negative)
         }
