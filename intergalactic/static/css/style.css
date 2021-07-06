@@ -1334,29 +1334,9 @@ code {
     color: rgb(255, 129, 129);
 }
 
-.comments-tree-block {
-    /*position: relative;*/
-    width: 200px;
-    background-color: #0d71bb;
-    height: 400px;
-}
-
 .hidden {
     visibility: hidden;
     width: 0;
     height: 0;
     z-index: -99;
-}
-
-.comments-tree {
-    width: 100%;
-}
-
-.comment-form {
-    height: 50px;
-}
-
-.comment-area {
-    display: block;
-    position: relative;
 }

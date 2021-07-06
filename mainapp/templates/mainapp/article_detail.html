@@ -94,7 +94,8 @@
                                         <li><img src="{% static 'svg/fluent_comment-24-filled_active.svg' %}"
                                                  alt="comm"></li>
                                         <li>
-                                            <h5-2-lvc class="comments-counter">{{ article.pk|get_comments_count }}</h5-2-lvc>
+                                            <h5-2-lvc
+                                                    class="comments-counter">{{ article.pk|get_comments_count }}</h5-2-lvc>
                                         </li>
                                     </ul>
                                 </div>
@@ -102,17 +103,45 @@
                         </ul>
                         <div class="comments-tree-block hidden"
                              data-article-id="{{ article.pk }}">
+                            <div class="block-comment">
+                                <div class="indent-60"></div>
+                                <div class="field-50">
+                                    <h2>
+                                        <h2-2>Комментарии</h2-2>
+                                    </h2>
+                                </div>
+                            </div>
+
                             <div class="comments-tree-root"></div>
-                            <form class="comment-form">
-                                {% csrf_token %}
-                                <textarea name="comment" class="comment-area"></textarea>
-                                <button
-                                        class="send-comment-button"
-                                        type="button"
-                                        data-article-id="{{ article.pk }}">
-                                    Отправить
-                                </button>
-                            </form>
+
+                            {% if user.is_authenticated %}
+                                <div class="my-comment">
+                                    <div class="field-50">
+                                        <h3>Написать комментарий</h3>
+                                    </div>
+                                    <div class="my-text">
+                                        <div class="editor-field">
+                                            <form class="editor-field comment-form">
+                                                {% csrf_token %}
+                                                {# TODO доработать верстку блока ввода текста#}
+                                                <textarea name="comment" class="comment-area"></textarea>
+                                                <div class="button-field">
+                                                    <button
+                                                            class="button22 send-comment-button"
+                                                            type="button"
+                                                            data-article-id="{{ article.pk }}">
+                                                        Отправить
+                                                    </button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="indent-60"></div>
+                                </div>
+                            {% else %}
+                                <p>Комментарии могут оставлять только зарегистрированные пользователи.</p>
+                            {% endif %}
+
                         </div>
 
                     </div>
