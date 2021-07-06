@@ -16,6 +16,7 @@
             <div class="author-text">
                 <h5-1><p>{{ comment.description }}</p></h5-1>
             </div>
+            <button type="button" class="answer-button hidden" data-answer-to="{{ comment.pk }}">Ответить</button>
             <div class="indent-60"></div>
         </div>
     {% endfor %}

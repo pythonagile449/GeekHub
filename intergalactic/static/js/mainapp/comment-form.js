@@ -4,6 +4,7 @@ class Comment {
         this.commentSubmitButton = document.querySelector('.send-comment-button');
         this.showCommentsButton = document.querySelector('.show-comments');
         this.commentsTreeBlock = document.querySelector('.comments-tree-block');
+        this.parentCommentSmall = document.querySelector('.parent-comment-small');
         this.setHandlers();
     }
 
@@ -15,8 +16,8 @@ class Comment {
             url: url,
             type: "GET",
             success: data => {
-                console.log(data)
                 $(`.comments-tree-root`).html(data)
+                this.setAfterRenderHandlers();
             },
             error: d => {
                 console.log(d);
@@ -40,7 +41,6 @@ class Comment {
             contentType: false,
             enctype: 'multipart/form-data',
             success: data => {
-                console.log(data);
                 this.renderCommentsList();
                 $('.comments-counter').html(data.comments_count);
             },
@@ -63,6 +63,33 @@ class Comment {
             }))
 
         }
+    }
+
+    setAfterRenderHandlers() {
+        this.commentBlocks = document.querySelectorAll('.author-comment');
+        this.answerButton = '';
+
+        this.commentBlocks.forEach(block => {
+            block.addEventListener('mouseenter', evt => {
+                // let answerButton = evt.target.querySelector('.answer-button');
+                this.answerButton = evt.target.querySelector('.answer-button');
+                this.answerButton.classList.toggle('hidden')
+
+                this.answerButton.addEventListener('click', evt => {
+                    document.querySelector('.comment-area').focus();
+                    this.parentCommentSmall.classList.remove('hidden');
+                    let text = block.querySelector('.author-text p');
+                    console.log(text);
+                })
+            })
+
+            block.addEventListener('mouseleave', evt => {
+                // let answerButton = evt.target.querySelector('.answer-button');
+                this.answerButton.classList.toggle('hidden')
+            })
+        })
+
+
     }
 }
 
