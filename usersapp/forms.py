@@ -56,12 +56,37 @@ class UserProfileForm(UserChangeForm):
 
 
 class UserProfileEditForm(ModelForm):
+    other = 'O'
+    male = 'M'
+    female = 'W'
+
+    GENDER_CHOISES = (
+        (other, 'другой'),
+        (male, 'мужской'),
+        (female, 'женский'),
+    )
+
+    md_editor = 'MD'
+    ckeditor = 'CK'
+
+    REDACTOR_CHOISES = (
+        (md_editor, 'markdown'),
+        (ckeditor, 'сkeditor'),
+    )
+
     first_name = forms.CharField(label='Имя', widget=forms.TextInput(attrs={'class': 'placeholder'}), required=False)
     last_name = forms.CharField(label='Фамилия', widget=forms.TextInput(attrs={'class': 'placeholder'}), required=False)
     user_information = forms.CharField(label='О себе', widget=forms.Textarea(attrs={'class': 'placeholder'}),
                                        required=False)
-    birthday = forms.DateField(label='Дата рождения', widget=forms.DateInput(attrs={'class': 'form-control'}),
+    birthday = forms.DateField(label='Дата рождения', widget=forms.DateInput(attrs={'class': 'placeholder',
+                                                                                    'type': 'date',
+                                                                                    'min':'1920-01-01'}),
                                required=False)
+    gender = forms.ChoiceField(choices=GENDER_CHOISES, widget=forms.Select(attrs={'class': 'placeholder'}))
+
+    article_redactor = forms.ChoiceField(choices=REDACTOR_CHOISES, widget=forms.Select(attrs={'class': 'placeholder'}))
+
+    profile_photo = forms.ImageField(label='Фото', widget=forms.FileInput(attrs={'class': ''}))
 
     class Meta:
         model = GeekHubUser
