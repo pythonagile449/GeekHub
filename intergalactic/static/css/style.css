@@ -1340,3 +1340,7 @@ code {
     height: 0;
     z-index: -99;
 }
+
+textarea.comment-area {
+    width: 100%;
+}
