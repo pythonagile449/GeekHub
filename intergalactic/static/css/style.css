@@ -1318,6 +1318,8 @@ input.placeholder[type="text"] {
 /* reset bootstrap styles for markdown editor */
 div.martor-preview {
     background-color: transparent;
+    padding: 0;
+    overflow: auto;
 }
 
 code {

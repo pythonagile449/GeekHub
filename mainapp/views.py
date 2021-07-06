@@ -1,4 +1,4 @@
-import markdown
+from django.db.models.functions import datetime
 from django.http import HttpResponseRedirect, HttpResponse, JsonResponse
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DetailView, ListView, DeleteView, UpdateView
@@ -68,6 +68,7 @@ class CreateArticle(CreateView):
             form.instance.is_draft = False
         if self.request.path == '/create-draft/':
             self.success_url = reverse_lazy('mainapp:drafts')
+        form.instance.publication_date = datetime.datetime.now()
         form_content = self.request.POST['contents']
 
         # set editor to articles model form
@@ -95,6 +96,13 @@ class ArticleDetail(DetailView):
         context = super(ArticleDetail, self).get_context_data()
         context['title'] = self.get_object().title
         return context
+
+    def get(self, request, *args, **kwargs):
+        response = super(ArticleDetail, self).get(request, *args, **kwargs)
+        if self.object.is_published:
+            self.object.views += 1
+            self.object.save()
+        return response
 
 
 class ArticleUpdate(UpdateView):
