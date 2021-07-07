@@ -58,7 +58,8 @@
                                 <div class="lvc-group">
                                     <ul class="lvc-group">
                                         <li data-id="{{ article.id }}" data-type="article" data-action="like"
-                                            title="Нравится"><img src="{% static 'svg/up3+.svg' %}" alt="like"></li>
+                                            title="Нравится" class="like-article"><img src="{% static 'svg/up3+.svg' %}"
+                                                                                       alt="like"></li>
                                         <h5-2-lvc data-count="positive" class="positive">
                                             {% if article.rating.like.count %}
                                                 {{ article.rating.like.count }}
@@ -67,7 +68,8 @@
                                             {% endif %}
                                         </h5-2-lvc>
                                         <li data-id="{{ article.id }}" data-type="article" data-action="dislike"
-                                            title="Не нравится"><img src="{% static 'svg/down3.svg' %}" alt="like"></li>
+                                            title="Не нравится" class="dislike-article"><img
+                                                src="{% static 'svg/down3.svg' %}" alt="like"></li>
                                         <h5-2-lvc data-count="negative" class="negative">
                                             {% if article.rating.dislikes.count %}
                                                 {{ article.rating.dislikes.count }}
@@ -163,7 +165,7 @@
 {% endblock %}
 
 {% block js %}
-    <script type="text/javascript" src="{% static "js/mainapp/comment-form.js" %}"></script>
+    <script type="module" src="{% static "js/mainapp/comment-form.js" %}"></script>
     <script type="text/javascript" src="{% static 'plugins/js/highlight.min.js' %}"></script>
     <script>
         $('.martor-preview pre').each(function (i, block) {

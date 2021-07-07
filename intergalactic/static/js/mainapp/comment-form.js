@@ -1,3 +1,5 @@
+import {CommentsRating} from './rating.js';
+
 class Comment {
     constructor() {
         this.commentForm = document.querySelector('.comment-form');
@@ -15,8 +17,9 @@ class Comment {
             url: url,
             type: "GET",
             success: data => {
-                console.log(data)
-                $(`.comments-tree-root`).html(data)
+                // console.log(data)
+                $(`.comments-tree-root`).html(data);
+                const commentsRating = new CommentsRating();
             },
             error: d => {
                 console.log(d);

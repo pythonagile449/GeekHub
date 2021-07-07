@@ -1,4 +1,5 @@
 "use strict"
+
 //Получение переменной cookie по имени
 function getCookie(name) {
     var cookieValue = null;
@@ -15,18 +16,18 @@ function getCookie(name) {
     }
     return cookieValue;
 }
-function like()
-{
+
+function like() {
     var like = $(this);
     var type = like.data('type');
     var pk = like.data('id');
     var action = like.data('action');
     var dislike = like.next();
     $.ajax({
-        url : "rating" + "/" + type + "/" + action + "/",
-        type : 'POST',
-        data : { 'obj' : pk },
-        success : function (json) {
+        url: "rating" + "/" + type + "/" + action + "/",
+        type: 'POST',
+        data: {'obj': pk},
+        success: function (json) {
             console.log(json)
             $('.positive').html(json.positive)
             $('.negative').html(json.negative)
@@ -35,8 +36,7 @@ function like()
     return false;
 }
 
-function dislike()
-{
+function dislike() {
     var dislike = $(this);
     var type = dislike.data('type');
     var pk = dislike.data('id');
@@ -44,11 +44,11 @@ function dislike()
     var like = dislike.prev();
 
     $.ajax({
-        url : "rating" + "/" + type + "/" + action + "/",
-        type : 'POST',
-        data : { 'obj' : pk },
+        url: "rating" + "/" + type + "/" + action + "/",
+        type: 'POST',
+        data: {'obj': pk},
 
-        success : function (json) {
+        success: function (json) {
             console.log(json)
             $('.positive').html(json.positive)
             $('.negative').html(json.negative)
@@ -58,56 +58,71 @@ function dislike()
     return false;
 }
 
-function likeComment()
-{
-    var likeComment = $(this);
-    var type = likeComment.data('type');
-    var pk = likeComment.data('id');
-    var action = likeComment.data('action');
-    var dislike = likeComment.next();
-    console.log(type)
-    $.ajax({
-        url : "rating" + "/" + type + "/" + action + "/",
-        type : 'POST',
-        data : { 'obj' : pk },
-        success : function (json) {
-            console.log(json)
-            $('.positiveComment').html(json.positive)
-            $('.negativeComment').html(json.negative)
-        }
-    });
-    return false;
-}
 
-function dislikeComment()
-{
-    var dislikeComment = $(this);
-    var type = dislikeComment.data('type');
-    var pk = dislikeComment.data('id');
-    var action = dislikeComment.data('action');
-    var like = dislikeComment.prev();
-
-    $.ajax({
-        url : "rating" + "/" + type + "/" + action + "/",
-        type : 'POST',
-        data : { 'obj' : pk },
-        success : function (json) {
-            console.log(json)
-            $('.positiveComment').html(json.positive)
-            $('.negativeComment').html(json.negative)
-        }
-    });
-
-    return false;
-}
-
-// Подключение обработчиков
-$(function() {
+// Set handlers
+$(function () {
     $.ajaxSetup({
-        headers: { "X-CSRFToken": getCookie("csrftoken") }
+        headers: {"X-CSRFToken": getCookie("csrftoken")}
     });
-    $('[data-action="like"]').click(like);
-    $('[data-action="dislike"]').click(dislike);
-    $('[data-action="likeComment"]').click(likeComment);
-    $('[data-action="dislikeComment"]').click(dislikeComment);
+    $('.like-article').click(like);
+    $('.dislike-article').click(dislike);
 });
+
+class CommentsRating {
+    constructor() {
+        this.likeButtons = document.querySelectorAll('.like-comment-btn');
+        this.dislikeButtons = document.querySelectorAll('.dislike-comment-btn');
+        this.setHandlers();
+    }
+
+    setHandlers() {
+        this.likeButtons.forEach(button => {
+            button.addEventListener('click', evt => {
+                let requestParams = this.getAjaxParams(evt);
+                this.sendCommentRatingAjax(requestParams, evt);
+            })
+        })
+
+        this.dislikeButtons.forEach(button => {
+            button.addEventListener('click', evt => {
+                let requestParams = this.getAjaxParams(evt);
+                this.sendCommentRatingAjax(requestParams, evt);
+            })
+        })
+    }
+
+    getAjaxParams(evt) {
+        let targetSet = evt.target.parentNode; // get parentNode (<li>) to catch dataset params
+        let requestParams = {
+            type: targetSet.dataset.type,
+            action: targetSet.dataset.action,
+            formData: new FormData(document.querySelector('.comment-form')), // to set csrf token
+        };
+        requestParams.formData.append('obj_id', targetSet.dataset.id);
+
+        return requestParams;
+    }
+
+    sendCommentRatingAjax(requestParams, evt) {
+        $.ajax({
+            url: `rating/${requestParams.type}/${requestParams.action}/`,
+            type: 'POST',
+            data: requestParams.formData,
+            cache: false,
+            processData: false,
+            contentType: false,
+            enctype: 'multipart/form-data',
+            success: json => {
+                console.log(json);
+                evt.target.parentNode.parentNode.querySelector('.positiveComment').innerHTML = json.positive;
+                evt.target.parentNode.parentNode.querySelector('.negativeComment').innerHTML = json.negative;
+            },
+            error: d => {
+                console.log('err');
+                console.log(d);
+            }
+        })
+    }
+}
+
+export {CommentsRating};

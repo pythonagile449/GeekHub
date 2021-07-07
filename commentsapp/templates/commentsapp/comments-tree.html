@@ -22,8 +22,8 @@
             <div>
                 <ul class="lvc-group">
                 
-                    <li data-id="{{ comment.id }}" data-type="comment" data-action="likeComment"
-                        title="Нравится"><img src="{% static 'svg/up3+.svg' %}" alt="like"></li>
+                    <li data-id="{{ comment.id }}" data-type="comment" data-action="like"
+                        title="Нравится" class="like-comment-btn"><img src="{% static 'svg/up3+.svg' %}" alt="like"></li>
                     <h5-2-lvc data-count="positiveComment" class="positiveComment">
                         {% if comment.rating.like.count %}
                             {{ comment.rating.like.count }}
@@ -31,8 +31,8 @@
                             {{ comment.rating_id|rating_positive_c }}
                         {% endif %}
                     </h5-2-lvc>
-                    <li data-id="{{ comment.id }}" data-type="comment" data-action="dislikeComment"
-                        title="Не нравится"><img src="{% static 'svg/down3.svg' %}" alt="like"></li>
+                    <li data-id="{{ comment.id }}" data-type="comment" data-action="dislike"
+                        title="Не нравится" class="dislike-comment-btn"><img src="{% static 'svg/down3.svg' %}" alt="like"></li>
                     <h5-2-lvc data-count="negativeComment" class="negativeComment">
                         {% if comment.rating.dislikes.count %}
                             {{ comment.rating.dislikes.count }}
