@@ -28,7 +28,7 @@
                         {% if comment.rating.like.count %}
                             {{ comment.rating.like.count }}
                         {% else %}
-                            {{ comment.rating_id|rating_positive_c }}
+                            {{ comment.id|rating_positive_c }}
                         {% endif %}
                     </h5-2-lvc>
                     <li data-id="{{ comment.id }}" data-type="comment" data-action="dislike"
@@ -37,7 +37,7 @@
                         {% if comment.rating.dislikes.count %}
                             {{ comment.rating.dislikes.count }}
                         {% else %}
-                            {{ comment.rating_id|rating_negative_c }}
+                            {{ comment.id|rating_negative_c }}
                         {% endif %}
                     </h5-2-lvc>
                 </ul>
