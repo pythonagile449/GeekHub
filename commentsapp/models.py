@@ -4,9 +4,6 @@ from usersapp.models import GeekHubUser
 from mainapp.models import Article
 
 
-# Create your models here.
-
-
 class Comment(models.Model):
     class Meta:
         abstract = True
@@ -34,3 +31,7 @@ class Comment(models.Model):
 class CommentsBranch(Comment):
     def __init__(self, *args, **kwargs):
         super(CommentsBranch, self).__init__(*args, **kwargs)
+
+    @staticmethod
+    def get_comments_count_by_article(article_id):
+        return CommentsBranch.objects.filter(article_id=article_id).count()

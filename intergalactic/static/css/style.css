@@ -1333,3 +1333,14 @@ code {
 .error {
     color: rgb(255, 129, 129);
 }
+
+.hidden {
+    visibility: hidden;
+    width: 0;
+    height: 0;
+    z-index: -99;
+}
+
+textarea.comment-area {
+    width: 100%;
+}

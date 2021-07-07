@@ -7,6 +7,7 @@ from django.urls import reverse
 from martor.models import MartorField
 from ckeditor_uploader.fields import RichTextUploadingField
 from bs4 import BeautifulSoup
+
 from usersapp.models import GeekHubUser
 from ratingsapp.models import RatingCount
 
