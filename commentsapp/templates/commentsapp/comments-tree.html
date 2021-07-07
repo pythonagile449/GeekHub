@@ -16,12 +16,19 @@
                     </li>
                 </ul>
             </div>
+            {% if comment.parent_comment %}
+                <div class="parent-comment-preview">
+                    <span>Ответ на: </span>
+                    <a href=""></a>
+                    {{ comment.parent_comment.description }}
+                </div>
+            {% endif %}
             <div class="author-text">
                 <h5-1><p>{{ comment.description }}</p></h5-1>
             </div>
             <div>
                 <ul class="lvc-group">
-                
+
                     <li data-id="{{ comment.id }}" data-type="comment" data-action="like"
                         title="Нравится" class="like-comment-btn"><img src="{% static 'svg/up3+.svg' %}" alt="like"></li>
                     <h5-2-lvc data-count="positiveComment" class="positiveComment">
@@ -42,6 +49,7 @@
                     </h5-2-lvc>
                 </ul>
             </div>
+            <button type="button" class="answer-button hidden" data-answer-to="{{ comment.pk }}">Ответить</button>
             <div class="indent-60"></div>
         </div>
     {% endfor %}

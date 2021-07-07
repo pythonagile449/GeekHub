@@ -1,4 +1,4 @@
-/*General properties, properties for the main*/
+/*Общие свойства, свойства для главной*/
 
 * {
     padding: 0px;
@@ -332,6 +332,7 @@ h5-4-lvc { /*-chart color */
     font-family: Roboto, Verdana, sans-serif;
     font-size: 14px;
     font-weight: 500;
+    margin-left: 5px;
     color: var(--danger-color);
     padding-right: 5px;
 }
@@ -372,6 +373,8 @@ ul.author-data li { /* Menu list items */
     display: inline; /* Display as a lowercase element */
     text-align: center;
 }
+
+
 
 .open-text {
     height: 50px;
@@ -604,6 +607,7 @@ input-text-right {
     display: flex;
     justify-content: center;
     align-items: center;
+
 }
 
 .message {
@@ -1586,3 +1590,15 @@ foreignObject svg {
 #red:checked + svg #luent_comment-24-filled_active {
   fill: #0075FF;
 }*/
+.answer-button {
+    position: absolute;
+    background-color: transparent;
+    border: none;
+    color: #707070;
+}
+
+.parent-comment-small {
+    width: 100%;
+    height:50px;
+    background-color: #0d71bb;
+}
