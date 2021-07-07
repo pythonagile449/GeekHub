@@ -1,4 +1,7 @@
 {% load static %}
+{% load ratings %}
+
+
 <div class="comments-tree">
     {% for comment in comments %}
         <div class="author-comment">
@@ -16,7 +19,31 @@
             <div class="author-text">
                 <h5-1><p>{{ comment.description }}</p></h5-1>
             </div>
+            <div>
+                <ul class="lvc-group">
+                
+                    <li data-id="{{ comment.id }}" data-type="comment" data-action="likeComment"
+                        title="Нравится"><img src="{% static 'svg/up3+.svg' %}" alt="like"></li>
+                    <h5-2-lvc data-count="positiveComment" class="positiveComment">
+                        {% if comment.rating.like.count %}
+                            {{ comment.rating.like.count }}
+                        {% else %}
+                            {{ comment.rating_id|rating_positive_c }}
+                        {% endif %}
+                    </h5-2-lvc>
+                    <li data-id="{{ comment.id }}" data-type="comment" data-action="dislikeComment"
+                        title="Не нравится"><img src="{% static 'svg/down3.svg' %}" alt="like"></li>
+                    <h5-2-lvc data-count="negativeComment" class="negativeComment">
+                        {% if comment.rating.dislikes.count %}
+                            {{ comment.rating.dislikes.count }}
+                        {% else %}
+                            {{ comment.rating_id|rating_negative_c }}
+                        {% endif %}
+                    </h5-2-lvc>
+                </ul>
+            </div>
             <div class="indent-60"></div>
         </div>
     {% endfor %}
+
 </div>
