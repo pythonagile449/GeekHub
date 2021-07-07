@@ -86,7 +86,7 @@ class UserProfileEditForm(ModelForm):
 
     article_redactor = forms.ChoiceField(choices=REDACTOR_CHOISES, widget=forms.Select(attrs={'class': 'placeholder'}))
 
-    profile_photo = forms.ImageField(label='Фото', widget=forms.FileInput(attrs={'class': ''}))
+    profile_photo = forms.ImageField(label='Фото', widget=forms.FileInput(attrs={'class': '', 'required': False}))
 
     class Meta:
         model = GeekHubUser
