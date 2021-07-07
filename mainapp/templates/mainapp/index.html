@@ -102,11 +102,14 @@
                             <div class="lvc-group">
                                 <ul class="lvc-group">
                                     {# TODO при нажатии на комментарий редирект на страницу статьи и фокус в поле ввода комментария#}
-                                    <li><a href="#"><img src="{% static 'svg/fluent_comment-24-filled_active.svg' %}"
-                                                         alt="comm"></a></li>
                                     <li>
-                                        <h5-2-lvc>{{ article.pk|get_comments_count }}</h5-2-lvc>
+                                        <a href="" class="">
+                                            <svg class="icon-comment">
+                                                <use xlink:href="#fluent_comment-24-filled_active"></use>
+                                            </svg>
+                                        </a>
                                     </li>
+                                    <h5-2-lvc>{{ article.pk|get_comments_count }}</h5-2-lvc>
                                 </ul>
                             </div>
                         </li>
@@ -125,6 +128,12 @@
 
         </div>
     </div>
+    <!-- Hidden SVG sprite -->
+    <svg width="0" height="0" class="hidden">
+        <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" id="fluent_comment-24-filled_active">
+            <path d="M4.375 15a2.708 2.708 0 01-2.708-2.708V5.208A2.708 2.708 0 014.375 2.5h11.25a2.708 2.708 0 012.708 2.708v7.084A2.709 2.709 0 0115.625 15h-4.82l-4.49 3.18A.833.833 0 015 17.503V15h-.625z"></path>
+        </symbol>
+    </svg>
 {% endblock %}
 
 {% block js %}
