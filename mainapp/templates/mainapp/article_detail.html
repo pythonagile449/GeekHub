@@ -128,11 +128,24 @@
                             {% if user.is_authenticated %}
                                 <div class="my-comment">
                                     <div class="field-50">
-                                        <h3>Написать комментарий</h3>
+                                        <h2>
+                                            <h2-2>Написать комментарий</h2-2>
+                                        </h2>
                                     </div>
-                                    <div class="parent-comment-small hidden">
-                                        <span class="close-answer-button">X</span>
-                                        <p class="parent-comment-text"></p>
+                                    <div class="field-parent-comment-small">
+                                        <div class="parent-comment-small hidden">
+                                            <div class="field-left">
+                                                <p class="parent-comment-text"></p>
+                                            </div>
+                                            <div class="field-right">
+                                                <span class="close-answer-button">
+                                                    <svg class="icon-X">
+                                                        <use xlink:href="#check-box2"></use>
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="indent-10"></div>
                                     </div>
                                     <div class="my-text">
                                         <div class="editor-field">
@@ -146,6 +159,9 @@
                                                             data-article-id="{{ article.pk }}">
                                                         Отправить
                                                     </button>
+<!--                                                    <svg class="icon-arrow">-->
+<!--                                                        <use xlink:href="#answer_arrow"></use>-->
+<!--                                                    </svg>-->
                                                 </div>
                                             </form>
                                         </div>
@@ -189,6 +205,12 @@
         </symbol>
         <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" id="fluent_comment-24-filled_active">
             <path d="M4.375 15a2.708 2.708 0 01-2.708-2.708V5.208A2.708 2.708 0 014.375 2.5h11.25a2.708 2.708 0 012.708 2.708v7.084A2.709 2.709 0 0115.625 15h-4.82l-4.49 3.18A.833.833 0 015 17.503V15h-.625z"></path>
+        </symbol>
+        <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" id="check-box2">
+            <path d="M17.753 15.214a.3.3 0 010-.425l5.722-5.716c.7-.703.7-1.842 0-2.545a1.786 1.786 0 00-2.535 0l-5.727 5.72a.3.3 0 01-.424 0L9.074 6.526c-.703-.7-1.843-.7-2.546 0a1.786 1.786 0 000 2.535l5.72 5.725a.3.3 0 010 .425l-5.722 5.716c-.7.704-.7 1.842 0 2.545.7.704 1.834.704 2.535 0l5.725-5.72a.3.3 0 01.424 0l5.716 5.722c.704.7 1.842.7 2.546 0 .703-.7.703-1.834 0-2.535l-5.72-5.725z"></path>
+        </symbol>
+        <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" id="answer_arrow">
+            <path d="M3.333 18.333L15 3.333v8.334c19.922 0 22.22 16.13 21.667 25C35.83 32.192 35.442 25 15 25v8.333l-11.666-15z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
         </symbol>
     </svg>
 {% endblock %}
