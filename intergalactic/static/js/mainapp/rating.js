@@ -68,6 +68,7 @@ $(function () {
     $('.dislike-article').click(dislike);
 });
 
+
 class CommentsRating {
     constructor() {
         this.likeButtons = document.querySelectorAll('.like-comment-btn');

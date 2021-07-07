@@ -15,7 +15,7 @@ class Comment(models.Model):
 
     rating_id = models.UUIDField(default=uuid4)
     rating = GenericRelation(RatingCount, related_query_name='comment')
-    article = models.ForeignKey(Article, on_delete=models.CASCADE)
+    article = models.ForeignKey(Article, on_delete=models.CASCADE, null=True)
     parent_comment = models.ForeignKey('self', on_delete=models.SET_NULL, null=True, blank=True)
     description = models.TextField(verbose_name='Текст комментария', blank=True)
     author = models.ForeignKey(GeekHubUser, verbose_name='Автор комментария', on_delete=models.SET_NULL, null=True,
