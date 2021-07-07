@@ -1552,6 +1552,13 @@ textarea.comment-area {
     padding-top: 10px;
 }
 
+.indent-50-2 {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    background-color: var(--section-bg-color);
+}
+
 /*label {
   display: block;
   width: 100%;
