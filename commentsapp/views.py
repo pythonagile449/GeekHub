@@ -16,6 +16,10 @@ def create_comment(request):
             description=comment_text,
             author=request.user,
         )
+        if form_data.get('parent_comment_id'):
+            new_comment.parent_comment = CommentsBranch.objects.get(id=form_data['parent_comment_id'])
+            new_comment.save()
+
         return HttpResponse(
             json.dumps({
                 'comments_count': CommentsBranch.get_comments_count_by_article(article.pk),

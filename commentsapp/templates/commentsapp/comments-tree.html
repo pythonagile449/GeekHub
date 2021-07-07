@@ -1,6 +1,7 @@
 {% load static %}
 <div class="comments-tree">
     {% for comment in comments %}
+{#        TODO добавить обработку если комментарий является ответом#}
         <div class="author-comment">
             <div class="author-data">
                 <ul class="author-data">
@@ -13,6 +14,11 @@
                     </li>
                 </ul>
             </div>
+            {% if comment.parent_comment %}
+                <div class="parent-comment-preview">
+                    {{ comment.parent_comment.description }}
+                </div>
+            {% endif %}
             <div class="author-text">
                 <h5-1><p>{{ comment.description }}</p></h5-1>
             </div>
