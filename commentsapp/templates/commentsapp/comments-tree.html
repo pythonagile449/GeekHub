@@ -16,6 +16,8 @@
             </div>
             {% if comment.parent_comment %}
                 <div class="parent-comment-preview">
+                    <span>Ответ на: </span>
+                    <a href=""></a>
                     {{ comment.parent_comment.description }}
                 </div>
             {% endif %}
