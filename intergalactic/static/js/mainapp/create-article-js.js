@@ -20,14 +20,12 @@ class Page {
     setHandlers() {
         if (this.publishArticleButton) {
             this.publishArticleButton.addEventListener('click', evt => {
-                // $('.create-article-form').data('serialize', $('.create-article-form').serialize()); // On load save form current state
             })
         }
 
         if (this.saveAsDraftButton) {
             this.saveAsDraftButton.addEventListener('click', (evt) => {
                 this.form.setAttribute('action', '/create-draft/');
-                // $('.create-article-form').data('serialize', $('.create-article-form').serialize()); // On load save form current state
                 this.form.submit();
             })
         }
@@ -53,12 +51,13 @@ class Page {
                     enctype: 'multipart/form-data',
                     success: data => {
                         if (data === 'Success') {
-                            this.answerBlock.classList.remove('error')
+                            this.answerBlock.classList.remove('error');
+                            this.answerBlock.classList.remove('hidden');
                             $('.answer').html('Черновик сохранен');
-                            // $('.create-article-form').data('serialize', $('.create-article-form').serialize())
                         }
 
                         if (data === 'Error') {
+                            this.answerBlock.classList.remove('hidden');
                             this.answerBlock.classList.add('error');
                             $('.answer').html('Черновик не сохранен, заполните все обязательные поля.');
                         }

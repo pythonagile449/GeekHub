@@ -37,15 +37,17 @@
         <div class="container">
             {% block content %} {% endblock %}
         </div>
-
     </div>
+
+    <div class="indent-30"></div>
+
 </div>
 
 {% block footer %}
     <div class="footer">
         <div class="footer-container">
-            <p>All right reserved. {% now " Y " %} <a href="{% url 'mainapp:index' %}">InEn</a> </p>
-            <p> </p>
+            <p>All right reserved. {% now " Y " %} <a href="{% url 'mainapp:index' %}">InEn</a></p>
+            <p></p>
         </div>
     </div>
 {% endblock %}

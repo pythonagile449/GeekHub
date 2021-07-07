@@ -1433,7 +1433,7 @@ textarea.comment-area {
 }
 .icon-new:hover {
     fill: #48B5FF; /* цвет заливки иконки при наведении */
-    fill-opacity: `1.0`;
+    fill-opacity: 1.0;
 }
 
 .icon-user {
