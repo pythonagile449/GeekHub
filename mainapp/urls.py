@@ -12,6 +12,7 @@ urlpatterns = [
     path('edit-draft/<uuid:pk>/', mainapp.ArticleUpdate.as_view(), name='edit_draft'),
     path('article/<uuid:pk>/', mainapp.ArticleDetail.as_view(), name='article_detail'),
     path('drafts/', mainapp.UserDrafts.as_view(), name='drafts'),
+    path('publish/<uuid:pk>/', mainapp.ArticlePublicion, name='article_publication'),
     path('user-articles/', mainapp.UserArticles.as_view(), name='user_articles'),
     path('user-wait-moderation-articles/', mainapp.UserModeratingArticles.as_view(), name='user_moderation_articles'),
     path('user-article-delete/<uuid:pk>/', mainapp.ArticleDelete.as_view(), name='user_article_delete'),

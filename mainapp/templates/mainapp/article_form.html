@@ -18,7 +18,8 @@
 {% block content %}
 
     <div class="indent-20"></div>
-    <form class="create-article-form container-editor" action="{% url 'mainapp:create_article' %}" method="post">
+<!--    <form class="create-article-form container-editor" action="{% url 'mainapp:create_article' %}" method="post">-->
+    <form class="create-article-form container-editor" action="{% url 'mainapp:article_publication' object.pk %}" method="post">
         {% csrf_token %}
 
         {# form buttons #}

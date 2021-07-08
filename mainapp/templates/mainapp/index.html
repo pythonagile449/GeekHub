@@ -81,7 +81,7 @@
                         <li>
                             <div class="lvc-group">
                                 <ul class="lvc-group">
-                                    <li><img src="{% static 'svg/chart.svg' %}" alt="like"></li>
+                                    <li title="Рейтинг"><img src="{% static 'svg/chart.svg' %}" alt="like"></li>
                                     <li>
                                         <h5-2-lvc>{{ article.id|rating_total }}</h5-2-lvc>
                                     </li>
@@ -91,7 +91,7 @@
                         <li>
                             <div class="lvc-group">
                                 <ul class="lvc-group">
-                                    <li><img src="{% static 'svg/carbon_view-filled_active.svg' %}" alt="view"></li>
+                                    <li title="Просмотры"><img src="{% static 'svg/carbon_view-filled_active.svg' %}" alt="view"></li>
                                     <li>
                                         <h5-2-lvc>{{ article.views }}</h5-2-lvc>
                                     </li>
@@ -102,12 +102,12 @@
                             <div class="lvc-group">
                                 <ul class="lvc-group">
                                     {# TODO при нажатии на комментарий редирект на страницу статьи и фокус в поле ввода комментария#}
-                                    <li>
-                                        <a href="" class="">
+                                    <li title="Комментарии">
+<!--                                        <a href="" class="">-->
                                             <svg class="icon-comment">
                                                 <use xlink:href="#fluent_comment-24-filled_active"></use>
                                             </svg>
-                                        </a>
+<!--                                        </a>-->
                                     </li>
                                     <h5-2-lvc>{{ article.pk|get_comments_count }}</h5-2-lvc>
                                 </ul>
