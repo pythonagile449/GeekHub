@@ -9,67 +9,69 @@
 {% endblock %}
 
 {% block content %}
-<div class="wrapper-login">
-    <div class="container">
-        <div class="upper-margin"></div>
-        <div class="container-login">
+    <div class="wrapper-login">
+        <div class="container">
+            <div class="upper-margin"></div>
+            <div class="container-login">
 
-            <div class="card"></div>
+                <div class="card"></div>
 
-            <div class="card">
-                <div class="cart-bg">
-                    <div class="indent-60"></div>
-                    <form class="form-login" method="post" enctype="multipart/form-data">
+                <div class="card">
+                    <div class="cart-bg">
+                        <div class="indent-60"></div>
+                        <form class="form-login" method="post" enctype="multipart/form-data">
 
-                        <div class="indent-50">
-                            <div class="input-text">
-                                <div class="input-text-left">
-                                    {% csrf_token %}
-                                    <input type="text" name="username" class="placeholder" placeholder="Никнейм">
+                            <div class="indent-50">
+                                <div class="input-text">
+                                    <div class="input-text-left">
+                                        {% csrf_token %}
+                                        <input type="text" name="username" class="placeholder" placeholder="Никнейм">
+                                    </div>
+                                    <!--                                <div class="input-text-right"><img src="{% static 'svg/check-box1.svg' %}"-->
+                                    <!--                                                                              alt="+"></div>-->
                                 </div>
-<!--                                <div class="input-text-right"><img src="{% static 'svg/check-box1.svg' %}"-->
-<!--                                                                              alt="+"></div>-->
                             </div>
-                        </div>
 
-                        <div class="indent-10"></div>
+                            <div class="indent-10"></div>
 
-                        <div class="indent-50">
-                            <div class="input-text">
-                                <div class="input-text-left">
-                                    {% csrf_token %}
-                                    <input type="password" name="password" class="placeholder" placeholder="Введите пароль">
+                            <div class="indent-50">
+                                <div class="input-text">
+                                    <div class="input-text-left">
+                                        {% csrf_token %}
+                                        <input type="password" name="password" class="placeholder"
+                                               placeholder="Введите пароль">
+                                    </div>
+                                    <!--                                <div class="input-text-right"><img src="{% static 'svg/check-box1.svg' %}"-->
+                                    <!--                                                                              alt="+"></div>-->
                                 </div>
-<!--                                <div class="input-text-right"><img src="{% static 'svg/check-box1.svg' %}"-->
-<!--                                                                              alt="+"></div>-->
                             </div>
-                        </div>
 
-                        <div class="indent-35"></div>
+                            <div class="indent-35"></div>
 
-                        <div class="indent-30">
-                            <button class="button4" type="submit" value="Login">Войдите</button>
-                        </div>
-
-                        <div class="indent-30">
-                            <div class="text-alternative1">
-                                <h5-1>Или  <a href="{% url 'usersapp:registration' %}" class="link-menu">зарегистрируйтесь!</a></h5-1>
+                            <div class="indent-30">
+                                <button class="button4" type="submit" value="Login">Войдите</button>
                             </div>
-                        </div>
-                    </form>
 
-                    <div class="indent-60"></div>
+                            <div class="indent-30">
+                                <div class="text-alternative1">
+                                    <h5-1>Или <a href="{% url 'usersapp:registration' %}" class="link-menu">зарегистрируйтесь!</a>
+                                    </h5-1>
+                                </div>
+                            </div>
+                        </form>
 
+                        <div class="indent-60"></div>
+
+                    </div>
                 </div>
-            </div>
 
-            <div class="card"></div>
+                <div class="card"></div>
+
+            </div>
 
         </div>
 
     </div>
-
-</div>
 {% endblock %}
 
 {% block footer %}

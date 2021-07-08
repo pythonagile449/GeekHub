@@ -18,144 +18,144 @@
 
                         <div class="indent-30"></div>
 
-                            {% csrf_token %}
-                            <div class="field-50">
-                                <div class="block-text">
-                                    <h5-3>Никнейм:</h5-3>
-                                </div>
-                                <div class="block-info">
-                                    <div class="input-text">
-                                        <div class="field-text-left">
-                                            <h5-3> {{ object.username }} </h5-3>
-                                        </div>
-                                        <div class="input-text-right_bg"><!--<img src="{% static 'svg/check-box1.svg' %}"
+                        {% csrf_token %}
+                        <div class="field-50">
+                            <div class="block-text">
+                                <h5-3>Никнейм:</h5-3>
+                            </div>
+                            <div class="block-info">
+                                <div class="input-text">
+                                    <div class="field-text-left">
+                                        <h5-3> {{ object.username }} </h5-3>
+                                    </div>
+                                    <div class="input-text-right_bg"><!--<img src="{% static 'svg/check-box1.svg' %}"
                                                                               alt="+"> --></div>
-                                    </div>
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="field-50">
-                                <div class="block-text">
-                                    <h5-3>E-mail:</h5-3>
-                                </div>
-                                <div class="block-info">
-                                    <div class="input-text">
-                                        <div class="field-text-left">
-                                            <h5-3>{{ object.email }}</h5-3>
-                                        </div>
-                                        <div class="input-text-right_bg"><!--<img src="{% static 'svg/check-box1.svg' %}"
+                        <div class="field-50">
+                            <div class="block-text">
+                                <h5-3>E-mail:</h5-3>
+                            </div>
+                            <div class="block-info">
+                                <div class="input-text">
+                                    <div class="field-text-left">
+                                        <h5-3>{{ object.email }}</h5-3>
+                                    </div>
+                                    <div class="input-text-right_bg"><!--<img src="{% static 'svg/check-box1.svg' %}"
                                                                               alt="+"> --></div>
-                                    </div>
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="field-50">
-                                <div class="block-text">
-                                    <h5-3>{{ form.first_name.label_tag }}</h5-3>
-                                </div>
-                                <div class="block-info">
-                                    <div class="input-text">
-                                        <div class="input-text-left">
-                                            {{ form.first_name }}
-                                        </div>
-                                        <div class="input-text-right"><!--<img src="{% static 'svg/check-box1.svg' %}"
+                        <div class="field-50">
+                            <div class="block-text">
+                                <h5-3>{{ form.first_name.label_tag }}</h5-3>
+                            </div>
+                            <div class="block-info">
+                                <div class="input-text">
+                                    <div class="input-text-left">
+                                        {{ form.first_name }}
+                                    </div>
+                                    <div class="input-text-right"><!--<img src="{% static 'svg/check-box1.svg' %}"
                                                                               alt="+"> -->
-                                        </div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="field-50">
-                                <div class="block-text">
-                                    <h5-3>{{ form.last_name.label_tag }}</h5-3>
-                                </div>
-                                <div class="block-info">
-                                    <div class="input-text">
-                                        <div class="input-text-left">
-                                            {{ form.last_name }}
-                                        </div>
-                                        <div class="input-text-right"><!--<img src="{% static 'svg/check-box1.svg' %}"
+                        <div class="field-50">
+                            <div class="block-text">
+                                <h5-3>{{ form.last_name.label_tag }}</h5-3>
+                            </div>
+                            <div class="block-info">
+                                <div class="input-text">
+                                    <div class="input-text-left">
+                                        {{ form.last_name }}
+                                    </div>
+                                    <div class="input-text-right"><!--<img src="{% static 'svg/check-box1.svg' %}"
                                                                               alt="+"> -->
-                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="field-110">
-                                <div class="block-text">
-                                    <h5-3>{{ form.user_information.label_tag }}</h5-3>
+                        </div>
+                        <div class="field-110">
+                            <div class="block-text">
+                                <h5-3>{{ form.user_information.label_tag }}</h5-3>
 
-                                </div>
-                                <div class="block-info">
-                                    <div class="input-textarea">
-                                        <div class="input-text-left">
-                                            {{ form.user_information }}
-                                        </div>
-                                        <div class="input-text-right"><!--<img src="{% static 'svg/check-box1.svg' %}"
+                            </div>
+                            <div class="block-info">
+                                <div class="input-textarea">
+                                    <div class="input-text-left">
+                                        {{ form.user_information }}
+                                    </div>
+                                    <div class="input-text-right"><!--<img src="{% static 'svg/check-box1.svg' %}"
                                                                               alt="+"> -->
-                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="field-50">
-                                <div class="block-text">
-                                    <h5-3>Пол:</h5-3>
-                                </div>
-                                <div class="block-info">
-                                    <div class="input-text">
-                                        <div class="input-text-left">
-                                            <div class="select-1">
-                                                {{ form.gender }}
-                                            </div>
+                        </div>
+                        <div class="field-50">
+                            <div class="block-text">
+                                <h5-3>Пол:</h5-3>
+                            </div>
+                            <div class="block-info">
+                                <div class="input-text">
+                                    <div class="input-text-left">
+                                        <div class="select-1">
+                                            {{ form.gender }}
                                         </div>
-                                        <div class="input-text-right"><!--<img src="{% static 'svg/check-box1.svg' %}"
+                                    </div>
+                                    <div class="input-text-right"><!--<img src="{% static 'svg/check-box1.svg' %}"
                                                                               alt="+"> -->
-                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="field-50">
-                                <div class="block-text">
-                                    <h5-3>{{ form.birthday.label_tag }}</h5-3>
-                                </div>
-                                <div class="block-info">
-                                    <div class="input-text">
-                                        <div class="input-text-left">
-                                            {{ form.birthday }}
-                                        </div>
-                                        <div class="input-text-right"><!--<img src="{% static 'svg/check-box1.svg' %}"
+                        </div>
+                        <div class="field-50">
+                            <div class="block-text">
+                                <h5-3>{{ form.birthday.label_tag }}</h5-3>
+                            </div>
+                            <div class="block-info">
+                                <div class="input-text">
+                                    <div class="input-text-left">
+                                        {{ form.birthday }}
+                                    </div>
+                                    <div class="input-text-right"><!--<img src="{% static 'svg/check-box1.svg' %}"
                                                                               alt="+"> -->
-                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="field-50">
-                                <div class="block-text">
-                                    <h5-3>Статус:</h5-3>
-                                </div>
-                                <div class="block-info">
-                                    <div class="input-text">
-                                        <div class="field-text-left">
-                                            <h5-3>Пользователь</h5-3>
-                                        </div>
-                                        <div class="input-text-right_bg"><!--<img src="{% static 'svg/check-box1.svg' %}"
+                        </div>
+                        <div class="field-50">
+                            <div class="block-text">
+                                <h5-3>Статус:</h5-3>
+                            </div>
+                            <div class="block-info">
+                                <div class="input-text">
+                                    <div class="field-text-left">
+                                        <h5-3>Пользователь</h5-3>
+                                    </div>
+                                    <div class="input-text-right_bg"><!--<img src="{% static 'svg/check-box1.svg' %}"
                                                                               alt="+"> --></div>
-                                    </div>
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="indent-30"></div>
-                            <div class="indent-30">
-                                <a href="{% url 'usersapp:delete' object.pk %}">
-                                    <button class="button10" type="button">
-                                        Удалить аккаунт
-                                    </button>
-                                </a>
-                                <input class="button11" type="submit" value="Сохранить изменения">
+                        <div class="indent-30"></div>
+                        <div class="indent-30">
+                            <a href="{% url 'usersapp:delete' object.pk %}">
+                                <button class="button10" type="button">
+                                    Удалить аккаунт
+                                </button>
+                            </a>
+                            <input class="button11" type="submit" value="Сохранить изменения">
 
-                            </div>
+                        </div>
 
 
-                            <div class="indent-30"></div>
+                        <div class="indent-30"></div>
 
                     </div>
                     <div class="section-right-part">

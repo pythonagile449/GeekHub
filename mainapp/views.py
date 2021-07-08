@@ -214,6 +214,7 @@ class ArticleReturnToDrafts(DeleteView):
         self.object.save()
         return HttpResponseRedirect(self.get_success_url())
 
+
 def ArticlePublicion(request, pk):
     article = Article.objects.get(pk=pk)
     article.is_draft = False

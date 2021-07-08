@@ -91,7 +91,8 @@
                         <li>
                             <div class="lvc-group">
                                 <ul class="lvc-group">
-                                    <li title="Просмотры"><img src="{% static 'svg/carbon_view-filled_active.svg' %}" alt="view"></li>
+                                    <li title="Просмотры"><img src="{% static 'svg/carbon_view-filled_active.svg' %}"
+                                                               alt="view"></li>
                                     <li>
                                         <h5-2-lvc>{{ article.views }}</h5-2-lvc>
                                     </li>
@@ -103,11 +104,11 @@
                                 <ul class="lvc-group">
                                     {# TODO при нажатии на комментарий редирект на страницу статьи и фокус в поле ввода комментария#}
                                     <li title="Комментарии">
-<!--                                        <a href="" class="">-->
-                                            <svg class="icon-comment">
-                                                <use xlink:href="#fluent_comment-24-filled_active"></use>
-                                            </svg>
-<!--                                        </a>-->
+                                        <!--                                        <a href="" class="">-->
+                                        <svg class="icon-comment">
+                                            <use xlink:href="#fluent_comment-24-filled_active"></use>
+                                        </svg>
+                                        <!--                                        </a>-->
                                     </li>
                                     <h5-2-lvc>{{ article.pk|get_comments_count }}</h5-2-lvc>
                                 </ul>

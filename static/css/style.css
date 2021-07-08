@@ -13,7 +13,7 @@
     --main-bg-color: #FFFFFF;
     --section-bg-color: #E9E9E9;
     --section-fail-color: #FFD8D8;
-    --section-warning-color:#FCFFD8;
+    --section-warning-color: #FCFFD8;
     --section-success-color: #DDFFDC;
     --footer-bg-color: #C8C8C8;
     --primary-color: #48B5FF; /*цвет синих элементов*/
@@ -330,7 +330,6 @@ ul.author-data li { /* Пункты списка меню */
     display: inline; /* Отображать как строчный элемент */
     text-align: center;
 }
-
 
 
 .open-text {

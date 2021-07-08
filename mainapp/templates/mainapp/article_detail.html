@@ -59,9 +59,9 @@
                                     <ul class="lvc-group">
                                         <li data-id="{{ article.id }}" data-type="article" data-action="like"
                                             title="Нравится" class="like-article">
-<!--                                            <svg class="icon-up">-->
-<!--                                                <use xlink:href="#up3"></use>-->
-<!--                                            </svg>-->
+                                            <!--                                            <svg class="icon-up">-->
+                                            <!--                                                <use xlink:href="#up3"></use>-->
+                                            <!--                                            </svg>-->
                                             <img src="{% static 'svg/up4+.svg' %}" alt="like">
                                         </li>
                                         <h5-2-lvc-plus data-count="positive" class="positive">
@@ -73,9 +73,9 @@
                                         </h5-2-lvc-plus>
                                         <li data-id="{{ article.id }}" data-type="article" data-action="dislike"
                                             title="Не нравится" class="dislike-article">
-<!--                                            <svg class="icon-down">-->
-<!--                                                <use xlink:href="#down3"></use>-->
-<!--                                            </svg>-->
+                                            <!--                                            <svg class="icon-down">-->
+                                            <!--                                                <use xlink:href="#down3"></use>-->
+                                            <!--                                            </svg>-->
                                             <img src="{% static 'svg/down4+.svg' %}" alt="like">
                                         </li>
                                         <h5-2-lvc-minus data-count="negative" class="negative">
@@ -107,15 +107,14 @@
                                             </svg>
                                         </li>
                                         <li>
-                                            <h5-2-lvc
-                                                    class="comments-counter">{{ article.pk|get_comments_count }}</h5-2-lvc>
+                                            <h5-2-lvc class="comments-counter">{{ article.pk|get_comments_count }}
+                                            </h5-2-lvc>
                                         </li>
                                     </ul>
                                 </div>
                             </li>
                         </ul>
-                        <div class="comments-tree-block hidden"
-                             data-article-id="{{ article.pk }}">
+                        <div class="comments-tree-block hidden" data-article-id="{{ article.pk }}">
                             <div class="block-comment">
                                 <div class="indent-60"></div>
                                 <div class="field-50">
@@ -161,9 +160,9 @@
                                                             data-article-id="{{ article.pk }}">
                                                         Отправить
                                                     </button>
-<!--                                                    <svg class="icon-arrow">-->
-<!--                                                        <use xlink:href="#answer_arrow"></use>-->
-<!--                                                    </svg>-->
+                                                    <!--                                                    <svg class="icon-arrow">-->
+                                                    <!--                                                        <use xlink:href="#answer_arrow"></use>-->
+                                                    <!--                                                    </svg>-->
                                                 </div>
                                             </form>
                                         </div>
@@ -173,21 +172,13 @@
                             {% else %}
                                 <p>Комментарии могут оставлять только зарегистрированные пользователи.</p>
                             {% endif %}
-
                         </div>
-
                     </div>
                 {% endif %}
-
-
             </div>
-
             <div class="section-right">
-
                 <div class="section-right-block">
-
                 </div>
-
             </div>
         </div>
     </div>
