@@ -283,7 +283,7 @@ h5-1 {
     font-family: Roboto, Verdana, sans-serif;
     font-size: 14px;
     font-weight: 500;
-    margin-left: 10px;
+    /*margin-left: 10px;*/
     color: var(--text-color);
     text-indent: 25px;
 }
@@ -1352,7 +1352,7 @@ input.placeholder[type="text"] {
     font-size: 14px;
     font-family: Roboto, Verdana, sans-serif;
     font-weight: 500;
-    width: 240px;
+    width: auto;
 }
 
 .editor-placeholder {
@@ -1472,7 +1472,12 @@ textarea.comment-area {
     height: 20px; /* высота иконки */
     fill: #808080; /* цвет заливки иконки */
     transition: 0.25s; /* плавное изменение цвета при наведении */
+    /*display:block;*/
+    /*display:inline-block;*/
+    /*pointer-events: none;*/
 }
+
+
 .icon-up:hover {
     fill: #48B5FF; /* цвет заливки иконки при наведении */
     /*fill: #0075FF;*/
@@ -1645,7 +1650,7 @@ foreignObject svg {
     font-size: 12px;
     background: var(--section-bg-color);
     border-radius: 5px;
-    margin: 8px 8px 8px 80px;
+    margin: 0px 0px 0px 80px;
     padding: 8px 12px;
     text-indent: 15px;
 }
@@ -1670,6 +1675,19 @@ p {
 .answer-button {
     margin-top: 1rem;
 }
+
+.section-left-text {
+    margin-bottom: 20px;
+}
+
+.opacity-div {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.author-text {
+    margin-top: 10px;
+}
+
 
 /*.icon-arrow {
     width: 40px;
