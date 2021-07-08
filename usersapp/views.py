@@ -11,15 +11,25 @@ from usersapp.forms import RegistrationForm, LoginForm, UserProfileEditForm
 
 def main(request):
     """
+    RU
     Главная страница приложения usersapp
+
+    EN
+    Usersapp main page view
     """
+
     return render(request, 'usersapp/index.html')
 
 
 class RegistrationView(CreateView):
     '''
+    RU
     Представление регистрации пользователя.
     Передаваемый контекст:
+
+    EN
+    View for user registration form
+    Context passed:
     '''
     model = GeekHubUser
     form_class = RegistrationForm
@@ -28,9 +38,15 @@ class RegistrationView(CreateView):
 
 class AuthenticationView(LoginView):
     """
+    RU
     Аутентификация пользователя
     Контекст: form, содержит поле логина и пароля (пример : {{ form.username }}, или стандартно {{ form.as_p }})
     Имя шаблона: login.html
+
+    EN
+    User authentication view
+    Context: form, has fields for login and password (example: {{ form.username }} or {{ form.as_p }}
+    Template name: login.html
     """
     form_class = LoginForm
     template_name = 'usersapp/login.html'
@@ -38,19 +54,32 @@ class AuthenticationView(LoginView):
 
 class UserLogoutView(LogoutView):
     """
+    RU
     Выход из аккаунта
     Завершает текущий сеанс работы пользователя, с отображением страницы
     Имя шаблона: logout.html
+
+    EN
+    View for logout from the account
+    Stops current user's session, displays the page
+    Template name: logout.html
     """
     template_name = 'usersapp/logout.html'
 
 
 class UserAccountEdit(UpdateView):
     """
+    RU
     Редактирование профиля пользователя
     Контекст:   object - содержит все поля модели пользователя (пример: {{ object.username }})
                 form - содержит поле логина и пароля (пример : {{ form.username }}, или стандартно {{ form.as_p }})
     Имя шаблона: geekhubuser_update.html
+
+    EN
+    User profile edit view
+    Context:    object - contains all the fields of the model GeekHubUser (example: {{ object.username }}
+                form - contains fields for login and password (example: {{ form.username }} or {{ form.as_p }}
+    Template name: geekhubuser_update.html
     """
     model = GeekHubUser
     template_name_suffix = '_update'
@@ -70,9 +99,15 @@ class UserAccountEdit(UpdateView):
 
 class UserAccountDeleteView(DeleteView):
     """
+    RU
     Удаление профиля пользователя
     Как и договаривались, вместо удаления, производим деактивацию
     Имя шаблона: geekhubuser_confirm_delete.html
+
+    EN
+    View for users deletion
+    As we agreed, we deactivate user instead of outright deletion
+    Template name: geekhubuser_confirm_delete.html
     """
     model = GeekHubUser
     success_url = reverse_lazy('mainapp:index')
@@ -87,7 +122,11 @@ class UserAccountDeleteView(DeleteView):
 
 def verify(request, email, activate_key):
     """
+    RU
     Верификация и активация пользователя по e-mail и активационному коду
+
+    EN
+    Verification of user via email and activation code
     """
     try:
         user = GeekHubUser.objects.get(email=email)
