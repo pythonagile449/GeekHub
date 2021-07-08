@@ -16,8 +16,10 @@
 {% endblock %}
 
 {% block content %}
+
     <div class="indent-20"></div>
-    <form class="create-article-form container-editor" action="{% url 'mainapp:create_article' %}" method="post">
+<!--    <form class="create-article-form container-editor" action="{% url 'mainapp:create_article' %}" method="post">-->
+    <form class="create-article-form container-editor" action="{% url 'mainapp:article_publication' object.pk %}" method="post">
         {% csrf_token %}
 
         {# form buttons #}
@@ -30,6 +32,7 @@
                         data-uuid="{{ object.pk }}">
                     Сохранить изменения
                 </button>
+                <button class="button16 publish-article-button" type="submit">Опубликовать</button>
                 {# TODO скрыть блок при первичном отображении #}
                 <div class="answer hidden"></div>
             </div>
@@ -54,7 +57,7 @@
                         <div class="input-text-left">
                             {{ form.title }}
                         </div>
-                        <div class="input-text-right"><img src="{% static 'svg/check-box1.svg' %}" alt="+"></div>
+                        <div class="input-text-right"><!--<img src="{% static 'svg/check-box1.svg' %}" alt="+">--></div>
                     </div>
                 </div>
             </div>
@@ -77,7 +80,6 @@
         </div>
 
     </form>
-
 {% endblock %}
 
 {% block js %}

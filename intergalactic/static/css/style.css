@@ -1,4 +1,4 @@
-/*General properties, properties for the main*/
+/*Общие свойства, свойства для главной*/
 
 * {
     padding: 0px;
@@ -283,7 +283,7 @@ h5-1 {
     font-family: Roboto, Verdana, sans-serif;
     font-size: 14px;
     font-weight: 500;
-    margin-left: 10px;
+    /*margin-left: 10px;*/
     color: var(--text-color);
     text-indent: 25px;
 }
@@ -332,6 +332,7 @@ h5-4-lvc { /*-chart color */
     font-family: Roboto, Verdana, sans-serif;
     font-size: 14px;
     font-weight: 500;
+    margin-left: 5px;
     color: var(--danger-color);
     padding-right: 5px;
 }
@@ -372,6 +373,8 @@ ul.author-data li { /* Menu list items */
     display: inline; /* Display as a lowercase element */
     text-align: center;
 }
+
+
 
 .open-text {
     height: 50px;
@@ -604,6 +607,7 @@ input-text-right {
     display: flex;
     justify-content: center;
     align-items: center;
+
 }
 
 .message {
@@ -1348,7 +1352,7 @@ input.placeholder[type="text"] {
     font-size: 14px;
     font-family: Roboto, Verdana, sans-serif;
     font-weight: 500;
-    width: 240px;
+    width: auto;
 }
 
 .editor-placeholder {
@@ -1468,7 +1472,12 @@ textarea.comment-area {
     height: 20px; /* высота иконки */
     fill: #808080; /* цвет заливки иконки */
     transition: 0.25s; /* плавное изменение цвета при наведении */
+    /*display:block;*/
+    /*display:inline-block;*/
+    /*pointer-events: none;*/
 }
+
+
 .icon-up:hover {
     fill: #48B5FF; /* цвет заливки иконки при наведении */
     /*fill: #0075FF;*/
@@ -1586,3 +1595,109 @@ foreignObject svg {
 #red:checked + svg #luent_comment-24-filled_active {
   fill: #0075FF;
 }*/
+.answer-button {
+    position: absolute;
+    background-color: transparent;
+    border: none;
+    color: #707070;
+}
+
+.parent-comment-small {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    margin: 0;
+    padding: 0;
+    flex-direction: row;
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    align-items: center;
+}
+
+.field-left {
+    width: 95%;
+    /*margin-left: 20px;*/
+    vertical-align: middle;
+    margin: 0px 0px 0px 80px;
+}
+
+.field-right {
+    width: 5%;
+    text-align: center;
+}
+
+.close-answer-button {
+
+}
+
+
+.icon-X {
+    width: 20px; /* ширина иконки */
+    height: 20px; /* высота иконки */
+    fill: #808080;
+    transition: 0.25s; /* плавное изменение цвета при наведении */
+    /*margin-bottom: 1rem;*/
+}
+
+.icon-X:hover {
+    fill: var(--primary-color); /* цвет заливки иконки при наведении */
+    /*fill: #0075FF;*/
+}
+
+.parent-comment-preview {
+    font-family: Roboto, Verdana, sans-serif;
+    font-size: 12px;
+    background: var(--section-bg-color);
+    border-radius: 5px;
+    margin: 0px 0px 0px 80px;
+    padding: 8px 12px;
+    text-indent: 15px;
+}
+
+.parent-comment-text {
+    font-family: Roboto, Verdana, sans-serif;
+    font-size: 12px;
+    padding: 8px 12px;
+    text-indent: 15px;
+    background-color: var(--section-bg-color);
+    border-radius: 5px;
+}
+
+.button-field {
+    background-color: #red;
+}
+
+p {
+    margin-bottom: 0rem;
+}
+
+.answer-button {
+    margin-top: 1rem;
+}
+
+.section-left-text {
+    margin-bottom: 20px;
+}
+
+.opacity-div {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.author-text {
+    margin-top: 10px;
+}
+
+
+/*.icon-arrow {
+    width: 40px;
+    height: 40px;
+    fill: #FFFFFF;
+    Stroke: #808080;
+    transition: 0.25s;
+}
+
+.icon-arrow:hover {
+    stroke: var(--primary-color);
+}*/
+

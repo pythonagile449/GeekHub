@@ -82,11 +82,11 @@ class UserProfileEditForm(ModelForm):
                                                                                     'type': 'date',
                                                                                     'min':'1920-01-01'}),
                                required=False)
-    gender = forms.ChoiceField(choices=GENDER_CHOISES, widget=forms.Select(attrs={'class': 'placeholder'}))
+    gender = forms.ChoiceField(choices=GENDER_CHOISES, widget=forms.Select(attrs={'class': 'placeholder'}), required=False)
 
-    article_redactor = forms.ChoiceField(choices=REDACTOR_CHOISES, widget=forms.Select(attrs={'class': 'placeholder'}))
+    article_redactor = forms.ChoiceField(choices=REDACTOR_CHOISES, widget=forms.Select(attrs={'class': 'placeholder'}), required=False)
 
-    profile_photo = forms.ImageField(label='Фото', widget=forms.FileInput(attrs={'class': '', 'required': False}))
+    profile_photo = forms.ImageField(label='Фото', widget=forms.FileInput(attrs={'class': '', 'required': False}), required=False)
 
     class Meta:
         model = GeekHubUser
