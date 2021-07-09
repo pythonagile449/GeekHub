@@ -1,4 +1,5 @@
 "use strict"
+
 //Получение переменной cookie по имени
 function getCookie(name) {
     var cookieValue = null;
@@ -15,19 +16,19 @@ function getCookie(name) {
     }
     return cookieValue;
 }
-function like()
-{
+
+function like() {
     var like = $(this);
     var type = like.data('type');
     var pk = like.data('id');
     var action = like.data('action');
     var dislike = like.next();
     $.ajax({
-        url : "rating" + "/" + type + "/" + action + "/",
-        type : 'POST',
-        data : { 'obj' : pk },
+        url: "rating" + "/" + type + "/" + action + "/",
+        type: 'POST',
+        data: {'obj': pk},
 
-        success : function (json) {
+        success: function (json) {
             like.find("[data-count='positive']").text(json.positive);
             dislike.find("[data-count='negative']").text(json.negative);
         }
@@ -35,8 +36,7 @@ function like()
     return false;
 }
 
-function dislike()
-{
+function dislike() {
     var dislike = $(this);
     var type = dislike.data('type');
     var pk = dislike.data('id');
@@ -44,11 +44,11 @@ function dislike()
     var like = dislike.prev();
 
     $.ajax({
-        url : "rating" + "/" + type + "/" + action + "/",
-        type : 'POST',
-        data : { 'obj' : pk },
+        url: "rating" + "/" + type + "/" + action + "/",
+        type: 'POST',
+        data: {'obj': pk},
 
-        success : function (json) {
+        success: function (json) {
             dislike.find("[data-count='negative']").text(json.negative);
             like.find("[data-count='positive']").text(json.positive);
         }
@@ -56,10 +56,11 @@ function dislike()
 
     return false;
 }
+
 // Подключение обработчиков
-$(function() {
+$(function () {
     $.ajaxSetup({
-        headers: { "X-CSRFToken": getCookie("csrftoken") }
+        headers: {"X-CSRFToken": getCookie("csrftoken")}
     });
     $('[data-action="like"]').click(like);
     $('[data-action="dislike"]').click(dislike);

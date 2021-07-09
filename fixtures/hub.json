@@ -1,1 +1,34 @@
-[{"model": "mainapp.hub", "pk": 1, "fields": {"name": "Веб-разработка", "description": ""}}, {"model": "mainapp.hub", "pk": 2, "fields": {"name": "Дизайн", "description": ""}}, {"model": "mainapp.hub", "pk": 3, "fields": {"name": "Маркетинг", "description": ""}}, {"model": "mainapp.hub", "pk": 4, "fields": {"name": "Мобильная разработка", "description": ""}}]
+[
+  {
+    "model": "mainapp.hub",
+    "pk": 1,
+    "fields": {
+      "name": "пїЅпїЅпїЅ-пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ",
+      "description": ""
+    }
+  },
+  {
+    "model": "mainapp.hub",
+    "pk": 2,
+    "fields": {
+      "name": "пїЅпїЅпїЅпїЅпїЅпїЅ",
+      "description": ""
+    }
+  },
+  {
+    "model": "mainapp.hub",
+    "pk": 3,
+    "fields": {
+      "name": "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ",
+      "description": ""
+    }
+  },
+  {
+    "model": "mainapp.hub",
+    "pk": 4,
+    "fields": {
+      "name": "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ",
+      "description": ""
+    }
+  }
+]
