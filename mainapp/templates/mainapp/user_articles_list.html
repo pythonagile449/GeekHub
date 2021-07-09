@@ -36,7 +36,10 @@
                 <div class="section-left-title">
                     <h2>
                         <h2-2>
-                            {{ article.title }}
+                            <a class="article-heading-link" href="{% url 'mainapp:article_detail' article.pk %}"
+                               style="">
+                                {{ article.title }}
+                            </a>
                         </h2-2>
                     </h2>
                 </div>
