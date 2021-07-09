@@ -6,8 +6,8 @@ from ratingsapp.models import RatingCount
 
 
 class RatingsView(View):
-    model = None  # Модель данных - Статьи или Комментарии
-    vote_type = None  # Тип комментария Like/Dislike
+    model = None  # Модель данных - Статьи или Комментарии  (data model - an article or a commentary)
+    vote_type = None  # Тип комментария Like/Dislike        (like or dislike)
 
     def post(self, request, pk):
         if request.POST.get('obj_id'):

@@ -1,13 +1,20 @@
 from django.db.models.functions import datetime
-from django.http import HttpResponseRedirect, HttpResponse, JsonResponse
+from django.http import HttpResponseRedirect, JsonResponse
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DetailView, ListView, DeleteView, UpdateView
+
 from mainapp.forms import ArticleCkForm, ArticleMdForm
 from mainapp.models import Hub, Article
 
 
 class Index(ListView):
-    """ Главная страница (все статьи). """
+    """
+    RU
+    Главная страница (все статьи).
+
+    EN
+    Main paige(all the articles by publication date)
+    """
     template_name = 'mainapp/index.html'
     queryset = Article.objects.filter(is_published=True).order_by('-publication_date')
     context_object_name = 'articles'
@@ -20,8 +27,13 @@ class Index(ListView):
 
 class ArticlesByHub(ListView):
     """
+    RU
     Статьи по категориям.
     hub_id передается в kwargs из get_absolute_url модели.
+
+    EN
+    Articles by categories(hubs)
+    hub_id is passed in kwargs from the get_absolute_url model method
     """
     model = Article
     template_name = 'mainapp/index.html'
@@ -40,12 +52,24 @@ class ArticlesByHub(ListView):
 
 
 class CreateArticle(CreateView):
-    """ Создание статьи. """
+    """
+    RU
+    Создание статьи.
+
+    EN
+    Create article
+    """
     model = Article
     success_url = reverse_lazy('mainapp:user_articles')
 
     def get_form_class(self):
-        """ Установка редактора (self.form_class) в зависимости от настроек пользователя. """
+        """
+        RU
+        Установка редактора (self.form_class) в зависимости от настроек пользователя.
+
+        EN
+        Setup the editor (self.form_class) depending on user's preferences
+        """
         user = self.request.user
         if user.article_redactor == 'CK':
             self.form_class = ArticleCkForm
@@ -62,6 +86,7 @@ class CreateArticle(CreateView):
 
         # TODO временно статьи создаются в статусе опубликовано, необходимо изменить на модерацию
         # если запрос на публикацию статьи - устанавливаем статус 'на модерации', снимаем статус 'черновик'
+        # if publication of an article is requested, set status 'is_moderation_in_progress' remove status 'draft'
         if self.request.path == '/create-article/':
             # form.instance.is_moderation_in_progress = True
             form.instance.is_published = True
@@ -88,7 +113,13 @@ class CreateArticle(CreateView):
 
 
 class ArticleDetail(DetailView):
-    """ Просмотр статьи."""
+    """
+    RU
+    Просмотр статьи.
+
+    EN
+    Article viewing
+    """
     model = Article
     context_object_name = 'article'
 
@@ -153,7 +184,13 @@ class ArticleUpdate(UpdateView):
 
 
 class UserArticles(ListView):
-    """ Cтатьи пользователя. По умолчанию отображает "мои статьи". """
+    """
+    RU
+    Cтатьи пользователя. По умолчанию отображает "мои статьи".
+
+    EN
+    User's articles. By deafault shows "my articles"
+    """
     template_name = 'mainapp/user_articles_list.html'
     context_object_name = 'articles'
 
@@ -169,7 +206,13 @@ class UserArticles(ListView):
 
 
 class UserDrafts(UserArticles):
-    """ Черновики пользователя. """
+    """
+    RU
+    Черновики пользователя.
+
+    EN
+    User's drafts
+    """
 
     def get_queryset(self):
         queryset = Article.objects.filter(author=self.request.user, is_draft=True, is_deleted=False) \
@@ -178,7 +221,13 @@ class UserDrafts(UserArticles):
 
 
 class UserModeratingArticles(UserArticles):
-    """ Статьи пользователя на модерации. """
+    """
+    RU
+    Статьи пользователя на модерации.
+
+    EN
+    User's articles being reviewed by moderators
+    """
 
     def get_queryset(self):
         queryset = Article.objects.filter(author=self.request.user, is_moderation_in_progress=True, is_deleted=False) \
@@ -214,9 +263,18 @@ class ArticleReturnToDrafts(DeleteView):
         self.object.save()
         return HttpResponseRedirect(self.get_success_url())
 
+
 def ArticlePublicion(request, pk):
     article = Article.objects.get(pk=pk)
     article.is_draft = False
     article.is_published = True
     article.save()
     return HttpResponseRedirect(f'/article/{article.pk}/')
+
+
+class ShowTop(ListView):
+    # template_name = 'mainapp/user_articles_list.html'
+
+    def get_queryset(self, **kwargs):
+        queryset = Article.objects.filter(is_published=True).order_by('-publication_date')[:7]
+        return queryset
