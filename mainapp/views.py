@@ -3,6 +3,7 @@ from django.http import HttpResponseRedirect, JsonResponse, Http404
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DetailView, ListView, DeleteView, UpdateView
 
+from commentsapp.models import CommentsBranch
 from mainapp.forms import ArticleCkForm, ArticleMdForm
 from mainapp.models import Hub, Article
 
@@ -122,10 +123,15 @@ class ArticleDetail(DetailView):
     """
     model = Article
     context_object_name = 'article'
+    comments_preview_count = 3
 
     def get_context_data(self, **kwargs):
         context = super(ArticleDetail, self).get_context_data()
         context['title'] = self.get_object().title
+        context['comments_preview'] = CommentsBranch.get_last_comments(self.get_object().pk,
+                                                                       self.comments_preview_count)
+        context['comments_count_settings'] = self.comments_preview_count
+        context['all_comments_count'] = CommentsBranch.get_comments_count_by_article(self.get_object().pk)
         return context
 
     def get(self, request, *args, **kwargs):

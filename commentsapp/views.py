@@ -33,7 +33,7 @@ def create_comment(request):
 def get_article_comments(request, article_id=None):
     if request.method == 'GET' and request.is_ajax():
         article = get_object_or_404(Article, id=article_id)
-        comments = CommentsBranch.objects.filter(article=article)
+        comments = CommentsBranch.objects.filter(article=article).order_by('-created_at')
         return render(request, 'commentsapp/comments-tree.html', {'comments': comments})
     else:
         return HttpResponse(status=404)

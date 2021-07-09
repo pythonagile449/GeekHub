@@ -7,12 +7,13 @@ class Comment {
         }
         this.commentForm = document.querySelector('.comment-form');
         this.commentSubmitButton = document.querySelector('.send-comment-button');
-        this.showCommentsButton = document.querySelector('.show-comments');
+        this.showCommentsButton = document.querySelector('.show-all-comments-button');
         this.commentsTreeBlock = document.querySelector('.comments-tree-block');
         this.parentCommentSmall = document.querySelector('.parent-comment-small');
         this.parentCommentText = document.querySelector('.parent-comment-text');
         this.closeAnswerButton = document.querySelector(".close-answer-button")
         this.setHandlers();
+        this.setAfterRenderHandlers();
     }
 
     renderCommentsList() {
@@ -56,6 +57,7 @@ class Comment {
                 this.renderCommentsList();
                 $('.comments-counter').html(data.comments_count);
                 this.resetAndCloseAnswerBlock();
+                document.querySelector('#comments-start-point').scrollIntoView()
             },
             error: d => {
                 console.log(d);
@@ -69,10 +71,13 @@ class Comment {
     }
 
     setHandlers() {
-        this.showCommentsButton.addEventListener('click', evt => {
-            this.commentsTreeBlock.classList.toggle('hidden');
-            this.renderCommentsList();
-        })
+        const commentsRating = new CommentsRating();
+
+        if (this.showCommentsButton) {
+            this.showCommentsButton.addEventListener('click', evt => {
+                this.renderCommentsList();
+            })
+        }
 
         if (this.commentSubmitButton) {
             this.commentSubmitButton.addEventListener('click', evt => {

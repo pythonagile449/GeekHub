@@ -100,7 +100,7 @@
                             </li>
                             <li>
                                 <div class="lvc-group">
-                                    <ul class="lvc-group show-comments">
+                                    <ul class="lvc-group">
                                         <li>
                                             <svg class="icon-comment">
                                                 <use xlink:href="#fluent_comment-24-filled_active"></use>
@@ -114,17 +114,83 @@
                                 </div>
                             </li>
                         </ul>
-                        <div class="comments-tree-block hidden" data-article-id="{{ article.pk }}">
+                        <div class="comments-tree-block " data-article-id="{{ article.pk }}">
                             <div class="block-comment">
                                 <div class="indent-60"></div>
                                 <div class="field-50">
                                     <h2>
-                                        <h2-2>Комментарии</h2-2>
+                                        <h2-2 id="comments-start-point">Комментарии</h2-2>
                                     </h2>
                                 </div>
                             </div>
 
-                            <div class="comments-tree-root"></div>
+                            <div class="comments-tree-root">
+                                <div class="comments-tree">
+                                    {% for comment in comments_preview %}
+                                        <div class="author-comment">
+                                            <div class="author-data">
+                                                <ul class="author-data">
+                                                    <li><img src="{% static 'svg/icon2.svg' %}" alt="icon"></li>
+                                                    <li>
+                                                        <h6-1>{{ comment.author.username }}</h6-1>
+                                                    </li>
+                                                    <li>
+                                                        <h6-2>{{ comment.created_at }}</h6-2>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            {% if comment.parent_comment %}
+                                                <div class="parent-comment-preview">
+                                                    <span>Ответ на: </span>
+                                                    {{ comment.parent_comment.description|truncatechars:100 }}
+                                                </div>
+                                            {% endif %}
+                                            <div class="author-text">
+                                                <h5>
+                                                    <h5-1><p>{{ comment.description }}</p></h5-1>
+                                                </h5>
+                                            </div>
+                                            <div>
+                                                <ul class="lvc-group">
+
+                                                    <li data-id="{{ comment.id }}" data-type="comment"
+                                                        data-action="like"
+                                                        title="Нравится" class="like-comment-btn">
+                                                        <img src="{% static 'svg/up4+.svg' %}" alt="like">
+                                                    </li>
+                                                    <h5-2-lvc data-count="positiveComment" class="positiveComment">
+                                                        {% if comment.rating.like.count %}
+                                                            {{ comment.rating.like.count }}
+                                                        {% else %}
+                                                            {{ comment.id|rating_positive_c }}
+                                                        {% endif %}
+                                                    </h5-2-lvc>
+                                                    <li data-id="{{ comment.id }}" data-type="comment"
+                                                        data-action="dislike"
+                                                        title="Не нравится" class="dislike-comment-btn">
+                                                        <img src="{% static 'svg/down4+.svg' %}" alt="like">
+                                                    </li>
+                                                    <h5-2-lvc data-count="negativeComment" class="negativeComment">
+                                                        {% if comment.rating.dislikes.count %}
+                                                            {{ comment.rating.dislikes.count }}
+                                                        {% else %}
+                                                            {{ comment.id|rating_negative_c }}
+                                                        {% endif %}
+                                                    </h5-2-lvc>
+                                                </ul>
+                                            </div>
+                                            <button type="button" class="answer-button hidden"
+                                                    data-answer-to="{{ comment.pk }}">Ответить
+                                            </button>
+                                            <div class="indent-60"></div>
+                                        </div>
+                                    {% endfor %}
+                                    {% if all_comments_count > comments_preview.count %}
+                                        <div class="show-all-comments-button">Показать все</div>
+                                    {% endif %}
+                                    <div class="indent-60"></div>
+                                </div>
+                            </div>
 
                             {% if user.is_authenticated %}
                                 <div class="my-comment">
@@ -160,9 +226,6 @@
                                                             data-article-id="{{ article.pk }}">
                                                         Отправить
                                                     </button>
-                                                    <!--                                                    <svg class="icon-arrow">-->
-                                                    <!--                                                        <use xlink:href="#answer_arrow"></use>-->
-                                                    <!--                                                    </svg>-->
                                                 </div>
                                             </form>
                                         </div>

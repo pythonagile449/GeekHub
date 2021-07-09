@@ -42,3 +42,7 @@ class CommentsBranch(Comment):
     @staticmethod
     def get_comments_count_by_article(article_id):
         return CommentsBranch.objects.filter(article_id=article_id).count()
+
+    @staticmethod
+    def get_last_comments(article_id, comments_count):
+        return CommentsBranch.objects.filter(article_id=article_id).order_by('-created_at')[:comments_count]
