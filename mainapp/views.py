@@ -264,10 +264,17 @@ class ArticleReturnToDrafts(DeleteView):
         return HttpResponseRedirect(self.get_success_url())
 
 
+def ArticlePublicion(request, pk):
+    article = Article.objects.get(pk=pk)
+    article.is_draft = False
+    article.is_published = True
+    article.save()
+    return HttpResponseRedirect(f'/article/{article.pk}/')
+
+
 class ShowTop(ListView):
     # template_name = 'mainapp/user_articles_list.html'
 
     def get_queryset(self, **kwargs):
-
         queryset = Article.objects.filter(is_published=True).order_by('-publication_date')[:7]
         return queryset

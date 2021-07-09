@@ -26,7 +26,7 @@
                 <li>
                     <div class="new-edit-menu">
                         <div class="icon_new">
-                            <a href="{% url 'mainapp:create_article' %}" class="link-menu">
+                            <a href="{% url 'mainapp:create_article' %}" class="link-menu" title="Создать статью">
                                 <svg class="icon-new">
                                     <use xlink:href="#new_art"></use>
                                 </svg>
@@ -49,7 +49,7 @@
                     </div>
                 </li>
                 <li>
-                    <a href="{% url 'usersapp:modify'  user.pk %}" class="link-menu">
+                    <a href="{% url 'usersapp:modify'  user.pk %}" class="link-menu" title="Профиль пользователя">
                         <svg class="icon-user">
                             <use xlink:href="#user"></use>
                         </svg>

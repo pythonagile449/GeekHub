@@ -58,10 +58,11 @@
                                 <div class="lvc-group">
                                     <ul class="lvc-group">
                                         <li data-id="{{ article.id }}" data-type="article" data-action="like"
-                                            title="Нравится">
-                                            <svg class="icon-up">
-                                                <use xlink:href="#up3"></use>
-                                            </svg>
+                                            title="Нравится" class="like-article">
+<!--                                            <svg class="icon-up">-->
+<!--                                                <use xlink:href="#up3"></use>-->
+<!--                                            </svg>-->
+                                            <img src="{% static 'svg/up4+.svg' %}" alt="like">
                                         </li>
                                         <h5-2-lvc-plus data-count="positive" class="positive">
                                             {% if article.rating.like.count %}
@@ -71,10 +72,11 @@
                                             {% endif %}
                                         </h5-2-lvc-plus>
                                         <li data-id="{{ article.id }}" data-type="article" data-action="dislike"
-                                            title="Не нравится">
-                                            <svg class="icon-down">
-                                                <use xlink:href="#down3"></use>
-                                            </svg>
+                                            title="Не нравится" class="dislike-article">
+<!--                                            <svg class="icon-down">-->
+<!--                                                <use xlink:href="#down3"></use>-->
+<!--                                            </svg>-->
+                                            <img src="{% static 'svg/down4+.svg' %}" alt="like">
                                         </li>
                                         <h5-2-lvc-minus data-count="negative" class="negative">
                                             {% if article.rating.dislikes.count %}
@@ -128,13 +130,29 @@
                             {% if user.is_authenticated %}
                                 <div class="my-comment">
                                     <div class="field-50">
-                                        <h3>Написать комментарий</h3>
+                                        <h2>
+                                            <h2-2>Написать комментарий</h2-2>
+                                        </h2>
+                                    </div>
+                                    <div class="field-parent-comment-small">
+                                        <div class="parent-comment-small hidden">
+                                            <div class="field-left">
+                                                <p class="parent-comment-text"></p>
+                                            </div>
+                                            <div class="field-right">
+                                                <span class="close-answer-button">
+                                                    <svg class="icon-X">
+                                                        <use xlink:href="#check-box2"></use>
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="indent-10"></div>
                                     </div>
                                     <div class="my-text">
                                         <div class="editor-field">
                                             <form class="comment-form">
                                                 {% csrf_token %}
-                                                {# TODO доработать верстку блока ввода текста#}
                                                 <textarea name="comment" class="editor-field comment-area"></textarea>
                                                 <div class="button-field">
                                                     <button
@@ -143,6 +161,9 @@
                                                             data-article-id="{{ article.pk }}">
                                                         Отправить
                                                     </button>
+<!--                                                    <svg class="icon-arrow">-->
+<!--                                                        <use xlink:href="#answer_arrow"></use>-->
+<!--                                                    </svg>-->
                                                 </div>
                                             </form>
                                         </div>
@@ -191,7 +212,7 @@
 {% endblock %}
 
 {% block js %}
-    <script type="text/javascript" src="{% static "js/mainapp/comment-form.js" %}"></script>
+    <script type="module" src="{% static "js/mainapp/comment-form.js" %}"></script>
     <script type="text/javascript" src="{% static 'plugins/js/highlight.min.js' %}"></script>
     <script>
         $('.martor-preview pre').each(function (i, block) {

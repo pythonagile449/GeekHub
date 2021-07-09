@@ -1,5 +1,10 @@
+from uuid import uuid4
+
+from django.contrib.contenttypes.fields import GenericRelation
 from django.db import models
 from django.contrib.auth.hashers import make_password
+
+from ratingsapp.models import RatingCount
 from usersapp.models import GeekHubUser
 from mainapp.models import Article
 
@@ -8,6 +13,8 @@ class Comment(models.Model):
     class Meta:
         abstract = True
 
+    rating_id = models.UUIDField(default=uuid4)
+    rating = GenericRelation(RatingCount, related_query_name='comment')
     article = models.ForeignKey(Article, on_delete=models.CASCADE, null=True)
     parent_comment = models.ForeignKey('self', on_delete=models.SET_NULL, null=True, blank=True)
     description = models.TextField(verbose_name='Текст комментария', blank=True)

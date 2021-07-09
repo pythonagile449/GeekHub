@@ -10,6 +10,8 @@ class RatingsView(View):
     vote_type = None  # Тип комментария Like/Dislike        (like or dislike)
 
     def post(self, request, pk):
+        if request.POST.get('obj_id'):
+            pk = request.POST['obj_id']
         obj = self.model.objects.get(pk=pk)
         try:
             rating = RatingCount.objects.get(content_type=ContentType.objects.get_for_model(obj), object_id=obj.id,
