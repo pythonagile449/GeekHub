@@ -5,14 +5,21 @@ from django.db.models import Sum
 from usersapp.models import GeekHubUser
 
 
-# Create your models here.
 class RatingManager(models.Manager):
     """
+    RU
         Класс менеджер рейтингов.
         Методы класса:
         positive: Получаем queryset с записями больше 0
         negative: Получаем queryset с записями меньше 0
         total: Получаем суммарный рейтинг
+
+    EN
+        Rating manager class
+        Class methods:
+        positive: get queryset with positive entries
+        negative: get queryset with negative entries
+        total: get rating summary
     """
     use_for_related_fields = True
 
