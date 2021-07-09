@@ -3,6 +3,7 @@ from django.http import HttpResponseRedirect, JsonResponse, Http404
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DetailView, ListView, DeleteView, UpdateView
 
+from commentsapp.models import CommentsBranch
 from mainapp.forms import ArticleCkForm, ArticleMdForm
 from mainapp.models import Hub, Article
 
@@ -122,10 +123,15 @@ class ArticleDetail(DetailView):
     """
     model = Article
     context_object_name = 'article'
+    comments_preview_count = 3
 
     def get_context_data(self, **kwargs):
         context = super(ArticleDetail, self).get_context_data()
         context['title'] = self.get_object().title
+        context['comments_preview'] = CommentsBranch.get_last_comments(self.get_object().pk,
+                                                                       self.comments_preview_count)
+        context['comments_count_settings'] = self.comments_preview_count
+        context['all_comments_count'] = CommentsBranch.get_comments_count_by_article(self.get_object().pk)
         return context
 
     def get(self, request, *args, **kwargs):
@@ -148,15 +154,29 @@ class ArticleUpdate(UpdateView):
         else:
             return super(ArticleUpdate, self).form_invalid(form)
 
+    def set_object_contents(self, form):
+        """ Set article model field extends redactor. """
+        if self.object.editor == 'CK':
+            self.object.contents_ck = form.cleaned_data['contents']
+        if self.object.editor == 'MD':
+            self.object.contents_md = form.cleaned_data['contents']
+
     def form_valid(self, form):
         """ Processing a correct ajax request to change data. """
         if self.request.method == 'POST' and self.request.is_ajax():
-            if self.object.editor == 'CK':
-                self.object.contents_ck = form.cleaned_data['contents']
-            if self.object.editor == 'MD':
-                self.object.contents_md = form.cleaned_data['contents']
+            # ajax request mean that there is a 'save draft' action
+            self.set_object_contents(form)
             self.object.save()
             return JsonResponse('Success', safe=False)
+        elif self.request.method == 'POST' and not self.request.is_ajax() and self.request.path.startswith('/publish/'):
+            # handle publication action
+            self.set_object_contents(form)
+            self.object.is_published = True
+            self.object.is_draft = False
+            self.object.publication_date = datetime.datetime.now()
+            self.object.save()
+            self.success_url = reverse_lazy('mainapp:user_articles')
+            return super(ArticleUpdate, self).form_valid(form)
         else:
             return super(ArticleUpdate, self).form_valid(form)
 
@@ -262,17 +282,6 @@ class ArticleReturnToDrafts(DeleteView):
         self.object.is_draft = True
         self.object.save()
         return HttpResponseRedirect(self.get_success_url())
-
-
-def ArticlePublicion(request, pk):
-    try:
-        article = Article.objects.get(pk=pk)
-        article.is_draft = False
-        article.is_published = True
-        article.save()
-    except Exception as e:
-        return Http404
-    return HttpResponseRedirect(f'/user-articles/')
 
 
 class ShowTop(ListView):

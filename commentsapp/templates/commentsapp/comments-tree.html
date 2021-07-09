@@ -4,6 +4,7 @@
 
 <div class="comments-tree">
     {% for comment in comments %}
+        <a class="comment-anchor" id="comment-anchor-{{ comment.pk }}"></a>
         <div class="author-comment">
             <div class="author-data">
                 <ul class="author-data">
@@ -19,8 +20,9 @@
             {% if comment.parent_comment %}
                 <div class="parent-comment-preview">
                     <span>Ответ на: </span>
-                    <a href=""></a>
-                    {{ comment.parent_comment.description }}
+                    <a href="#comment-anchor-{{ comment.parent_comment.pk }}">
+                        {{ comment.parent_comment.description|truncatechars:100 }}
+                    </a>
                 </div>
             {% endif %}
             <div class="author-text">
@@ -33,11 +35,6 @@
 
                     <li data-id="{{ comment.id }}" data-type="comment" data-action="like"
                         title="Нравится" class="like-comment-btn">
-
-                        <!--                        <svg class="icon-up">-->
-                        <!--                            <use xlink:href="#up3"></use>-->
-                        <!--                        </svg>-->
-
                         <img src="{% static 'svg/up4+.svg' %}" alt="like">
                     </li>
                     <h5-2-lvc data-count="positiveComment" class="positiveComment">
@@ -49,9 +46,6 @@
                     </h5-2-lvc>
                     <li data-id="{{ comment.id }}" data-type="comment" data-action="dislike"
                         title="Не нравится" class="dislike-comment-btn">
-                        <!--                        <svg class="icon-down">-->
-                        <!--                            <use xlink:href="#down3"></use>-->
-                        <!--                        </svg>-->
                         <img src="{% static 'svg/down4+.svg' %}" alt="like">
                     </li>
                     <h5-2-lvc data-count="negativeComment" class="negativeComment">
@@ -66,31 +60,5 @@
             <button type="button" class="answer-button hidden" data-answer-to="{{ comment.pk }}">Ответить</button>
             <div class="indent-60"></div>
         </div>
-        <!-- Hidden SVG sprite -->
-        <svg width="0" height="0" class="hidden">
-            <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 26" id="up3">
-                <path d="M16 9.5c0-.688-.563-1.25-1.25-1.25H8.275L9.1 4.275l.025-.288c0-.387-.162-.737-.412-1L7.725 2 1.55 8.175A1.88 1.88 0 001 9.5v8.125c0 1.038.837 1.875 1.875 1.875h8.438c.774 0 1.437-.475 1.724-1.137l2.825-6.613c.088-.213.138-.45.138-.688V9.5z"></path>
-            </symbol>
-            <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 26" id="down3">
-                <path d="M14.125 8H5.687c-.775 0-1.437.475-1.725 1.137L1.137 15.75c-.087.213-.137.45-.137.688V18c0 .688.563 1.25 1.25 1.25h6.475L7.9 23.225l-.025.3c0 .388.162.738.412 1l.988.975 6.175-6.175A1.88 1.88 0 0016 18V9.875A1.872 1.872 0 0014.125 8z"></path>
-            </symbol>
-            <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 26" id="up2">
-                <path d="M15 9.5c0-.596-.488-1.083-1.083-1.083H8.305l.715-3.445.022-.25c0-.335-.141-.639-.358-.866L7.828 3 2.477 8.352A1.63 1.63 0 002 9.5v7.042c0 .899.726 1.625 1.625 1.625h7.313c.671 0 1.245-.412 1.494-.986l2.449-5.731c.076-.184.119-.39.119-.596V9.5z"></path>
-            </symbol>
-            <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 26" id="down2">
-                <path d="M13.375 8H6.062c-.671 0-1.245.412-1.495.986l-2.448 5.73a1.58 1.58 0 00-.119.597v1.354c0 .595.487 1.083 1.083 1.083h5.612l-.715 3.445-.022.26c0 .336.141.64.358.867l.856.845 5.351-5.352A1.63 1.63 0 0015 16.667V9.625C15 8.725 14.274 8 13.375 8z"></path>
-            </symbol>
-            <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" id="fluent_comment-24-filled_active">
-                <path d="M4.375 15a2.708 2.708 0 01-2.708-2.708V5.208A2.708 2.708 0 014.375 2.5h11.25a2.708 2.708 0 012.708 2.708v7.084A2.709 2.709 0 0115.625 15h-4.82l-4.49 3.18A.833.833 0 015 17.503V15h-.625z"></path>
-            </symbol>
-            <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" id="check-box2">
-                <path d="M17.753 15.214a.3.3 0 010-.425l5.722-5.716c.7-.703.7-1.842 0-2.545a1.786 1.786 0 00-2.535 0l-5.727 5.72a.3.3 0 01-.424 0L9.074 6.526c-.703-.7-1.843-.7-2.546 0a1.786 1.786 0 000 2.535l5.72 5.725a.3.3 0 010 .425l-5.722 5.716c-.7.704-.7 1.842 0 2.545.7.704 1.834.704 2.535 0l5.725-5.72a.3.3 0 01.424 0l5.716 5.722c.704.7 1.842.7 2.546 0 .703-.7.703-1.834 0-2.535l-5.72-5.725z"></path>
-            </symbol>
-            <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" id="answer_arrow">
-                <path d="M3.333 18.333L15 3.333v8.334c19.922 0 22.22 16.13 21.667 25C35.83 32.192 35.442 25 15 25v8.333l-11.666-15z"
-                      stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-            </symbol>
-        </svg>
     {% endfor %}
-
 </div>

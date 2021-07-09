@@ -2,14 +2,18 @@ import {CommentsRating} from './rating.js';
 
 class Comment {
     constructor() {
+        this.settings = {
+            truncateCharsLength: 100,
+        }
         this.commentForm = document.querySelector('.comment-form');
         this.commentSubmitButton = document.querySelector('.send-comment-button');
-        this.showCommentsButton = document.querySelector('.show-comments');
+        this.showCommentsButton = document.querySelector('.show-all-comments-button');
         this.commentsTreeBlock = document.querySelector('.comments-tree-block');
         this.parentCommentSmall = document.querySelector('.parent-comment-small');
         this.parentCommentText = document.querySelector('.parent-comment-text');
         this.closeAnswerButton = document.querySelector(".close-answer-button")
         this.setHandlers();
+        this.setAfterRenderHandlers();
     }
 
     renderCommentsList() {
@@ -53,6 +57,7 @@ class Comment {
                 this.renderCommentsList();
                 $('.comments-counter').html(data.comments_count);
                 this.resetAndCloseAnswerBlock();
+                document.querySelector('#comments-start-point').scrollIntoView()
             },
             error: d => {
                 console.log(d);
@@ -66,10 +71,13 @@ class Comment {
     }
 
     setHandlers() {
-        this.showCommentsButton.addEventListener('click', evt => {
-            this.commentsTreeBlock.classList.toggle('hidden');
-            this.renderCommentsList();
-        })
+        const commentsRating = new CommentsRating();
+
+        if (this.showCommentsButton) {
+            this.showCommentsButton.addEventListener('click', evt => {
+                this.renderCommentsList();
+            })
+        }
 
         if (this.commentSubmitButton) {
             this.commentSubmitButton.addEventListener('click', evt => {
@@ -86,7 +94,6 @@ class Comment {
     setAfterRenderHandlers() {
         this.commentBlocks = document.querySelectorAll('.author-comment');
         this.answerButtons = document.querySelectorAll('.answer-button');
-        // this.answerButton = '';
 
         this.commentBlocks.forEach(block => {
             block.addEventListener('mouseenter', evt => {
@@ -103,11 +110,19 @@ class Comment {
             button.addEventListener('click', evt => {
                 this.parentCommentSmall.classList.remove('hidden');
                 let text = evt.target.parentNode.querySelector('.author-text p').textContent;
+                text = this.truncateChars(text);
                 document.querySelector('.comment-area').focus();
                 this.parentCommentText.innerHTML = text;
                 this.currentParentId = evt.currentTarget.dataset.answerTo;
             })
         })
+    }
+
+    truncateChars(str) {
+        if (str.length > this.settings.truncateCharsLength) {
+            return str.slice(0, this.settings.truncateCharsLength) + '...';
+        }
+        return str
     }
 }
 
