@@ -1,5 +1,5 @@
 from django.db.models.functions import datetime
-from django.http import HttpResponseRedirect, HttpResponse, JsonResponse
+from django.http import HttpResponseRedirect, JsonResponse, Http404
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DetailView, ListView, DeleteView, UpdateView
 from mainapp.forms import ArticleCkForm, ArticleMdForm
@@ -216,8 +216,11 @@ class ArticleReturnToDrafts(DeleteView):
 
 
 def ArticlePublicion(request, pk):
-    article = Article.objects.get(pk=pk)
-    article.is_draft = False
-    article.is_published = True
-    article.save()
-    return HttpResponseRedirect(f'/article/{article.pk}/')
+    try:
+        article = Article.objects.get(pk=pk)
+        article.is_draft = False
+        article.is_published = True
+        article.save()
+    except Exception as e:
+        return Http404
+    return HttpResponseRedirect(f'/user-articles/')
