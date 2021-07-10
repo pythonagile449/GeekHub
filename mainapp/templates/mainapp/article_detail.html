@@ -240,6 +240,15 @@
                             {% endif %}
                         </div>
                     </div>
+
+                    {% if user.is_staff %}
+                        <div class="actions-block" style="margin-top: 20px">
+                            <a href="{% url 'mainapp:user_article_to_drafts' article.pk %}">
+                                <button class="button17" type="button">Снять с публикации</button>
+                            </a>
+                        </div>
+                    {% endif %}
+
                 {% else %}
                     <div class="actions-block" style="margin-top: 20px">
                         <a href="{% url 'mainapp:edit_draft' article.pk %}">
