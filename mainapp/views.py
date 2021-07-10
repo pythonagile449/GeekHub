@@ -194,11 +194,13 @@ class ArticleUpdate(UpdateView):
             if self.request.path.startswith('/publish/'):
                 # handle publication action
                 if self.request.user.is_staff:
+                    self.object.is_moderation_in_progress = False
                     self.object.is_published = True
                     self.success_url = reverse_lazy('mainapp:article_detail', self.object.pk)
             elif self.request.path.startswith('moderation'):
                 # handle moderation action
                 self.set_object_contents(form)
+                self.object.is_published = False
                 self.object.is_moderation_in_progress = True
                 self.success_url = reverse_lazy('mainapp:user_moderation_articles')
             self.object.publication_date = datetime.datetime.now()

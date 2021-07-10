@@ -29,27 +29,19 @@
         {% csrf_token %}
 
         {# form buttons #}
-        {% if edit_flag %}
-            {# render buttons for editing article form #}
-            <div class="indent-50-2">
-                <button class="button15"
-                        id="save-editing-draft-button"
-                        type="button"
-                        data-uuid="{{ object.pk }}">
+        <div class="indent-50-2">
+            {% if edit_flag %}
+                {# render buttons for editing article form #}
+                <button class="button15" id="save-editing-draft-button" type="button" data-uuid="{{ object.pk }}">
                     Сохранить изменения
                 </button>
-                <button class="button16 publish-article-button" type="submit">Опубликовать</button>
-                {# TODO скрыть блок при первичном отображении #}
-                <div class="answer hidden"></div>
-            </div>
-        {% else %}
-            {# render buttons for save article form #}
-            <div class="indent-50-2">
+            {% else %}
+                {# render buttons for save article form #}
                 <button class="button15 save-as-draft-button" type="button">Сохранить как черновик</button>
-                <button class="button16 publish-article-button" type="submit">Опубликовать</button>
-            </div>
-        {% endif %}
-
+            {% endif %}
+            <button class="button16 publish-article-button" type="submit">Отправить на модерацию</button>
+            <div class="answer hidden"></div>
+        </div>
 
         {# form inputs #}
         <div class="block-editor">
