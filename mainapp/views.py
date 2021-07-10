@@ -61,7 +61,7 @@ class CreateArticle(CreateView):
     Create article
     """
     model = Article
-    success_url = reverse_lazy('mainapp:user_articles')
+    success_url = reverse_lazy('mainapp:user_moderation_articles')
 
     def get_form_class(self):
         """
@@ -85,12 +85,10 @@ class CreateArticle(CreateView):
         """
         form.instance.author = self.request.user
 
-        # TODO временно статьи создаются в статусе опубликовано, необходимо изменить на модерацию
         # если запрос на публикацию статьи - устанавливаем статус 'на модерации', снимаем статус 'черновик'
         # if publication of an article is requested, set status 'is_moderation_in_progress' remove status 'draft'
         if self.request.path == '/create-article/':
-            # form.instance.is_moderation_in_progress = True
-            form.instance.is_published = True
+            form.instance.is_moderation_in_progress = True
             form.instance.is_draft = False
         if self.request.path == '/create-draft/':
             self.success_url = reverse_lazy('mainapp:drafts')
@@ -147,6 +145,29 @@ class ArticleUpdate(UpdateView):
     model = Article
     fields = ['title', 'hub']
 
+    def get(self, request, *args, **kwargs):
+        article = self.get_object()
+
+        if request.path.startswith('/send_article_on_moderation/'):
+            # handle send on moderation action under user drafts list
+            article.is_draft = False
+            article.is_moderation_in_progress = True
+            article.publication_date = datetime.datetime.now()
+            self.success_url = reverse_lazy('mainapp:user_moderation_articles')
+            article.save()
+            return HttpResponseRedirect(self.success_url)
+        if request.path.startswith('/publish/'):
+            # handle publish action under staff user
+            if request.user.is_staff:
+                article.is_draft = False
+                article.is_moderation_in_progress = False
+                article.is_published = True
+                article.publication_date = datetime.datetime.now()
+                article.save()
+                self.success_url = reverse_lazy('mainapp:moderation_list')
+                return HttpResponseRedirect(self.success_url)
+        return super(ArticleUpdate, self).get(request, args, kwargs)
+
     def form_invalid(self, form):
         """ Processing an incorrect ajax request to change data. """
         if self.request.method == 'POST' and self.request.is_ajax():
@@ -168,14 +189,21 @@ class ArticleUpdate(UpdateView):
             self.set_object_contents(form)
             self.object.save()
             return JsonResponse('Success', safe=False)
-        elif self.request.method == 'POST' and not self.request.is_ajax() and self.request.path.startswith('/publish/'):
-            # handle publication action
+        elif self.request.method == 'POST' and not self.request.is_ajax():
             self.set_object_contents(form)
-            self.object.is_published = True
-            self.object.is_draft = False
+            if self.request.path.startswith('/publish/'):
+                # handle publication action
+                if self.request.user.is_staff:
+                    self.object.is_published = True
+                    self.success_url = reverse_lazy('mainapp:article_detail', self.object.pk)
+            elif self.request.path.startswith('moderation'):
+                # handle moderation action
+                self.set_object_contents(form)
+                self.object.is_moderation_in_progress = True
+                self.success_url = reverse_lazy('mainapp:user_moderation_articles')
             self.object.publication_date = datetime.datetime.now()
+            self.object.is_draft = False
             self.object.save()
-            self.success_url = reverse_lazy('mainapp:user_articles')
             return super(ArticleUpdate, self).form_valid(form)
         else:
             return super(ArticleUpdate, self).form_valid(form)
@@ -273,7 +301,7 @@ class ArticleDelete(DeleteView):
 class ArticleReturnToDrafts(DeleteView):
     model = Article
     template_name = 'mainapp/article_confirm_to_drafts.html'
-    success_url = reverse_lazy('mainapp:user_articles')
+    success_url = reverse_lazy('mainapp:drafts')
 
     def delete(self, request, *args, **kwargs):
         self.object = self.get_object()
@@ -290,3 +318,14 @@ class ShowTop(ListView):
     def get_queryset(self, **kwargs):
         queryset = Article.objects.filter(is_published=True).order_by('-publication_date')[:7]
         return queryset
+
+
+class ModerationList(ListView):
+    template_name = 'mainapp/user_articles_list.html'
+    queryset = Article.objects.filter(is_moderation_in_progress=True, is_deleted=False)
+    context_object_name = 'articles'
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(ModerationList, self).get_context_data()
+        context['title'] = 'Модерация статей'
+        return context

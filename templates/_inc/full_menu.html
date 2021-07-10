@@ -40,14 +40,33 @@
                                     </svg>
                                 </div>
                                 <div class="dropdown-content">
-                                    <div class="menu-dropdown"><a class="link-menu" href="{% url 'mainapp:drafts' %}">Черновики</a><sup>
-                                        <s-1>{{ user_drafts_count }}</s-1>
-                                    </sup></div>
-                                    <!--                                        <div class="menu-dropdown"><a class="link-menu" href="{% url 'mainapp:user_moderation_articles' %}">Модерация</a><sup><s-1>0</s-1></sup></div>-->
-                                    <div class="menu-dropdown"><a class="link-menu"
-                                                                  href="{% url 'mainapp:user_articles' %}">Мои&nbsp;статьи</a><sup>
-                                        <s-2>{{ user_published_articles_count }}</s-2>
-                                    </sup></div>
+                                    <div class="menu-dropdown">
+                                        <a class="link-menu" href="{% url 'mainapp:drafts' %}">Черновики</a>
+                                        <sup>
+                                            <s-1>{{ user_drafts_count }}</s-1>
+                                        </sup>
+                                    </div>
+                                    <div class="menu-dropdown">
+                                        <a class="link-menu" href="{% url 'mainapp:user_moderation_articles' %}">
+                                            На модерации</a>
+                                        <sup>
+                                            <s-1>{{ user_on_moderation_articles_count }}</s-1>
+                                        </sup>
+                                    </div>
+                                    <div class="menu-dropdown">
+                                        <a class="link-menu" href="{% url 'mainapp:user_articles' %}">Опубликованные</a>
+                                        <sup>
+                                            <s-2>{{ user_published_articles_count }}</s-2>
+                                        </sup>
+                                    </div>
+                                    {% if user.is_staff %}
+                                        <div class="menu-dropdown">
+                                            <a class="link-menu" href="{% url 'mainapp:moderation_list' %}">На проверку</a>
+                                            <sup>
+                                                <s-2>{{ articles_on_moderation_count }}</s-2>
+                                            </sup>
+                                        </div>
+                                    {% endif %}
                                 </div>
                             </div>
                         </div>

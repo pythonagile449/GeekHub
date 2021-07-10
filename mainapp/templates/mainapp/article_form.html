@@ -21,7 +21,7 @@
     <!--    <form class="create-article-form container-editor" action="{% url 'mainapp:create_article' %}" method="post">-->
     <form class="create-article-form container-editor" action="
         {% if object.pk %}
-        {% url 'mainapp:article_publication' object.pk %}
+        {% url 'mainapp:article_moderation' object.pk %}
         {% else %}
         {% url 'mainapp:create_article' %}
         {% endif %}
