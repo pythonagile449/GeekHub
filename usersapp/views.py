@@ -1,12 +1,42 @@
+from urllib.parse import urlparse
+
 from django.contrib import auth
 from django.http import HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.template.context_processors import csrf
 from django.urls import reverse, reverse_lazy
+from django.utils import timezone
+from django.utils.http import is_safe_url, urlunquote
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.views import LoginView, LogoutView
 
-from usersapp.models import GeekHubUser
+from usersapp.models import GeekHubUser, BlockingByIp
 from usersapp.forms import RegistrationForm, LoginForm, UserProfileEditForm
+
+
+def get_client_ip(request):
+    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+    if x_forwarded_for:
+        ip = x_forwarded_for.split(',')[-1].strip()
+    else:
+        ip = request.META.get('REMOTE_ADDR')
+    return ip
+
+
+def get_next_url(request):
+    next = request.META.get('HTTP_REFERER')
+    if next:
+        next = urlunquote(next)  # HTTP_REFERER may be encoded.
+    if not is_safe_url(url=next, host=request.get_host()):
+        next = '/'
+    return next
+
+
+def create_context_username_csrf(request):
+    context = {}
+    context.update(csrf(request))
+    context['login_form'] = LoginForm
+    return context
 
 
 def main(request):
@@ -50,6 +80,62 @@ class AuthenticationView(LoginView):
     """
     form_class = LoginForm
     template_name = 'usersapp/login.html'
+
+    def post(self, request):
+        # забираем данные формы авторизации из запроса
+        form = LoginForm(request, data=request.POST)
+
+        # забираем IP адрес из запроса
+        ip = get_client_ip(request)
+        # получаем или создаём новую запись об IP, с которого вводится пароль, на предмет блокировки
+        obj, created = BlockingByIp.objects.get_or_create(
+            defaults={
+                'ip_address': ip,
+                'time_unblock': timezone.now()
+            },
+            ip_address=ip
+        )
+
+        # если IP заблокирован и время разблокировки не настало
+        if obj.blocking_status is True and obj.time_unblock > timezone.now():
+            context = create_context_username_csrf(request)
+            if obj.failed_attempts == 3 or obj.failed_attempts == 6:
+                # то открываем страницу с сообщением о блокировки на 15 минут при 3 и 6 неудачных попытках входа
+                return render('accounts/block_15_minutes.html', context=context)
+            elif obj.failed_attempts == 9:
+                # или открываем страницу о блокировке на 24 часа, при 9 неудачных попытках входа
+                return render('accounts/block_24_hours.html', context=context)
+        elif obj.blocking_status is True and obj.time_unblock < timezone.now():
+            # если IP заблокирован, но время разблокировки настало, то разблокируем IP
+            obj.blocking_status = False
+            obj.save()
+
+        # если пользователь ввёл верные данные, то авторизуем его и удаляем запись о блокировке IP
+        if form.is_valid():
+            auth.login(request, form.get_user())
+            obj.delete()
+
+            next = urlparse(get_next_url(request)).path
+            if next == '/admin/login/' and request.user.is_staff:
+                return redirect('/admin/')
+            return redirect(next)
+        else:
+            # иначе считаем попытки и устанавливаем время разблокировки и статус блокировки
+            obj.failed_attempts += 1
+            if obj.failed_attempts == 3 or obj.failed_attempts == 6:
+                obj.time_unblock = timezone.now() + timezone.timedelta(minutes=15)
+                obj.blocking_status = True
+            elif obj.failed_attempts == 9:
+                obj.time_unblock = timezone.now() + timezone.timedelta(1)
+                obj.blocking_status = True
+            elif obj.failed_attempts > 9:
+                obj.failed_attempts = 1
+            obj.save()
+
+        context = create_context_username_csrf(request)
+        context['login_form'] = form
+
+        return render('accounts/login.html', context=context)
 
 
 class UserLogoutView(LogoutView):
