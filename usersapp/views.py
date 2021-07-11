@@ -175,6 +175,15 @@ class UserAccountEdit(UpdateView):
     def get_success_url(self):
         return reverse_lazy('usersapp:modify', kwargs={'pk': self.object.id})
 
+    def get(self, request, *args, **kwargs):
+        try:
+            if request.user == GeekHubUser.objects.get(pk=kwargs['pk']):
+                self.object = self.get_object()
+                return super().get(request, *args, **kwargs)
+            return render(request, template_name='mainapp/400.html')
+        except Exception as e:
+            return render(request, template_name='mainapp/400.html')
+
 
 class UserAccountDeleteView(DeleteView):
     """
