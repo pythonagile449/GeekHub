@@ -27,6 +27,22 @@ def create_context_username_csrf(request):
     return context
 
 
+def show_400(request, exception=None):
+    return render(request, 'usersapp/400.html')
+
+
+def show_403(request, exception=None):
+    return render(request, 'usersapp/403.html')
+
+
+def show_404(request, exception=None):
+    return render(request, 'usersapp/404.html')
+
+
+def show_500(request, exception=None):
+    return render(request, 'usersapp/500.html')
+
+
 def main(request):
     """
     RU
