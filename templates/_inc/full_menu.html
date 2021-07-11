@@ -1,4 +1,6 @@
 {% load static %}
+{% load notifications %}
+
 <div class="menu"> <!-- The menu block. It consists of two groups: the left menu and the right one.-->
     <div class="menu-left">
         <ul class="menu-left"> <!-- Прижат к левому краю блока-->
@@ -20,7 +22,15 @@
                 {% if user.is_superuser %}
                     <li><a href="{% url 'admin:index' %}" class="link-menu">Админка</a></li>
                 {% endif %}
-
+                <li><a href="{% url 'notifyapp:user_notifications' %}">Уведомления</a>
+                    <sup>
+                        <s-1 id="menu-notifications-counter">
+                            {% if user.pk|notifications_count %}
+                                {{ user.pk|notifications_count }}
+                            {% endif %}
+                        </s-1>
+                    </sup>
+                </li>
                 {# При входе в аккаунт сразу возможность изменения данных о себе#}
                 {# <li><a href="{% url 'usersapp:account'  user.pk %}" class="link-menu">{{ user.username }}</a></li>#}
                 <li>
@@ -61,7 +71,8 @@
                                     </div>
                                     {% if user.is_staff %}
                                         <div class="menu-dropdown">
-                                            <a class="link-menu" href="{% url 'mainapp:moderation_list' %}">На проверку</a>
+                                            <a class="link-menu" href="{% url 'mainapp:moderation_list' %}">На
+                                                проверку</a>
                                             <sup>
                                                 <s-2>{{ articles_on_moderation_count }}</s-2>
                                             </sup>

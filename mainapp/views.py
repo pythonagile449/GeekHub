@@ -1,3 +1,4 @@
+from django.contrib.contenttypes.models import ContentType
 from django.db.models.functions import datetime
 from django.http import HttpResponseRedirect, JsonResponse, Http404
 from django.urls import reverse_lazy
@@ -6,6 +7,7 @@ from django.views.generic import CreateView, DetailView, ListView, DeleteView, U
 from commentsapp.models import CommentsBranch
 from mainapp.forms import ArticleCkForm, ArticleMdForm
 from mainapp.models import Hub, Article
+from notifyapp.models import Notification
 
 
 class Index(ListView):
@@ -165,6 +167,16 @@ class ArticleUpdate(UpdateView):
                 article.publication_date = datetime.datetime.now()
                 article.save()
                 self.success_url = reverse_lazy('mainapp:moderation_list')
+
+                # create new notification to author
+                notification = Notification.objects.create(
+                    sender=request.user,
+                    recipient=article.author,
+                    message='Статья опубликована.',
+                    content_type=ContentType.objects.get_for_model(article),
+                    object_id=article.pk,
+                    content_object=article,
+                )
                 return HttpResponseRedirect(self.success_url)
         return super(ArticleUpdate, self).get(request, args, kwargs)
 

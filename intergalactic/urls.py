@@ -13,6 +13,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/', include('usersapp.urls', namespace='usersapp')),
     path('comments/', include('commentsapp.urls', namespace='commentsapp')),
+    path('notifications/', include('notifyapp.urls', namespace='notifyapp')),
 
     # mardown editor urls
     path('martor/', include('martor.urls')),
