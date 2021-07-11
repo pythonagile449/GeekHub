@@ -8,7 +8,6 @@ function checkNotificationsCount() {
     $.ajax({
         url: '/notifications/check-user-notifications-count/',
         success: data => {
-            console.log(data);
             if (data.notifications_count > 0) {
                 notificationsCountBox.innerHTML = data.notifications_count;
             } else {

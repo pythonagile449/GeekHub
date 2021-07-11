@@ -1,11 +1,55 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <ul>
-        {#todo create table with notifications and actions#}
-        {% for notification in notifications %}
-            <li>{{ notification }}</li>
-        {% endfor %}
+    <div class="notifications-content">
 
-    </ul>
+        {#    todo добавить обработку чек-бокса "выбрать все" и кнопку удаления уведомлений. Кнопка неактивна если не выбрано ни одного чек-бокса #}
+        <table class="table notifications-table">
+
+            <thead>
+            <tr>
+                <th scope="col">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault"></label>
+                </th>
+                <th scope="col">Уведомление</th>
+                <th scope="col">Статья</th>
+                <th scope="col">Модератор</th>
+                <th scope="col">Дата</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            {% for notification in notifications %}
+                <tr>
+                    <td scope="row">
+                        <input class="form-check-input" type="checkbox" value=""
+                               id="notification-{{ forloop.counter }}">
+                    </td>
+                    <td scope="row">
+                        <label class="form-check-label" for="notification-{{ forloop.counter }}">
+                            {{ notification.message }}
+                        </label>
+                    </td>
+                    <td>
+                        <a href="{% url 'mainapp:article_detail' notification.content_object.pk %}">
+                            {{ notification.content_object.title|truncatechars:25 }}
+                        </a>
+                    </td>
+                    <td>
+                        {{ notification.sender }}
+                    </td>
+                    <td>
+                        <label class="form-check-label"
+                               for="notification-{{ forloop.counter }}">{{ notification.created_at }}</label>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+
+        </table>
+
+    </div>
+
+    </div>
 {% endblock %}

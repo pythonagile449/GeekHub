@@ -172,7 +172,7 @@ class ArticleUpdate(UpdateView):
                 notification = Notification.objects.create(
                     sender=request.user,
                     recipient=article.author,
-                    message='Статья опубликована.',
+                    message='Статья опубликована',
                     content_type=ContentType.objects.get_for_model(article),
                     object_id=article.pk,
                     content_object=article,

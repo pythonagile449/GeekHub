@@ -30,7 +30,7 @@ class UsersNotifications(ListView):
         return super(UsersNotifications, self).get(request, args, kwargs)
 
     def get_queryset(self):
-        queryset = Notification.objects.filter(recipient=self.request.user)
+        queryset = Notification.objects.filter(recipient=self.request.user).order_by('-created_at')
         return queryset
 
 

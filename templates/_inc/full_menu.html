@@ -22,7 +22,7 @@
                 {% if user.is_superuser %}
                     <li><a href="{% url 'admin:index' %}" class="link-menu">Админка</a></li>
                 {% endif %}
-                <li><a href="{% url 'notifyapp:user_notifications' %}">Уведомления</a>
+                <li><a href="{% url 'notifyapp:user_notifications' %}" class="link-menu">Уведомления</a>
                     <sup>
                         <s-1 id="menu-notifications-counter">
                             {% if user.pk|notifications_count %}

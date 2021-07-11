@@ -50,7 +50,7 @@
                     </div>
                 {% endif %}
 
-
+                {#  todo усправить вывод кнопок в чиатемый вид. ветвление по условиям -> include actions templates #}
                 {% if not article.is_draft %}
                     <div class="like-comment">
                         <ul class="lvc-field">
@@ -262,7 +262,6 @@
                             {% endif %}
                         </div>
                     {% endif %}
-
                 {% else %}
                     <div class="actions-block" style="margin-top: 20px">
                         <a href="{% url 'mainapp:edit_draft' article.pk %}">
