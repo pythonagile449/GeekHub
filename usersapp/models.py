@@ -49,6 +49,8 @@ class GeekHubUser(AbstractUser):
 class BlockingByIp(models.Model):
     class Meta:
         db_table = "BlockingByIp"
+        verbose_name = "Блокировку по IP"
+        verbose_name_plural = "Блокировки по IP"
 
     ip_address = models.GenericIPAddressField("IP адрес")
     failed_attempts = models.IntegerField("Неудачных попыток", default=0)

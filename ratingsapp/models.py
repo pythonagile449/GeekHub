@@ -34,6 +34,11 @@ class RatingManager(models.Manager):
 
 
 class RatingCount(models.Model):
+
+    class Meta:
+        verbose_name = "Счетчик рейтинга"
+        verbose_name_plural = "Счетчики рейтинга"
+
     POSITIVE = 1
     NEGATIVE = -1
 

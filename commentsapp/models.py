@@ -12,6 +12,8 @@ from mainapp.models import Article
 class Comment(models.Model):
     class Meta:
         abstract = True
+        verbose_name = "Комментарий"
+        verbose_name_plural = "Комментарии"
 
     rating_id = models.UUIDField(default=uuid4)
     rating = GenericRelation(RatingCount, related_query_name='comment')
