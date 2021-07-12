@@ -1,21 +1,30 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
-    <div class="notifications-content">
 
+    <form class="notifications-content" method="post" action="{% url 'notifyapp:delete_notifications' %}">
+        {% csrf_token %}
         {#    todo добавить обработку чек-бокса "выбрать все" и кнопку удаления уведомлений. Кнопка неактивна если не выбрано ни одного чек-бокса #}
         <table class="table notifications-table">
 
             <thead>
             <tr>
                 <th scope="col">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                    <label class="form-check-label" for="flexCheckDefault"></label>
+                    <input class="form-check-input" type="checkbox" value="" id="select-all-checkbox">
+                    <label class="form-check-label" for="select-all-checkbox"></label>
                 </th>
-                <th scope="col">Уведомление</th>
-                <th scope="col">Статья</th>
-                <th scope="col">Модератор</th>
-                <th scope="col">Дата</th>
+                <th scope="col" colspan="3">
+                    <label class="form-check-label" for="select-all-checkbox">Выбрать все</label>
+                </th>
+                <th scope="col">
+                    <button class="button16" id="delete-notification-button" type="button">Удалить</button>
+                    {#                    <a href="{% url 'notifyapp:delete_notifications' %}" class="button16" id="delete-notification-button">Удалить</a>#}
+                </th>
+                {#                <th scope="col">Уведомление</th>#}
+                {#                <th scope="col">Статья</th>#}
+                {#                <th scope="col">Модератор</th>#}
+                {#                <th scope="col">Дата</th>#}
             </tr>
             </thead>
 
@@ -23,8 +32,8 @@
             {% for notification in notifications %}
                 <tr>
                     <td scope="row">
-                        <input class="form-check-input" type="checkbox" value=""
-                               id="notification-{{ forloop.counter }}">
+                        <input class="form-check-input notification-checkbox" type="checkbox" value="{{ notification.pk }}"
+                               id="notification-{{ forloop.counter }}" data-notification-id="{{ notification.pk }}">
                     </td>
                     <td scope="row">
                         <label class="form-check-label" for="notification-{{ forloop.counter }}">
@@ -49,7 +58,10 @@
 
         </table>
 
-    </div>
+    </form>
 
-    </div>
+{% endblock %}
+
+{% block js %}
+    <script type="text/javascript" src="{% static 'js/notifyapp/user-notifications-list.js' %}"></script>
 {% endblock %}

@@ -204,12 +204,12 @@ class ArticleUpdate(UpdateView):
         elif self.request.method == 'POST' and not self.request.is_ajax():
             self.set_object_contents(form)
             if self.request.path.startswith('/publish/'):
-                # handle publication action
+                # todo handle publication action (for high rating users)
                 if self.request.user.is_staff:
                     self.object.is_moderation_in_progress = False
                     self.object.is_published = True
                     self.success_url = reverse_lazy('mainapp:article_detail', self.object.pk)
-            elif self.request.path.startswith('moderation'):
+            elif self.request.path.startswith('/moderation/'):
                 # handle moderation action
                 self.set_object_contents(form)
                 self.object.is_published = False

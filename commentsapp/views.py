@@ -1,5 +1,5 @@
 import json
-
+from django.contrib.contenttypes.models import ContentType
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
 from commentsapp.models import CommentsBranch
@@ -21,8 +21,15 @@ def create_comment(request):
             new_comment.parent_comment = CommentsBranch.objects.get(id=form_data['parent_comment_id'])
             new_comment.save()
 
-        # notification = Notification.objects.create(sender=request.user, recipient=article.author,
-        #                                            message=f'Новый комментарий к вашей статье.')
+        if request.user != article.author:
+            notification = Notification.objects.create(
+                sender=request.user,
+                recipient=article.author,
+                message='Новый комментарий к статье',
+                content_type=ContentType.objects.get_for_model(article),
+                object_id=article.pk,
+                content_object=article,
+            )
 
         return HttpResponse(
             json.dumps({
