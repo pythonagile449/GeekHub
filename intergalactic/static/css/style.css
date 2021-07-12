@@ -1767,3 +1767,7 @@ button[disabled]:hover {
     margin-top: 60px;
     text-align: center;
 }
+
+.user-articles-table {
+    margin-top: 40px;
+}

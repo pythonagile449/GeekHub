@@ -1,0 +1,233 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load martortags %}
+{% load comments %}
+{% load ratings %}
+
+{% block title %}
+    {{ title }} :: {{ block.super }}
+{% endblock %}
+
+{% block CDN %}
+    {#    <script src="https://kit.fontawesome.com/545cea6b99.js" crossorigin="anonymous"></script>#}
+{% endblock %}
+
+{% block css %}
+    <link href="{% static 'plugins/css/ace.min.css' %}" type="text/css" media="all" rel="stylesheet"/>
+    <link href="{% static 'martor/css/martor.bootstrap.min.css' %}" type="text/css" media="all" rel="stylesheet"/>
+{% endblock %}
+
+{% block toolbar %}
+    {% include '_inc/profile_toolbar.html' %}
+{% endblock %}
+
+{% block content %}
+    <div class="content-container">
+        <div class="section-left">
+
+            <table class="table user-articles-table">
+
+                <thead>
+                <tr>
+                    <th scope="col">
+                        Название статьи
+                    </th>
+
+                    <th>Хаб</th>
+
+                    <th scope="col" colspan="3">
+                        {% if is_draft %}Дата изменения{% endif %}
+                        {% if is_on_moderation %}Дата отправки{% endif %}
+                        {% if is_published %}Дата публикации{% endif %}
+                    </th>
+
+                </tr>
+                </thead>
+
+                <tbody>
+
+                {% for article in articles %}
+                    <tr>
+                        <td scope="row">{{ article.title|truncatechars:35 }}</td>
+
+                        <td>{{ article.hub.name|truncatechars:20 }}</td>
+
+                        <td style="white-space: nowrap">{{ article.publication_date }}</td>
+
+                        <td>
+                            <div class="lvc-group">
+                                <ul class="lvc-group">
+                                    {% if is_published %}
+                                        <li>
+                                            <div class="lvc-group">
+                                                <ul class="lvc-group">
+                                                    <li title="Рейтинг"><img src="{% static 'svg/chart.svg' %}"
+                                                                             alt="like"></li>
+                                                    <li>
+                                                        <h5-2-lvc>{{ article.id|rating_total }}</h5-2-lvc>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="lvc-group">
+                                                <ul class="lvc-group" style="margin-left: 0">
+                                                    <li title="Просмотры"><img
+                                                            src="{% static 'svg/carbon_view-filled_active.svg' %}"
+                                                            alt="view"></li>
+                                                    <li>
+                                                        <h5-2-lvc>{{ article.views }}</h5-2-lvc>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                    {% endif %}
+                                    <li>
+                                        <svg class="icon-comment">
+                                            <use xlink:href="#fluent_comment-24-filled_active"></use>
+                                        </svg>
+                                    </li>
+                                    <li>
+                                        <h5-2-lvc
+                                                class="comments-counter">{{ article.pk|get_comments_count }}
+                                        </h5-2-lvc>
+                                    </li>
+                                </ul>
+                            </div>
+                        </td>
+
+                        <td>
+                            {% if is_draft %}
+                                <a href="{% url 'mainapp:edit_draft' article.pk %}">
+                                    <button class="button18" type="button">Редактировать</button>
+                                </a>
+                                <a href="{% url 'mainapp:send_article_on_moderation' article.pk %}">
+                                    <button class="button16" type="button">Отправить на модерацию</button>
+                                </a>
+                                <a href="{% url 'mainapp:user_article_delete' article.pk %}">
+                                    <button class="button17" type="button">Удалить</button>
+                                </a>
+                            {% elif is_on_moderation %}
+                                <a href="{% url 'mainapp:user_article_to_drafts' article.pk %}" class="button18">Снять с
+                                    модерации</a>
+                                {% if user.is_staff %}
+                                    <a href="{% url 'mainapp:article_publication' article.pk %}"
+                                       class="button18">Опубликовать</a>
+                                {% endif %}
+                            {% elif is_published %}
+                                <a href="{% url 'mainapp:user_article_to_drafts' article.pk %}">
+                                    <img src="{% static 'svg/minus-circle-solid.svg' %}"
+                                         style="width: 20px; height: 20px;"
+                                         alt="Снять с публикации">
+                                </a>
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+
+                </tbody>
+
+            </table>
+
+            {#            {% for article in articles %}#}
+            {#                <div class="section-indent"></div>#}
+            {#                <div class="author-data">#}
+            {#                    <ul class="author-data">#}
+            {#                        <li><img src="{% static 'svg/icon2.svg' %}" alt="icon"></li>#}
+            {#                        <li>#}
+            {#                            <h6-1>{{ article.author.username }}</h6-1>#}
+            {#                        </li>#}
+            {#                        <li>#}
+            {#                            <h6-2>{{ article.publication_date }}</h6-2>#}
+            {#                        </li>#}
+            {#                    </ul>#}
+            {##}
+            {#                </div>#}
+            {##}
+            {#                <div class="section-left-title">#}
+            {#                    <h2>#}
+            {#                        <h2-2>#}
+            {#                            <a class="article-heading-link" href="{% url 'mainapp:article_detail' article.pk %}"#}
+            {#                               style="">#}
+            {#                                {{ article.title }}#}
+            {#                            </a>#}
+            {#                        </h2-2>#}
+            {#                    </h2>#}
+            {#                </div>#}
+            {##}
+            {#                <div class="chapter">#}
+            {#                    <h6-3>{{ article.hub.name }}</h6-3>#}
+            {#                </div>#}
+            {##}
+            {#                <div class="section-left-text">#}
+            {#                    {% if article.editor == 'CK' %}#}
+            {#                        <div class="ck-preview">#}
+            {#                            {{ article.get_article_preview|safe|truncatechars:500 }}#}
+            {#                        </div>#}
+            {#                    {% elif article.editor == 'MD' %}#}
+            {#                        <div class="martor-preview">#}
+            {#                            {{ article.get_article_preview|safe_markdown|truncatechars:500 }}#}
+            {#                        </div>#}
+            {#                    {% endif %}#}
+            {#                </div>#}
+            {#                {% if article.is_draft %}#}
+            {#                    <a href="{% url 'mainapp:edit_draft' article.pk %}">#}
+            {#                        <button class="button18" type="button">Редактировать</button>#}
+            {#                    </a>#}
+            {#                    <a href="{% url 'mainapp:send_article_on_moderation' article.pk %}">#}
+            {#                        <button class="button16" type="button">Отправить на модерацию</button>#}
+            {#                    </a>#}
+            {#                    <a href="{% url 'mainapp:user_article_delete' article.pk %}">#}
+            {#                        <button class="button17" type="button">Удалить</button>#}
+            {#                    </a>#}
+            {#                {% elif article.is_published %}#}
+            {#                    <a href="{% url 'mainapp:user_article_to_drafts' article.pk %}" class="button18">Снять с#}
+            {#                        публикации</a>#}
+            {#                {% elif article.is_moderation_in_progress %}#}
+            {#                    <a href="{% url 'mainapp:user_article_to_drafts' article.pk %}" class="button18">Снять с#}
+            {#                        модерации</a>#}
+            {#                    {% if user.is_staff %}#}
+            {#                        <a href="{% url 'mainapp:article_publication' article.pk %}"#}
+            {#                           class="button18">Опубликовать</a>#}
+            {#                    {% endif %}#}
+            {#                {% endif %}#}
+            {#            {% endfor %}#}
+        </div>
+
+        <div class="section-right">
+
+            <div class="section-right-block">
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Hidden SVG sprite -->
+    <svg width="0" height="0" class="hidden">
+        <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 26" id="up3">
+            <path d="M16 9.5c0-.688-.563-1.25-1.25-1.25H8.275L9.1 4.275l.025-.288c0-.387-.162-.737-.412-1L7.725 2 1.55 8.175A1.88 1.88 0 001 9.5v8.125c0 1.038.837 1.875 1.875 1.875h8.438c.774 0 1.437-.475 1.724-1.137l2.825-6.613c.088-.213.138-.45.138-.688V9.5z"></path>
+        </symbol>
+        <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 26" id="down3">
+            <path d="M14.125 8H5.687c-.775 0-1.437.475-1.725 1.137L1.137 15.75c-.087.213-.137.45-.137.688V18c0 .688.563 1.25 1.25 1.25h6.475L7.9 23.225l-.025.3c0 .388.162.738.412 1l.988.975 6.175-6.175A1.88 1.88 0 0016 18V9.875A1.872 1.872 0 0014.125 8z"></path>
+        </symbol>
+        <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 26" id="up2">
+            <path d="M15 9.5c0-.596-.488-1.083-1.083-1.083H8.305l.715-3.445.022-.25c0-.335-.141-.639-.358-.866L7.828 3 2.477 8.352A1.63 1.63 0 002 9.5v7.042c0 .899.726 1.625 1.625 1.625h7.313c.671 0 1.245-.412 1.494-.986l2.449-5.731c.076-.184.119-.39.119-.596V9.5z"></path>
+        </symbol>
+        <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 26" id="down2">
+            <path d="M13.375 8H6.062c-.671 0-1.245.412-1.495.986l-2.448 5.73a1.58 1.58 0 00-.119.597v1.354c0 .595.487 1.083 1.083 1.083h5.612l-.715 3.445-.022.26c0 .336.141.64.358.867l.856.845 5.351-5.352A1.63 1.63 0 0015 16.667V9.625C15 8.725 14.274 8 13.375 8z"></path>
+        </symbol>
+        <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" id="fluent_comment-24-filled_active">
+            <path d="M4.375 15a2.708 2.708 0 01-2.708-2.708V5.208A2.708 2.708 0 014.375 2.5h11.25a2.708 2.708 0 012.708 2.708v7.084A2.709 2.709 0 0115.625 15h-4.82l-4.49 3.18A.833.833 0 015 17.503V15h-.625z"></path>
+        </symbol>
+    </svg>
+{% endblock %}
+
+{% block js %}
+    <script type="text/javascript" src="{% static 'plugins/js/highlight.min.js' %}"></script>
+    <script>
+        $('.martor-preview pre').each(function (i, block) {
+            hljs.highlightBlock(block);
+        });
+    </script>
+{% endblock %}

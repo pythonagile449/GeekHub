@@ -253,7 +253,8 @@ class UserArticles(ListView):
     EN
     User's articles. By deafault shows "my articles"
     """
-    template_name = 'mainapp/user_articles_list.html'
+    # template_name = 'mainapp/user_articles_list.html'
+    template_name = 'mainapp/user_articles_list_table.html'
     context_object_name = 'articles'
 
     def get_queryset(self):
@@ -263,6 +264,9 @@ class UserArticles(ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
+        context['is_published'] = True
+        context['is_draft'] = False
+        context['is_on_moderation'] = False
         context['title'] = 'Мои статьи'
         return context
 
@@ -281,6 +285,13 @@ class UserDrafts(UserArticles):
             .order_by('-publication_date')
         return queryset
 
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(UserDrafts, self).get_context_data(**kwargs)
+        context['is_published'] = False
+        context['is_draft'] = True
+        context['is_on_moderation'] = False
+        return context
+
 
 class UserModeratingArticles(UserArticles):
     """
@@ -295,6 +306,13 @@ class UserModeratingArticles(UserArticles):
         queryset = Article.objects.filter(author=self.request.user, is_moderation_in_progress=True, is_deleted=False) \
             .order_by('-publication_date')
         return queryset
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(UserModeratingArticles, self).get_context_data(**kwargs)
+        context['is_published'] = False
+        context['is_draft'] = False
+        context['is_on_moderation'] = True
+        return context
 
 
 class ArticleDelete(DeleteView):
@@ -319,6 +337,7 @@ class ArticleReturnToDrafts(DeleteView):
 
     def delete(self, request, *args, **kwargs):
         self.object = self.get_object()
+        is_published = self.object.is_published
         self.object.is_published = False
         self.object.is_moderation_in_progress = False
         self.object.is_draft = True
@@ -327,7 +346,7 @@ class ArticleReturnToDrafts(DeleteView):
             Notification.objects.create(
                 sender=request.user,
                 recipient=self.object.author,
-                message='Статья снята с публиции.',
+                message=f'Статья снята с {"публикации" if is_published else "модерации"}.',
                 content_type=ContentType.objects.get_for_model(self.object),
                 object_id=self.object.pk,
                 content_object=self.object,
@@ -344,11 +363,15 @@ class ShowTop(ListView):
 
 
 class ModerationList(ListView):
-    template_name = 'mainapp/user_articles_list.html'
+    # template_name = 'mainapp/user_articles_list.html'
+    template_name = 'mainapp/user_articles_list_table.html'
     queryset = Article.objects.filter(is_moderation_in_progress=True, is_deleted=False)
     context_object_name = 'articles'
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(ModerationList, self).get_context_data()
         context['title'] = 'Модерация статей'
+        context['is_published'] = False
+        context['is_draft'] = False
+        context['is_on_moderation'] = True
         return context
