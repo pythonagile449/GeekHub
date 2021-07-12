@@ -1,12 +1,12 @@
 from uuid import uuid4
 
+from django.contrib.auth.hashers import make_password
 from django.contrib.contenttypes.fields import GenericRelation
 from django.db import models
-from django.contrib.auth.hashers import make_password
 
+from mainapp.models import Article
 from ratingsapp.models import RatingCount
 from usersapp.models import GeekHubUser
-from mainapp.models import Article
 
 
 class Comment(models.Model):

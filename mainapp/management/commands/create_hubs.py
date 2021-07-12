@@ -1,5 +1,6 @@
-from django.db.utils import IntegrityError
 from django.core.management import BaseCommand
+from django.db.utils import IntegrityError
+
 from mainapp.models import Hub
 
 

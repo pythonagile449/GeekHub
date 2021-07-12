@@ -1,6 +1,6 @@
 from django.contrib.contenttypes.models import ContentType
 from django.db.models.functions import datetime
-from django.http import HttpResponseRedirect, JsonResponse, Http404
+from django.http import HttpResponseRedirect, JsonResponse
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DetailView, ListView, DeleteView, UpdateView
 

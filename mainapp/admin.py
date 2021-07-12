@@ -1,6 +1,7 @@
-from django.db import models
 from django.contrib import admin
+from django.db import models
 from martor.widgets import AdminMartorWidget
+
 from mainapp.models import Hub, Article
 
 admin.site.register(Hub)
