@@ -31,31 +31,32 @@
                 </h5>
             </div>
             <div>
-                <ul class="lvc-group">
-
-                    <li data-id="{{ comment.id }}" data-type="comment" data-action="like"
-                        title="Нравится" class="like-comment-btn">
-                        <img src="{% static 'svg/up4+.svg' %}" alt="like">
-                    </li>
-                    <h5-2-lvc data-count="positiveComment" class="positiveComment">
-                        {% if comment.rating.like.count %}
-                            {{ comment.rating.like.count }}
-                        {% else %}
-                            {{ comment.id|rating_positive_c }}
-                        {% endif %}
-                    </h5-2-lvc>
-                    <li data-id="{{ comment.id }}" data-type="comment" data-action="dislike"
-                        title="Не нравится" class="dislike-comment-btn">
-                        <img src="{% static 'svg/down4+.svg' %}" alt="like">
-                    </li>
-                    <h5-2-lvc data-count="negativeComment" class="negativeComment">
-                        {% if comment.rating.dislikes.count %}
-                            {{ comment.rating.dislikes.count }}
-                        {% else %}
-                            {{ comment.id|rating_negative_c }}
-                        {% endif %}
-                    </h5-2-lvc>
-                </ul>
+                {% if article.is_published %}
+                    <ul class="lvc-group">
+                        <li data-id="{{ comment.id }}" data-type="comment" data-action="like"
+                            title="Нравится" class="like-comment-btn">
+                            <img src="{% static 'svg/up4+.svg' %}" alt="like">
+                        </li>
+                        <h5-2-lvc data-count="positiveComment" class="positiveComment">
+                            {% if comment.rating.like.count %}
+                                {{ comment.rating.like.count }}
+                            {% else %}
+                                {{ comment.id|rating_positive_c }}
+                            {% endif %}
+                        </h5-2-lvc>
+                        <li data-id="{{ comment.id }}" data-type="comment" data-action="dislike"
+                            title="Не нравится" class="dislike-comment-btn">
+                            <img src="{% static 'svg/down4+.svg' %}" alt="like">
+                        </li>
+                        <h5-2-lvc data-count="negativeComment" class="negativeComment">
+                            {% if comment.rating.dislikes.count %}
+                                {{ comment.rating.dislikes.count }}
+                            {% else %}
+                                {{ comment.id|rating_negative_c }}
+                            {% endif %}
+                        </h5-2-lvc>
+                    </ul>
+                {% endif %}
             </div>
             <button type="button" class="answer-button hidden" data-answer-to="{{ comment.pk }}">Ответить</button>
             <div class="indent-60"></div>
