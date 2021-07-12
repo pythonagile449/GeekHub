@@ -23,6 +23,8 @@ INSTALLED_APPS = [
     'usersapp.apps.UsersappConfig',
     # user apps
     'mainapp',
+    'ratingsapp',
+    'commentsapp',
     # other apps
     'martor',
     'ckeditor',
@@ -55,6 +57,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'usersapp.context_processors.user_context_processors.usersapp_context',
+                'mainapp.context_processors.mainapp_context_processors.mainapp_context',
             ],
         },
     },
@@ -102,6 +106,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'intergalactic/static'), ]
 
 MEDIA_URL = '/media/'

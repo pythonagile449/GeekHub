@@ -1,6 +1,13 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load martortags %}
+{% load ratings %}
+{% load comments %}
+
+{% block css %}
+    <link href="{% static 'plugins/css/ace.min.css' %}" type="text/css" media="all" rel="stylesheet"/>
+    <link href="{% static 'martor/css/martor.bootstrap.min.css' %}" type="text/css" media="all" rel="stylesheet"/>
+{% endblock %}
 
 {% block title %}
     {{ title }} :: {{ block.super }}
@@ -19,7 +26,6 @@
 
     <div class="section-menu"></div>
 
-    </div>
 {% endblock %}
 
 {% block content %}
@@ -55,34 +61,61 @@
                 </div>
 
                 <div class="section-left-text">
-                    <h5-1>
-                        {{ article.contents|safe }}
-                    </h5-1>
+                    {% if article.editor == 'CK' %}
+                        <div class="ck-preview">
+                            {{ article.get_article_preview|safe|truncatechars:750 }}
+                        </div>
+                    {% elif article.editor == 'MD' %}
+                        <div class="martor-preview">
+                            {{ article.get_article_preview|safe_markdown|truncatechars:750 }}
+                        </div>
+                    {% endif %}
                 </div>
 
                 <div class="open-text">
                     <a href="{% url 'mainapp:article_detail' article.pk %}" class="button2">Читать далее</a>
                 </div>
 
-                {#                <div class="like-comment">#}
-                {#                    <ul class="like-comment">#}
-                {#                        <li><a href="/"><img src="{% static 'svg/flat-color-icons_like_active.svg' %}"#}
-                {#                                             alt="like"></a>#}
-                {#                        </li>#}
-                {#                        <li>#}
-                {#                            <h5-2>56</h5-2>#}
-                {#                        </li>#}
-                {#                        <li><img src="{% static 'svg/carbon_view-filled_active.svg' %}" alt="view"></li>#}
-                {#                        <li>#}
-                {#                            <h5-2>435</h5-2>#}
-                {#                        </li>#}
-                {#                        <li><a href="/"><img src="{% static 'svg/fluent_comment-24-filled_active.svg' %}"#}
-                {#                                             alt="comm"></a></li>#}
-                {#                        <li>#}
-                {#                            <h5-2>12</h5-2>#}
-                {#                        </li>#}
-                {#                    </ul>#}
-                {#                </div>#}
+                <div class="like-comment">
+                    <ul class="lvc-field">
+                        <li>
+                            <div class="lvc-group">
+                                <ul class="lvc-group">
+                                    <li title="Рейтинг"><img src="{% static 'svg/chart.svg' %}" alt="like"></li>
+                                    <li>
+                                        <h5-2-lvc>{{ article.id|rating_total }}</h5-2-lvc>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="lvc-group">
+                                <ul class="lvc-group">
+                                    <li title="Просмотры"><img src="{% static 'svg/carbon_view-filled_active.svg' %}"
+                                                               alt="view"></li>
+                                    <li>
+                                        <h5-2-lvc>{{ article.views }}</h5-2-lvc>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="lvc-group">
+                                <ul class="lvc-group">
+                                    {# TODO при нажатии на комментарий редирект на страницу статьи и фокус в поле ввода комментария#}
+                                    <li title="Комментарии">
+                                        <!--                                        <a href="" class="">-->
+                                        <svg class="icon-comment">
+                                            <use xlink:href="#fluent_comment-24-filled_active"></use>
+                                        </svg>
+                                        <!--                                        </a>-->
+                                    </li>
+                                    <h5-2-lvc>{{ article.pk|get_comments_count }}</h5-2-lvc>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             {% endfor %}
 
 
@@ -96,4 +129,19 @@
 
         </div>
     </div>
+    <!-- Hidden SVG sprite -->
+    <svg width="0" height="0" class="hidden">
+        <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" id="fluent_comment-24-filled_active">
+            <path d="M4.375 15a2.708 2.708 0 01-2.708-2.708V5.208A2.708 2.708 0 014.375 2.5h11.25a2.708 2.708 0 012.708 2.708v7.084A2.709 2.709 0 0115.625 15h-4.82l-4.49 3.18A.833.833 0 015 17.503V15h-.625z"></path>
+        </symbol>
+    </svg>
+{% endblock %}
+
+{% block js %}
+    <script type="text/javascript" src="{% static 'plugins/js/highlight.min.js' %}"></script>
+    <script>
+        $('.martor-preview pre').each(function (i, block) {
+            hljs.highlightBlock(block);
+        });
+    </script>
 {% endblock %}

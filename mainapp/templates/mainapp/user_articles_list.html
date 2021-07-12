@@ -6,10 +6,14 @@
     {{ title }} :: {{ block.super }}
 {% endblock %}
 
+{% block css %}
+    <link href="{% static 'plugins/css/ace.min.css' %}" type="text/css" media="all" rel="stylesheet"/>
+    <link href="{% static 'martor/css/martor.bootstrap.min.css' %}" type="text/css" media="all" rel="stylesheet"/>
+{% endblock %}
+
 {% block toolbar %}
     {% include '_inc/profile_toolbar.html' %}
 {% endblock %}
-
 
 {% block content %}
     <div class="content-container">
@@ -32,7 +36,10 @@
                 <div class="section-left-title">
                     <h2>
                         <h2-2>
-                            {{ article.title }}
+                            <a class="article-heading-link" href="{% url 'mainapp:article_detail' article.pk %}"
+                               style="">
+                                {{ article.title }}
+                            </a>
                         </h2-2>
                     </h2>
                 </div>
@@ -42,17 +49,23 @@
                 </div>
 
                 <div class="section-left-text">
-                    <h5-1>
-                        {{ article.contents|safe }}
-                    </h5-1>
+                    {% if article.editor == 'CK' %}
+                        <div class="ck-preview">
+                            {{ article.get_article_preview|safe|truncatechars:500 }}
+                        </div>
+                    {% elif article.editor == 'MD' %}
+                        <div class="martor-preview">
+                            {{ article.get_article_preview|safe_markdown|truncatechars:500 }}
+                        </div>
+                    {% endif %}
                 </div>
                 {% if article.is_draft %}
-                    <a href="#">
+                    <a href="{% url 'mainapp:edit_draft' article.pk %}">
                         <button class="button18" type="submit">Редактировать</button>
                     </a>
-                    <a href="#">
-                        <button class="button16" type="submit">Отправить на модерацию</button>
-                    </a>
+                    <!--                    <a href="#">-->
+                    <!--                        <button class="button16" type="submit">Отправить на модерацию</button>-->
+                    <!--                    </a>-->
                     <a href="{% url 'mainapp:user_article_delete' article.pk %}">
                         <button class="button17" type="submit">Удалить</button>
                     </a>
@@ -73,4 +86,13 @@
 
         </div>
     </div>
+{% endblock %}
+
+{% block js %}
+    <script type="text/javascript" src="{% static 'plugins/js/highlight.min.js' %}"></script>
+    <script>
+        $('.martor-preview pre').each(function (i, block) {
+            hljs.highlightBlock(block);
+        });
+    </script>
 {% endblock %}

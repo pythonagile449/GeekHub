@@ -1,4 +1,5 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,8 +13,8 @@
     {% block bootstrap_css %}
         <link href="{% static 'plugins/css/bootstrap.min.css' %}" type="text/css" media="all" rel="stylesheet"/>
     {% endblock %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
     {% block css %}{% endblock %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 </head>
 
 <body>
@@ -36,21 +37,27 @@
         <div class="container">
             {% block content %} {% endblock %}
         </div>
-
     </div>
-    {% block footer %}
-        <div class="footer">
-            <div class="footer-container">
-                <p>All right reserved. </p>
-                <p>{% now "jS F Y " %} </p>
-            </div>
-        </div>
-    {% endblock %}
+
+    <div class="indent-30"></div>
+
 </div>
+
+{% block footer %}
+    <div class="footer">
+        <div class="footer-container">
+            <p>All right reserved. {% now " Y " %} <a href="{% url 'mainapp:index' %}">InEn</a></p>
+            <p></p>
+        </div>
+    </div>
+{% endblock %}
+
 <script type="text/javascript" src="{% static 'plugins/js/jquery.min.js' %}"></script>
+<script type="module" src="{% static 'js/mainapp/rating.js' %}"></script>
 <script type="text/javascript" src="{% static 'plugins/js/bootstrap.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/mainapp/active-menu-link.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/mainapp/active-toolbar-link.js' %}"></script>
+
 {% block js %}{% endblock %}
 </body>
 </html>

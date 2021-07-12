@@ -1,52 +1,76 @@
-import markdown
-from django.http import HttpResponseRedirect
+from django.db.models.functions import datetime
+from django.http import HttpResponseRedirect, JsonResponse, Http404
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, DetailView, ListView, DeleteView
+from django.views.generic import CreateView, DetailView, ListView, DeleteView, UpdateView
+
+from commentsapp.models import CommentsBranch
 from mainapp.forms import ArticleCkForm, ArticleMdForm
 from mainapp.models import Hub, Article
 
 
 class Index(ListView):
-    """ Главная страница (все статьи). """
+    """
+    RU
+    Главная страница (все статьи).
+
+    EN
+    Main paige(all the articles by publication date)
+    """
     template_name = 'mainapp/index.html'
-    queryset = Article.objects.filter(is_published=True)
+    queryset = Article.objects.filter(is_published=True).order_by('-publication_date')
     context_object_name = 'articles'
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['hubs'] = Hub.objects.all()
         context['title'] = 'Главная'
         return context
 
 
 class ArticlesByHub(ListView):
     """
+    RU
     Статьи по категориям.
     hub_id передается в kwargs из get_absolute_url модели.
+
+    EN
+    Articles by categories(hubs)
+    hub_id is passed in kwargs from the get_absolute_url model method
     """
     model = Article
     template_name = 'mainapp/index.html'
     context_object_name = 'articles'
 
     def get_queryset(self):
-        queryset = Article.objects.filter(hub=self.kwargs['hub_id'], is_published=True, is_deleted=False)
+        queryset = Article.objects.filter(hub=self.kwargs['hub_id'], is_published=True, is_deleted=False) \
+            .order_by('-publication_date')
         return queryset
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(ArticlesByHub, self).get_context_data()
         context['title'] = Hub.objects.get(pk=self.kwargs['hub_id'])
-        context['hubs'] = Hub.objects.all()
         context['active_hub'] = context['title']
         return context
 
 
 class CreateArticle(CreateView):
-    """ Создание статьи. """
+    """
+    RU
+    Создание статьи.
+
+    EN
+    Create article
+    """
     model = Article
-    success_url = reverse_lazy('mainapp:index')
+    success_url = reverse_lazy('mainapp:user_articles')
 
     def get_form_class(self):
-        """ Установка редактора (self.form_class) в зависимости от настроек пользователя. """
+        """
+        RU
+        Установка редактора (self.form_class) в зависимости от настроек пользователя.
+
+        EN
+        Setup the editor (self.form_class) depending on user's preferences
+        """
         user = self.request.user
         if user.article_redactor == 'CK':
             self.form_class = ArticleCkForm
@@ -56,80 +80,178 @@ class CreateArticle(CreateView):
 
     def form_valid(self, form):
         """
-        Устанавливает инстанс автора статьи для FK модели Article.
-        Создает черновик есть action формы '/create-draft/'.
+        Set author of article instance for FK Article.
+        Create draft if '/create-draft/' or send article on moderation.
         """
         form.instance.author = self.request.user
 
         # TODO временно статьи создаются в статусе опубликовано, необходимо изменить на модерацию
         # если запрос на публикацию статьи - устанавливаем статус 'на модерации', снимаем статус 'черновик'
-        if self.request.path != '/create-draft/':
+        # if publication of an article is requested, set status 'is_moderation_in_progress' remove status 'draft'
+        if self.request.path == '/create-article/':
             # form.instance.is_moderation_in_progress = True
             form.instance.is_published = True
             form.instance.is_draft = False
+        if self.request.path == '/create-draft/':
+            self.success_url = reverse_lazy('mainapp:drafts')
+        form.instance.publication_date = datetime.datetime.now()
+        form_content = self.request.POST['contents']
 
-        # если используется маркдаун - конвертируем его в html
-        if form.instance.author.article_redactor == "MD":
-            form.instance.contents = markdown.markdown(form.instance.contents)
+        # set editor to articles model form
+        if form.instance.author.article_redactor == 'CK':
+            form.instance.contents_ck = form_content
+            form.instance.editor = 'CK'
+        if form.instance.author.article_redactor == 'MD':
+            form.instance.contents_md = form_content
+            form.instance.editor = 'MD'
 
         return super(CreateArticle, self).form_valid(form)
 
     def get_context_data(self, **kwargs):
         context = super(CreateArticle, self).get_context_data()
-        context['hubs'] = Hub.objects.all()
         context['title'] = 'Создание новой статьи'
-        # TODO написать контекстные процессоры для количества статей
-        context['user_drafts_count'] = Article.objects.filter(author=self.request.user, is_draft=True).count()
-        context['user_articles_published_count'] = Article.objects.filter(author=self.request.user,
-                                                                          is_published=True).count()
         return context
 
 
 class ArticleDetail(DetailView):
-    """ Просмотр статьи."""
+    """
+    RU
+    Просмотр статьи.
+
+    EN
+    Article viewing
+    """
     model = Article
     context_object_name = 'article'
+    comments_preview_count = 3
 
     def get_context_data(self, **kwargs):
         context = super(ArticleDetail, self).get_context_data()
         context['title'] = self.get_object().title
-        context['hubs'] = Hub.objects.all()
+        context['comments_preview'] = CommentsBranch.get_last_comments(self.get_object().pk,
+                                                                       self.comments_preview_count)
+        context['comments_count_settings'] = self.comments_preview_count
+        context['all_comments_count'] = CommentsBranch.get_comments_count_by_article(self.get_object().pk)
         return context
+
+    def get(self, request, *args, **kwargs):
+        response = super(ArticleDetail, self).get(request, *args, **kwargs)
+        if self.object.is_published:
+            self.object.views += 1
+            self.object.save()
+        return response
+
+
+class ArticleUpdate(UpdateView):
+    """ Editing an article. """
+    model = Article
+    fields = ['title', 'hub']
+
+    def form_invalid(self, form):
+        """ Processing an incorrect ajax request to change data. """
+        if self.request.method == 'POST' and self.request.is_ajax():
+            return JsonResponse('Error', safe=False)
+        else:
+            return super(ArticleUpdate, self).form_invalid(form)
+
+    def set_object_contents(self, form):
+        """ Set article model field extends redactor. """
+        if self.object.editor == 'CK':
+            self.object.contents_ck = form.cleaned_data['contents']
+        if self.object.editor == 'MD':
+            self.object.contents_md = form.cleaned_data['contents']
+
+    def form_valid(self, form):
+        """ Processing a correct ajax request to change data. """
+        if self.request.method == 'POST' and self.request.is_ajax():
+            # ajax request mean that there is a 'save draft' action
+            self.set_object_contents(form)
+            self.object.save()
+            return JsonResponse('Success', safe=False)
+        elif self.request.method == 'POST' and not self.request.is_ajax() and self.request.path.startswith('/publish/'):
+            # handle publication action
+            self.set_object_contents(form)
+            self.object.is_published = True
+            self.object.is_draft = False
+            self.object.publication_date = datetime.datetime.now()
+            self.object.save()
+            self.success_url = reverse_lazy('mainapp:user_articles')
+            return super(ArticleUpdate, self).form_valid(form)
+        else:
+            return super(ArticleUpdate, self).form_valid(form)
+
+    def get_context_data(self, **kwargs):
+        context = super(ArticleUpdate, self).get_context_data()
+        context['title'] = f'Редактирование статьи {self.object.title[:10]}'
+        context['edit_flag'] = True  # set a flag to tell the template to render the "save changes" buttons
+        return context
+
+    def get_initial(self):
+        initial = super(ArticleUpdate, self).get_initial()
+        if self.object.editor == 'CK':
+            initial['contents'] = self.object.contents_ck
+        if self.object.editor == 'MD':
+            initial['contents'] = self.object.contents_md
+        return initial
+
+    def get_form_class(self):
+        """ Set an editor (self.form_class) depending on article editor. """
+        if self.object.editor == 'CK':
+            self.form_class = ArticleCkForm
+        if self.object.editor == 'MD':
+            self.form_class = ArticleMdForm
+        return self.form_class
 
 
 class UserArticles(ListView):
-    """ Cтатьи пользователя. По умолчанию отображает "мои статьи". """
+    """
+    RU
+    Cтатьи пользователя. По умолчанию отображает "мои статьи".
+
+    EN
+    User's articles. By deafault shows "my articles"
+    """
     template_name = 'mainapp/user_articles_list.html'
     context_object_name = 'articles'
 
     def get_queryset(self):
-        queryset = Article.objects.filter(author=self.request.user, is_published=True, is_deleted=False)
+        queryset = Article.objects.filter(author=self.request.user, is_published=True, is_deleted=False) \
+            .order_by('-publication_date')
         return queryset
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['hubs'] = Hub.objects.all()
         context['title'] = 'Мои статьи'
-        # TODO написать контекстные процессоры для количества статей
-        context['user_drafts_count'] = Article.objects.filter(author=self.request.user, is_draft=True).count()
-        context['user_articles_published_count'] = Article.objects.filter(author=self.request.user,
-                                                                          is_published=True).count()
         return context
 
 
 class UserDrafts(UserArticles):
-    """ Черновики пользователя. """
+    """
+    RU
+    Черновики пользователя.
+
+    EN
+    User's drafts
+    """
 
     def get_queryset(self):
-        queryset = Article.objects.filter(author=self.request.user, is_draft=True, is_deleted=False)
+        queryset = Article.objects.filter(author=self.request.user, is_draft=True, is_deleted=False) \
+            .order_by('-publication_date')
         return queryset
 
 
 class UserModeratingArticles(UserArticles):
-    """ Статьи пользователя на модерации. """
+    """
+    RU
+    Статьи пользователя на модерации.
+
+    EN
+    User's articles being reviewed by moderators
+    """
 
     def get_queryset(self):
-        queryset = Article.objects.filter(author=self.request.user, is_moderation_in_progress=True, is_deleted=False)
+        queryset = Article.objects.filter(author=self.request.user, is_moderation_in_progress=True, is_deleted=False) \
+            .order_by('-publication_date')
         return queryset
 
 
@@ -160,3 +282,11 @@ class ArticleReturnToDrafts(DeleteView):
         self.object.is_draft = True
         self.object.save()
         return HttpResponseRedirect(self.get_success_url())
+
+
+class ShowTop(ListView):
+    # template_name = 'mainapp/user_articles_list.html'
+
+    def get_queryset(self, **kwargs):
+        queryset = Article.objects.filter(is_published=True).order_by('-publication_date')[:7]
+        return queryset

@@ -13,7 +13,7 @@
     --main-bg-color: #FFFFFF;
     --section-bg-color: #E9E9E9;
     --section-fail-color: #FFD8D8;
-    --section-warning-color:#FCFFD8;
+    --section-warning-color: #FCFFD8;
     --section-success-color: #DDFFDC;
     --footer-bg-color: #C8C8C8;
     --primary-color: #48B5FF; /*цвет синих элементов*/
@@ -99,6 +99,7 @@ ul.menu-right { /* Список меню */
     display: flex;
     height: 60px;
     align-items: center;
+    padding-right: 20px;
 }
 
 ul.menu-right li { /* Пункты списка меню */
@@ -275,6 +276,24 @@ h5-2 {
     padding-right: 35px;
 }
 
+h5-2-lvc { /*+chart color */
+    font-family: Roboto, Verdana, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    margin-left: 5px;
+    color: var(--secondary-color);
+    padding-right: 5px;
+}
+
+h5-4-lvc { /*-chart color */
+    font-family: Roboto, Verdana, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    margin-left: 5px;
+    color: var(--danger-color);
+    padding-right: 5px;
+}
+
 h6-1 {
     font-family: Roboto, Verdana, sans-serif;
     font-size: 12px;
@@ -312,19 +331,44 @@ ul.author-data li { /* Пункты списка меню */
     text-align: center;
 }
 
+
 .open-text {
     height: 50px;
     display: flex;
     align-items: center;
 }
 
-ul.like-comment {
+ul.lvc-field {
     height: 30px;
     display: flex;
     align-items: center;
+    /*padding-right: 100px;*/
+    margin-left: 0px;
 }
 
-ul.like-comment li { /* Пункты списка меню */
+ul.lvc-field li {
+    font-family: Roboto, Verdana, sans-serif;
+    display: inline; /* Отображать как строчный элемент */
+    margin-right: 0px;
+    text-align: center;
+}
+
+.lvc-group { /* Пункты списка меню */
+    font-family: Roboto, Verdana, sans-serif;
+    display: inline; /* Отображать как строчный элемент */
+    margin-right: 0px;
+    text-align: center;
+    justify-align: center;
+}
+
+ul.lvc-group {
+    height: 30px;
+    display: flex;
+    margin-right: 5px;
+    margin-left: 20px;
+}
+
+ul.lvc-group li {
     font-family: Roboto, Verdana, sans-serif;
     display: inline; /* Отображать как строчный элемент */
     margin-right: 0px;
@@ -699,15 +743,15 @@ s-3 { /*цвет и стиль верхнего индекса в списке s
 
 .block-foto-button {
     width: 270px;
-    height: 50px;
-    display: flex;
+    height: 150px;
+    /*display: flex;*/
     justify-content: center;
     align-items: center;
 }
 
 .block-settings {
     width: 270px;
-    height: 260px;
+    height: 160px;
     background: var(--section-bg-color); /* цвет фона */
     border-radius: 5px;
 }
@@ -731,6 +775,26 @@ s-3 { /*цвет и стиль верхнего индекса в списке s
     background: rgba(72, 181, 255, 0.6);
     color: var(--main-bg-color);
 }
+
+/*.block-foto-button {
+    transition: color 0.3s ease 0s;
+    font-weight: 500;
+    background: rgba(72, 181, 255, 0.2);
+    border-radius: 5px;
+    color: var(--text-color);
+    padding: 8px 12px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    font-family: Roboto, Verdana, sans-serif;
+}
+
+.block-foto-button:hover {
+    background: rgba(72, 181, 255, 0.6);
+    color: var(--main-bg-color);
+}*/
 
 .button10 {
     transition: color 0.3s ease 0s;
@@ -885,6 +949,7 @@ input[type="date"] {
     width: 220px;
     border: none;
     margin-left: 20px;
+    height: 30px;
 }
 
 /*Профиль - О себе - удалить профиль*/
@@ -1247,4 +1312,21 @@ input.placeholder[type="text"] {
 
 .block-editor-body {
     height: 500px;
+}
+
+/* reset bootstrap styles for markdown editor */
+div.martor-preview {
+    background-color: transparent;
+}
+
+code {
+    color: inherit;
+}
+
+.answer {
+    color: rgb(90, 162, 71);
+}
+
+.error {
+    color: rgb(255, 129, 129);
 }
