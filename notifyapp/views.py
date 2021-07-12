@@ -1,15 +1,20 @@
 import json
 
 from django.http import JsonResponse
-from django.shortcuts import render
 from django.views import View
-from django.views.generic import ListView, DeleteView
+from django.views.generic import ListView
 
 from notifyapp.models import Notification
 
 
-# todo docstings for views
 class UsersNotificationsList(ListView):
+    """
+    RU
+    Список уведомлений пользователя
+
+    EN
+    User notification list
+    """
     model = Notification
     template_name = 'user_notifications.html'
     context_object_name = 'notifications'
@@ -27,6 +32,13 @@ class UsersNotificationsList(ListView):
 
 
 class DeleteNotifications(View):
+    """
+    RU
+    Удаление уведомление пользователем
+
+    EN
+    Removing a notification by a user
+    """
     model = Notification
 
     def post(self, request):
@@ -38,5 +50,12 @@ class DeleteNotifications(View):
 
 
 def check_notifications(request):
+    """
+    RU
+    Проверка количества новых уведомлений у пользователя
+
+    EN
+    Checking user's notifications count
+    """
     user_notifications_count = Notification.objects.filter(recipient=request.user, is_read=False).count()
     return JsonResponse({'notifications_count': user_notifications_count})

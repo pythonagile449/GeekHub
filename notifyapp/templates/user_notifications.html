@@ -2,65 +2,64 @@
 {% load static %}
 
 {% block content %}
+    {% if not notifications %}
+        <div class="empty-content-message">
+            Уведомлений нет
+        </div>
+    {% else %}
+        <form class="notifications-content" method="post" action="{% url 'notifyapp:delete_notifications' %}">
+            {% csrf_token %}
 
-    <form class="notifications-content" method="post" action="{% url 'notifyapp:delete_notifications' %}">
-        {% csrf_token %}
-        {#    todo добавить кнопку удаления уведомлений. Кнопка неактивна если не выбрано ни одного чек-бокса #}
-        {#    todo отобрадение при пустом блоке #}
-        <table class="table notifications-table">
+            <table class="table notifications-table">
 
-            <thead>
-            <tr>
-                <th scope="col">
-                    <input class="form-check-input" type="checkbox" value="" id="select-all-checkbox">
-                    <label class="form-check-label" for="select-all-checkbox"></label>
-                </th>
-                <th scope="col" colspan="3">
-                    <label class="form-check-label" for="select-all-checkbox">Выбрать все</label>
-                </th>
-                <th scope="col">
-                    <button class="button16" id="delete-notification-button" type="button">Удалить</button>
-                    {#                    <a href="{% url 'notifyapp:delete_notifications' %}" class="button16" id="delete-notification-button">Удалить</a>#}
-                </th>
-                {#                <th scope="col">Уведомление</th>#}
-                {#                <th scope="col">Статья</th>#}
-                {#                <th scope="col">Модератор</th>#}
-                {#                <th scope="col">Дата</th>#}
-            </tr>
-            </thead>
-
-            <tbody>
-            {% for notification in notifications %}
+                <thead>
                 <tr>
-                    <td scope="row">
-                        <input class="form-check-input notification-checkbox" type="checkbox"
-                               value="{{ notification.pk }}"
-                               id="notification-{{ forloop.counter }}" data-notification-id="{{ notification.pk }}">
-                    </td>
-                    <td scope="row">
-                        <label class="form-check-label" for="notification-{{ forloop.counter }}">
-                            {{ notification.message }}
-                        </label>
-                    </td>
-                    <td>
-                        <a href="{% url 'mainapp:article_detail' notification.content_object.pk %}">
-                            {{ notification.content_object.title|truncatechars:25 }}
-                        </a>
-                    </td>
-                    <td>
-                        {{ notification.sender }}
-                    </td>
-                    <td>
-                        <label class="form-check-label"
-                               for="notification-{{ forloop.counter }}">{{ notification.created_at }}</label>
-                    </td>
+                    <th scope="col">
+                        <input class="form-check-input" type="checkbox" value="" id="select-all-checkbox">
+                        <label class="form-check-label" for="select-all-checkbox"></label>
+                    </th>
+                    <th scope="col" colspan="3">
+                        <label class="form-check-label" for="select-all-checkbox">Выбрать все</label>
+                    </th>
+                    <th scope="col">
+                        <button class="button17" disabled id="delete-notification-button" type="button">Удалить</button>
+                    </th>
                 </tr>
-            {% endfor %}
-            </tbody>
+                </thead>
 
-        </table>
+                <tbody>
+                {% for notification in notifications %}
+                    <tr>
+                        <td scope="row">
+                            <input class="form-check-input notification-checkbox" type="checkbox"
+                                   value="{{ notification.pk }}"
+                                   id="notification-{{ forloop.counter }}" data-notification-id="{{ notification.pk }}">
+                        </td>
+                        <td scope="row">
+                            <label class="form-check-label" for="notification-{{ forloop.counter }}">
+                                {{ notification.message }}
+                            </label>
+                        </td>
+                        <td>
+                            <a href="{% url 'mainapp:article_detail' notification.content_object.pk %}">
+                                {{ notification.content_object.title|truncatechars:25 }}
+                            </a>
+                        </td>
+                        <td>
+                            {{ notification.sender }}
+                        </td>
+                        <td>
+                            <label class="form-check-label"
+                                   for="notification-{{ forloop.counter }}">{{ notification.created_at }}</label>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
 
-    </form>
+            </table>
+
+        </form>
+    {% endif %}
 
 {% endblock %}
 

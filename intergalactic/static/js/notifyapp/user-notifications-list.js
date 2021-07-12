@@ -10,23 +10,36 @@ class UserNotifications {
     }
 
     setHandlers() {
-        this.selectAllCheckbox.onchange = () => {
-            this.notificationsCheckboxes.forEach(checkbox => {
-                checkbox.checked = this.selectAllCheckbox.checked ? true : false;
-            });
-        };
+        if (this.selectAllCheckbox) {
+            this.selectAllCheckbox.onchange = () => {
+                this.deleteNotificationButton.disabled = !this.selectAllCheckbox.checked;
+                this.notificationsCheckboxes.forEach(checkbox => {
+                    checkbox.checked = this.selectAllCheckbox.checked;
+                });
+            }
+        }
 
-        this.deleteNotificationButton.addEventListener('click', evt => {
-            this.checkedNotifications = [];
+        if (this.notificationsCheckboxes) {
             this.notificationsCheckboxes.forEach(checkbox => {
-                if (checkbox.checked) {
-                    this.checkedNotifications.push(checkbox.dataset.notificationId);
+                checkbox.onchange = () => {
+                    this.deleteNotificationButton.disabled = !checkbox.checked;
                 }
-            });
-            let formData = this.getFormData();
-            this.pushCheckedIds(formData);
-            this.sendDeleteRequest(formData);
-        })
+            })
+        }
+
+        if (this.deleteNotificationButton) {
+            this.deleteNotificationButton.addEventListener('click', evt => {
+                this.checkedNotifications = [];
+                this.notificationsCheckboxes.forEach(checkbox => {
+                    if (checkbox.checked) {
+                        this.checkedNotifications.push(checkbox.dataset.notificationId);
+                    }
+                });
+                let formData = this.getFormData();
+                this.pushCheckedIds(formData);
+                this.sendDeleteRequest(formData);
+            })
+        }
     }
 
     getFormData() {

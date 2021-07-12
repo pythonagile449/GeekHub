@@ -1751,3 +1751,19 @@ a.comment-anchor {
 .notifications-table tbody tr:hover {
     background-color: rgb(250, 250, 250);
 }
+
+button[disabled] {
+    /*color: ;*/
+}
+
+button[disabled]:hover {
+    background-color: var(--main-bg-color);
+    border-color: var(--secondary-color);
+    color: var(--link-hover-color);
+    cursor: default;
+}
+
+.empty-content-message {
+    margin-top: 60px;
+    text-align: center;
+}

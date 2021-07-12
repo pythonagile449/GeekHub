@@ -317,13 +317,21 @@ class ArticleReturnToDrafts(DeleteView):
     template_name = 'mainapp/article_confirm_to_drafts.html'
     success_url = reverse_lazy('mainapp:drafts')
 
-    # todo добавить обработку модератором и создание уведомления
     def delete(self, request, *args, **kwargs):
         self.object = self.get_object()
         self.object.is_published = False
         self.object.is_moderation_in_progress = False
         self.object.is_draft = True
         self.object.save()
+        if request.user != self.object.author:
+            Notification.objects.create(
+                sender=request.user,
+                recipient=self.object.author,
+                message='Статья снята с публиции.',
+                content_type=ContentType.objects.get_for_model(self.object),
+                object_id=self.object.pk,
+                content_object=self.object,
+            )
         return HttpResponseRedirect(self.get_success_url())
 
 
