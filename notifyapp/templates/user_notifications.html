@@ -5,7 +5,8 @@
 
     <form class="notifications-content" method="post" action="{% url 'notifyapp:delete_notifications' %}">
         {% csrf_token %}
-        {#    todo добавить обработку чек-бокса "выбрать все" и кнопку удаления уведомлений. Кнопка неактивна если не выбрано ни одного чек-бокса #}
+        {#    todo добавить кнопку удаления уведомлений. Кнопка неактивна если не выбрано ни одного чек-бокса #}
+        {#    todo отобрадение при пустом блоке #}
         <table class="table notifications-table">
 
             <thead>
@@ -32,7 +33,8 @@
             {% for notification in notifications %}
                 <tr>
                     <td scope="row">
-                        <input class="form-check-input notification-checkbox" type="checkbox" value="{{ notification.pk }}"
+                        <input class="form-check-input notification-checkbox" type="checkbox"
+                               value="{{ notification.pk }}"
                                id="notification-{{ forloop.counter }}" data-notification-id="{{ notification.pk }}">
                     </td>
                     <td scope="row">

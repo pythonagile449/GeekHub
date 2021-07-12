@@ -1,3 +1,5 @@
+import json
+
 from django.http import JsonResponse
 from django.shortcuts import render
 from django.views import View
@@ -6,6 +8,7 @@ from django.views.generic import ListView, DeleteView
 from notifyapp.models import Notification
 
 
+# todo docstings for views
 class UsersNotificationsList(ListView):
     model = Notification
     template_name = 'user_notifications.html'
@@ -27,8 +30,11 @@ class DeleteNotifications(View):
     model = Notification
 
     def post(self, request):
-        print(request.POST)
-        return super(DeleteNotifications, self).post(request)
+        if request.is_ajax() and request.POST.get('ids'):
+            decoded_ids = json.loads(request.POST['ids'])
+            notifications_ids = [int(id) for id in decoded_ids]
+            Notification.objects.filter(id__in=notifications_ids).delete()
+            return JsonResponse({'deleted_notifications_id': request.POST['ids']})
 
 
 def check_notifications(request):

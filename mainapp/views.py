@@ -317,6 +317,7 @@ class ArticleReturnToDrafts(DeleteView):
     template_name = 'mainapp/article_confirm_to_drafts.html'
     success_url = reverse_lazy('mainapp:drafts')
 
+    # todo добавить обработку модератором и создание уведомления
     def delete(self, request, *args, **kwargs):
         self.object = self.get_object()
         self.object.is_published = False
