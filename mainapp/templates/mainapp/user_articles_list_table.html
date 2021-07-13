@@ -48,7 +48,11 @@
 
                 {% for article in articles %}
                     <tr>
-                        <td scope="row">{{ article.title|truncatechars:35 }}</td>
+                        <td scope="row">
+                            <a href="{% url 'mainapp:article_detail' article.pk %}">
+                                {{ article.title|truncatechars:35 }}
+                            </a>
+                        </td>
 
                         <td>{{ article.hub.name|truncatechars:20 }}</td>
 

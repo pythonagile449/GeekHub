@@ -19,8 +19,10 @@ class Index(ListView):
     Main paige(all the articles by publication date)
     """
     template_name = 'mainapp/index.html'
-    queryset = Article.objects.filter(is_published=True).order_by('-publication_date')
+    queryset = Article.objects.filter(is_published=True)
+    ordering = ['-publication_date']
     context_object_name = 'articles'
+    paginate_by = 5
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -41,6 +43,7 @@ class ArticlesByHub(ListView):
     model = Article
     template_name = 'mainapp/index.html'
     context_object_name = 'articles'
+    paginate_by = 5
 
     def get_queryset(self):
         queryset = Article.objects.filter(hub=self.kwargs['hub_id'], is_published=True, is_deleted=False) \
