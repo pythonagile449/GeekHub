@@ -366,6 +366,13 @@ class ShowTop(ListView):
 
 
 class ModerationList(ListView):
+    """
+    RU
+    Страница профиля модератора (модерация статей пользователей).
+
+    EN
+    Moderators profile page (moderation users articles).
+    """
     # template_name = 'mainapp/user_articles_list.html'
     template_name = 'mainapp/user_articles_list_table.html'
     queryset = Article.objects.filter(is_moderation_in_progress=True, is_deleted=False)

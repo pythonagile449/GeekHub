@@ -11,6 +11,7 @@
 {% block css %}
     <link href="{% static 'plugins/css/ace.min.css' %}" type="text/css" media="all" rel="stylesheet"/>
     <link href="{% static 'martor/css/martor.bootstrap.min.css' %}" type="text/css" media="all" rel="stylesheet"/>
+    <link href="{% static 'css/style-user-articles-list-table.css' %}" type="text/css" media="all" rel="stylesheet"/>
 {% endblock %}
 
 {% block toolbar %}
@@ -31,6 +32,10 @@
 
                     <th>Хаб</th>
 
+                    {% if is_on_moderation and user.is_staff %}
+                        <th scope="col">Автор</th>
+                    {% endif %}
+
                     <th scope="col" colspan="3">
                         {% if is_draft %}Дата изменения{% endif %}
                         {% if is_on_moderation %}Дата отправки{% endif %}
@@ -44,14 +49,22 @@
 
                 {% for article in articles %}
                     <tr>
+                        {# article title#}
                         <td scope="row">
                             <a href="{% url 'mainapp:article_detail' article.pk %}">
                                 {{ article.title|truncatechars:35 }}
                             </a>
                         </td>
 
+                        {# article hub name#}
                         <td>{{ article.hub.name|truncatechars:20 }}</td>
 
+                        {# article author #}
+                        {% if is_on_moderation and user.is_staff %}
+                            <td>{{ article.author }}</td>
+                        {% endif %}
+
+                        {# article publication date #}
                         <td style="white-space: nowrap">{{ article.publication_date }}</td>
 
                         <td>
@@ -96,6 +109,7 @@
                             </div>
                         </td>
 
+                        {# article actions #}
                         <td>
                             {% if is_draft %}
                                 <a href="{% url 'mainapp:edit_draft' article.pk %}">
@@ -131,13 +145,6 @@
 
         </div>
 
-        <div class="section-right">
-
-            <div class="section-right-block">
-
-            </div>
-
-        </div>
     </div>
 
     <!-- Hidden SVG sprite -->
