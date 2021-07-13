@@ -139,7 +139,7 @@ body {
 }
 
 input {
-    background-image: url("../../../static/svg/vector.svg");
+    background-image: url("../../static/svg/vector.svg");
     background-repeat: no-repeat; /*Убираем повтор изображения*/
     background-position: 240px; /*Позиционируем*/
     outline: none; /*убираем стандартную обводку браузера*/
