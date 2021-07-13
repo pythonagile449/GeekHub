@@ -28,9 +28,14 @@ function like() {
         type: 'POST',
         data: {'obj': pk},
         success: function (json) {
-            console.log(json)
+
             $('.positive').html(json.positive)
             $('.negative').html(json.negative)
+            $('.modal-content').html(json.access_denied)
+            if (json.access_denied) {
+                $("#modal-articles").modal("show")
+            }
+
         }
     });
     return false;
@@ -49,9 +54,13 @@ function dislike() {
         data: {'obj': pk},
 
         success: function (json) {
-            console.log(json)
+
             $('.positive').html(json.positive)
             $('.negative').html(json.negative)
+            $('.modal-content').html(json.access_denied)
+            if (json.access_denied) {
+                $("#modal-articles").modal("show")
+            }
         }
     });
 
@@ -114,9 +123,13 @@ class CommentsRating {
             contentType: false,
             enctype: 'multipart/form-data',
             success: json => {
-                console.log(json);
+
                 evt.target.parentNode.parentNode.querySelector('.positiveComment').innerHTML = json.positive;
                 evt.target.parentNode.parentNode.querySelector('.negativeComment').innerHTML = json.negative;
+                $('.modal-content').html(json.access_denied)
+                if (json.access_denied) {
+                    $("#modal-articles").modal("show")
+                }
             },
             error: d => {
                 console.log('err');

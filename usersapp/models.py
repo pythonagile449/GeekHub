@@ -1,3 +1,4 @@
+from django.contrib import admin
 from django.db import models
 from django.urls import reverse
 from django.utils.timezone import now
@@ -43,3 +44,23 @@ class GeekHubUser(AbstractUser):
 
     def get_absolute_url(self):
         return reverse('usersapp:login')
+
+
+class BlockingByIp(models.Model):
+    class Meta:
+        db_table = "BlockingByIp"
+        verbose_name = "Блокировку по IP"
+        verbose_name_plural = "Блокировки по IP"
+
+    ip_address = models.GenericIPAddressField("IP адрес")
+    failed_attempts = models.IntegerField("Неудачных попыток", default=0)
+    time_unblock = models.DateTimeField("Время разблокировки", blank=True)
+    blocking_status = models.BooleanField("Статус блокировки", default=False)
+
+    def __str__(self):
+        return self.ip_address
+
+
+class BlockingByIpAdmin(admin.ModelAdmin):
+    list_display = ('ip_address', 'blocking_status', 'failed_attempts', 'time_unblock')
+    search_fields = ('ip_address',)

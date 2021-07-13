@@ -3,6 +3,7 @@
 
 
 <div class="comments-tree">
+
     {% for comment in comments %}
         <a class="comment-anchor" id="comment-anchor-{{ comment.pk }}"></a>
         <div class="author-comment">
@@ -62,4 +63,5 @@
             <div class="indent-60"></div>
         </div>
     {% endfor %}
+
 </div>
