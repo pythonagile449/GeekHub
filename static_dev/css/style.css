@@ -136,6 +136,7 @@ ul.menu-right li { /* Menu list items*/
     display: inline;
     /*margin-right: 5px;*/
     margin-left: 20px;
+    margin-right: 0px;
     text-align: center;
 }
 
@@ -228,9 +229,10 @@ ul.section-menu {
 ul.section-menu li { /* Menu list items */
     font-family: Roboto, Verdana, sans-serif;
     display: inline;
-
     margin-left: 20px;
     text-align: center;
+
+
 }
 
 .section-indent {
@@ -245,6 +247,7 @@ ul.section-menu li { /* Menu list items */
     margin: 0;
     padding: 0;
     flex-direction: row;
+    /*flex-shrink: 0;*/
 }
 
 .section-left {
@@ -424,6 +427,7 @@ ul.lvc-group li {
     display: inline; /* Display as a lowercase element */
     margin-right: 0px;
     text-align: center;
+
 }
 
 .footer-container {
@@ -1161,7 +1165,6 @@ input[type="date"] {
     text-decoration: none;
     font-size: 14px;
     cursor: pointer;
-    /*margin-left: 20px;*/
     margin-right: 10px;
 }
 
@@ -1433,88 +1436,77 @@ textarea.comment-area {
 }
 
 .icon-new {
-    width: 28px; /* ширина иконки */
-    height: 28px; /* высота иконки */
-    fill: var(--header-bg-color); /* цвет заливки иконки */
+    width: 28px;
+    height: 28px;
+    fill: var(--header-bg-color);
     fill-opacity: var(--header-opacity);
-    /*fill: #808080; /* цвет заливки иконки */
-    transition: 0.25s; /* плавное изменение цвета при наведении */
+    transition: 0.25s;
     margin-left: 0px;
     margin-right: 17px;
 }
 
 .icon-new:hover {
-    fill: #48B5FF; /* цвет заливки иконки при наведении */
+    fill: #48B5FF;
     fill-opacity: 1.0;
 }
 
 .icon-user {
-    width: 28px; /* ширина иконки */
-    height: 28px; /* высота иконки */
-    fill: var(--header-bg-color); /* цвет заливки иконки */
+    width: 28px;
+    height: 28px;
+    fill: var(--header-bg-color);
     fill-opacity: var(--header-opacity);
-    /*fill: #808080; /* цвет заливки иконки */
-    transition: 0.25s; /* плавное изменение цвета при наведении */
+    transition: 0.25s;
 }
 
 .icon-user:hover {
-    fill: #48B5FF; /* цвет заливки иконки при наведении */
+    fill: #48B5FF;
     fill-opacity: 1.0;
 }
 
 .icon-edit {
-    width: 28px; /* ширина иконки */
-    height: 28px; /* высота иконки */
-    fill: var(--header-bg-color); /* цвет заливки иконки */
+    width: 28px;
+    height: 28px;
+    fill: var(--header-bg-color);
     fill-opacity: var(--header-opacity);
-    /*fill: #808080; /* цвет заливки иконки */
-    transition: 0.25s; /* плавное изменение цвета при наведении */
-    /*margin-left: 17px;*/
+    transition: 0.25s;
 }
 
 .icon-edit:hover {
-    fill: #48B5FF; /* цвет заливки иконки при наведении */
+    fill: #48B5FF;
     fill-opacity: 1.0;
 }
 
 .icon-up {
-    width: 20px; /* ширина иконки */
-    height: 20px; /* высота иконки */
-    fill: #808080; /* цвет заливки иконки */
-    transition: 0.25s; /* плавное изменение цвета при наведении */
-    /*display:block;*/
-    /*display:inline-block;*/
-    /*pointer-events: none;*/
+    width: 20px;
+    height: 20px;
+    fill: #808080;
+    transition: 0.25s;
 }
 
-
 .icon-up:hover {
-    fill: #48B5FF; /* цвет заливки иконки при наведении */
-    /*fill: #0075FF;*/
+    fill: #48B5FF;
 }
 
 .icon-down {
-    width: 20px; /* ширина иконки */
-    height: 20px; /* высота иконки */
-    fill: #808080; /* цвет заливки иконки */
-    transition: 0.25s; /* плавное изменение цвета при наведении */
+    width: 20px;
+    height: 20px;
+    fill: #808080;
+    transition: 0.25s;
 }
 
 .icon-down:hover {
-    fill: #FF4848; /* цвет заливки иконки при наведении */
-    /*fill: #F80000*/
+    fill: #FF4848;
 }
 
 .icon-comment {
-    width: 20px; /* ширина иконки */
-    height: 20px; /* высота иконки */
-    fill: #5085A9; /* цвет заливки иконки */
-    transition: 0.25s; /* плавное изменение цвета при наведении */
+    width: 20px;
+    height: 20px;
+    fill: #5085A9;
+    transition: 0.25s;
 }
 
 .icon-comment:hover {
-    fill: #48B5FF; /* цвет заливки иконки при наведении */
-    /*fill: #0075FF;*/
+    fill: #48B5FF;
 }
 
 .hidden {
@@ -1524,7 +1516,6 @@ textarea.comment-area {
 .dropbtn {
     background-color: var(--main-bg-color);
     color: white;
-    /*padding: 16px;*/
     font-size: 16px;
     border: none;
 }
@@ -1553,13 +1544,9 @@ textarea.comment-area {
     display: block;
 }
 
-/*.dropdown-content a:hover {background-color: #ddd;}*/
-
 .dropdown:hover .dropdown-content {
     display: block;
 }
-
-/*.dropdown:hover .dropbtn {background-color: #3e8e41;}*/
 
 .menu-dropdown { /* Menu List */
     background-color: var(--section-bg-color);
@@ -1582,33 +1569,6 @@ textarea.comment-area {
     background-color: var(--section-bg-color);
 }
 
-/*label {
-  display: block;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-}
-
-#red {
-  display: none;
-}
-
-svg {
-  display: block;
-}
-
-foreignObject svg {
-  pointer-events: none;
-}
-
-#luent_comment-24-filled_active {
-  fill: #5085A9
-  pointer-events: all;
-}
-
-#red:checked + svg #luent_comment-24-filled_active {
-  fill: #0075FF;
-}*/
 .answer-button {
     position: absolute;
     background-color: transparent;
@@ -1631,7 +1591,6 @@ foreignObject svg {
 
 .field-left {
     width: 95%;
-    /*margin-left: 20px;*/
     vertical-align: middle;
     margin: 0px 0px 0px 80px;
 }
@@ -1645,18 +1604,16 @@ foreignObject svg {
 
 }
 
-
 .icon-X {
-    width: 20px; /* ширина иконки */
-    height: 20px; /* высота иконки */
+    width: 20px;
+    height: 20px;
     fill: #808080;
-    transition: 0.25s; /* плавное изменение цвета при наведении */
-    /*margin-bottom: 1rem;*/
+    transition: 0.25s;
 }
 
 .icon-X:hover {
-    fill: var(--primary-color); /* цвет заливки иконки при наведении */
-    /*fill: #0075FF;*/
+    fill: var(--primary-color);
+
 }
 
 .parent-comment-preview {
@@ -1701,19 +1658,6 @@ p {
 .author-text {
     margin-top: 10px;
 }
-
-
-/*.icon-arrow {
-    width: 40px;
-    height: 40px;
-    fill: #FFFFFF;
-    Stroke: #808080;
-    transition: 0.25s;
-}
-
-.icon-arrow:hover {
-    stroke: var(--primary-color);
-}*/
 
 .show-all-comments-button {
     width: 100%;
@@ -1772,7 +1716,7 @@ button[disabled]:hover {
     margin-top: 40px;
 }
 
-  .loading-container {
+.loading-container {
     margin: 0 auto;
     width: 5em;
     height: 5em;
@@ -1780,4 +1724,133 @@ button[disabled]:hover {
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
-  }
+}
+
+.icon-notifications {
+    width: 30px;
+    height: 30px;
+    fill: var(--main-bg-color);
+    stroke-width: 1.7px;
+    stroke: var(--header-bg-color);
+    stroke-opacity: var(--header-opacity);
+    transition: 0.25s;
+}
+
+.icon-notifications:hover {
+    stroke: #48B5FF;
+    stroke-opacity: 1.0;
+}
+
+.icon-notifications2 {
+    width: 22px;
+    height: 26px;
+    fill: var(--main-bg-color);
+    stroke-width: 1.7px;
+    stroke: var(--header-bg-color);
+    stroke-opacity: var(--header-opacity);
+    transition: 0.25s;
+}
+
+.icon-notifications2:hover {
+    stroke: #48B5FF;
+    stroke-opacity: 1.0;
+}
+
+s-1-1 { /*the color and style of the superscript in the list section-menu, Drafts, Moderation*/
+    font-family: Roboto, Verdana, sans-serif;
+    color: var(--text-sup-color1);
+    font-weight: 700;
+    position: absolute;
+    margin-top: 10px;
+    margin-left: 0px;
+}
+
+
+.minus-circle-solid {
+    width: 20px;
+    height: 20px;
+    fill: var(--header-bg-color);
+    fill-opacity: var(--header-opacity);
+    transition: 0.25s;
+
+}
+
+.minus-circle-solid:hover {
+    fill: var(--danger-color);
+    fill-opacity: 0.7;
+}
+
+.icon-draft-del {
+    width: 20px;
+    height: 20px;
+    fill: var(--header-bg-color);
+    fill-opacity: var(--header-opacity);
+    transition: 0.25s;
+
+}
+
+.icon-draft-del:hover {
+    fill: #48B5FF;
+    fill-opacity: 1.0;
+}
+
+.icon-draft-edit {
+    width: 20px;
+    height: 20px;
+    fill: var(--header-bg-color);
+    fill-opacity: var(--header-opacity);
+    transition: 0.25s;
+
+}
+
+.icon-draft-edit:hover {
+    fill: #48B5FF;
+    fill-opacity: 1.0;
+}
+
+.icon-draft-mod {
+    width: 20px;
+    height: 20px;
+    fill: var(--header-bg-color);
+    fill-opacity: var(--header-opacity);
+    transition: 0.25s;
+
+}
+
+.icon-draft-mod:hover {
+    fill: #48B5FF;
+    fill-opacity: 1.0;
+}
+
+.icon-draft-no-mod {
+    width: 20px;
+    height: 20px;
+    fill: var(--header-bg-color);
+    fill-opacity: var(--header-opacity);
+    transition: 0.25s;
+
+}
+
+.icon-draft-no-mod:hover {
+    fill: var(--danger-color);
+    fill-opacity: 0.7;
+}
+
+element.style {
+    height: auto !important;
+    width: 100% !important;
+}
+
+.icon-publish {
+    width: 19px;
+    height: 19px;
+    fill: var(--header-bg-color);
+    fill-opacity: var(--header-opacity);
+    transition: 0.25s;
+
+}
+
+.icon-publish:hover {
+    fill: #48B5FF;
+    fill-opacity: 1.0;
+}

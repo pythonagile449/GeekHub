@@ -1735,3 +1735,18 @@ a.comment-anchor {
     top: -60px;
     visibility: hidden;
 }
+
+.icon-notifications {
+    width: 28px; /* ширина иконки */
+    height: 28px; /* высота иконки */
+    fill: var(--header-bg-color); /* цвет заливки иконки */
+    fill-opacity: var(--header-opacity);
+    /*fill: #808080; /* цвет заливки иконки */
+    transition: 0.25s; /* плавное изменение цвета при наведении */
+    /*margin-left: 17px;*/
+}
+
+.icon-notifications:hover {
+    fill: #48B5FF; /* цвет заливки иконки при наведении */
+    fill-opacity: 1.0;
+}

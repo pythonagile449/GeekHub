@@ -107,9 +107,11 @@
                                         <ul class="lvc-group">
                                             {# TODO при нажатии на комментарий редирект на страницу статьи и фокус в поле ввода комментария#}
                                             <li title="Комментарии">
-                                                <svg class="icon-comment">
-                                                    <use xlink:href="#fluent_comment-24-filled_active"></use>
-                                                </svg>
+                                                <a href="{% url 'mainapp:article_detail' article.pk %}" title="Читать и комментировать">
+                                                    <svg class="icon-comment">
+                                                        <use xlink:href="#fluent_comment-24-filled_active"></use>
+                                                    </svg>
+                                                </a>
                                             </li>
                                             <h5-2-lvc>{{ article.pk|get_comments_count }}</h5-2-lvc>
                                         </ul>
