@@ -6,7 +6,7 @@ register = template.Library()
 
 
 def get_comments_count(pk):
-    return CommentsBranch.objects.filter(article_id=pk).count()
+    return CommentsBranch.get_comments_count_by_article(pk)
 
 
 register.filter('get_comments_count', get_comments_count)

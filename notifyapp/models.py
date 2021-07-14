@@ -8,7 +8,7 @@ from usersapp.models import GeekHubUser
 class Notification(models.Model):
     sender = models.ForeignKey(GeekHubUser, on_delete=models.CASCADE, verbose_name='Отправитель', related_name='sender')
     recipient = models.ForeignKey(GeekHubUser, on_delete=models.CASCADE, verbose_name='Получатель',
-                                  related_name='recipient')
+                                  related_name='recipient', null=True)
     message = models.CharField(max_length=512, verbose_name='Сообщение')
     created_at = models.DateTimeField(auto_now_add=True)
     is_read = models.BooleanField(default=False)

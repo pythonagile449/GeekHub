@@ -3,6 +3,7 @@ from uuid import uuid4
 from django.contrib.auth.hashers import make_password
 from django.contrib.contenttypes.fields import GenericRelation
 from django.db import models
+from django.shortcuts import get_object_or_404
 
 from mainapp.models import Article
 from ratingsapp.models import RatingCount
@@ -25,6 +26,8 @@ class Comment(models.Model):
     created_at = models.DateTimeField(verbose_name='Время создания', auto_now_add=True)
     hash_view = models.CharField(max_length=256, blank=True)
 
+    is_moderation = models.BooleanField(default=False)
+
     def __str__(self):
         if self.parent_comment:
             return f'{self.parent_comment}/{self.pk}'
@@ -43,8 +46,20 @@ class CommentsBranch(Comment):
 
     @staticmethod
     def get_comments_count_by_article(article_id):
-        return CommentsBranch.objects.filter(article_id=article_id).count()
+        article = get_object_or_404(Article, pk=article_id)
+        comments = CommentsBranch.objects.filter(article=article)
+        if article.is_published:
+            comments_count = comments.filter(is_moderation=False).count()
+        else:
+            comments_count = comments.filter(is_moderation=True).count()
+        return comments_count
 
     @staticmethod
     def get_last_comments(article_id, comments_count):
-        return CommentsBranch.objects.filter(article_id=article_id).order_by('-created_at')[:comments_count]
+        article = get_object_or_404(Article, pk=article_id)
+        comments = CommentsBranch.objects.filter(article=article).order_by('-created_at')
+        if article.is_published:
+            comments = comments.filter(is_moderation=False)
+        else:
+            comments = comments.filter(is_moderation=True)
+        return comments[:comments_count]

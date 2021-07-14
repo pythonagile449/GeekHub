@@ -375,7 +375,7 @@ class ModerationList(ListView):
     """
     # template_name = 'mainapp/user_articles_list.html'
     template_name = 'mainapp/user_articles_list_table.html'
-    queryset = Article.objects.filter(is_moderation_in_progress=True, is_deleted=False)
+    queryset = Article.objects.filter(is_moderation_in_progress=True, is_deleted=False).order_by('publication_date')
     context_object_name = 'articles'
 
     def get_context_data(self, *, object_list=None, **kwargs):
