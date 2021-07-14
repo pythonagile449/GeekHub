@@ -1,5 +1,5 @@
 from django.db.models.functions import datetime
-from django.http import HttpResponseRedirect, JsonResponse, Http404
+from django.http import HttpResponseRedirect, JsonResponse, HttpResponse
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DetailView, ListView, DeleteView, UpdateView
 
@@ -284,9 +284,19 @@ class ArticleReturnToDrafts(DeleteView):
         return HttpResponseRedirect(self.get_success_url())
 
 
-class ShowTop(ListView):
-    # template_name = 'mainapp/user_articles_list.html'
-
-    def get_queryset(self, **kwargs):
-        queryset = Article.objects.filter(is_published=True).order_by('-publication_date')[:7]
-        return queryset
+def top_menu(request):
+    if request.method == 'GET' and request.is_ajax():
+        context = []
+        top_articles = Article.objects.filter(is_published=True).order_by('-publication_date')[:7]
+        for article in top_articles:
+            comments_number = CommentsBranch.get_comments_count_by_article(article.id)
+            context.append({
+                'id': article.id,
+                'title': article.title,
+                # 'rating': article.rating,
+                'views_number': article.views,
+                'comments_number': comments_number
+            })
+        return JsonResponse(context, safe=False)
+    else:
+        return HttpResponse(status=404)

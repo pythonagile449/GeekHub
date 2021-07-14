@@ -1,4 +1,4 @@
-"use stict"
+"use strict"
 
 document.addEventListener('DOMContentLoaded', () => {
     let toolBarLinks = document.querySelectorAll('ul.section-menu li a.link-menu');

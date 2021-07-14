@@ -1,4 +1,4 @@
-"use stict"
+"use strict"
 
 document.addEventListener('DOMContentLoaded', () => {
     let menuLinks = document.querySelectorAll('ul.menu-left li a.link-menu');
