@@ -5,14 +5,32 @@
     <div class="menu-left">
         <ul class="menu-left"> <!-- Прижат к левому краю блока-->
             <li><a href="/" class="link-menu">Все хабы</a></li>
-            {% for hub in hubs %}
+            {% if hubs|length < 4 %}
+                {% for hub in hubs%}
+                    <li><a href="{{ hub.get_absolute_url }}" class="link-menu">{{ hub.name }}</a></li>
+                {% empty %}
+
+                {% endfor %}
+            {% else %}
+                {% for hub in hubs|slice:":3" %}
                 <li><a href="{{ hub.get_absolute_url }}" class="link-menu">{{ hub.name }}</a></li>
-                {# Дизайн #}
-                {# Веб-разработка #}
-                {# Мобильная разработка #}
-                {# Маркетинг #}
             {% empty %}
             {% endfor %}
+            <div class="top-info-menu">
+                <div class="dropdown">
+                    <div class="top-menu-dropbtn">
+                        <svg class="icon-more-hubs">
+                            <use xlink:href="#more_hubs"></use>
+                        </svg>
+                    </div>
+                    <div class="dropdown-content">
+                        {% for hub in hubs|slice:"3:" %}
+                        <div class="menu-dropdown"><a class="link-menu" href="{{ hub.get_absolute_url }}">{{ hub.name }}</a></div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% endif %}
         </ul>
     </div>
 
@@ -123,5 +141,8 @@
     </symbol>
     <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 24" id="icon_notifications2">
         <path d="M16.789 16.23c-1.24-1.488-2.115-2.113-2.115-6.215 0-3.758-1.956-5.094-3.567-5.744a.864.864 0 01-.481-.513C10.345 2.815 9.554 2 8.501 2s-1.845.815-2.125 1.758a.875.875 0 01-.48.514c-1.612.65-3.567 1.985-3.567 5.744 0 4.102-.876 4.727-2.115 6.215C-.3 16.846.164 18 1.063 18h14.876c.893 0 1.361-1.155.85-1.77zM5.354 19a.335.335 0 00-.263.123.381.381 0 00-.09.291C5.202 21.17 6.665 22 8.505 22c1.82 0 3.271-.858 3.494-2.58a.398.398 0 00-.087-.295.355.355 0 00-.12-.093.334.334 0 00-.146-.032h-6.29z"></path>
+    </symbol>
+    <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="more_hubs">
+        <path d="M19.5 14a2.5 2.5 0 110-5 2.5 2.5 0 010 5zM12 14a2.5 2.5 0 110-5 2.5 2.5 0 010 5zm-7.5 0a2.5 2.5 0 110-5 2.5 2.5 0 010 5z"></path>
     </symbol>
 </svg>

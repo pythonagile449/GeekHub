@@ -118,7 +118,7 @@ ul.menu-left { /* Menu list */
 ul.menu-left li { /* Menu list items */
     font-family: Roboto, Verdana, sans-serif;
     display: inline; /* Display as a lowercase element */
-    /* margin-right: 20px;*/
+    margin-right: 20px;
     margin-left: 20px;
     text-align: center;
 }
@@ -1871,4 +1871,17 @@ element.style {
 .icon-draft-arrow-hook:hover {
     fill: var(--danger-color);
     fill-opacity: 0.7;
+}
+
+.icon-more-hubs {
+    width: 20px; /* ширина иконки */
+    height: 20px; /* высота иконки */
+    fill: var(--header-bg-color);
+    fill-opacity: var(--header-opacity);
+    transition: 0.25s; /* плавное изменение цвета при наведении */
+}
+
+.icon-more-hubs:hover {
+    fill: #48B5FF; /* цвет заливки иконки при наведении */
+    fill-opacity: 1.0;
 }
