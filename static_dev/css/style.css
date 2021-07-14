@@ -1906,3 +1906,7 @@ element.style {
 .cell-actions a {
     margin-right: 20px;
 }
+
+.ck-preview img {
+    max-width: 100%;
+}
