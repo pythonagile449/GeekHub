@@ -130,18 +130,30 @@
                                     </svg>
 <!--                                    <button class="button17" type="button">Удалить</button>-->
                                 </a>
+
                             {% elif is_on_moderation %}
-                                <a href="{% url 'mainapp:user_article_to_drafts' article.pk %}" title="Снять с модерации">
-                                    <svg class="icon-draft-no-mod">
-                                        <use xlink:href="#draft_mod"></use>
-                                    </svg>
-                                </a>
-                                {% if user.is_staff %}
-                                    <a href="{% url 'mainapp:article_publication' article.pk %}" title="Опубликовать">
-                                        <svg class="icon-publish">
-                                            <use xlink:href="#publish"></use>
-                                        </svg>
+                                {% if not user.is_staff %}
+                                    <a href="{% url 'mainapp:user_article_to_drafts' article.pk %}" title="Снять с модерации">
+                                        <svg class="icon-draft-no-mod"><use xlink:href="#draft_mod"></use></svg>
                                     </a>
+                                {% endif %}
+                                {% if user.is_staff %}
+                                    {% if user == article.author %}
+                                        <a href="{% url 'mainapp:user_article_to_drafts' article.pk %}" title="Снять с модерации">
+                                            <svg class="icon-draft-no-mod"><use xlink:href="#draft_mod"></use></svg>
+                                        </a>
+                                    {% else %}
+                                        <a href="{% url 'mainapp:user_article_to_drafts' article.pk %}" title="Вернуть на доработку">
+                                            <svg class="icon-draft-arrow-hook">
+                                                <use xlink:href="#arrow_hook2"></use>
+                                            </svg>
+                                        </a>
+                                    {% endif %}
+                                        <a href="{% url 'mainapp:article_publication' article.pk %}" title="Опубликовать">
+                                            <svg class="icon-publish">
+                                                <use xlink:href="#publish"></use>
+                                            </svg>
+                                        </a>
                                 {% endif %}
                             {% elif is_published %}
                                 <a href="{% url 'mainapp:user_article_to_drafts' article.pk %}" title="Снять с публикации">
@@ -194,6 +206,12 @@
         </symbol>
         <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" id="publish">
             <path d="M9.967 8.193L5 13h3v6h4v-6h3L9.967 8.193zM18 1H2C.9 1 0 1.9 0 3v12c0 1.1.9 2 2 2h4v-2H2V6h16v9h-4v2h4c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2zM2.5 4.25a.75.75 0 110-1.5.75.75 0 010 1.5zm2 0a.75.75 0 110-1.5.75.75 0 010 1.5zM18 4H6V3h12.019L18 4z"></path>
+        </symbol>
+        <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" id="arrow_hook">
+            <path d="M5.917 4.792A.792.792 0 016.709 4h4.75c1.798 0 3.204.68 4.154 1.75C16.549 6.804 17 8.185 17 9.542c0 1.356-.451 2.739-1.387 3.792-.95 1.067-2.356 1.75-4.154 1.75H5.453l1.816 1.814a.793.793 0 01-1.12 1.12L2.98 14.852a.792.792 0 010-1.121l3.167-3.167a.792.792 0 111.121 1.121L5.453 13.5h6.006c1.367 0 2.336-.507 2.97-1.22.647-.728.988-1.72.988-2.738 0-1.019-.34-2.011-.988-2.74-.634-.712-1.603-1.219-2.97-1.219h-4.75a.792.792 0 01-.792-.791z"></path>
+        </symbol>
+        <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" id="arrow_hook2">
+            <path d="M5.578 3.664c0-.375.142-.734.394-1 .251-.265.593-.414.949-.414h5.368c2.115 0 3.817.777 4.99 2.05a6.712 6.712 0 011.72 4.548 6.712 6.712 0 01-1.72 4.548c-1.173 1.272-2.875 2.049-4.99 2.049H6.581l1.288 1.357c.132.13.238.285.311.459a1.478 1.478 0 01-.277 1.575c-.127.134-.28.24-.446.311a1.283 1.283 0 01-1.05-.02 1.346 1.346 0 01-.435-.327l-3.579-3.77a1.453 1.453 0 01-.392-.999c0-.375.14-.734.392-.999l3.58-3.77c.254-.25.59-.385.938-.379.348.007.68.155.925.414.246.259.387.608.393.975.006.366-.123.72-.36.988l-1.288 1.357h5.708c1.464 0 2.447-.52 3.064-1.189a3.804 3.804 0 00.963-2.58 3.804 3.804 0 00-.963-2.58c-.617-.67-1.6-1.19-3.064-1.19H6.921c-.356 0-.698-.15-.95-.414a1.453 1.453 0 01-.393-1z"></path>
         </symbol>
     </svg>
 {% endblock %}
