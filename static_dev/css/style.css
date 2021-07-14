@@ -1636,7 +1636,7 @@ textarea.comment-area {
 }
 
 .button-field {
-    background-color: #red;
+    background-color: red;
 }
 
 p {
@@ -1708,6 +1708,7 @@ button[disabled]:hover {
 }
 
 .empty-content-message {
+    width: 100%;
     margin-top: 60px;
     text-align: center;
 }
@@ -1856,7 +1857,7 @@ element.style {
 }
 
 .modal-dialog {
-    background-color: var (--danger-color);
+    background-color: var(--danger-color);
 }
 
 .icon-draft-arrow-hook {
@@ -1886,7 +1887,22 @@ element.style {
     fill-opacity: 1.0;
 }
 
-/*TODO нужно сделать флекс бокс (появляется задержка не понимаю почему)*/
+.user-articles-table tbody tr:hover {
+    background-color: rgb(250, 250, 250);
+}
+
+.article-row td:first-child {
+    width: 475px;
+}
+
+.cell-date {
+    text-align: center;
+}
+
+.cell-actions {
+    text-align: center;
+}
+
 .cell-actions a {
     margin-right: 20px;
 }

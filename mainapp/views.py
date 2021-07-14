@@ -158,7 +158,7 @@ class ArticleUpdate(UpdateView):
             article.is_draft = False
             article.is_moderation_in_progress = True
             article.publication_date = datetime.datetime.now()
-            self.success_url = reverse_lazy('mainapp:user_moderation_articles')
+            self.success_url = reverse_lazy('mainapp:drafts')
             article.save()
             return HttpResponseRedirect(self.success_url)
         if request.path.startswith('/publish/'):
