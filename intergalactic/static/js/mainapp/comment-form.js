@@ -11,7 +11,7 @@ class Comment {
         this.commentsTreeBlock = document.querySelector('.comments-tree-block');
         this.parentCommentSmall = document.querySelector('.parent-comment-small');
         this.parentCommentText = document.querySelector('.parent-comment-text');
-        this.closeAnswerButton = document.querySelector(".close-answer-button")
+        this.closeAnswerButton = document.querySelector(".close-answer-button");
         this.setHandlers();
         this.setAfterRenderHandlers();
     }
