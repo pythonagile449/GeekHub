@@ -9,6 +9,29 @@
     box-sizing: initial;
 }
 
+html,
+body {
+    height: 100%;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+.content {
+    flex: 1 0 auto;
+}
+
+.footer {
+    flex: 0 0 auto;
+}
+
 :root {
     --main-bg-color: #FFFFFF;
     --section-bg-color: #E9E9E9;
@@ -16,22 +39,22 @@
     --section-warning-color: #FCFFD8;
     --section-success-color: #DDFFDC;
     --footer-bg-color: #C8C8C8;
-    --primary-color: #48B5FF; /*цвет синих элементов*/
-    --secondary-color: #5085A9; /*цвет "Читать далее"*/
+    --primary-color: #48B5FF; /*the color of the blue elements*/
+    --secondary-color: #5085A9; /*color "Read more"*/
     --header-bg-color: #000000;
     --text-color: #000000;
     --text-secondary-color: black;
-    --text-secondary-opacity: 0, 6;
-    --text-sup-color1: #48B5FF; /*основной синий*/ /*Профиль - О себе*/
-    --text-sup-color2: #00A17B; /*зеленый*/ /*Профиль - О себе*/
-    --text-sup-color3: #6B6B6B; /*серый*/ /*Профиль - О себе*/
-    --primary-opacity: 0.3; /*цвет кнопки "регистрация"*/
-    --secondary-opacity: 0.3; /*цвет рамки "Читать далее"*/
-    --header-opacity: 0.7; /*фон header"*/
+    --text-secondary-opacity: 0.6;
+    --text-sup-color1: #48B5FF; /*basic blue*/ /*Profile - About yourself*/
+    --text-sup-color2: #00A17B; /*green*/ /*Profile - About yourself*/
+    --text-sup-color3: #6B6B6B; /*gray*/ /*Profile - About yourself*/
+    --primary-opacity: 0.3; /*the color of the "register" button"*/
+    --secondary-opacity: 0.3; /*the color of the frame "Read more"*/
+    --header-opacity: 0.7; /*background header"*/
     --text-opacity: 0.6;
     --link-hover-color: #5085A9;
     --link-active-color: #48B5FF;
-    --da--link-active-colornger-color: red;
+    --danger-color: #FF4848;
     --warning-color: yellow;
     --success-color: green;
 }
@@ -72,6 +95,12 @@ a:hover {
     margin: 0;
     padding: 0;
     flex-direction: row;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background-color: var(--main-bg-color);
+    border-bottom: 1px solid;
+    border-color: var(--section-bg-color);
 }
 
 ul {
@@ -79,40 +108,40 @@ ul {
     padding: 0;
 }
 
-ul.menu-left { /* Список меню */
-    background-color: var(--main-bg-color); /* цвет фона */
+ul.menu-left { /* Menu list */
+    background-color: var(--main-bg-color);
     display: flex;
     height: 60px;
     align-items: center;
 }
 
-ul.menu-left li { /* Пункты списка меню */
+ul.menu-left li { /* Menu list items */
     font-family: Roboto, Verdana, sans-serif;
-    display: inline; /* Отображать как строчный элемент */
-    /* margin-right: 20px; Отступ слева */
-    margin-left: 20px; /* Отступ справа */
+    display: inline; /* Display as a lowercase element */
+    /* margin-right: 20px;*/
+    margin-left: 20px;
     text-align: center;
 }
 
-ul.menu-right { /* Список меню */
-    background-color: var(--main-bg-color); /* цвет фона */
+ul.menu-right { /* Menu List */
+    background-color: var(--main-bg-color);
     display: flex;
     height: 60px;
     align-items: center;
     padding-right: 20px;
 }
 
-ul.menu-right li { /* Пункты списка меню */
+ul.menu-right li { /* Menu list items*/
     font-family: Roboto, Verdana, sans-serif;
-    display: inline; /* Отображать как строчный элемент */
-    /*margin-right: 5px; /* Отступ слева */
-    margin-left: 20px; /* Отступ справа */
+    display: inline;
+    /*margin-right: 5px;*/
+    margin-left: 20px;
     text-align: center;
 }
 
-.link-menu { /* Пункты списка меню */
-    color: var(--text-color); /* Цвет ссылок */
-    text-decoration: none; /* убрать подчеркивание */
+.link-menu { /* Menu list items */
+    color: var(--text-color); /* Link color */
+    text-decoration: none; /* remove the underscore */
     font-size: 14px;
     transition: color 0.3s ease 0s;
     font-weight: 500;
@@ -183,6 +212,12 @@ ul.menu-right li { /* Пункты списка меню */
     padding-left: 20px;
 }
 
+.section-menu {
+    position: sticky;
+    top: 60px;
+    z-index: 20;
+}
+
 ul.section-menu {
     background: var(--section-bg-color);
     display: flex;
@@ -190,11 +225,11 @@ ul.section-menu {
     align-items: center;
 }
 
-ul.section-menu li { /* Пункты списка меню */
+ul.section-menu li { /* Menu list items */
     font-family: Roboto, Verdana, sans-serif;
-    display: inline; /* Отображать как строчный элемент */
-    /*margin-right: 20px; Отступ слева */
-    margin-left: 20px; /* Отступ справа */
+    display: inline;
+
+    margin-left: 20px;
     text-align: center;
 }
 
@@ -214,7 +249,7 @@ ul.section-menu li { /* Пункты списка меню */
 
 .section-left {
     width: 753px;
-    background: var(--main-bg-color); /* цвет фона */
+    background: var(--main-bg-color);
 }
 
 .section-right {
@@ -255,7 +290,7 @@ h5-1 {
     font-family: Roboto, Verdana, sans-serif;
     font-size: 14px;
     font-weight: 500;
-    margin-left: 10px;
+    /*margin-left: 10px;*/
     color: var(--text-color);
     text-indent: 25px;
 }
@@ -280,8 +315,24 @@ h5-2-lvc { /*+chart color */
     font-family: Roboto, Verdana, sans-serif;
     font-size: 14px;
     font-weight: 500;
-    margin-left: 5px;
     color: var(--secondary-color);
+    padding-right: 5px;
+    margin-left: 5px;
+}
+
+h5-2-lvc-plus { /*+chart  color */
+    font-family: Roboto, Verdana, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--primary-color);
+    padding-right: 5px;
+}
+
+h5-2-lvc-minus { /*-chart  color */
+    font-family: Roboto, Verdana, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--danger-color);
     padding-right: 5px;
 }
 
@@ -325,9 +376,9 @@ ul.author-data {
     align-items: center;
 }
 
-ul.author-data li { /* Пункты списка меню */
+ul.author-data li { /* Menu list items */
     font-family: Roboto, Verdana, sans-serif;
-    display: inline; /* Отображать как строчный элемент */
+    display: inline; /* Display as a lowercase element */
     text-align: center;
 }
 
@@ -348,14 +399,14 @@ ul.lvc-field {
 
 ul.lvc-field li {
     font-family: Roboto, Verdana, sans-serif;
-    display: inline; /* Отображать как строчный элемент */
+    display: inline; /* Display as a lowercase element */
     margin-right: 0px;
     text-align: center;
 }
 
-.lvc-group { /* Пункты списка меню */
+.lvc-group { /* Menu list items */
     font-family: Roboto, Verdana, sans-serif;
-    display: inline; /* Отображать как строчный элемент */
+    display: inline; /* Display as a lowercase element */
     margin-right: 0px;
     text-align: center;
     justify-align: center;
@@ -370,7 +421,7 @@ ul.lvc-group {
 
 ul.lvc-group li {
     font-family: Roboto, Verdana, sans-serif;
-    display: inline; /* Отображать как строчный элемент */
+    display: inline; /* Display as a lowercase element */
     margin-right: 0px;
     text-align: center;
 }
@@ -386,7 +437,7 @@ ul.lvc-group li {
 }
 
 
-/*Шаблоны регистрации, входа и geekhub-message*/
+/*Registration, login and geekhub-message*/
 .upper-margin {
     height: 65px;
 }
@@ -521,7 +572,7 @@ input-text-right {
     align-items: center;
 }
 
-/*Шаблон входа*/
+/*For Login*/
 
 .container-login {
     display: flex;
@@ -549,7 +600,15 @@ input-text-right {
     color: var(--main-bg-color);
 }
 
-/*Шаблон geekhub-message*/
+/*.button4:active, button:focus {
+  outline: none;
+  color: var(--text-color);
+}
+.button4::-moz-focus-inner {
+  border: 0;
+}*/
+
+/*For geekhub-message*/
 .indent-20 {
     min-height: 20px;
     display: flex;
@@ -596,7 +655,7 @@ input-text-right {
     text-indent: 25px;
 }
 
-/*Шаблон confirmation_registration*/
+/*For confirmation_registration*/
 
 .message-success {
     background: var(--section-success-color);
@@ -638,7 +697,7 @@ input-text-right {
     color: var(--main-bg-color);
 }
 
-/*Шаблон registration_fail*/
+/*For registration_fail*/
 
 .message-fail {
     background: var(--section-fail-color);
@@ -695,24 +754,42 @@ input-text-right {
     color: var(--primary-color);
 }
 
-/*Профиль - О себе*/
+/*About me (geekhubuser_update.html)*/
 
-s-1 { /*цвет и стиль верхнего индекса в списке section-menu, Черновики, Модерация*/
+s-1 { /*the color and style of the superscript in the list section-menu, Drafts, Moderation*/
     font-family: Roboto, Verdana, sans-serif;
     color: var(--text-sup-color1);
     font-weight: 700;
 }
 
-s-2 { /*цвет и стиль верхнего индекса в списке section-menu, Мои статьи*/
+s-2 { /*the color and style of the superscript in the list section-menu, My articles*/
     font-family: Roboto, Verdana, sans-serif;
     color: var(--text-sup-color2);
     font-weight: 700;
 }
 
-s-3 { /*цвет и стиль верхнего индекса в списке section-menu, Корзина*/
+s-3 { /*the color and style of the superscript in the list section-menu, Basket*/
     font-family: Roboto, Verdana, sans-serif;
     color: var(--text-sup-color3);
     font-weight: 700;
+}
+
+/* For field birthday in geekhubuser_update.html, redefinition bootstrap, it may not be necessary */
+.form-control {
+    padding: 0rem 0rem !important;
+}
+
+/* For field birthday and selects in geekhubuser_update.html, redefinition bootstrap */
+select {
+    outline: none;
+    font-size: 14px;
+    font-family: Roboto, Verdana, sans-serif;
+    font-weight: 500;
+    min-width: 100px !important;
+    border: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }
 
 .section-part {
@@ -743,7 +820,7 @@ s-3 { /*цвет и стиль верхнего индекса в списке s
 
 .block-foto-button {
     width: 270px;
-    height: 150px;
+    height: 50px;
     /*display: flex;*/
     justify-content: center;
     align-items: center;
@@ -751,8 +828,8 @@ s-3 { /*цвет и стиль верхнего индекса в списке s
 
 .block-settings {
     width: 270px;
-    height: 160px;
-    background: var(--section-bg-color); /* цвет фона */
+    height: 260px;
+    background: var(--section-bg-color);
     border-radius: 5px;
 }
 
@@ -776,25 +853,6 @@ s-3 { /*цвет и стиль верхнего индекса в списке s
     color: var(--main-bg-color);
 }
 
-/*.block-foto-button {
-    transition: color 0.3s ease 0s;
-    font-weight: 500;
-    background: rgba(72, 181, 255, 0.2);
-    border-radius: 5px;
-    color: var(--text-color);
-    padding: 8px 12px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 14px;
-    cursor: pointer;
-    border: none;
-    font-family: Roboto, Verdana, sans-serif;
-}
-
-.block-foto-button:hover {
-    background: rgba(72, 181, 255, 0.6);
-    color: var(--main-bg-color);
-}*/
 
 .button10 {
     transition: color 0.3s ease 0s;
@@ -923,7 +981,6 @@ textarea {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    margin-left: 20px;
 }
 
 .select-2 {
@@ -937,7 +994,6 @@ textarea {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    margin-left: 20px;
 }
 
 input[type="date"] {
@@ -951,8 +1007,6 @@ input[type="date"] {
     margin-left: 20px;
     height: 30px;
 }
-
-/*Профиль - О себе - удалить профиль*/
 
 .button12 {
     transition: color 0.3s ease 0s;
@@ -995,7 +1049,7 @@ input[type="date"] {
     color: var(--main-bg-color);
 }
 
-/*Профиль - Редактор статей*/
+/*For article_form*/
 
 .indent-30-2 {
     height: 30px;
@@ -1163,7 +1217,7 @@ input[type="date"] {
     border-color: rgba(72, 181, 255, 0.2);
 }
 
-/*Для страницы index_view_article.html*/
+/*For article_detail.html*/
 
 .my-text {
     justify-content: center;
@@ -1229,11 +1283,14 @@ input[type="date"] {
     margin-bottom: 20px;
 }
 
-.indent-50-2 {
+.draft-button {
     height: 50px;
     display: flex;
     align-items: center;
     background-color: var(--section-bg-color);
+    position: sticky;
+    top: 120px;
+    z-index: 10;
 }
 
 .editor-block-text {
@@ -1280,7 +1337,7 @@ input[type="date"] {
     background-color: var(--section-bg-color);
 }
 
-/*Для страницы article_editor.html*/
+/*For article_editor.html*/
 
 .select-3 {
     color: var(--text-color);
@@ -1302,7 +1359,7 @@ input.placeholder[type="text"] {
     font-size: 14px;
     font-family: Roboto, Verdana, sans-serif;
     font-weight: 500;
-    width: 240px;
+    width: auto;
 }
 
 .editor-placeholder {
@@ -1317,10 +1374,33 @@ input.placeholder[type="text"] {
 /* reset bootstrap styles for markdown editor */
 div.martor-preview {
     background-color: transparent;
+    padding: 0;
+    overflow: auto;
 }
 
 code {
     color: inherit;
+}
+
+.placeholder {
+    border: none;
+    margin-left: 20px;
+}
+
+:focus::-webkit-input-placeholder {
+    color: transparent
+}
+
+:focus::-moz-placeholder {
+    color: transparent
+}
+
+:focus:-moz-placeholder {
+    color: transparent
+}
+
+:focus:-ms-input-placeholder {
+    color: transparent
 }
 
 .answer {
@@ -1329,4 +1409,344 @@ code {
 
 .error {
     color: rgb(255, 129, 129);
+}
+
+.hidden {
+    visibility: hidden;
+    width: 0;
+    height: 0;
+    z-index: -99;
+}
+
+textarea.comment-area {
+    width: 100%;
+}
+
+.new-edit-menu {
+    font-family: Roboto, Verdana, sans-serif;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    margin: 0;
+    padding: 0;
+    flex-direction: row;
+}
+
+.icon-new {
+    width: 28px; /* ширина иконки */
+    height: 28px; /* высота иконки */
+    fill: var(--header-bg-color); /* цвет заливки иконки */
+    fill-opacity: var(--header-opacity);
+    /*fill: #808080; /* цвет заливки иконки */
+    transition: 0.25s; /* плавное изменение цвета при наведении */
+    margin-left: 0px;
+    margin-right: 17px;
+}
+
+.icon-new:hover {
+    fill: #48B5FF; /* цвет заливки иконки при наведении */
+    fill-opacity: 1.0;
+}
+
+.icon-user {
+    width: 28px; /* ширина иконки */
+    height: 28px; /* высота иконки */
+    fill: var(--header-bg-color); /* цвет заливки иконки */
+    fill-opacity: var(--header-opacity);
+    /*fill: #808080; /* цвет заливки иконки */
+    transition: 0.25s; /* плавное изменение цвета при наведении */
+}
+
+.icon-user:hover {
+    fill: #48B5FF; /* цвет заливки иконки при наведении */
+    fill-opacity: 1.0;
+}
+
+.icon-edit {
+    width: 28px; /* ширина иконки */
+    height: 28px; /* высота иконки */
+    fill: var(--header-bg-color); /* цвет заливки иконки */
+    fill-opacity: var(--header-opacity);
+    /*fill: #808080; /* цвет заливки иконки */
+    transition: 0.25s; /* плавное изменение цвета при наведении */
+    /*margin-left: 17px;*/
+}
+
+.icon-edit:hover {
+    fill: #48B5FF; /* цвет заливки иконки при наведении */
+    fill-opacity: 1.0;
+}
+
+.icon-up {
+    width: 20px; /* ширина иконки */
+    height: 20px; /* высота иконки */
+    fill: #808080; /* цвет заливки иконки */
+    transition: 0.25s; /* плавное изменение цвета при наведении */
+    /*display:block;*/
+    /*display:inline-block;*/
+    /*pointer-events: none;*/
+}
+
+
+.icon-up:hover {
+    fill: #48B5FF; /* цвет заливки иконки при наведении */
+    /*fill: #0075FF;*/
+}
+
+.icon-down {
+    width: 20px; /* ширина иконки */
+    height: 20px; /* высота иконки */
+    fill: #808080; /* цвет заливки иконки */
+    transition: 0.25s; /* плавное изменение цвета при наведении */
+}
+
+.icon-down:hover {
+    fill: #FF4848; /* цвет заливки иконки при наведении */
+    /*fill: #F80000*/
+}
+
+.icon-comment {
+    width: 20px; /* ширина иконки */
+    height: 20px; /* высота иконки */
+    fill: #5085A9; /* цвет заливки иконки */
+    transition: 0.25s; /* плавное изменение цвета при наведении */
+}
+
+.icon-comment:hover {
+    fill: #48B5FF; /* цвет заливки иконки при наведении */
+    /*fill: #0075FF;*/
+}
+
+.hidden {
+    display: none;
+}
+
+.dropbtn {
+    background-color: var(--main-bg-color);
+    color: white;
+    /*padding: 16px;*/
+    font-size: 16px;
+    border: none;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--section-bg-color);
+    min-width: 0 auto;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 1);
+    z-index: 100;
+    border-radius: 5px;
+    padding: 0px 16px;
+
+}
+
+.dropdown-content a {
+    color: black;
+    background-color: var(--section-bg-color);
+    text-decoration: none;
+    display: block;
+}
+
+/*.dropdown-content a:hover {background-color: #ddd;}*/
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/*.dropdown:hover .dropbtn {background-color: #3e8e41;}*/
+
+.menu-dropdown { /* Menu List */
+    background-color: var(--section-bg-color);
+    display: flex;
+    height: 0 auto;
+    align-items: center;
+    border-radius: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.field-foto-button {
+    padding-top: 10px;
+}
+
+.indent-50-2 {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    background-color: var(--section-bg-color);
+}
+
+/*label {
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+#red {
+  display: none;
+}
+
+svg {
+  display: block;
+}
+
+foreignObject svg {
+  pointer-events: none;
+}
+
+#luent_comment-24-filled_active {
+  fill: #5085A9
+  pointer-events: all;
+}
+
+#red:checked + svg #luent_comment-24-filled_active {
+  fill: #0075FF;
+}*/
+.answer-button {
+    position: absolute;
+    background-color: transparent;
+    border: none;
+    color: #707070;
+}
+
+.parent-comment-small {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    margin: 0;
+    padding: 0;
+    flex-direction: row;
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    align-items: center;
+}
+
+.field-left {
+    width: 95%;
+    /*margin-left: 20px;*/
+    vertical-align: middle;
+    margin: 0px 0px 0px 80px;
+}
+
+.field-right {
+    width: 5%;
+    text-align: center;
+}
+
+.close-answer-button {
+
+}
+
+
+.icon-X {
+    width: 20px; /* ширина иконки */
+    height: 20px; /* высота иконки */
+    fill: #808080;
+    transition: 0.25s; /* плавное изменение цвета при наведении */
+    /*margin-bottom: 1rem;*/
+}
+
+.icon-X:hover {
+    fill: var(--primary-color); /* цвет заливки иконки при наведении */
+    /*fill: #0075FF;*/
+}
+
+.parent-comment-preview {
+    font-family: Roboto, Verdana, sans-serif;
+    font-size: 12px;
+    background: var(--section-bg-color);
+    border-radius: 5px;
+    margin: 0px 0px 0px 80px;
+    padding: 8px 12px;
+    text-indent: 15px;
+}
+
+.parent-comment-text {
+    font-family: Roboto, Verdana, sans-serif;
+    font-size: 12px;
+    padding: 8px 12px;
+    text-indent: 15px;
+    background-color: var(--section-bg-color);
+    border-radius: 5px;
+}
+
+.button-field {
+    background-color: #red;
+}
+
+p {
+    margin-bottom: 0rem;
+}
+
+.answer-button {
+    margin-top: 1rem;
+}
+
+.section-left-text {
+    margin-bottom: 20px;
+}
+
+.opacity-div {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.author-text {
+    margin-top: 10px;
+}
+
+
+/*.icon-arrow {
+    width: 40px;
+    height: 40px;
+    fill: #FFFFFF;
+    Stroke: #808080;
+    transition: 0.25s;
+}
+
+.icon-arrow:hover {
+    stroke: var(--primary-color);
+}*/
+
+.show-all-comments-button {
+    width: 100%;
+    height: 20px;
+    color: var(--text-sup-color3);
+    text-align: center;
+    padding: 5px 0;
+}
+
+.show-all-comments-button:hover {
+    border-radius: 5px;
+    background-color: var(--section-success-color);
+    cursor: pointer;
+}
+
+a.comment-anchor {
+    display: block;
+    position: relative;
+    top: -60px;
+    visibility: hidden;
+}
+
+.icon-notifications {
+    width: 28px; /* ширина иконки */
+    height: 28px; /* высота иконки */
+    fill: var(--header-bg-color); /* цвет заливки иконки */
+    fill-opacity: var(--header-opacity);
+    /*fill: #808080; /* цвет заливки иконки */
+    transition: 0.25s; /* плавное изменение цвета при наведении */
+    /*margin-left: 17px;*/
+}
+
+.icon-notifications:hover {
+    fill: #48B5FF; /* цвет заливки иконки при наведении */
+    fill-opacity: 1.0;
 }

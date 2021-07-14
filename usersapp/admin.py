@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from usersapp.models import GeekHubUser
+from usersapp.models import GeekHubUser, BlockingByIp, BlockingByIpAdmin
 
 
 class CustomUserAdmin(UserAdmin):
@@ -32,3 +32,4 @@ class CustomUserAdmin(UserAdmin):
 
 
 admin.site.register(GeekHubUser, CustomUserAdmin)
+admin.site.register(BlockingByIp, BlockingByIpAdmin)

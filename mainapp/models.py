@@ -1,15 +1,14 @@
 from uuid import uuid4
 
+from bs4 import BeautifulSoup
 from ckeditor.fields import RichTextField
 from django.contrib.contenttypes.fields import GenericRelation
 from django.db import models
 from django.urls import reverse
 from martor.models import MartorField
-from ckeditor_uploader.fields import RichTextUploadingField
-from bs4 import BeautifulSoup
 
-from usersapp.models import GeekHubUser
 from ratingsapp.models import RatingCount
+from usersapp.models import GeekHubUser
 
 
 class Hub(models.Model):

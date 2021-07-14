@@ -37,7 +37,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 var Typo;
 
 (function () {
-    "use strict";
+"use strict";
 
     /**
      * Typo constructor.

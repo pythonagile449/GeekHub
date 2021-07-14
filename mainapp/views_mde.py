@@ -1,14 +1,13 @@
-import os
 import json
+import os
 import uuid
 
 from django.conf import settings
+from django.contrib.auth.decorators import login_required
+from django.core.files.base import ContentFile
+from django.core.files.storage import default_storage
 from django.http import HttpResponse
 from django.utils.translation import ugettext_lazy as _
-from django.contrib.auth.decorators import login_required
-from django.core.files.storage import default_storage
-from django.core.files.base import ContentFile
-
 from martor.utils import LazyEncoder
 
 

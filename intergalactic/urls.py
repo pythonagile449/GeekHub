@@ -5,14 +5,19 @@ from django.contrib.auth.decorators import login_required
 from django.urls import path, include
 from django.views.decorators.cache import never_cache
 from ckeditor_uploader import views as ckeditor_views
-
 from mainapp.views_mde import markdown_uploader
+
+handler400 = 'usersapp.views.show_400'
+handler403 = 'usersapp.views.show_403'
+handler404 = 'usersapp.views.show_404'
+handler500 = 'usersapp.views.show_500'
 
 urlpatterns = [
     path('', include('mainapp.urls', namespace='mainapp')),
     path('admin/', admin.site.urls),
     path('auth/', include('usersapp.urls', namespace='usersapp')),
     path('comments/', include('commentsapp.urls', namespace='commentsapp')),
+    path('notifications/', include('notifyapp.urls', namespace='notifyapp')),
 
     # mardown editor urls
     path('martor/', include('martor.urls')),

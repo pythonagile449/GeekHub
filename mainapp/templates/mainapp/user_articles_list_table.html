@@ -1,0 +1,233 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load martortags %}
+{% load comments %}
+{% load ratings %}
+
+{% block title %}
+    {{ title }} :: {{ block.super }}
+{% endblock %}
+
+{% block css %}
+    <link href="{% static 'plugins/css/ace.min.css' %}" type="text/css" media="all" rel="stylesheet"/>
+    <link href="{% static 'martor/css/martor.bootstrap.min.css' %}" type="text/css" media="all" rel="stylesheet"/>
+{% endblock %}
+
+{% block toolbar %}
+    {% include '_inc/profile_toolbar.html' %}
+{% endblock %}
+
+{% block content %}
+    <div class="content-container">
+        {% if articles %}
+            <table class="table user-articles-table">
+
+                <thead>
+                <tr>
+                    <th scope="col">
+                        Название статьи
+                    </th>
+
+                    {% if is_on_moderation and user.is_staff %}
+                        <th>Хаб</th>
+                        <th scope="col" colspan="3">Автор</th>
+                    {% else %}
+                        <th colspan="3">Хаб</th>
+                    {% endif %}
+
+                </tr>
+                </thead>
+
+                <tbody>
+
+                {% for article in articles %}
+                    <tr class="article-row">
+                        {# article title#}
+                        <td scope="row">
+                            <a href="{% url 'mainapp:article_detail' article.pk %}">
+                                {{ article.title|truncatechars:50 }}
+                            </a>
+                        </td>
+
+                        {# article hub name#}
+                        <td>{{ article.hub.name|truncatechars:20 }}</td>
+
+                        {# article author #}
+                        {% if is_on_moderation and user.is_staff %}
+                            <td>{{ article.author }}</td>
+                        {% endif %}
+
+                        <td>
+                            <div class="lvc-group">
+                                <ul class="lvc-group">
+                                    {% if is_published %}
+                                        <li>
+                                            <div class="lvc-group">
+                                                <ul class="lvc-group">
+                                                    <li title="Рейтинг"><img src="{% static 'svg/chart.svg' %}"
+                                                                             alt="like"></li>
+                                                    <li>
+                                                        <h5-2-lvc>{{ article.id|rating_total }}</h5-2-lvc>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="lvc-group">
+                                                <ul class="lvc-group" style="margin-left: 0">
+                                                    <li title="Просмотры"><img
+                                                            src="{% static 'svg/carbon_view-filled_active.svg' %}"
+                                                            alt="view"></li>
+                                                    <li>
+                                                        <h5-2-lvc>{{ article.views }}</h5-2-lvc>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                    {% endif %}
+                                    <li>
+                                        <svg class="icon-comment">
+                                            <use xlink:href="#fluent_comment-24-filled_active"></use>
+                                        </svg>
+                                    </li>
+                                    <li>
+                                        <h5-2-lvc
+                                                class="comments-counter">{{ article.pk|get_comments_count }}
+                                        </h5-2-lvc>
+                                    </li>
+                                </ul>
+                            </div>
+                        </td>
+
+                        {# article publication date #}
+                        <td style="white-space: nowrap" colspan="2"
+                            class="cell-date">{{ article.publication_date }}</td>
+
+                        {# article actions #}
+                        <td class="cell-actions hidden" colspan="2">
+                            {% if is_draft %}
+                                <a href="{% url 'mainapp:edit_draft' article.pk %}" title="Редактировать">
+                                    <svg class="icon-draft-edit">
+                                        <use xlink:href="#draft_edit"></use>
+                                    </svg>
+                                    <!--                                    <button class="button18" type="button">Редактировать</button>-->
+                                </a>
+                                <a href="{% url 'mainapp:send_article_on_moderation' article.pk %}"
+                                   title="Отправить на модерацию">
+                                    <svg class="icon-draft-mod">
+                                        <use xlink:href="#draft_mod"></use>
+                                    </svg>
+                                    <!--                                    <button class="button16" type="button">Отправить на модерацию</button>-->
+                                </a>
+                                <a href="{% url 'mainapp:user_article_delete' article.pk %}" title="Удалить">
+                                    <svg class="icon-draft-del">
+                                        <use xlink:href="#draft_delete"></use>
+                                    </svg>
+                                    <!--                                    <button class="button17" type="button">Удалить</button>-->
+                                </a>
+
+                            {% elif is_on_moderation %}
+                                {% if not user.is_staff %}
+                                    <a href="{% url 'mainapp:user_article_to_drafts' article.pk %}"
+                                       title="Снять с модерации">
+                                        <svg class="icon-draft-no-mod">
+                                            <use xlink:href="#draft_mod"></use>
+                                        </svg>
+                                    </a>
+                                {% endif %}
+                                {% if user.is_staff %}
+                                    {% if user == article.author %}
+                                        <a href="{% url 'mainapp:user_article_to_drafts' article.pk %}"
+                                           title="Снять с модерации">
+                                            <svg class="icon-draft-no-mod">
+                                                <use xlink:href="#draft_mod"></use>
+                                            </svg>
+                                        </a>
+                                    {% else %}
+                                        <a href="{% url 'mainapp:user_article_to_drafts' article.pk %}"
+                                           title="Вернуть на доработку">
+                                            <svg class="icon-draft-arrow-hook">
+                                                <use xlink:href="#arrow_hook2"></use>
+                                            </svg>
+                                        </a>
+                                    {% endif %}
+                                    <a href="{% url 'mainapp:article_publication' article.pk %}" title="Опубликовать">
+                                        <svg class="icon-publish">
+                                            <use xlink:href="#publish"></use>
+                                        </svg>
+                                    </a>
+                                {% endif %}
+                            {% elif is_published %}
+                                <a href="{% url 'mainapp:user_article_to_drafts' article.pk %}"
+                                   title="Снять с публикации">
+                                    <svg class="minus-circle-solid">
+                                        <use xlink:href="#minus-circle-solid"></use>
+                                    </svg>
+                                </a>
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+
+                </tbody>
+
+            </table>
+        {% elif not articles %}
+            <div class="empty-content-message">Статей нет</div>
+        {% endif %}
+
+        <!--        </div>-->
+
+    </div>
+
+    <!-- Hidden SVG sprite -->
+    <svg width="0" height="0" class="hidden">
+        <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 26" id="up3">
+            <path d="M16 9.5c0-.688-.563-1.25-1.25-1.25H8.275L9.1 4.275l.025-.288c0-.387-.162-.737-.412-1L7.725 2 1.55 8.175A1.88 1.88 0 001 9.5v8.125c0 1.038.837 1.875 1.875 1.875h8.438c.774 0 1.437-.475 1.724-1.137l2.825-6.613c.088-.213.138-.45.138-.688V9.5z"></path>
+        </symbol>
+        <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 26" id="down3">
+            <path d="M14.125 8H5.687c-.775 0-1.437.475-1.725 1.137L1.137 15.75c-.087.213-.137.45-.137.688V18c0 .688.563 1.25 1.25 1.25h6.475L7.9 23.225l-.025.3c0 .388.162.738.412 1l.988.975 6.175-6.175A1.88 1.88 0 0016 18V9.875A1.872 1.872 0 0014.125 8z"></path>
+        </symbol>
+        <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 26" id="up2">
+            <path d="M15 9.5c0-.596-.488-1.083-1.083-1.083H8.305l.715-3.445.022-.25c0-.335-.141-.639-.358-.866L7.828 3 2.477 8.352A1.63 1.63 0 002 9.5v7.042c0 .899.726 1.625 1.625 1.625h7.313c.671 0 1.245-.412 1.494-.986l2.449-5.731c.076-.184.119-.39.119-.596V9.5z"></path>
+        </symbol>
+        <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 26" id="down2">
+            <path d="M13.375 8H6.062c-.671 0-1.245.412-1.495.986l-2.448 5.73a1.58 1.58 0 00-.119.597v1.354c0 .595.487 1.083 1.083 1.083h5.612l-.715 3.445-.022.26c0 .336.141.64.358.867l.856.845 5.351-5.352A1.63 1.63 0 0015 16.667V9.625C15 8.725 14.274 8 13.375 8z"></path>
+        </symbol>
+        <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" id="fluent_comment-24-filled_active">
+            <path d="M4.375 15a2.708 2.708 0 01-2.708-2.708V5.208A2.708 2.708 0 014.375 2.5h11.25a2.708 2.708 0 012.708 2.708v7.084A2.709 2.709 0 0115.625 15h-4.82l-4.49 3.18A.833.833 0 015 17.503V15h-.625z"></path>
+        </symbol>
+        <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="minus-circle-solid">
+            <path d="M258 8C121 8 10 119 10 256s111 248 248 248 248-111 248-248S395 8 258 8zM124 296c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6 0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H124z"></path>
+        </symbol>
+        <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" id="draft_edit">
+            <path d="M17.127 3.081a2.621 2.621 0 010 3.707l-9.683 9.683c-.42.42-.946.717-1.522.86l-3.003.752a.655.655 0 01-.794-.796l.75-3.001a3.277 3.277 0 01.862-1.524l9.682-9.68a2.622 2.622 0 013.708 0zM12.492 5.86l-7.827 7.83a1.98 1.98 0 00-.516.914l-.486 1.944 1.942-.486c.346-.087.662-.266.914-.518l7.828-7.828-1.854-1.853V5.86zm1.855-1.852l-.928.927 1.853 1.853.929-.927a1.311 1.311 0 00-1.854-1.853z"></path>
+        </symbol>
+        <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" id="draft_delete">
+            <path d="M7.943 9.167V14.5a.64.64 0 00.213.471.762.762 0 00.514.196.76.76 0 00.515-.196.64.64 0 00.213-.471V9.167a.64.64 0 00-.213-.472.762.762 0 00-.515-.195.762.762 0 00-.514.195.64.64 0 00-.213.472zM11.58 8.5c.193 0 .377.07.514.195a.64.64 0 01.213.472V14.5a.64.64 0 01-.213.471.762.762 0 01-.514.196.762.762 0 01-.515-.196.64.64 0 01-.213-.471V9.167a.64.64 0 01.213-.472.762.762 0 01.515-.195z"></path>
+            <path d="M13.034 5.167h4.364a.76.76 0 01.514.195.64.64 0 01.213.471.64.64 0 01-.213.472.762.762 0 01-.514.195h-.805L15.5 15.535c-.098.815-.522 1.568-1.189 2.116a3.83 3.83 0 01-2.425.849h-3.52a3.83 3.83 0 01-2.425-.85 3.255 3.255 0 01-1.19-2.115L3.655 6.5h-.803a.762.762 0 01-.514-.195.64.64 0 01-.213-.472.64.64 0 01.213-.471.762.762 0 01.514-.195h4.364c0-.708.306-1.386.852-1.886a3.049 3.049 0 012.057-.781c.771 0 1.511.28 2.057.781.546.5.852 1.178.852 1.886zm-2.909-1.334c-.386 0-.756.14-1.029.39a1.28 1.28 0 00-.426.944h2.91a1.28 1.28 0 00-.427-.943 1.524 1.524 0 00-1.028-.39zM5.12 6.5l1.076 8.888c.06.49.314.941.714 1.27.4.327.918.509 1.455.509h3.52c.537 0 1.054-.182 1.454-.51.4-.328.654-.78.713-1.269l1.08-8.888H5.12z"></path>
+        </symbol>
+        <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" id="draft_mod">
+            <path d="M16.875 3.294c0-.01-.007-.019-.009-.031a.322.322 0 00-.042-.105c-.005-.006-.002-.012-.007-.016-.004-.008-.014-.013-.02-.019a.307.307 0 00-.079-.068c-.013-.008-.021-.016-.036-.022A.376.376 0 0016.54 3h-3.184a.323.323 0 00-.125.027c-.013.004-.02.01-.032.014a.462.462 0 00-.076.054l-.017.012c-.004.004-.004.008-.008.012a.336.336 0 00-.057.095l-.007.014-.002.004-2.943 9.322-2.944-9.322-.002-.004a.465.465 0 00-.061-.109.031.031 0 01-.009-.012c-.004-.006-.013-.008-.019-.012a.412.412 0 00-.076-.054c-.013-.006-.02-.012-.032-.014A.323.323 0 006.821 3H3.635a.366.366 0 00-.142.033c-.013.006-.023.014-.036.022a.274.274 0 00-.078.068c-.007.006-.017.01-.021.019-.005.006-.005.012-.009.018a.338.338 0 00-.04.103c-.002.012-.008.02-.008.03 0 .003-.003.005-.003.009L2.091 17.174a.324.324 0 00.089.251.341.341 0 00.247.107h2.988a.333.333 0 00.334-.296l.6-5.913 2.308 5.995c.01.027.025.05.042.072.002.002.002.006.004.01a.35.35 0 00.138.103.38.38 0 00.135.03h2.23a.37.37 0 00.134-.03c.011-.004.02-.01.03-.014a.352.352 0 00.106-.087c0-.002.002-.002.002-.002.002-.002.002-.006.004-.01a.27.27 0 00.042-.072l2.308-5.995.598 5.913a.334.334 0 00.336.296h2.986a.34.34 0 00.248-.107.316.316 0 00.088-.25L16.877 3.301l-.002-.008z"></path>
+        </symbol>
+        <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" id="publish">
+            <path d="M9.967 8.193L5 13h3v6h4v-6h3L9.967 8.193zM18 1H2C.9 1 0 1.9 0 3v12c0 1.1.9 2 2 2h4v-2H2V6h16v9h-4v2h4c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2zM2.5 4.25a.75.75 0 110-1.5.75.75 0 010 1.5zm2 0a.75.75 0 110-1.5.75.75 0 010 1.5zM18 4H6V3h12.019L18 4z"></path>
+        </symbol>
+        <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" id="arrow_hook">
+            <path d="M5.917 4.792A.792.792 0 016.709 4h4.75c1.798 0 3.204.68 4.154 1.75C16.549 6.804 17 8.185 17 9.542c0 1.356-.451 2.739-1.387 3.792-.95 1.067-2.356 1.75-4.154 1.75H5.453l1.816 1.814a.793.793 0 01-1.12 1.12L2.98 14.852a.792.792 0 010-1.121l3.167-3.167a.792.792 0 111.121 1.121L5.453 13.5h6.006c1.367 0 2.336-.507 2.97-1.22.647-.728.988-1.72.988-2.738 0-1.019-.34-2.011-.988-2.74-.634-.712-1.603-1.219-2.97-1.219h-4.75a.792.792 0 01-.792-.791z"></path>
+        </symbol>
+        <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" id="arrow_hook2">
+            <path d="M5.578 3.664c0-.375.142-.734.394-1 .251-.265.593-.414.949-.414h5.368c2.115 0 3.817.777 4.99 2.05a6.712 6.712 0 011.72 4.548 6.712 6.712 0 01-1.72 4.548c-1.173 1.272-2.875 2.049-4.99 2.049H6.581l1.288 1.357c.132.13.238.285.311.459a1.478 1.478 0 01-.277 1.575c-.127.134-.28.24-.446.311a1.283 1.283 0 01-1.05-.02 1.346 1.346 0 01-.435-.327l-3.579-3.77a1.453 1.453 0 01-.392-.999c0-.375.14-.734.392-.999l3.58-3.77c.254-.25.59-.385.938-.379.348.007.68.155.925.414.246.259.387.608.393.975.006.366-.123.72-.36.988l-1.288 1.357h5.708c1.464 0 2.447-.52 3.064-1.189a3.804 3.804 0 00.963-2.58 3.804 3.804 0 00-.963-2.58c-.617-.67-1.6-1.19-3.064-1.19H6.921c-.356 0-.698-.15-.95-.414a1.453 1.453 0 01-.393-1z"></path>
+        </symbol>
+    </svg>
+{% endblock %}
+
+{% block js %}
+    <script type="text/javascript" src="{% static 'plugins/js/highlight.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/mainapp/user-articles-list.js' %}"></script>
+    <script>
+        $('.martor-preview pre').each(function (i, block) {
+            hljs.highlightBlock(block);
+        });
+    </script>
+{% endblock %}

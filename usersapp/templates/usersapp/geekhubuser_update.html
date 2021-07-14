@@ -135,7 +135,13 @@
                             <div class="block-info">
                                 <div class="input-text">
                                     <div class="field-text-left">
-                                        <h5-3>Пользователь</h5-3>
+                                        {% if not object.is_staff and not object.is_superuser %}
+                                            <h5-3>Пользователь</h5-3>
+                                            {% elif object.is_staff and not object.is_superuser %}
+                                            <h5-3>Модератор</h5-3>
+                                            {% elif object.is_superuser %}
+                                            <h5-3>Администратор</h5-3>
+                                        {% endif %}
                                     </div>
                                     <div class="input-text-right_bg"><!--<img src="{% static 'svg/check-box1.svg' %}"
                                                                               alt="+"> --></div>

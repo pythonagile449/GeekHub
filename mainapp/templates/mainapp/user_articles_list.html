@@ -61,19 +61,24 @@
                 </div>
                 {% if article.is_draft %}
                     <a href="{% url 'mainapp:edit_draft' article.pk %}">
-                        <button class="button18" type="submit">Редактировать</button>
+                        <button class="button18" type="button">Редактировать</button>
                     </a>
-                    <!--                    <a href="#">-->
-                    <!--                        <button class="button16" type="submit">Отправить на модерацию</button>-->
-                    <!--                    </a>-->
+                    <a href="{% url 'mainapp:send_article_on_moderation' article.pk %}">
+                        <button class="button16" type="button">Отправить на модерацию</button>
+                    </a>
                     <a href="{% url 'mainapp:user_article_delete' article.pk %}">
-                        <button class="button17" type="submit">Удалить</button>
+                        <button class="button17" type="button">Удалить</button>
                     </a>
                 {% elif article.is_published %}
                     <a href="{% url 'mainapp:user_article_to_drafts' article.pk %}" class="button18">Снять с
                         публикации</a>
                 {% elif article.is_moderation_in_progress %}
-                    <a href="{% url 'mainapp:user_article_to_drafts' article.pk %}">Снять с модерации</a>
+                    <a href="{% url 'mainapp:user_article_to_drafts' article.pk %}" class="button18">Снять с
+                        модерации</a>
+                    {% if user.is_staff %}
+                        <a href="{% url 'mainapp:article_publication' article.pk %}"
+                           class="button18">Опубликовать</a>
+                    {% endif %}
                 {% endif %}
             {% endfor %}
         </div>

@@ -1,4 +1,5 @@
-from django.urls import path, include
+from django.urls import path
+
 from commentsapp import views as comment
 
 app_name = 'commentsapp'

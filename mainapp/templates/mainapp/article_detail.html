@@ -14,8 +14,18 @@
 {% endblock %}
 
 {% block content %}
+
     <div class="content-container">
         <div class="section-left">
+
+
+            {# ToDo: Вот этот блок надо стилизовать  REQ-162 REQ-163         #}
+            <div class="modal fade" id="modal-articles">
+                <div class="modal-dialog">
+                    <div class="modal-content"></div>
+                </div>
+            </div>
+
             <div class="section-indent"></div>
             <div class="author-data">
                 <ul class="author-data">
@@ -50,64 +60,62 @@
                     </div>
                 {% endif %}
 
-
                 {% if not article.is_draft %}
                     <div class="like-comment">
                         <ul class="lvc-field">
+                            {% if article.is_published %}
+                                <li>
+                                    <div class="lvc-group">
+
+                                        <ul class="lvc-group">
+                                            <li data-id="{{ article.id }}" data-type="article" data-action="like"
+                                                title="Нравится" class="like-article">
+                                                <img src="{% static 'svg/up4+.svg' %}" alt="like">
+                                            </li>
+                                            <h5-2-lvc-plus data-count="positive" class="positive">
+                                                {% if article.rating.like.count %}
+                                                    {{ article.rating.like.count }}
+                                                {% else %}
+                                                    {{ article.id|rating_positive }}
+                                                {% endif %}
+                                            </h5-2-lvc-plus>
+                                            <li data-id="{{ article.id }}" data-type="article" data-action="dislike"
+                                                title="Не нравится" class="dislike-article">
+                                                <img src="{% static 'svg/down4+.svg' %}" alt="like">
+                                            </li>
+                                            <h5-2-lvc-minus data-count="negative" class="negative">
+                                                {% if article.rating.dislikes.count %}
+                                                    {{ article.rating.dislikes.count }}
+                                                {% else %}
+                                                    {{ article.id|rating_negative }}
+                                                {% endif %}
+                                            </h5-2-lvc-minus>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="lvc-group">
+                                        <ul class="lvc-group">
+                                            <li><img src="{% static 'svg/carbon_view-filled_active.svg' %}"
+                                                     alt="view"></li>
+                                            <li>
+                                                <h5-2-lvc>{{ article.views }}</h5-2-lvc>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            {% endif %}
                             <li>
                                 <div class="lvc-group">
                                     <ul class="lvc-group">
-                                        <li data-id="{{ article.id }}" data-type="article" data-action="like"
-                                            title="Нравится" class="like-article">
-                                            <!--                                            <svg class="icon-up">-->
-                                            <!--                                                <use xlink:href="#up3"></use>-->
-                                            <!--                                            </svg>-->
-                                            <img src="{% static 'svg/up4+.svg' %}" alt="like">
-                                        </li>
-                                        <h5-2-lvc-plus data-count="positive" class="positive">
-                                            {% if article.rating.like.count %}
-                                                {{ article.rating.like.count }}
-                                            {% else %}
-                                                {{ article.id|rating_positive }}
-                                            {% endif %}
-                                        </h5-2-lvc-plus>
-                                        <li data-id="{{ article.id }}" data-type="article" data-action="dislike"
-                                            title="Не нравится" class="dislike-article">
-                                            <!--                                            <svg class="icon-down">-->
-                                            <!--                                                <use xlink:href="#down3"></use>-->
-                                            <!--                                            </svg>-->
-                                            <img src="{% static 'svg/down4+.svg' %}" alt="like">
-                                        </li>
-                                        <h5-2-lvc-minus data-count="negative" class="negative">
-                                            {% if article.rating.dislikes.count %}
-                                                {{ article.rating.dislikes.count }}
-                                            {% else %}
-                                                {{ article.id|rating_negative }}
-                                            {% endif %}
-                                        </h5-2-lvc-minus>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="lvc-group">
-                                    <ul class="lvc-group">
-                                        <li><img src="{% static 'svg/carbon_view-filled_active.svg' %}" alt="view"></li>
-                                        <li>
-                                            <h5-2-lvc>{{ article.views }}</h5-2-lvc>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="lvc-group">
-                                    <ul class="lvc-group">
-                                        <li>
+                                        <li title="Комментировать">
                                             <svg class="icon-comment">
                                                 <use xlink:href="#fluent_comment-24-filled_active"></use>
                                             </svg>
                                         </li>
                                         <li>
-                                            <h5-2-lvc class="comments-counter">{{ article.pk|get_comments_count }}
+                                            <h5-2-lvc
+                                                    class="comments-counter">{{ article.pk|get_comments_count }}
                                             </h5-2-lvc>
                                         </li>
                                     </ul>
@@ -151,33 +159,38 @@
                                                 </h5>
                                             </div>
                                             <div>
-                                                <ul class="lvc-group">
 
-                                                    <li data-id="{{ comment.id }}" data-type="comment"
-                                                        data-action="like"
-                                                        title="Нравится" class="like-comment-btn">
-                                                        <img src="{% static 'svg/up4+.svg' %}" alt="like">
-                                                    </li>
-                                                    <h5-2-lvc data-count="positiveComment" class="positiveComment">
-                                                        {% if comment.rating.like.count %}
-                                                            {{ comment.rating.like.count }}
-                                                        {% else %}
-                                                            {{ comment.id|rating_positive_c }}
-                                                        {% endif %}
-                                                    </h5-2-lvc>
-                                                    <li data-id="{{ comment.id }}" data-type="comment"
-                                                        data-action="dislike"
-                                                        title="Не нравится" class="dislike-comment-btn">
-                                                        <img src="{% static 'svg/down4+.svg' %}" alt="like">
-                                                    </li>
-                                                    <h5-2-lvc data-count="negativeComment" class="negativeComment">
-                                                        {% if comment.rating.dislikes.count %}
-                                                            {{ comment.rating.dislikes.count }}
-                                                        {% else %}
-                                                            {{ comment.id|rating_negative_c }}
-                                                        {% endif %}
-                                                    </h5-2-lvc>
-                                                </ul>
+                                                {% if article.is_published %}
+                                                    <ul class="lvc-group">
+                                                        <li data-id="{{ comment.id }}" data-type="comment"
+                                                            data-action="like"
+                                                            title="Нравится" class="like-comment-btn">
+                                                            <img src="{% static 'svg/up4+.svg' %}" alt="like">
+                                                        </li>
+                                                        <h5-2-lvc data-count="positiveComment"
+                                                                  class="positiveComment">
+                                                            {% if comment.rating.like.count %}
+                                                                {{ comment.rating.like.count }}
+                                                            {% else %}
+                                                                {{ comment.id|rating_positive_c }}
+                                                            {% endif %}
+                                                        </h5-2-lvc>
+                                                        <li data-id="{{ comment.id }}" data-type="comment"
+                                                            data-action="dislike"
+                                                            title="Не нравится" class="dislike-comment-btn">
+                                                            <img src="{% static 'svg/down4+.svg' %}" alt="like">
+                                                        </li>
+                                                        <h5-2-lvc data-count="negativeComment"
+                                                                  class="negativeComment">
+                                                            {% if comment.rating.dislikes.count %}
+                                                                {{ comment.rating.dislikes.count }}
+                                                            {% else %}
+                                                                {{ comment.id|rating_negative_c }}
+                                                            {% endif %}
+                                                        </h5-2-lvc>
+                                                    </ul>
+                                                {% endif %}
+
                                             </div>
                                             <button type="button" class="answer-button hidden"
                                                     data-answer-to="{{ comment.pk }}">Ответить
@@ -218,7 +231,8 @@
                                         <div class="editor-field">
                                             <form class="comment-form">
                                                 {% csrf_token %}
-                                                <textarea name="comment" class="editor-field comment-area"></textarea>
+                                                <textarea name="comment"
+                                                          class="editor-field comment-area"></textarea>
                                                 <div class="button-field">
                                                     <button
                                                             class="button22 send-comment-button"
@@ -235,6 +249,97 @@
                             {% else %}
                                 <p>Комментарии могут оставлять только зарегистрированные пользователи.</p>
                             {% endif %}
+                        </div>
+                    </div>
+
+                    <div class="actions-block" style="margin-top: 20px">
+                        {% if user.is_staff %}
+                            {% if article.is_moderation_in_progress %}
+                                {% include 'mainapp/_inc/moderator_actions/moderation_detail.html' %}
+                            {% elif article.is_published %}
+                                {% include 'mainapp/_inc/moderator_actions/publish_detail.html' %}
+                            {% endif %}
+                        {% elif not user.is_staff and not user.is_superuser and user == article.author %}
+                            {% if article.is_moderation_in_progress %}
+                                {% include 'mainapp/_inc/user_actions/moderation_detail.html' %}
+                            {% elif article.is_published %}
+                                {% include 'mainapp/_inc/user_actions/publish_detail.html' %}
+                            {% endif %}
+                        {% endif %}
+                    </div>
+                {% else %}
+                    <div class="actions-block" style="margin-top: 20px">
+                        {% include 'mainapp/_inc/user_actions/draft_detail.html' %}
+                    </div>
+                    <div class="indent-60"></div>
+                    <div class="like-comment">
+                        <ul class="lvc-field">
+                            <li>
+                                <div class="lvc-group">
+                                    <ul class="lvc-group">
+                                        <li>
+                                            <svg class="icon-comment">
+                                                <use xlink:href="#fluent_comment-24-filled_active"></use>
+                                            </svg>
+                                        </li>
+                                        <li>
+                                            <h5-2-lvc
+                                                    class="comments-counter">{{ article.pk|get_comments_count }}
+                                            </h5-2-lvc>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="comments-tree-block " data-article-id="{{ article.pk }}">
+                            <div class="block-comment">
+                                <div class="field-50">
+                                    <h2>
+                                        <h2-2 id="comments-start-point">История модерации</h2-2>
+                                    </h2>
+                                </div>
+                            </div>
+
+                            <div class="comments-tree-root">
+                                <div class="comments-tree">
+                                    {% for comment in comments_preview %}
+                                        <div class="author-comment">
+                                            <div class="author-data">
+                                                <ul class="author-data">
+                                                    <li><img src="{% static 'svg/icon2.svg' %}"
+                                                             alt="icon"></li>
+                                                    <li>
+                                                        <h6-1>{{ comment.author.username }}</h6-1>
+                                                    </li>
+                                                    <li>
+                                                        <h6-2>{{ comment.created_at }}</h6-2>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            {% if comment.parent_comment %}
+                                                <div class="parent-comment-preview">
+                                                    <span>Ответ на: </span>
+                                                    {{ comment.parent_comment.description|truncatechars:100 }}
+                                                </div>
+                                            {% endif %}
+                                            <div class="author-text">
+                                                <h5>
+                                                    <h5-1><p>{{ comment.description }}</p></h5-1>
+                                                </h5>
+                                            </div>
+                                            <button type="button" class="answer-button hidden"
+                                                    data-answer-to="{{ comment.pk }}">Ответить
+                                            </button>
+                                            <div class="indent-60"></div>
+                                        </div>
+                                    {% endfor %}
+                                    {% if all_comments_count > comments_preview.count %}
+                                        <div class="show-all-comments-button">Показать все</div>
+                                    {% endif %}
+                                    <div class="indent-60"></div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 {% endif %}
