@@ -1,11 +1,16 @@
+from operator import itemgetter
+
+from django.contrib.contenttypes.models import ContentType
 from django.db.models.functions import datetime
 from django.http import HttpResponseRedirect, JsonResponse, HttpResponse
+from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DetailView, ListView, DeleteView, UpdateView
 
 from commentsapp.models import CommentsBranch
 from mainapp.forms import ArticleCkForm, ArticleMdForm
 from mainapp.models import Hub, Article
+from ratingsapp.models import RatingCount, RatingManager
 
 
 class Index(ListView):
@@ -285,18 +290,27 @@ class ArticleReturnToDrafts(DeleteView):
 
 
 def top_menu(request):
+    all_articles = Article.objects.all()
+    context = {}
+
+    article_data = []
+
+    for article in all_articles:
+        article_data.append({
+            'id': article.id,
+            'title': article.title,
+            'views': article.views,
+            'comments': CommentsBranch.get_comments_count_by_article(article.id),
+            'rating': article.rating.total()
+        })
+
+    top_articles = sorted(article_data, key=itemgetter('rating'), reverse=True)
+
+
+    print(top_articles)
+    context = top_articles[:7]
+
     if request.method == 'GET' and request.is_ajax():
-        context = []
-        top_articles = Article.objects.filter(is_published=True).order_by('-publication_date')[:7]
-        for article in top_articles:
-            comments_number = CommentsBranch.get_comments_count_by_article(article.id)
-            context.append({
-                'id': article.id,
-                'title': article.title,
-                # 'rating': article.rating,
-                'views_number': article.views,
-                'comments_number': comments_number
-            })
-        return JsonResponse(context, safe=False)
+        return render(request, 'mainapp/top-menu.html', {'top_articles': context})
     else:
         return HttpResponse(status=404)
