@@ -1,6 +1,5 @@
 from operator import itemgetter
 
-from django.contrib.contenttypes.models import ContentType
 from django.db.models.functions import datetime
 from django.http import HttpResponseRedirect, JsonResponse, HttpResponse
 from django.shortcuts import render
@@ -10,7 +9,6 @@ from django.views.generic import CreateView, DetailView, ListView, DeleteView, U
 from commentsapp.models import CommentsBranch
 from mainapp.forms import ArticleCkForm, ArticleMdForm
 from mainapp.models import Hub, Article
-from ratingsapp.models import RatingCount, RatingManager
 
 
 class Index(ListView):
@@ -306,8 +304,6 @@ def top_menu(request):
 
     top_articles = sorted(article_data, key=itemgetter('rating'), reverse=True)
 
-
-    print(top_articles)
     context = top_articles[:7]
 
     if request.method == 'GET' and request.is_ajax():
