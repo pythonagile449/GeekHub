@@ -107,7 +107,8 @@
                                         <ul class="lvc-group">
                                             {# TODO при нажатии на комментарий редирект на страницу статьи и фокус в поле ввода комментария#}
                                             <li title="Комментарии">
-                                                <a href="{% url 'mainapp:article_detail' article.pk %}" title="Читать и комментировать">
+                                                <a href="{% url 'mainapp:article_detail' article.pk %}"
+                                                   title="Читать и комментировать">
                                                     <svg class="icon-comment">
                                                         <use xlink:href="#fluent_comment-24-filled_active"></use>
                                                     </svg>
@@ -137,7 +138,7 @@
         <div class="section-right">
 
             <div class="section-right-block">
-
+                {% include 'mainapp/top-menu.html' %}
             </div>
 
         </div>
@@ -148,12 +149,17 @@
             <path d="M4.375 15a2.708 2.708 0 01-2.708-2.708V5.208A2.708 2.708 0 014.375 2.5h11.25a2.708 2.708 0 012.708 2.708v7.084A2.709 2.709 0 0115.625 15h-4.82l-4.49 3.18A.833.833 0 015 17.503V15h-.625z"></path>
         </symbol>
     </svg>
+
+    <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 21" id="top_menu">
+        <path d="M20 7V4H0v3h20zm0 6v-3H0v3h20zm0 6v-3H0v3h20z"></path>
+    </symbol>
 {% endblock %}
 
 {% block js %}
     <script type="text/javascript" src="{% static 'plugins/js/highlight.min.js' %}"></script>
     <script src="{% static 'js/infinity_scroll/jquery.waypoints.min.js' %}"></script>
     <script src="{% static 'js/infinity_scroll/infinite.min.js' %}"></script>
+    <script src="{% static 'js/mainapp/top-menu.js' %}"></script>
     <script>
         $('.martor-preview pre').each(function (i, block) {
             hljs.highlightBlock(block);

@@ -1910,3 +1910,118 @@ element.style {
 .ck-preview img {
     max-width: 100%;
 }
+
+ul.top-info { /* Menu list */
+    background-color: var(--main-bg-color);
+    display: flex;
+    height: 40px;
+}
+
+ul.top-info li { /* Menu list items */
+    font-family: Roboto, Verdana, sans-serif;
+    display: inline; /* Display as a lowercase element */
+    margin-left: 20px;
+}
+
+.icon-top-menu {
+    width: 23px; /* ширина иконки */
+    height: 23px; /* высота иконки */
+    fill: var(--header-bg-color);
+    fill-opacity: var(--header-opacity);
+    transition: 0.25s; /* плавное изменение цвета при наведении */
+}
+
+.icon-top-menu:hover {
+    fill: #48B5FF; /* цвет заливки иконки при наведении */
+    fill-opacity: 1.0;
+}
+
+.top-info-menu-field {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    margin: 0;
+    padding: 0;
+    flex-direction: row;
+    height: 30px;
+    align-items: center;
+    /*background-color: var(--section-bg-color);*/
+    border-radius: 5px;
+    border: 2px solid;
+    border-color: var(--section-bg-color);
+}
+
+.top-info-title {
+    width: auto;
+    /*background-color: var(--section-bg-color);*/
+    margin-right: 20px;
+    height: 40px;
+    align-items: center;
+    display:flex;
+}
+
+.top-info-menu {
+    width: 30px;
+    display:flex;
+    /*background-color: var(--section-bg-color);*/
+    align-items: center;
+    margin-left: 20px;
+
+}
+.top-menu-dropbtn {
+    color: white;
+    /*padding: 16px;*/
+    font-size: 16px;
+    border: none;
+    align-items: center;
+}
+
+.content-top-info {
+    border-radius: 5px;
+    border: 2px solid;
+    border-color: var(--section-bg-color);
+    align-items: center;
+}
+
+.content-top-info-title {
+    display: flex;
+    height: 40px;
+    align-items: center;
+}
+
+.short-article-field {
+
+}
+
+.short-article-title {
+    align-items: center;
+    display: flex;
+    margin: 8px 20px 8px 20px;
+}
+
+.link-top-info-menu {
+    font-family: Roboto, Verdana, sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 0;
+    color: #737373;; /* Link color */
+    text-decoration: none; /* remove the underscore */
+    transition: color 0.3s ease 0s;
+
+}
+
+.link-top-info-menu:hover {
+    color: var(--link-active-color);
+}
+
+.link-top-info-menu:active {
+    color: var(--link-active-color);
+}
+
+.short-article-data {
+    display: flex;
+    margin: 8px 20px 8px 20px;
+    border-bottom: 1px solid;
+    border-color: var(--section-bg-color);
+
+}
