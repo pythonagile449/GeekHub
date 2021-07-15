@@ -6,7 +6,8 @@ from usersapp.models import GeekHubUser
 
 
 class Notification(models.Model):
-    sender = models.ForeignKey(GeekHubUser, on_delete=models.CASCADE, verbose_name='Отправитель', related_name='sender')
+    sender = models.ForeignKey(GeekHubUser, on_delete=models.CASCADE, verbose_name='Отправитель', related_name='sender',
+                               null=True)
     recipient = models.ForeignKey(GeekHubUser, on_delete=models.CASCADE, verbose_name='Получатель',
                                   related_name='recipient', null=True)
     message = models.CharField(max_length=512, verbose_name='Сообщение')

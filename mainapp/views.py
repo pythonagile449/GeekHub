@@ -196,7 +196,7 @@ class ArticleUpdate(UpdateView):
     def set_object_contents(self, form):
         """ Set article model field extends redactor. """
         if self.object.editor == 'CK':
-            self.object.contents_ck = form.cleaned_data['contents']
+            self.object.contents_ck = Article.remove_style_tag_from_ck_content(form.cleaned_data['contents'])
         if self.object.editor == 'MD':
             self.object.contents_md = form.cleaned_data['contents']
 
