@@ -59,9 +59,12 @@ class Article(models.Model):
         """ Remove style attrs from image tags in ckeditor field. """
         soup = BeautifulSoup(html, features='lxml')
         images = soup.find_all('img')
-        for image in images:
-            image.attrs.pop('style')
-        return ''.join([str(tag) for tag in soup.body.children])
+        try:
+            for image in images:
+                image.attrs.pop('style')
+            return ''.join([str(tag) for tag in soup.body.children])
+        except KeyError:
+            return html
 
     def get_article_preview_from_ck(self):
         """ Uses BeatifulSoup to parse html. """
