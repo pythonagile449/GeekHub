@@ -3,6 +3,7 @@ from django.db.models.functions import datetime
 from django.http import HttpResponseRedirect, JsonResponse
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DetailView, ListView, DeleteView, UpdateView
+from bs4 import BeautifulSoup
 
 from commentsapp.models import CommentsBranch
 from mainapp.forms import ArticleCkForm, ArticleMdForm
@@ -102,7 +103,7 @@ class CreateArticle(CreateView):
 
         # set editor to articles model form
         if form.instance.author.article_redactor == 'CK':
-            form.instance.contents_ck = form_content
+            form.instance.contents_ck = Article.remove_style_tag_from_ck_content(form_content)
             form.instance.editor = 'CK'
         if form.instance.author.article_redactor == 'MD':
             form.instance.contents_md = form_content
