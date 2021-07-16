@@ -1750,3 +1750,8 @@ a.comment-anchor {
     fill: #48B5FF; /* цвет заливки иконки при наведении */
     fill-opacity: 1.0;
 }
+
+ul.author-data li img {
+    max-width: 40px;
+    border-radius: 40px;
+}
