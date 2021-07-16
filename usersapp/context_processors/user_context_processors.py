@@ -7,10 +7,20 @@ def usersapp_context(request):
     user = request.user
     user_drafts_count = 0
     user_published_articles_count = 0
+    user_on_moderation_articles_count = 0
+    articles_on_moderation_count = 999
     if not isinstance(user, AnonymousUser):
-        user_drafts_count = Article.objects.filter(author=user, is_draft=True, is_deleted=False).count()
-        user_published_articles_count = Article.objects.filter(author=user, is_published=True, is_deleted=False).count()
+        user_articles = Article.objects.filter(author=user)
+        user_drafts_count = user_articles.filter(is_draft=True, is_deleted=False).count()
+        user_published_articles_count = user_articles.filter(is_published=True, is_deleted=False).count()
+        user_on_moderation_articles_count = user_articles.filter(is_moderation_in_progress=True,
+                                                                 is_deleted=False).count()
+        if user.is_staff:
+            articles_on_moderation_count = Article.objects.filter(is_moderation_in_progress=True,
+                                                                  is_deleted=False).count()
     return {
         'user_drafts_count': user_drafts_count,
-        'user_published_articles_count': user_published_articles_count
+        'user_published_articles_count': user_published_articles_count,
+        'user_on_moderation_articles_count': user_on_moderation_articles_count,
+        'articles_on_moderation_count': articles_on_moderation_count,
     }

@@ -2,7 +2,6 @@
 .submit-row a {
     box-sizing: content-box;
 }
-
 body.overflow {
     overflow: hidden !important;
 }
@@ -13,19 +12,16 @@ body.overflow {
     border-radius: 10px;
     background-color: #F5F5F5;
 }
-
 .section-martor ::-webkit-scrollbar {
     height: 6px;
     width: 6px;
     background-color: #F5F5F5;
 }
-
 .section-martor ::-webkit-scrollbar-thumb {
     border-radius: 10px;
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
     background-color: #555;
 }
-
 .ace_scrollbar-v {
     cursor: ns-resize;
 }
@@ -37,12 +33,10 @@ body.overflow {
     padding: 0 .85714286em !important;
     padding-bottom: 4px !important;
 }
-
 .martor-toolbar .ui.icon .markdown-image-upload {
     position: relative;
     overflow: hidden;
 }
-
 .martor-toolbar .ui.icon .markdown-image-upload input[type=file] {
     position: absolute;
     top: 0;
@@ -80,12 +74,10 @@ body.overflow {
     left: 0;
     top: 0;
 }
-
 .main-martor-fullscreen .fields.martor-toolbar {
     border-bottom: 1px solid #ddd;
     margin: 0;
 }
-
 .main-martor-fullscreen .section-martor {
     height: 90%;
     position: relative;
@@ -501,7 +493,6 @@ div.martor-preview pre tt {
     height: 500px;
     max-height: 500px;
 }
-
 .martor-field {
     width: 100%;
     height: 250px;
@@ -523,11 +514,9 @@ div.martor-preview-stale {
     bottom: .8em;
     right: 0;
 }
-
 .no-border {
     border: none !important;
 }
-
 /* live preview */
 div.enable-living .martor-preview {
     display: block !important;
@@ -535,7 +524,6 @@ div.enable-living .martor-preview {
     border: 1px solid #efefef !important;
     border-radius: .28571429rem !important;
 }
-
 div.enable-living .tab-martor-menu a.item {
     display: none !important;
 }

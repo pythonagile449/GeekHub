@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    {% if not notifications %}
+        <div class="empty-content-message">
+            Уведомлений нет
+        </div>
+    {% else %}
+        <form class="notifications-content" method="post" action="{% url 'notifyapp:delete_notifications' %}">
+            {% csrf_token %}
+
+            <table class="table notifications-table">
+
+                <thead>
+                <tr>
+                    <th scope="col">
+                        <input class="form-check-input" type="checkbox" value="" id="select-all-checkbox">
+                        <label class="form-check-label" for="select-all-checkbox"></label>
+                    </th>
+                    <th scope="col" colspan="3">
+                        <label class="form-check-label" for="select-all-checkbox">Выбрать все</label>
+                    </th>
+                    <th scope="col">
+                        <button class="button17" disabled id="delete-notification-button" type="button">Удалить</button>
+                    </th>
+                </tr>
+                </thead>
+
+                <tbody>
+                {% for notification in notifications %}
+                    <tr>
+                        <td scope="row">
+                            <input class="form-check-input notification-checkbox" type="checkbox"
+                                   value="{{ notification.pk }}"
+                                   id="notification-{{ forloop.counter }}" data-notification-id="{{ notification.pk }}">
+                        </td>
+                        <td scope="row">
+                            <label class="form-check-label" for="notification-{{ forloop.counter }}">
+                                {{ notification.message }}
+                            </label>
+                        </td>
+                        <td>
+                            <a href="{% url 'mainapp:article_detail' notification.content_object.pk %}">
+                                {{ notification.content_object.title|truncatechars:25 }}
+                            </a>
+                        </td>
+                        <td>
+                            {{ notification.sender }}
+                        </td>
+                        <td>
+                            <label class="form-check-label"
+                                   for="notification-{{ forloop.counter }}">{{ notification.created_at }}</label>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+
+            </table>
+
+        </form>
+    {% endif %}
+
+{% endblock %}
+
+{% block js %}
+    <script type="text/javascript" src="{% static 'js/notifyapp/user-notifications-list.js' %}"></script>
+{% endblock %}

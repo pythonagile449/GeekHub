@@ -10,11 +10,13 @@
         {% block title %}Intergalactic Entertainment{% endblock %}
     </title>
 
+    {% block CDN %}{% endblock %}
+
     {% block bootstrap_css %}
         <link href="{% static 'plugins/css/bootstrap.min.css' %}" type="text/css" media="all" rel="stylesheet"/>
     {% endblock %}
-    {% block css %}{% endblock %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    {% block css %}{% endblock %}
 </head>
 
 <body>
@@ -57,6 +59,7 @@
 <script type="text/javascript" src="{% static 'plugins/js/bootstrap.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/mainapp/active-menu-link.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/mainapp/active-toolbar-link.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/notifyapp/menu-notifications-counter.js' %}"></script>
 
 {% block js %}{% endblock %}
 </body>

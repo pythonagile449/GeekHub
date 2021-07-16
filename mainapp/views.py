@@ -1,11 +1,16 @@
+from operator import itemgetter
+
+from django.contrib.contenttypes.models import ContentType
 from django.db.models.functions import datetime
-from django.http import HttpResponseRedirect, JsonResponse, Http404
+from django.http import HttpResponseRedirect, JsonResponse, HttpResponse
+from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DetailView, ListView, DeleteView, UpdateView
 
 from commentsapp.models import CommentsBranch
 from mainapp.forms import ArticleCkForm, ArticleMdForm
 from mainapp.models import Hub, Article
+from notifyapp.models import Notification
 
 
 class Index(ListView):
@@ -17,8 +22,10 @@ class Index(ListView):
     Main paige(all the articles by publication date)
     """
     template_name = 'mainapp/index.html'
-    queryset = Article.objects.filter(is_published=True).order_by('-publication_date')
+    queryset = Article.objects.filter(is_published=True)
+    ordering = ['-publication_date']
     context_object_name = 'articles'
+    paginate_by = 5
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -39,6 +46,7 @@ class ArticlesByHub(ListView):
     model = Article
     template_name = 'mainapp/index.html'
     context_object_name = 'articles'
+    paginate_by = 5
 
     def get_queryset(self):
         queryset = Article.objects.filter(hub=self.kwargs['hub_id'], is_published=True, is_deleted=False) \
@@ -61,7 +69,7 @@ class CreateArticle(CreateView):
     Create article
     """
     model = Article
-    success_url = reverse_lazy('mainapp:user_articles')
+    success_url = reverse_lazy('mainapp:user_moderation_articles')
 
     def get_form_class(self):
         """
@@ -85,12 +93,10 @@ class CreateArticle(CreateView):
         """
         form.instance.author = self.request.user
 
-        # TODO временно статьи создаются в статусе опубликовано, необходимо изменить на модерацию
         # если запрос на публикацию статьи - устанавливаем статус 'на модерации', снимаем статус 'черновик'
         # if publication of an article is requested, set status 'is_moderation_in_progress' remove status 'draft'
         if self.request.path == '/create-article/':
-            # form.instance.is_moderation_in_progress = True
-            form.instance.is_published = True
+            form.instance.is_moderation_in_progress = True
             form.instance.is_draft = False
         if self.request.path == '/create-draft/':
             self.success_url = reverse_lazy('mainapp:drafts')
@@ -99,7 +105,7 @@ class CreateArticle(CreateView):
 
         # set editor to articles model form
         if form.instance.author.article_redactor == 'CK':
-            form.instance.contents_ck = form_content
+            form.instance.contents_ck = Article.remove_style_tag_from_ck_content(form_content)
             form.instance.editor = 'CK'
         if form.instance.author.article_redactor == 'MD':
             form.instance.contents_md = form_content
@@ -147,6 +153,39 @@ class ArticleUpdate(UpdateView):
     model = Article
     fields = ['title', 'hub']
 
+    def get(self, request, *args, **kwargs):
+        article = self.get_object()
+
+        if request.path.startswith('/send_article_on_moderation/'):
+            # handle send on moderation action under user drafts list
+            article.is_draft = False
+            article.is_moderation_in_progress = True
+            article.publication_date = datetime.datetime.now()
+            self.success_url = reverse_lazy('mainapp:drafts')
+            article.save()
+            return HttpResponseRedirect(self.success_url)
+        if request.path.startswith('/publish/'):
+            # handle publish action under staff user
+            if request.user.is_staff:
+                article.is_draft = False
+                article.is_moderation_in_progress = False
+                article.is_published = True
+                article.publication_date = datetime.datetime.now()
+                article.save()
+                self.success_url = reverse_lazy('mainapp:moderation_list')
+
+                # create new notification to author
+                notification = Notification.objects.create(
+                    sender=request.user,
+                    recipient=article.author,
+                    message='Статья опубликована',
+                    content_type=ContentType.objects.get_for_model(article),
+                    object_id=article.pk,
+                    content_object=article,
+                )
+                return HttpResponseRedirect(self.success_url)
+        return super(ArticleUpdate, self).get(request, args, kwargs)
+
     def form_invalid(self, form):
         """ Processing an incorrect ajax request to change data. """
         if self.request.method == 'POST' and self.request.is_ajax():
@@ -157,7 +196,7 @@ class ArticleUpdate(UpdateView):
     def set_object_contents(self, form):
         """ Set article model field extends redactor. """
         if self.object.editor == 'CK':
-            self.object.contents_ck = form.cleaned_data['contents']
+            self.object.contents_ck = Article.remove_style_tag_from_ck_content(form.cleaned_data['contents'])
         if self.object.editor == 'MD':
             self.object.contents_md = form.cleaned_data['contents']
 
@@ -168,14 +207,23 @@ class ArticleUpdate(UpdateView):
             self.set_object_contents(form)
             self.object.save()
             return JsonResponse('Success', safe=False)
-        elif self.request.method == 'POST' and not self.request.is_ajax() and self.request.path.startswith('/publish/'):
-            # handle publication action
+        elif self.request.method == 'POST' and not self.request.is_ajax():
             self.set_object_contents(form)
-            self.object.is_published = True
-            self.object.is_draft = False
+            if self.request.path.startswith('/publish/'):
+                # todo handle publication action (for high rating users)
+                if self.request.user.is_staff:
+                    self.object.is_moderation_in_progress = False
+                    self.object.is_published = True
+                    self.success_url = reverse_lazy('mainapp:article_detail', self.object.pk)
+            elif self.request.path.startswith('/moderation/'):
+                # handle moderation action
+                self.set_object_contents(form)
+                self.object.is_published = False
+                self.object.is_moderation_in_progress = True
+                self.success_url = reverse_lazy('mainapp:user_moderation_articles')
             self.object.publication_date = datetime.datetime.now()
+            self.object.is_draft = False
             self.object.save()
-            self.success_url = reverse_lazy('mainapp:user_articles')
             return super(ArticleUpdate, self).form_valid(form)
         else:
             return super(ArticleUpdate, self).form_valid(form)
@@ -211,7 +259,8 @@ class UserArticles(ListView):
     EN
     User's articles. By deafault shows "my articles"
     """
-    template_name = 'mainapp/user_articles_list.html'
+    # template_name = 'mainapp/user_articles_list.html'
+    template_name = 'mainapp/user_articles_list_table.html'
     context_object_name = 'articles'
 
     def get_queryset(self):
@@ -221,6 +270,9 @@ class UserArticles(ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
+        context['is_published'] = True
+        context['is_draft'] = False
+        context['is_on_moderation'] = False
         context['title'] = 'Мои статьи'
         return context
 
@@ -239,6 +291,13 @@ class UserDrafts(UserArticles):
             .order_by('-publication_date')
         return queryset
 
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(UserDrafts, self).get_context_data(**kwargs)
+        context['is_published'] = False
+        context['is_draft'] = True
+        context['is_on_moderation'] = False
+        return context
+
 
 class UserModeratingArticles(UserArticles):
     """
@@ -253,6 +312,13 @@ class UserModeratingArticles(UserArticles):
         queryset = Article.objects.filter(author=self.request.user, is_moderation_in_progress=True, is_deleted=False) \
             .order_by('-publication_date')
         return queryset
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(UserModeratingArticles, self).get_context_data(**kwargs)
+        context['is_published'] = False
+        context['is_draft'] = False
+        context['is_on_moderation'] = True
+        return context
 
 
 class ArticleDelete(DeleteView):
@@ -273,14 +339,24 @@ class ArticleDelete(DeleteView):
 class ArticleReturnToDrafts(DeleteView):
     model = Article
     template_name = 'mainapp/article_confirm_to_drafts.html'
-    success_url = reverse_lazy('mainapp:user_articles')
+    success_url = reverse_lazy('mainapp:drafts')
 
     def delete(self, request, *args, **kwargs):
         self.object = self.get_object()
+        is_published = self.object.is_published
         self.object.is_published = False
         self.object.is_moderation_in_progress = False
         self.object.is_draft = True
         self.object.save()
+        if request.user != self.object.author:
+            Notification.objects.create(
+                sender=request.user,
+                recipient=self.object.author,
+                message=f'Статья снята с {"публикации" if is_published else "модерации"}.',
+                content_type=ContentType.objects.get_for_model(self.object),
+                object_id=self.object.pk,
+                content_object=self.object,
+            )
         return HttpResponseRedirect(self.get_success_url())
 
 
@@ -290,3 +366,50 @@ class ShowTop(ListView):
     def get_queryset(self, **kwargs):
         queryset = Article.objects.filter(is_published=True).order_by('-publication_date')[:7]
         return queryset
+
+
+class ModerationList(ListView):
+    """
+    RU
+    Страница профиля модератора (модерация статей пользователей).
+
+    EN
+    Moderators profile page (moderation users articles).
+    """
+    # template_name = 'mainapp/user_articles_list.html'
+    template_name = 'mainapp/user_articles_list_table.html'
+    queryset = Article.objects.filter(is_moderation_in_progress=True, is_deleted=False).order_by('publication_date')
+    context_object_name = 'articles'
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(ModerationList, self).get_context_data()
+        context['title'] = 'Модерация статей'
+        context['is_published'] = False
+        context['is_draft'] = False
+        context['is_on_moderation'] = True
+        return context
+
+
+def top_menu(request):
+    all_articles = Article.objects.all()
+    context = {}
+
+    article_data = []
+
+    for article in all_articles:
+        article_data.append({
+            'id': article.id,
+            'title': article.title,
+            'views': article.views,
+            'comments': CommentsBranch.get_comments_count_by_article(article.id),
+            'rating': article.rating.total()
+        })
+
+    top_articles = sorted(article_data, key=itemgetter('rating'), reverse=True)
+
+    context = top_articles[:7]
+
+    if request.method == 'GET' and request.is_ajax():
+        return render(request, 'mainapp/top-menu.html', {'top_articles': context})
+    else:
+        return HttpResponse(status=404)

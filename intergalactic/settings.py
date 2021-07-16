@@ -8,8 +8,6 @@ from intergalactic.ck_editor_settings import *
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
 # Application definition
 
@@ -25,6 +23,7 @@ INSTALLED_APPS = [
     'mainapp',
     'ratingsapp',
     'commentsapp',
+    'notifyapp',
     # other apps
     'martor',
     'ckeditor',
@@ -107,7 +106,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'intergalactic/static'), ]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static_dev'), ]
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -121,7 +120,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'usersapp.GeekHubUser'
 
 # URL - для аутентификации
-# LOGIN_URL = '/auth/login/'
+LOGIN_URL = '/auth/login/'
 
 # URL - куда пользователь будет перенаправлен при неудачной попытке аутентификации
 LOGIN_ERROR_URL = '/'
