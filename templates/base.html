@@ -25,6 +25,7 @@
     <div class="header">
         <div class="header-container">
             <a href="/"><img src="{% static 'svg/logo.svg' %}" alt="logo"></a>
+            <a href="{% url 'search:search' %}">Поиск</a>
         </div>
     </div>
 
@@ -37,7 +38,9 @@
         {% endblock %}
 
         <div class="container">
-            {% block content %} {% endblock %}
+            {% block content %}
+                {% block section_right %}{% endblock %}
+            {% endblock %}
         </div>
     </div>
 

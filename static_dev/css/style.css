@@ -72,12 +72,19 @@ a:hover {
 }
 
 .header-container {
-    width: 1140px;
-    margin: 0 auto
+    max-width: 1140px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.header-container a:last-child {
+    margin-right: 20px;
 }
 
 .container {
-    width: 1140px;
+    max-width: 1140px;
     margin: 0 auto;
     padding: 0;
 }
@@ -2024,4 +2031,8 @@ ul.top-info li { /* Menu list items */
     border-bottom: 1px solid;
     border-color: var(--section-bg-color);
 
+}
+
+.search-form {
+    margin-top: 40px;
 }

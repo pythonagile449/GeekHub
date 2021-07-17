@@ -269,7 +269,9 @@
                     </div>
                 {% else %}
                     <div class="actions-block" style="margin-top: 20px">
-                        {% include 'mainapp/_inc/user_actions/draft_detail.html' %}
+                        {% if user == article.author %}
+                            {% include 'mainapp/_inc/user_actions/draft_detail.html' %}
+                        {% endif %}
                     </div>
                     <div class="indent-60"></div>
                     <div class="like-comment">

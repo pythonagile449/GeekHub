@@ -29,8 +29,16 @@
 {% endblock %}
 
 {% block content %}
+
     <div class="content-container">
         <div class="section-left">
+            {% if search %}
+                <form action="{% url 'search:search' %}" method="get" class="search-form">
+                    <input name="q" placeholder="Поиск"
+                           class="search-input input-text" value="{% if q %}{{ q }}{% endif %}">
+                </form>
+            {% endif %}
+
             <div class="infinite-container">
                 {% for article in articles %}
                     <div class="infinite-item">
@@ -136,13 +144,12 @@
         </div>
 
         <div class="section-right">
-
             <div class="section-right-block">
                 {% include 'mainapp/top-menu.html' %}
             </div>
-
         </div>
     </div>
+
     <!-- Hidden SVG sprite -->
     <svg width="0" height="0" class="hidden">
         <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" id="fluent_comment-24-filled_active">
@@ -160,6 +167,7 @@
     <script src="{% static 'js/infinity_scroll/jquery.waypoints.min.js' %}"></script>
     <script src="{% static 'js/infinity_scroll/infinite.min.js' %}"></script>
     <script src="{% static 'js/mainapp/top-menu.js' %}"></script>
+    <script src="{% static 'js/search/search.js' %}"></script>
     <script>
         $('.martor-preview pre').each(function (i, block) {
             hljs.highlightBlock(block);
