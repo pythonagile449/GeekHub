@@ -32,12 +32,6 @@
 
     <div class="content-container">
         <div class="section-left">
-            {% if search %}
-                <form action="{% url 'search:search' %}" method="get" class="search-form">
-                    <input name="q" placeholder="Поиск"
-                           class="search-input input-text" value="{% if q %}{{ q }}{% endif %}">
-                </form>
-            {% endif %}
 
             <div class="infinite-container">
                 {% for article in articles %}
@@ -135,7 +129,7 @@
             <div class="pagination">
                 <span class="step-links">
                     {% if page_obj.has_next %}
-                        <a class="infinite-more-link" href="?page={{ page_obj.next_page_number }}"></a>
+                        <a class="infinite-more-link" href="/?page={{ page_obj.next_page_number }}"></a>
                     {% endif %}
                 </span>
                 <div class="loading-container" style="display: none; margin-top: 1em;width: 10em;height: 10em"></div>
@@ -167,7 +161,8 @@
     <script src="{% static 'js/infinity_scroll/jquery.waypoints.min.js' %}"></script>
     <script src="{% static 'js/infinity_scroll/infinite.min.js' %}"></script>
     <script src="{% static 'js/mainapp/top-menu.js' %}"></script>
-    <script src="{% static 'js/search/search.js' %}"></script>
+    {% if search %}
+        <script src="{% static 'js/search/search.js' %}"></script>{% endif %}
     <script>
         $('.martor-preview pre').each(function (i, block) {
             hljs.highlightBlock(block);
