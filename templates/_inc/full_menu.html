@@ -38,69 +38,76 @@
         <ul class="menu-right">
             {% if user.is_authenticated %}
                 {% if user.is_superuser %}
-                    <li><a href="{% url 'admin:index' %}" class="link-menu">Админка</a></li>
+                    <li>
+                        <a href="{% url 'admin:index' %}" class="link-menu">
+                            <svg class="icon-admin">
+                                <use xlink:href="#admin2"></use>
+                            </svg>
+                        </a>
+                    </li>
                 {% endif %}
+                <li><a href="" class="link-menu" title="Поиск по сайту">
+                    <svg class="icon-search">
+                        <use xlink:href="#search"></use>
+                    </svg>
+                </a></li>
                 <li><a href="{% url 'notifyapp:user_notifications' %}" class="link-menu" title="Уведомления">
                     <svg class="icon-notifications2">
                         <use xlink:href="#icon_notifications2"></use>
                     </svg>
                 </a>
                     <sup>
-                        <s-1 id="menu-notifications-counter">
+                        <s-1-1 id="menu-notifications-counter">
                             {% if user.pk|notifications_count %}
                                 {{ user.pk|notifications_count }}
                             {% endif %}
-                        </s-1>
+                        </s-1-1>
                     </sup>
                 </li>
-                {# При входе в аккаунт сразу возможность изменения данных о себе#}
-                {# <li><a href="{% url 'usersapp:account'  user.pk %}" class="link-menu">{{ user.username }}</a></li>#}
+
                 <li>
-                    <div class="new-edit-menu">
-                        <div class="icon_new">
-                            <a href="{% url 'mainapp:create_article' %}" class="link-menu" title="Создать статью">
-                                <svg class="icon-new">
-                                    <use xlink:href="#new_art"></use>
+                    <a href="{% url 'mainapp:create_article' %}" class="link-menu" title="Создать статью">
+                        <svg class="icon-new">
+                            <use xlink:href="#new_art"></use>
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <div class="icon_edit">
+                        <div class="dropdown">
+                            <div class="dropbtn">
+                                <svg class="icon-edit">
+                                    <use xlink:href="#edit_art"></use>
                                 </svg>
-                            </a>
-                        </div>
-                        <div class="icon_edit">
-                            <div class="dropdown">
-                                <div class="dropbtn">
-                                    <svg class="icon-edit">
-                                        <use xlink:href="#edit_art"></use>
-                                    </svg>
+                            </div>
+                            <div class="dropdown-content">
+                                <div class="menu-dropdown">
+                                    <a class="link-menu" href="{% url 'mainapp:drafts' %}">Черновики</a>
+                                    <sup>
+                                        <s-1>{{ user_drafts_count }}</s-1>
+                                    </sup>
                                 </div>
-                                <div class="dropdown-content">
-                                    <div class="menu-dropdown">
-                                        <a class="link-menu" href="{% url 'mainapp:drafts' %}">Черновики</a>
-                                        <sup>
-                                            <s-1>{{ user_drafts_count }}</s-1>
-                                        </sup>
-                                    </div>
-                                    <div class="menu-dropdown">
-                                        <a class="link-menu" href="{% url 'mainapp:user_moderation_articles' %}">
-                                            На модерации</a>
-                                        <sup>
-                                            <s-1>{{ user_on_moderation_articles_count }}</s-1>
-                                        </sup>
-                                    </div>
-                                    <div class="menu-dropdown">
-                                        <a class="link-menu" href="{% url 'mainapp:user_articles' %}">Опубликованные</a>
-                                        <sup>
-                                            <s-2>{{ user_published_articles_count }}</s-2>
-                                        </sup>
-                                    </div>
-                                    {% if user.is_staff %}
-                                        <div class="menu-dropdown">
-                                            <a class="link-menu" href="{% url 'mainapp:moderation_list' %}">На
-                                                проверку</a>
-                                            <sup>
-                                                <s-2>{{ articles_on_moderation_count }}</s-2>
-                                            </sup>
-                                        </div>
-                                    {% endif %}
+                                <div class="menu-dropdown">
+                                    <a class="link-menu" href="{% url 'mainapp:user_moderation_articles' %}">
+                                        Проверяются</a>
+                                    <sup>
+                                        <s-1>{{ user_on_moderation_articles_count }}</s-1>
+                                    </sup>
                                 </div>
+                                <div class="menu-dropdown">
+                                    <a class="link-menu" href="{% url 'mainapp:user_articles' %}">Опубликованные</a>
+                                    <sup>
+                                        <s-2>{{ user_published_articles_count }}</s-2>
+                                    </sup>
+                                </div>
+                                {% if user.is_staff %}
+                                    <div class="menu-dropdown">
+                                        <a class="link-menu" href="{% url 'mainapp:moderation_list' %}">Модерация</a>
+                                        <sup>
+                                            <s-2>{{ articles_on_moderation_count }}</s-2>
+                                        </sup>
+                                    </div>
+                                {% endif %}
                             </div>
                         </div>
                     </div>
@@ -112,7 +119,13 @@
                         </svg>
                     </a>
                 </li>
-                <li><a href="{% url 'usersapp:logout' %}" class="link-menu">Выйти</a></li>
+                <li>
+                    <a href="{% url 'usersapp:logout' %}" class="link-menu" title="Выйти">
+                        <svg class="icon-exit">
+                            <use xlink:href="#exit"></use>
+                        </svg>
+                    </a>
+                </li>
             {% endif %}
             {% if user.is_anonymous %}
                 <li><a href="{% url 'usersapp:login' %}" class="link-menu">Войти</a></li>
@@ -144,5 +157,14 @@
     </symbol>
     <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="more_hubs">
         <path d="M19.5 14a2.5 2.5 0 110-5 2.5 2.5 0 010 5zM12 14a2.5 2.5 0 110-5 2.5 2.5 0 010 5zm-7.5 0a2.5 2.5 0 110-5 2.5 2.5 0 010 5z"></path>
+    </symbol>
+    <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" id="search">
+        <path d="M9.167 4.167a5 5 0 100 10 5 5 0 000-10zm-6.667 5a6.667 6.667 0 1111.933 4.088l2.823 2.822a.833.833 0 01-1.178 1.179l-2.823-2.823A6.668 6.668 0 012.5 9.167z"></path>
+    </symbol>
+    <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" id="exit">
+        <path d="M15 12.5V10H8.75V7.5H15V5l3.75 3.75L15 12.5zm-1.25-1.25v5H7.5V20L0 16.25V0h13.75v6.25H12.5v-5h-10l5 2.5V15h5v-3.75h1.25z"></path>
+    </symbol>
+    <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" id="admin2">
+        <path d="M8.495 2h3.01L16 18h-2.88l-.83-3.31H7.623L6.749 18H4L8.495 2zm-.175 9.931h3.23l-1.572-6.29-1.658 6.29"></path>
     </symbol>
 </svg>

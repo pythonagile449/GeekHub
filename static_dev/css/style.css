@@ -55,7 +55,7 @@ html {
     --link-hover-color: #5085A9;
     --link-active-color: #48B5FF;
     --danger-color: #FF4848;
-    --warning-color: yellow;
+    --warning-color: #FF7A00;
     --success-color: green;
 }
 
@@ -72,19 +72,12 @@ a:hover {
 }
 
 .header-container {
-    max-width: 1140px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-}
-
-.header-container a:last-child {
-    margin-right: 20px;
+    width: 1140px;
+    margin: 0 auto
 }
 
 .container {
-    max-width: 1140px;
+    width: 1140px;
     margin: 0 auto;
     padding: 0;
 }
@@ -220,13 +213,13 @@ ul.menu-right li { /* Menu list items*/
     padding-left: 20px;
 }
 
-.section-menu {
+/*.section-menu {
     position: sticky;
     top: 60px;
     z-index: 20;
-}
+}*/
 
-ul.section-menu {
+/*ul.section-menu {
     background: var(--section-bg-color);
     display: flex;
     height: 60px;
@@ -234,13 +227,11 @@ ul.section-menu {
 }
 
 ul.section-menu li { /* Menu list items */
-    font-family: Roboto, Verdana, sans-serif;
-    display: inline;
-    margin-left: 20px;
-    text-align: center;
-
-
-}
+/*    font-family: Roboto, Verdana, sans-serif;
+/*    display: inline;
+/*    margin-left: 20px;
+/*    text-align: center;
+}*/
 
 .section-indent {
     background: var(--main-bg-color);
@@ -1449,7 +1440,6 @@ textarea.comment-area {
     fill-opacity: var(--header-opacity);
     transition: 0.25s;
     margin-left: 0px;
-    margin-right: 17px;
 }
 
 .icon-new:hover {
@@ -2035,4 +2025,144 @@ ul.top-info li { /* Menu list items */
 
 .search-form {
     margin-top: 40px;
+}
+
+.icon-search {
+    width: 28px;
+    height: 28px;
+    fill: var(--header-bg-color);
+    fill-opacity: var(--header-opacity);
+    transition: 0.25s;
+    margin-left: 0px;
+}
+
+.icon-search:hover {
+    fill: #48B5FF;
+    fill-opacity: 1.0;
+}
+
+.icon-exit {
+    width: 23px;
+    height: 23px;
+    fill: var(--header-bg-color);
+    fill-opacity: var(--header-opacity);
+    transition: 0.25s;
+    margin-left: 0px;
+}
+
+.icon-exit:hover {
+    fill: #48B5FF;
+    fill-opacity: 1.0;
+}
+
+.icon-sort {
+    width: 26px;
+    height: 26px;
+    fill: var(--header-bg-color);
+    fill-opacity: var(--header-opacity);
+    transition: 0.25s;
+    margin-left: 0px;
+}
+
+.icon-sort:hover {
+    fill: #48B5FF;
+    fill-opacity: 1.0;
+}
+
+.icon-bad {
+    width: 26px;
+    height: 26px;
+    fill: var(--header-bg-color);
+    fill-opacity: var(--header-opacity);
+    transition: 0.25s;
+    margin-left: 0px;
+}
+
+.icon-bad:hover {
+    fill: var(--warning-color);
+    fill-opacity: 1.0;
+}
+
+.icon-block {
+    width: 26px;
+    height: 26px;
+    fill: var(--header-bg-color);
+    fill-opacity: var(--header-opacity);
+    transition: 0.25s;
+    margin-left: 0px;
+}
+
+.icon-block:hover {
+    fill: var(--danger-color);
+    fill-opacity: 1.0;
+}
+
+.toolbar-menu {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    margin: 0;
+    padding: 0;
+    flex-direction: row;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background-color: var(--section-bg-color);
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+ul.toolbar-menu-left {
+    background-color: var(--section-bg-color);
+    display: flex;
+    height: 60px;
+    align-items: center;
+}
+
+ul.toolbar-menu-left li {
+    font-family: Roboto, Verdana, sans-serif;
+    display: inline;
+    margin-left: 20px;
+    text-align: center;
+}
+
+ul.toolbar-menu-right {
+    background-color: var(--section-bg-color);
+    display: flex;
+    height: 60px;
+    align-items: center;
+    padding-right: 20px;
+}
+
+ul.toolbar-menu-right li {
+    font-family: Roboto, Verdana, sans-serif;
+    display: inline;
+    margin-left: 20px;
+    margin-right: 0px;
+    text-align: center;
+}
+
+
+.dropbtn_toolbar {
+    background-color: var(--section-bg-color);
+    color: white;
+    font-size: 16px;
+    border: none;
+}
+
+.icon-admin {
+    width: 23px;
+    height: 25px;
+    fill: var(--header-bg-color);
+    fill-opacity: var(--header-opacity);
+    transition: 0.25s;
+    margin-left: 0px;
+}
+
+.icon-admin:hover {
+    fill: var(--primary-color);
+    fill-opacity: 1.0;
 }
