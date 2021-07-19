@@ -29,58 +29,57 @@
                         <li>
                             <h6-2>{{ article.publication_date }}</h6-2>
                         </li>
+                        <li>
+                            <h6-2>{{ article.hub.name }}</h6-2>
+                        </li>
                     </ul>
 
                 </div>
 
                 <div class="section-left-title">
-                    <h2>
-                        <h2-2>
-                            <a class="article-heading-link" href="{% url 'mainapp:article_detail' article.pk %}"
-                               style="">
-                                {{ article.title }}
-                            </a>
-                        </h2-2>
-                    </h2>
+                    <h5-1>
+                        <a class="article-heading-link" href="{% url 'mainapp:article_detail' article.pk %}"
+                           style="">
+                            {{ article.title }}
+                        </a>
+                    </h5-1>
                 </div>
 
-                <div class="chapter">
-                    <h6-3>{{ article.hub.name }}</h6-3>
-                </div>
 
-                <div class="section-left-text">
-                    {% if article.editor == 'CK' %}
-                        <div class="ck-preview">
-                            {{ article.get_article_preview|safe|truncatechars:500 }}
-                        </div>
-                    {% elif article.editor == 'MD' %}
-                        <div class="martor-preview">
-                            {{ article.get_article_preview|safe_markdown|truncatechars:500 }}
-                        </div>
-                    {% endif %}
-                </div>
-                {% if article.is_draft %}
-                    <a href="{% url 'mainapp:edit_draft' article.pk %}">
-                        <button class="button18" type="button">Редактировать</button>
-                    </a>
-                    <a href="{% url 'mainapp:send_article_on_moderation' article.pk %}">
-                        <button class="button16" type="button">Отправить на модерацию</button>
-                    </a>
-                    <a href="{% url 'mainapp:user_article_delete' article.pk %}">
-                        <button class="button17" type="button">Удалить</button>
-                    </a>
-                {% elif article.is_published %}
-                    <a href="{% url 'mainapp:user_article_to_drafts' article.pk %}" class="button18">Снять с
-                        публикации</a>
-                {% elif article.is_moderation_in_progress %}
-                    <a href="{% url 'mainapp:user_article_to_drafts' article.pk %}" class="button18">Снять с
-                        модерации</a>
-                    {% if user.is_staff %}
-                        <a href="{% url 'mainapp:article_publication' article.pk %}"
-                           class="button18">Опубликовать</a>
-                    {% endif %}
-                {% endif %}
-            {% endfor %}
+
+<!--                <div class="section-left-text">-->
+<!--                    {% if article.editor == 'CK' %}-->
+<!--                        <div class="ck-preview">-->
+<!--                            {{ article.get_article_preview|safe|truncatechars:500 }}-->
+<!--                        </div>-->
+<!--                    {% elif article.editor == 'MD' %}-->
+<!--                        <div class="martor-preview">-->
+<!--                            {{ article.get_article_preview|safe_markdown|truncatechars:500 }}-->
+<!--                        </div>-->
+<!--                    {% endif %}-->
+<!--                </div>-->
+<!--                {% if article.is_draft %}-->
+<!--                    <a href="{% url 'mainapp:edit_draft' article.pk %}">-->
+<!--                        <button class="button18" type="button">Редактировать</button>-->
+<!--                    </a>-->
+<!--                    <a href="{% url 'mainapp:send_article_on_moderation' article.pk %}">-->
+<!--                        <button class="button16" type="button">Отправить на модерацию</button>-->
+<!--                    </a>-->
+<!--                    <a href="{% url 'mainapp:user_article_delete' article.pk %}">-->
+<!--                        <button class="button17" type="button">Удалить</button>-->
+<!--                    </a>-->
+<!--                {% elif article.is_published %}-->
+<!--                    <a href="{% url 'mainapp:user_article_to_drafts' article.pk %}" class="button18">Снять с-->
+<!--                        публикации</a>-->
+<!--                {% elif article.is_moderation_in_progress %}-->
+<!--                    <a href="{% url 'mainapp:user_article_to_drafts' article.pk %}" class="button18">Снять с-->
+<!--                        модерации</a>-->
+<!--                    {% if user.is_staff %}-->
+<!--                        <a href="{% url 'mainapp:article_publication' article.pk %}"-->
+<!--                           class="button18">Опубликовать</a>-->
+<!--                    {% endif %}-->
+<!--                {% endif %}-->
+<!--            {% endfor %}-->
         </div>
 
         <div class="section-right">
