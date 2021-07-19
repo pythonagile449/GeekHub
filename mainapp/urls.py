@@ -23,4 +23,5 @@ urlpatterns = [
     path('user-article-return-to-drafts/<uuid:pk>/', mainapp.ArticleReturnToDrafts.as_view(),
          name='user_article_to_drafts'),
     path('get-top-menu/', mainapp.top_menu, name='top_menu'),
+    path('user/', mainapp.user_detail, name='user_detail'),
 ]

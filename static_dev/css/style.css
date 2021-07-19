@@ -448,7 +448,7 @@ ul.lvc-group li {
 
 .container-register {
     display: flex;
-    flex-flow: row-wrap;
+    flex-flow: row wrap;
     justify-content: space-between;
 }
 
@@ -580,7 +580,7 @@ input-text-right {
 
 .container-login {
     display: flex;
-    flex-flow: row-wrap;
+    flex-flow: row wrap;
     justify-content: space-between;
 }
 
@@ -1529,7 +1529,7 @@ textarea.comment-area {
     display: none;
     position: absolute;
     background-color: var(--section-bg-color);
-    min-width: 0 auto;
+    min-width: auto;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 1);
     z-index: 100;
     border-radius: 5px;
@@ -1551,7 +1551,7 @@ textarea.comment-area {
 .menu-dropdown { /* Menu List */
     background-color: var(--section-bg-color);
     display: flex;
-    height: 0 auto;
+    height: auto;
     align-items: center;
     border-radius: 5px;
     padding-top: 10px;
@@ -2026,6 +2026,10 @@ ul.top-info li { /* Menu list items */
 
 }
 
+ul.author-data a img {
+    max-width: 40px;
+    border-radius: 40px;
+}
 ul.author-data li img {
     max-width: 40px;
     border-radius: 40px;

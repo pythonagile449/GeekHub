@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load martortags %}
+{% load ratings %}
+{% load comments %}
+
+{% block title %}
+{{ title }} :: {{ block.super }}
+{% endblock %}
+
+{% block css %}
+<link href="{% static 'plugins/css/ace.min.css' %}" type="text/css" media="all" rel="stylesheet"/>
+<link href="{% static 'martor/css/martor.bootstrap.min.css' %}" type="text/css" media="all" rel="stylesheet"/>
+{% endblock %}
+
+{% block content %}
+
+{% endblock %}

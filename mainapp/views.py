@@ -413,3 +413,12 @@ def top_menu(request):
         return render(request, 'mainapp/top-menu.html', {'top_articles': context})
     else:
         return HttpResponse(status=404)
+
+
+
+
+
+def user_detail(request):
+    context = {}
+    return render(request, 'mainapp/user_detail.html', context)
+
