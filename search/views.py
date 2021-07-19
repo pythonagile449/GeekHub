@@ -41,7 +41,7 @@ class Search(ListView):
 
     @staticmethod
     def search_in_sqlite(query_string, target_type):
-        """ Search in development DB. """
+        """ Partial search in development DB. """
         # TODO доделать посик по тестовой БД
         queryset = Article.objects.filter(is_deleted=False)
         for word in query_string.split():
@@ -49,22 +49,21 @@ class Search(ListView):
             q_list |= Q(title__icontains=word)
             q_list |= Q(contents_ck__icontains=word)
             q_list |= Q(contents_md__icontains=word)
-            queryset = Article.objects.filter(q_list)
+            queryset = Article.objects.filter(is_published=True).filter(q_list)
         return queryset
 
     @staticmethod
     def search_in_postgres(query_string, target_type):
-        """ Search in postgres DB with vector and rank. Used for deploy settings."""
+        """ Full-text search in postgres DB with vector and rank. Used for deploy settings. """
         search_query = SearchQuery('')
         for word in query_string.split():
             search_query |= SearchQuery(word)
         model = TARGET_TYPES[target_type]
         search_vector = Search.set_search_vector(model)
-        search_rank = SearchRank(search_vector, search_query)
-        queryset = model.objects.annotate(rank=search_rank).order_by('-rank')
+        queryset = model.objects.annotate(search=search_vector).filter(search=search_query)
         # todo деделать поиск по частичным совпадениям в словах
-        # todo возможно добавить в настройки пользователя поиск по неточным совпадениям
-        # queryset = model.objects.annotate(search=search_vector).filter(search=search_query)
+        # search_rank = SearchRank(search_vector, search_query)
+        # queryset = model.objects.annotate(rank=search_rank).order_by('-rank')
 
         return queryset
 
