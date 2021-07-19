@@ -38,7 +38,13 @@
         <ul class="menu-right">
             {% if user.is_authenticated %}
                 {% if user.is_superuser %}
-                    <li><a href="{% url 'admin:index' %}" class="link-menu">Админка</a></li>
+                    <li>
+                        <a href="{% url 'admin:index' %}" class="link-menu">
+                            <svg class="icon-admin">
+                                <use xlink:href="#admin2"></use>
+                            </svg>
+                        </a>
+                    </li>
                 {% endif %}
                 <li><a href="" class="link-menu" title="Поиск по сайту">
                     <svg class="icon-search">
@@ -157,5 +163,8 @@
     </symbol>
     <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" id="exit">
         <path d="M15 12.5V10H8.75V7.5H15V5l3.75 3.75L15 12.5zm-1.25-1.25v5H7.5V20L0 16.25V0h13.75v6.25H12.5v-5h-10l5 2.5V15h5v-3.75h1.25z"></path>
+    </symbol>
+    <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" id="admin2">
+        <path d="M8.495 2h3.01L16 18h-2.88l-.83-3.31H7.623L6.749 18H4L8.495 2zm-.175 9.931h3.23l-1.572-6.29-1.658 6.29"></path>
     </symbol>
 </svg>

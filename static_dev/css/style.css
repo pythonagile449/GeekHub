@@ -2148,3 +2148,17 @@ ul.toolbar-menu-right li {
     font-size: 16px;
     border: none;
 }
+
+.icon-admin {
+    width: 23px;
+    height: 25px;
+    fill: var(--header-bg-color);
+    fill-opacity: var(--header-opacity);
+    transition: 0.25s;
+    margin-left: 0px;
+}
+
+.icon-admin:hover {
+    fill: var(--primary-color);
+    fill-opacity: 1.0;
+}
