@@ -60,10 +60,10 @@ class Search(ListView):
             search_query |= SearchQuery(word)
         model = TARGET_TYPES[target_type]
         search_vector = Search.set_search_vector(model)
-        queryset = model.objects.annotate(search=search_vector).filter(search=search_query)
+        # queryset = model.objects.annotate(search=search_vector).filter(search=search_query)
         # todo деделать поиск по частичным совпадениям в словах
-        # search_rank = SearchRank(search_vector, search_query)
-        # queryset = model.objects.annotate(rank=search_rank).order_by('-rank')
+        search_rank = SearchRank(search_vector, search_query)
+        queryset = model.objects.annotate(rank=search_rank).order_by('-rank')
 
         return queryset
 
