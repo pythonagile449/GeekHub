@@ -65,13 +65,13 @@
                 </div>
             </li>
             <li>
-                <a class="link-menu" href="" title="Жалобы">
+                <a class="link-menu" href="{% url 'complaint:complaints_list' %}" title="Жалобы">
                     <svg class="icon-bad">
                         <use xlink:href="#bad"></use>
                     </svg>
                 </a>
                 <sup>
-                    <s-1-1 id="toolbar-bad-counter">0 <!--bad_count-->
+                    <s-1-1 id="toolbar-bad-counter">{{ complaints_count }}
 
                     </s-1-1>
                 </sup>

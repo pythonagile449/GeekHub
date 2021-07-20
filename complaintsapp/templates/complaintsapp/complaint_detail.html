@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load martortags %}
+{% load comments %}
+{% load ratings %}
+
+{% block title %}
+    {{ title }} :: {{ block.super }}
+{% endblock %}
+
+{% block css %}
+{% endblock %}
+
+{% block toolbar %}
+    {% include '_inc/profile_toolbar.html' %}
+{% endblock %}
+
+{% block content %}
+    <div class="content-container">
+        <h2>Жалоба</h2>
+        <p>Пользователь FADSAS оставил жалобу на статью:</p>
+
+    </div>
+{% endblock %}

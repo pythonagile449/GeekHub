@@ -225,9 +225,4 @@
 {% block js %}
     <script type="text/javascript" src="{% static 'plugins/js/highlight.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/mainapp/user-articles-list.js' %}"></script>
-    <script>
-        $('.martor-preview pre').each(function (i, block) {
-            hljs.highlightBlock(block);
-        });
-    </script>
 {% endblock %}

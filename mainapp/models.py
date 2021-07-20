@@ -57,7 +57,7 @@ class Article(models.Model):
         return self.title
 
     def __str__(self):
-        return f'{self.title} {self.hub.name}'
+        return f'{self.title}'
 
     @staticmethod
     def remove_style_tag_from_ck_content(html):

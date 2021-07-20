@@ -1,7 +1,8 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.http import JsonResponse
 from django.contrib.contenttypes.models import ContentType
-from django.views.generic import View, ListView
+from django.http import JsonResponse
+from django.urls import reverse_lazy
+from django.views.generic import View, ListView, DeleteView
 
 from commentsapp.models import CommentsBranch
 from complaintsapp.models import Complaint
@@ -41,9 +42,33 @@ class CreateComplaintView(LoginRequiredMixin, View):
         return response
 
 
-class ComplaintsListView(ListView):
-    template_name = 'mainapp/user_articles_list_table.html'
+class ComplaintsListView(LoginRequiredMixin, ListView):
+    template_name = 'complaintsapp/users_complaints_list_table.html'
+    context_object_name = 'complaints'
 
     def get_queryset(self):
-        queryset = Complaint.objects.filter()
+        if self.request.user.is_staff:
+            queryset = Complaint.objects.all()
+        else:
+            queryset = Complaint.objects.filter(sender=self.request.user)
         return queryset
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(ComplaintsListView, self).get_context_data()
+        context['title'] = 'Мои жалобы'
+        return context
+
+
+class ComplaintDiscardView(LoginRequiredMixin, DeleteView):
+    model = Complaint
+    template_name = 'complaintsapp/complaint_confirm_discard.html'
+    success_url = reverse_lazy('complaint:complaints_list')
+
+    def delete(self, request, *args, **kwargs):
+        complaint = self.get_object()
+        complaint.set_discard_status()
+
+    def get_context_data(self, **kwargs):
+        context = super(ComplaintDiscardView, self).get_context_data()
+        context['complaint_sender'] = self.get_object().sender
+        return context

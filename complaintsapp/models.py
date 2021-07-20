@@ -6,10 +6,16 @@ from usersapp.models import GeekHubUser
 
 
 class Complaint(models.Model):
+    STATUS_CHOISES = (
+        ('A', 'Approved'),
+        ('M', 'Moderating'),
+        ('D', 'Discarded'),
+    )
     sender = models.ForeignKey(GeekHubUser, on_delete=models.CASCADE, verbose_name='Отправитель',
                                related_name='complaint_sender', null=True)
     message = models.CharField(max_length=512, verbose_name='Жалоба', null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
+    status = models.CharField(max_length=1, choices=STATUS_CHOISES, verbose_name='Статус', default='M')
 
     object_id = models.CharField(max_length=40, null=True)
     content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE, null=True)
@@ -20,4 +26,8 @@ class Complaint(models.Model):
         verbose_name_plural = 'Жалобы'
 
     def __str__(self):
-        return f'{self.sender} -> {self.content_object.name} -> {self.message[:15]}'
+        return f'{self.sender} -> {self.content_object} -> {self.message[:15]}'
+
+    def set_discard_status(self):
+        self.status = 'D'
+        self.save()
