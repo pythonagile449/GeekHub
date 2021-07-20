@@ -123,10 +123,18 @@
                             </li>
                             <li>
                                 <div class="lvc-group">
-                                    <span class="complaint-button" data-article-id="{{ article.pk }}">Пожаловаться на статью</span>
+                                    <span class="show-complaint-button">Пожаловаться на статью</span>
                                 </div>
                             </li>
                         </ul>
+                        <div class="complaint-container hidden">
+                            <textarea name="article-complaint"
+                                      class="editor-field article-complaint-input"></textarea>
+                            <button type="button" class="button22 submit-complaint-button"
+                                    data-article-id="{{ article.pk }}">
+                                Отправить жалобу
+                            </button>
+                        </div>
                         <div class="comments-tree-block " data-article-id="{{ article.pk }}">
                             <div class="block-comment">
                                 <div class="indent-60"></div>
@@ -380,6 +388,7 @@
 {% block js %}
     <script type="module" src="{% static "js/mainapp/comment-form.js" %}"></script>
     <script type="text/javascript" src="{% static 'plugins/js/highlight.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/complaintsapp/article-user-complaint.js' %}"></script>
     <script>
         $('.martor-preview pre').each(function (i, block) {
             console.log(hljs)
