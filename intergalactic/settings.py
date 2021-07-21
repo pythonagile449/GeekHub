@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'martor',
     'ckeditor',
     'ckeditor_uploader',
+    'channels',
 ]
 
 MIDDLEWARE = [
@@ -65,6 +66,14 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'intergalactic.wsgi.application'
+ASGI_APPLICATION = 'intergalactic.asgi.application'
+
+# CHANNELS_LAYERS = {
+#     'default': {
+#        'BACKEND' : "channels_redis.core.RedisChannelLayer",
+#        'CONFIG':
+#     }
+# }
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases

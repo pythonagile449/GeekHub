@@ -13,6 +13,13 @@ const getTopData = () => {
         });
 }
 
+const TopMenuConsumer = new WebSocket(
+    'ws//'
+    + window.location.host
+    + '{{ active_hub }}'
+    + '/'
+);
+
 document.addEventListener('DOMContentLoaded', () => {
         getTopData();
 });
