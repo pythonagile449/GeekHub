@@ -2361,3 +2361,7 @@ ul.toolbar-menu-right li {
     color: var(--header-bg-color);
     border-color: rgba(72, 181, 255, 0.2);
 }
+
+textarea.article-complaint-input {
+    width: 100%;
+}
