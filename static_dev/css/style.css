@@ -1546,12 +1546,13 @@ textarea.comment-area {
 
 .dropdown:hover .dropdown-content {
     display: block;
+    white-space: nowrap;
 }
 
 .menu-dropdown { /* Menu List */
     background-color: var(--section-bg-color);
     display: flex;
-    height: 0 auto;
+    height: auto;
     align-items: center;
     border-radius: 5px;
     padding-top: 10px;

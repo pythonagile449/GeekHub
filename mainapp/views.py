@@ -322,21 +322,36 @@ class UserModeratingArticles(UserArticles):
 
 
 class ArticleDelete(DeleteView):
-    model = Article
-    template_name = 'mainapp/article_confirm_delete.html'
-    success_url = reverse_lazy('mainapp:drafts')
+    """
+            RU
+            Удаление статьи.
 
-    def delete(self, request, *args, **kwargs):
-        self.object = self.get_object()
-        self.object.is_published = False
-        self.object.is_moderation_in_progress = False
-        self.object.is_draft = False
-        self.object.is_deleted = True
-        self.object.save()
-        return HttpResponseRedirect(self.success_url)
+            EN
+            Delete article
+    """
+model = Article
+template_name = 'mainapp/article_confirm_delete.html'
+success_url = reverse_lazy('mainapp:drafts')
+
+
+def delete(self, request, *args, **kwargs):
+    self.object = self.get_object()
+    self.object.is_published = False
+    self.object.is_moderation_in_progress = False
+    self.object.is_draft = False
+    self.object.is_deleted = True
+    self.object.save()
+    return HttpResponseRedirect(self.success_url)
 
 
 class ArticleReturnToDrafts(DeleteView):
+    """
+        RU
+        Возврат статьи в черновики.
+
+        EN
+        Return article to user's drafts
+    """
     model = Article
     template_name = 'mainapp/article_confirm_to_drafts.html'
     success_url = reverse_lazy('mainapp:drafts')
@@ -390,13 +405,34 @@ class ModerationList(ListView):
         return context
 
 
-def top_menu(request):
-    all_articles = Article.objects.all()
-    context = {}
+def top_menu(request, hub_name):
+    """
+        RU
+        Контроллер меню толпа статей.
+
+        EN
+        Top articles' menu controller
+    """
+    if hub_name == 'Все хабы':
+        articles_to_show = Article.objects.filter(
+            is_published=True,
+            is_draft=False,
+            is_moderation_in_progress=False,
+            is_deleted=False
+        )
+    else:
+        hub = Hub.objects.get(name=hub_name)
+        articles_to_show = Article.objects.filter(
+            hub=hub,
+            is_published=True,
+            is_draft=False,
+            is_moderation_in_progress=False,
+            is_deleted=False
+        )
 
     article_data = []
 
-    for article in all_articles:
+    for article in articles_to_show:
         article_data.append({
             'id': article.id,
             'title': article.title,
