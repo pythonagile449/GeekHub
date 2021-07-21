@@ -816,8 +816,10 @@ select {
 }
 
 .block-foto {
+    display:flex;
     width: 270px;
     height: 270px;
+    justify-content: center;
 }
 
 .block-foto-button {
@@ -2373,4 +2375,52 @@ ul.toolbar-menu-right li {
 
 textarea.article-complaint-input {
     width: 100%;
+}
+
+.author-name { /* Menu list items */
+    color: var(--text-color); /* Link color */
+    text-decoration: none; /* remove the underscore */
+    font-size: 12px;
+    transition: color 0.3s ease 0s;
+    font-weight: 500;
+}
+
+.author-name:hover {
+    color: var(--link-active-color);
+}
+
+.author-name:active {
+    color: var(--link-active-color);
+}
+
+.field-auto {
+    height: auto;
+    display: flex;
+    align-items: center;
+}
+.block-info-auto {
+    width: 80%;
+    height: 80%;
+    align-items: center;
+    display: flex;
+    margin-right: 20px;
+}
+
+.section-left-part-user {
+    width: 463px;
+    height: 480px;
+    background: var(--section-bg-color); /* цвет фона */
+    border-radius: 5px;
+}
+
+.section-right-part-user {
+    width: 270px;
+    height: 480px;
+}
+
+.block-user-info {
+    width: 270px;
+    height: 160px;
+    background: var(--section-bg-color);
+    border-radius: 5px;
 }
