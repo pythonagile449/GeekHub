@@ -27,7 +27,7 @@
     <img src=/media/{{ author.profile_photo}} alt='Photo {{author.username}}'>
     {%for article in author_articles%}
         <div class="author_detail_article">
-            {{ article.title}}
+            <a href="{% url 'mainapp:article_detail' article.pk %}">{{ article.title}}</a>
         </div>
     <div class="author_detail_hub">
             {{article.hub}}
