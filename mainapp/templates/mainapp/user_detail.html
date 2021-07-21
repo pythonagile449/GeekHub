@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load martortags %}
+{% load ratings %}
+{% load comments %}
+
+{% block title %}
+{{ title }} :: {{ block.super }}
+{% endblock %}
+
+{% block css %}
+<link href="{% static 'plugins/css/ace.min.css' %}" type="text/css" media="all" rel="stylesheet"/>
+<link href="{% static 'martor/css/martor.bootstrap.min.css' %}" type="text/css" media="all" rel="stylesheet"/>
+{% endblock %}
+
+{% block content %}
+
+<div class="author_detail">
+    <div>{{author.gender}}</div>
+    <div>{{author.username}}</div>
+    <div>{{author.lastname}}</div>
+    <div>{{author.email}}</div>
+    <div>{{author.birthday}}</div>
+    <div>{{author.user_information}}</div>
+
+
+    <img src=/media/{{ author.profile_photo}} alt='Photo {{author.username}}'>
+    {%for article in author_articles%}
+        <div class="author_detail_article">
+            {{ article.title}}
+        </div>
+    <div class="author_detail_hub">
+            {{article.hub}}
+        </div>
+    {% endfor %}
+
+
+
+</div>
+
+{% endblock %}

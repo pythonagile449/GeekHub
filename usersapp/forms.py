@@ -54,6 +54,11 @@ class UserProfileForm(UserChangeForm):
         model = GeekHubUser
         fields = '__all__'
 
+class UserProfileDetailForm:
+    class Meta:
+        model = GeekHubUser
+        fields = '__all__'
+
 
 class UserProfileEditForm(ModelForm):
     other = 'O'

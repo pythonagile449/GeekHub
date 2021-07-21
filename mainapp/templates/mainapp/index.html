@@ -39,7 +39,12 @@
                         <div class="section-indent"></div>
                         <div class="author-data">
                             <ul class="author-data">
-                                <li><img src="{% static 'svg/icon2.svg' %}" alt="icon"></li>
+                                {% if article.author.profile_photo|length == 0 %}
+                                    <a href="{% url 'mainapp:user_detail' article.author.pk %}"><img src="{% static 'svg/icon2.svg' %}" alt={{article.author.id}}></a>
+                                {% else %}
+                                    <a href="{% url 'mainapp:user_detail' article.author.pk %}"><img src=/media/{{ article.author.profile_photo}} alt={{article.author.id}}></a>
+                                {% endif %}
+
                                 <li>
                                     <h6-1>{{ article.author.username }}</h6-1>
                                 </li>

@@ -28,4 +28,5 @@ def usersapp_context(request):
         'user_on_moderation_articles_count': user_on_moderation_articles_count,
         'articles_on_moderation_count': articles_on_moderation_count,
         'complaints_count': complaints_count,
+        # 'user_articles': user_articles
     }
