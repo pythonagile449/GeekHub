@@ -149,12 +149,12 @@
                                     <div class="editor-field">
                                             <textarea name="article-complaint"
                                                       class="editor-field article-complaint-input"></textarea>
-                                            <div class="button-field">
-                                                <button type="button" class="button23 submit-complaint-button"
-                                                        data-article-id="{{ article.pk }}">
-                                                    Пожаловаться
-                                                </button>
-                                            </div>
+                                        <div class="button-field">
+                                            <button type="button" class="button23 submit-complaint-button"
+                                                    data-article-id="{{ article.pk }}">
+                                                Пожаловаться
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="indent-60"></div>
@@ -385,9 +385,10 @@
                     </div>
                 {% endif %}
             </div>
-            <div class="section-right">
-                <div class="section-right-block">
-                </div>
+        </div>
+        <div class="section-right">
+            <div class="section-right-block">
+                {% block right_content %}{% endblock %}
             </div>
         </div>
     </div>
@@ -408,7 +409,7 @@
         <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" id="fluent_comment-24-filled_active">
             <path d="M4.375 15a2.708 2.708 0 01-2.708-2.708V5.208A2.708 2.708 0 014.375 2.5h11.25a2.708 2.708 0 012.708 2.708v7.084A2.709 2.709 0 0115.625 15h-4.82l-4.49 3.18A.833.833 0 015 17.503V15h-.625z"></path>
         </symbol>
-            <!--Подать жалобу-->
+        <!--Подать жалобу-->
         <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="bad">
             <path d="M12 2c-4.2 0-8 3.22-8 8.2 0 3.32 2.67 7.25 8 11.8 5.33-4.55 8-8.48 8-11.8C20 5.22 16.2 2 12 2zm0 17.33c-4.05-3.7-6-6.79-6-9.14C6 6.57 8.65 4 12 4s6 2.57 6 6.2c0 2.34-1.95 5.44-6 9.13z"></path>
             <path d="M11 6h2v5h-2V6zm0 7h2v2h-2v-2z"></path>

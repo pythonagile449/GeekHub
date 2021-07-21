@@ -21,7 +21,7 @@ def usersapp_context(request):
         if user.is_staff:
             articles_on_moderation_count = Article.objects.filter(is_moderation_in_progress=True,
                                                                   is_deleted=False).count()
-            complaints_count = Complaint.objects.all().count()
+            complaints_count = Complaint.objects.filter(status='M').count()
     return {
         'user_drafts_count': user_drafts_count,
         'user_published_articles_count': user_published_articles_count,

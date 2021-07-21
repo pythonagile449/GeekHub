@@ -19,7 +19,7 @@ urlpatterns = [
     path('comments/', include('commentsapp.urls', namespace='commentsapp')),
     path('notifications/', include('notifyapp.urls', namespace='notifyapp')),
     path('search/', include('search.urls', namespace='search')),
-    path('complaint/', include('complaintsapp.urls', namespace='complaint')),
+    path('complaint/', include('complaintsapp.urls', namespace='complaints')),
 
     # mardown editor urls
     path('martor/', include('martor.urls')),

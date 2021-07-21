@@ -31,3 +31,7 @@ class Complaint(models.Model):
     def set_discard_status(self):
         self.status = 'D'
         self.save()
+
+    def set_approve_status(self):
+        self.status = 'A'
+        self.save()
