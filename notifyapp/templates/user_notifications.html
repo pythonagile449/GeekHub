@@ -41,9 +41,13 @@
                             </label>
                         </td>
                         <td>
-                            <a href="{% url 'mainapp:article_detail' notification.content_object.pk %}">
-                                {{ notification.content_object.title|truncatechars:25 }}
-                            </a>
+                            {% if notification.content_type.model == 'complaint' %}
+                                {# TODO ссылка на страницу жалобы#}
+                            {% elif notification.content_type.model == 'article' %}
+                                <a href="{% url 'mainapp:article_detail' notification.content_object.pk %}">
+                                    {{ notification.content_object.title|truncatechars:25 }}
+                                </a>
+                            {% endif %}
                         </td>
                         <td>
                             {{ notification.sender }}

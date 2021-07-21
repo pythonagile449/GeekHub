@@ -42,7 +42,7 @@
                         {# complaint target title #}
                         <td>
                             {% if complaint.content_type.model == 'article' %}
-                                <a href="{% url 'mainapp:article_detail' complaint.content_object.pk %}">
+                                <a href="{% url 'complaints:complaint_detail' complaint.content_object.pk complaint.sender.pk %}">
                                     {{ complaint.content_object|truncatechars:35 }}
                                 </a>
                             {% elif complaint.content_type.model == 'complaint' %}
@@ -66,22 +66,29 @@
                         <td class="cell-actions hidden" style="width: 250px">
                             {# todo replace text to svg#}
                             {% if user.is_staff %}
-                                <a href="" title="Отклонить"> <!--Отклонить-->
+                                <!--Отклонить-->
+                                <a href="{% url 'complaints:discard_complaint' complaint.pk %}" title="Отклонить">
                                     <svg class="icon-bad-x">
                                         <use xlink:href="#bad-x"></use>
                                     </svg>
                                 </a>
-                                <a href="" title="Принять"> <!--Принять-->
+                                <!--Принять-->
+                                <a href="{% url 'complaints:approve_complaint' complaint.pk %}" title="Принять">
                                     <svg class="icon-bad-ok">
                                         <use xlink:href="#bad-ok"></use>
                                     </svg>
                                 </a>
                             {% else %}
-                                <a href="" title="Отозвать"> <!--Отозвать-->
-                                    <svg class="icon-bad-revers">
-                                        <use xlink:href="#bad-revers"></use>
-                                    </svg>
-                                </a>
+                                {% if complaint.status == 'M' %}
+                                    <!--Отозвать-->
+                                    <a href="{% url 'complaints:discard_complaint' complaint.pk %}" title="Отозвать">
+                                        <svg class="icon-bad-revers">
+                                            <use xlink:href="#bad-revers"></use>
+                                        </svg>
+                                    </a>
+                                {% else %}
+                                    {{ complaint.created_at }}
+                                {% endif %}
                             {% endif %}
                         </td>
                     </tr>
@@ -89,7 +96,7 @@
                 </tbody>
             </table>
         {% elif not complaints %}
-            <div class="empty-content-message">Жалоб нет</div>
+            <div class="empty-content-message">Жалоб на рассмотрении нет</div>
         {% endif %}
 
     </div>

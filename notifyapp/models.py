@@ -24,3 +24,17 @@ class Notification(models.Model):
 
     def __str__(self):
         return f'{self.sender} -> {self.recipient}: {self.message[:50]}...'
+
+
+class NotificationFactory:
+    @classmethod
+    def notify(cls, sender, recipient, message, model_object):
+        """ Create and return notification object. """
+        return Notification.objects.create(
+            sender=sender,
+            recipient=recipient,
+            message=message,
+            content_type=ContentType.objects.get_for_model(model_object),
+            object_id=model_object.pk,
+            content_object=model_object,
+        )
