@@ -2072,7 +2072,7 @@ ul.top-info li { /* Menu list items */
     fill-opacity: 1.0;
 }
 
-.icon-bad-toolbar {
+.icon-bad {
     width: 26px;
     height: 26px;
     fill: var(--header-bg-color);
@@ -2081,7 +2081,7 @@ ul.top-info li { /* Menu list items */
     margin-left: 0px;
 }
 
-.icon-bad-toolbar:hover {
+.icon-bad:hover {
     fill: var(--warning-color);
     fill-opacity: 1.0;
 }
@@ -2235,20 +2235,6 @@ ul.toolbar-menu-right li {
 
 .icon-bad-revers:hover {
     fill: var(--primary-color);
-    fill-opacity: 1.0;
-}
-
-.icon-bad {
-    width: 20px;
-    height: 20px;
-    fill: var(--link-hover-color);
-    fill-opacity: 1.0;
-    transition: 0.25s;
-    margin-left: 0px;
-}
-
-.icon-bad:hover {
-    fill: var(--warning-color);
     fill-opacity: 1.0;
 }
 
