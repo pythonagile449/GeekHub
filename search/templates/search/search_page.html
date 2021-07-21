@@ -15,17 +15,17 @@
 
 {% block content %}
     <div class="content-container">
-        <div class="section-left">
-            {% include 'search/_inc/search_form.html' %}
-            {% if target_type == 'posts' %}
-                {% include 'search/_inc/search_posts.html' %}
-            {% elif target_type == 'hubs' %}
-                {% include 'search/_inc/search_hubs.html' %}
-            {% elif target_type == 'users' %}
-                {% include 'search/_inc/search_users.html' %}
-            {% elif target_type == 'comments' %}
-                {% include 'search/_inc/search_comments.html' %}
-            {% endif %}
+        <div class="search-background">
+                {% include 'search/_inc/search_form.html' %}
+                {% if target_type == 'posts' %}
+                    {% include 'search/_inc/search_posts.html' %}
+                {% elif target_type == 'hubs' %}
+                    {% include 'search/_inc/search_hubs.html' %}
+                {% elif target_type == 'users' %}
+                    {% include 'search/_inc/search_users.html' %}
+                {% elif target_type == 'comments' %}
+                    {% include 'search/_inc/search_comments.html' %}
+                {% endif %}
         </div>
     </div>
 {% endblock %}
