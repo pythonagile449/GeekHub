@@ -392,13 +392,34 @@ class ModerationList(ListView):
         return context
 
 
-def top_menu(request):
-    all_articles = Article.objects.all()
-    context = {}
+def top_menu(request, hub_name):
+    """
+        RU
+        Контроллер меню толпа статей.
+
+        EN
+        Top articles' menu controller
+    """
+    if hub_name == 'Все хабы':
+        articles_to_show = Article.objects.filter(
+            is_published=True,
+            is_draft=False,
+            is_moderation_in_progress=False,
+            is_deleted=False
+        )
+    else:
+        hub = Hub.objects.get(name=hub_name)
+        articles_to_show = Article.objects.filter(
+            hub=hub,
+            is_published=True,
+            is_draft=False,
+            is_moderation_in_progress=False,
+            is_deleted=False
+        )
 
     article_data = []
 
-    for article in all_articles:
+    for article in articles_to_show:
         article_data.append({
             'id': article.id,
             'title': article.title,
