@@ -6,15 +6,15 @@
     <div class="section-right-block">
         <div class="top-info-menu-field">
             <div class="top-info-menu">
-                <div class="dropdown">
+                <div id="top-menu-dropdown" class="dropdown">
                     <div class="top-menu-dropbtn">
                         <svg class="icon-top-menu">
                             <use xlink:href="#top_menu"></use>
                         </svg>
                     </div>
                     <div class="dropdown-content">
-                        <div class="menu-dropdown"><a class="link-menu" href="/">Лучшие&nbsp;статьи</a></div>
-                        {#                        <div class="menu-dropdown"><a class="link-menu" href="/">Популярное</a></div>#}
+                        <div class="menu-dropdown"><a class="link-menu" href="/">Лучшие статьи</a></div>
+{#                        <div class="menu-dropdown"><a class="link-menu" href="/">По дате</a></div>#}
                         {#                        <div class="menu-dropdown"><a class="link-menu" href="/">Горячие&nbsp;темы</a></div>#}
                         {#                        <div class="menu-dropdown"><a class="link-menu" href="/">Лучшие&nbsp;авторы</a></div>#}
                     </div>
@@ -70,7 +70,7 @@
                                                     <use xlink:href="#fluent_comment-24-filled_active"></use>
                                                 </svg>
                                             <li class="comm_number">
-                                                <h5-2-lvc>{{ top_article.comm }}</h5-2-lvc>
+                                                <h5-2-lvc>{{ top_article.comments }}</h5-2-lvc>
                                             </li>
                                         </ul>
                                     </div>
