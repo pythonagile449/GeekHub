@@ -12,6 +12,7 @@ class Complaint {
     setHandlers() {
         this.showComplaintBoxButton.addEventListener('click', evt => {
             this.complaintContainer.classList.toggle('hidden');
+            this.complaintInput.value = '';
             this.complaintInput.focus();
         })
 
@@ -23,6 +24,7 @@ class Complaint {
                 url: `/complaint/create/?obj_id=${articleId}&message=${message}&instance=article`,
                 success: data => {
                     console.log(data)
+                    this.complaintInput.value = '';
                 },
                 error: err => {
                     console.log(err.responseJSON)
