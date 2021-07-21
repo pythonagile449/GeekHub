@@ -38,9 +38,9 @@
                         <div class="author-data">
                             <ul class="author-data">
                                 {% if article.author.profile_photo|length == 0 %}
-                                    <a href="{% url 'mainapp:user_detail' %}"><img src="{% static 'svg/icon2.svg' %}" alt={{article.author.id}}></a>
+                                    <a href="{% url 'mainapp:user_detail' article.author.pk %}"><img src="{% static 'svg/icon2.svg' %}" alt={{article.author.id}}></a>
                                 {% else %}
-                                    <a href="{% url 'mainapp:user_detail' %}"><img src=media/{{ article.author.profile_photo}} alt={{article.author.id}}></a>
+                                    <a href="{% url 'mainapp:user_detail' article.author.pk %}"><img src=/media/{{ article.author.profile_photo}} alt={{article.author.id}}></a>
                                 {% endif %}
 
                                 <li>

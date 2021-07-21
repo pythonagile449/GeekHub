@@ -3,7 +3,7 @@ from operator import itemgetter
 from django.contrib.contenttypes.models import ContentType
 from django.db.models.functions import datetime
 from django.http import HttpResponseRedirect, JsonResponse, HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DetailView, ListView, DeleteView, UpdateView
 
@@ -11,6 +11,8 @@ from commentsapp.models import CommentsBranch
 from mainapp.forms import ArticleCkForm, ArticleMdForm
 from mainapp.models import Hub, Article
 from notifyapp.models import Notification
+from usersapp.context_processors.user_context_processors import usersapp_context
+from usersapp.models import GeekHubUser
 
 
 class Index(ListView):
@@ -418,7 +420,18 @@ def top_menu(request):
 
 
 
-def user_detail(request):
-    context = {}
+def user_detail(request, pk=None):
+
+    if pk is not None:
+        title = 'Данные автора'
+        data_author = get_object_or_404(GeekHubUser, id=pk)
+        author_articles = Article.objects.filter(author=data_author, is_published=True, is_deleted=False) \
+            .order_by('-publication_date')
+    context = {
+        'title': title,
+        'author': data_author,
+        'author_articles': author_articles
+    }
+    print(context)
     return render(request, 'mainapp/user_detail.html', context)
 

@@ -41,7 +41,7 @@ html {
     --footer-bg-color: #C8C8C8;
     --primary-color: #48B5FF; /*the color of the blue elements*/
     --secondary-color: #5085A9; /*color "Read more"*/
-    --header-bg-color: #000000;
+    --header-bg-color: #3f3939;
     --text-color: #000000;
     --text-secondary-color: black;
     --text-secondary-opacity: 0.6;
@@ -1760,3 +1760,4 @@ ul.author-data li img {
     max-width: 40px;
     border-radius: 40px;
 }
+
