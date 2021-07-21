@@ -3,7 +3,7 @@
 from django.conf import settings
 from django.db import migrations, models
 import django.db.models.deletion
-
+from django.contrib.postgres.operations import BtreeGinExtension
 
 class Migration(migrations.Migration):
 
@@ -15,6 +15,7 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
+        BtreeGinExtension(),
         migrations.AddField(
             model_name='article',
             name='author',
