@@ -125,20 +125,6 @@
                         </div>
                     </div>
                 </li>
-<!--                <li>-->
-<!--                    <a href="{% url 'usersapp:modify'  user.pk %}" class="link-menu" title="Профиль пользователя">-->
-<!--                        <svg class="icon-user">-->
-<!--                            <use xlink:href="#user"></use>-->
-<!--                        </svg>-->
-<!--                    </a>-->
-<!--                </li>-->
-<!--                <li>-->
-<!--                    <a href="{% url 'usersapp:logout' %}" class="link-menu" title="Выйти">-->
-<!--                        <svg class="icon-exit">-->
-<!--                            <use xlink:href="#exit"></use>-->
-<!--                        </svg>-->
-<!--                    </a>-->
-<!--                </li>-->
             {% endif %}
             {% if user.is_anonymous %}
                 <li><a href="{% url 'usersapp:login' %}" class="link-menu">Войти</a></li>
