@@ -29,8 +29,10 @@
 {% endblock %}
 
 {% block content %}
+
     <div class="content-container">
         <div class="section-left">
+
             <div class="infinite-container">
                 {% for article in articles %}
                     <div class="infinite-item">
@@ -127,7 +129,7 @@
             <div class="pagination">
                 <span class="step-links">
                     {% if page_obj.has_next %}
-                        <a class="infinite-more-link" href="?page={{ page_obj.next_page_number }}"></a>
+                        <a class="infinite-more-link" href="/?page={{ page_obj.next_page_number }}"></a>
                     {% endif %}
                 </span>
                 <div class="loading-container" style="display: none; margin-top: 1em;width: 10em;height: 10em"></div>
@@ -136,13 +138,12 @@
         </div>
 
         <div class="section-right">
-
             <div class="section-right-block">
                 {% include 'mainapp/top-menu.html' %}
             </div>
-
         </div>
     </div>
+
     <!-- Hidden SVG sprite -->
     <svg width="0" height="0" class="hidden">
         <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" id="fluent_comment-24-filled_active">
@@ -160,6 +161,8 @@
     <script src="{% static 'js/infinity_scroll/jquery.waypoints.min.js' %}"></script>
     <script src="{% static 'js/infinity_scroll/infinite.min.js' %}"></script>
     <script src="{% static 'js/mainapp/top-menu.js' %}"></script>
+    {% if search %}
+        <script src="{% static 'js/search/search.js' %}"></script>{% endif %}
     <script>
         $('.martor-preview pre').each(function (i, block) {
             hljs.highlightBlock(block);

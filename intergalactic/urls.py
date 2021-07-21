@@ -18,6 +18,7 @@ urlpatterns = [
     path('auth/', include('usersapp.urls', namespace='usersapp')),
     path('comments/', include('commentsapp.urls', namespace='commentsapp')),
     path('notifications/', include('notifyapp.urls', namespace='notifyapp')),
+    path('search/', include('search.urls', namespace='search')),
 
     # mardown editor urls
     path('martor/', include('martor.urls')),
