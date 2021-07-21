@@ -123,34 +123,47 @@
                             </li>
                             <li>
                                 <div class="lvc-group">
-                                    <span class="show-complaint-button">Пожаловаться на статью</span>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="lvc-group">
                                     <ul class="lvc-group">
                                         <li title="Подать жалобу">
-                                            <a href="{% url 'mainapp:article_detail' article.pk %}"
-                                               title="Подать жалобу">
+                                            <span class="show-complaint-button">
                                                 <svg class="icon-bad">
                                                     <use xlink:href="#bad"></use>
                                                 </svg>
-                                            </a>
+                                            </span>
                                         </li>
-                                        {# ToDo Заменить на счетчик жалоб или удалить счетчик #}
-                                        <h5-2-lvc>{{ article.pk|get_comments_count }}</h5-2-lvc>
                                     </ul>
                                 </div>
                             </li>
                         </ul>
+
                         <div class="complaint-container hidden">
-                            <textarea name="article-complaint"
-                                      class="editor-field article-complaint-input"></textarea>
-                            <button type="button" class="button22 submit-complaint-button"
-                                    data-article-id="{{ article.pk }}">
-                                Отправить жалобу
-                            </button>
+                            <div class="field-50"></div>
+                            <div class="field-50">
+                                <h2>
+                                    <h2-2>Написать жалобу</h2-2>
+                                </h2>
+                            </div>
+                            <div class="indent-10"></div>
+                            <div class="my-comment">
+                                <div class="my-text">
+                                    <div class="editor-field">
+                                        <form class="comment-form">
+                                            {% csrf_token %}
+                                            <textarea name="article-complaint"
+                                                      class="editor-field article-complaint-input"></textarea>
+                                            <div class="button-field">
+                                                <button type="button" class="button22 submit-complaint-button"
+                                                        data-article-id="{{ article.pk }}">
+                                                    Пожаловаться
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="indent-60"></div>
+                            </div>
                         </div>
+
                         <div class="comments-tree-block " data-article-id="{{ article.pk }}">
                             <div class="block-comment">
                                 <div class="indent-60"></div>
