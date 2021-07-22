@@ -9,6 +9,7 @@ def usersapp_context(request):
     user_published_articles_count = 0
     user_on_moderation_articles_count = 0
     articles_on_moderation_count = 999
+    user_articles = ''
     if not isinstance(user, AnonymousUser):
         user_articles = Article.objects.filter(author=user)
         user_drafts_count = user_articles.filter(is_draft=True, is_deleted=False).count()
