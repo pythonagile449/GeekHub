@@ -30,6 +30,11 @@ html {
 
 .footer {
     flex: 0 0 auto;
+    /*position: sticky;*/
+    bottom: 0px;
+    z-index: -1;
+    height: 60px;
+
 }
 
 :root {
@@ -257,9 +262,13 @@ ul.section-menu li { /* Menu list items */
     width: 367px;
 }
 
-.section-right-block {
+.section-right-top-block {
     width: 367px;
-    /*height: 520px;*/
+    height: auto;
+    position: sticky;
+    top: 80px;
+    z-index: 49;
+    /*padding-bottom: 80px;*/
 }
 
 .chapter {
@@ -2119,7 +2128,7 @@ ul.author-data li img {
     padding: 0;
     flex-direction: row;
     position: sticky;
-    top: 0;
+    top: 60px;
     z-index: 20;
     background-color: var(--section-bg-color);
 }
@@ -2315,7 +2324,7 @@ ul.toolbar-menu-right li {
     border-width: 1px;
     border-color: var(--secondary-color);
     color: var(--link-hover-color);
-    padding: 8px 8px;
+    padding: 2px 8px;
     text-align: center;
     text-decoration: none;
     font-size: 14px;
@@ -2337,7 +2346,7 @@ ul.toolbar-menu-right li {
     border-width: 1px;
     border-color: var(--secondary-color);
     color: var(--link-hover-color);
-    padding: 8px 8px;
+    padding: 2px 16px;
     text-align: center;
     text-decoration: none;
     font-size: 14px;
@@ -2423,4 +2432,68 @@ textarea.article-complaint-input {
     height: 160px;
     background: var(--section-bg-color);
     border-radius: 5px;
+}
+
+.content-complaint-title {
+    display: flex;
+    height: 40px;
+    align-items: center;
+}
+
+.content-complaint {
+    border-radius: 5px;
+    border: 2px solid;
+    border-color: var(--section-bg-color);
+    align-items: center;
+}
+
+ul.user-complaints-list {
+
+}
+
+ul.user-complaints-list li {
+    display: inline; /* Display as a lowercase element */
+}
+
+.field-complaint {
+    margin: 20px 20px 20px 20px;
+    padding: 10px 10px 5px 10px;
+    border-radius: 5px;
+    border: 2px solid;
+    border-color: var(--section-bg-color);
+}
+
+.message-box {
+    display: flex;
+    justify-content: center;
+    margin: 5px 20px 5px 20px;
+}
+
+.button28 {
+    transition: color 0.3s ease 0s;
+    font-weight: 500;
+    background: rgba(72, 181, 255, 0.2);
+    border-radius: 5px;
+    color: var(--text-color);
+    padding: 8px 12px;
+    margin-right: 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    font-family: Roboto, Verdana, sans-serif;
+}
+
+.button28:hover {
+    background: rgba(72, 181, 255, 0.6);
+    color: var(--main-bg-color);
+}
+
+.section-right-block {
+    width: 367px;
+    height: auto;
+    position: sticky;
+    top: 100px;
+    z-index: 19;
 }
