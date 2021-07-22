@@ -11,22 +11,26 @@
         <div class="message-fail">
             <div class="indent-10"></div>
             <div class="indent-20">
-                <h5>Внимание!</h5>
+                <h4>Внимание!</h4>
             </div>
             <div class="indent-20">
                 {% if complaint_sender == user %}
-                    <h4>Вы действительно хотите отозвать свою жалобу?</h4>
+                    <h5>Вы действительно хотите отозвать свою жалобу?</h5>
                 {% elif user.is_staff %}
-                    <h4>Вы действительно хотите отклонить жалобу пользователя {{ complaint_sender }}?</h4>
+                    <h5>Вы действительно хотите отклонить жалобу пользователя {{ complaint_sender }}?</h5>
                 {% endif %}
             </div>
-            <div class="message-box">{{ complaint.message }}</div>
+            <div class="message-box"><h6-3>{{ complaint.message }}</h6-3></div>
             <div class="indent-50">
                 {#                TODO edit delete complaint logic#}
                 <form method="post">
                     {% csrf_token %}
                     <a>
-                        <button class="button12" type="submit">Да!</button>
+                        {% if complaint_sender == user %}
+                            <button class="button12" type="submit">Да, отозвать!</button>
+                        {% elif user.is_staff %}
+                            <button class="button12" type="submit">Да, отклонить!</button>
+                        {% endif %}
                     </a>
                 </form>
                 <button class="button13" type="button" onclick="window.history.back()">Нет, отмена</button>

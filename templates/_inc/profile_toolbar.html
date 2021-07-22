@@ -1,109 +1,108 @@
 <div class="section-title">
     <h2>Профиль</h2>
 </div>
-
-<div class="toolbar-menu">
-    <div class="toolbar-menu-left">
-        <ul class="toolbar-menu-left"> <!-- Прижат к левому краю блока-->
-            <li><a class="link-menu" href="{% url 'usersapp:modify' user.pk %}">О себе</a></li>
-            <li><a class="link-menu" href="{% url 'mainapp:create_article' %}">Редактор статей</a></li>
-            <li><a class="link-menu" href="{% url 'mainapp:drafts' %}">Черновики</a>
-                <sup>
-                    <s-1>{{ user_drafts_count }}</s-1>
-                </sup>
-            </li>
-            <li><a class="link-menu" href="{% url 'mainapp:user_moderation_articles' %}">Проверяются</a>
-                <sup>
-                    <s-1>{{ user_on_moderation_articles_count }}</s-1>
-                </sup>
-            </li>
-            <li><a class="link-menu" href="{% url 'mainapp:user_articles' %}">Опубликованные</a>
-                <sup>
-                    <s-2>{{ user_published_articles_count }}</s-2>
-                </sup>
-            </li>
-            {% if user.is_staff %}
-                <li><a class="link-menu" href="{% url 'mainapp:moderation_list' %}">Модерация</a>
+    <div class="toolbar-menu">
+        <div class="toolbar-menu-left">
+            <ul class="toolbar-menu-left"> <!-- Прижат к левому краю блока-->
+                <li><a class="link-menu" href="{% url 'usersapp:modify' user.pk %}">О себе</a></li>
+                <li><a class="link-menu" href="{% url 'mainapp:create_article' %}">Редактор статей</a></li>
+                <li><a class="link-menu" href="{% url 'mainapp:drafts' %}">Черновики</a>
                     <sup>
-                        <s-1>{{ articles_on_moderation_count }}</s-1>
+                        <s-1>{{ user_drafts_count }}</s-1>
                     </sup>
                 </li>
-            {% endif %}
-        </ul>
-    </div>
-    <div class="toolbar-menu-right">
-        <ul class="toolbar-menu-right"> <!-- Прижат к левому краю блока-->
-            <li>
-                <div class="block-control">
-                    <div class="icon_sort">
-                        <div class="dropdown">
-                            <div class="dropbtn_toolbar" title="Сортировка">
-                                <svg class="icon-sort">
-                                    <use xlink:href="#sorting"></use>
-                                </svg>
-                            </div>
-                            <div class="dropdown-content">
-                                <div class="menu-dropdown">
-                                    <a class="link-menu" href="{% url 'mainapp:drafts' %}">По&nbsp;дате</a>
+                <li><a class="link-menu" href="{% url 'mainapp:user_moderation_articles' %}">Проверяются</a>
+                    <sup>
+                        <s-1>{{ user_on_moderation_articles_count }}</s-1>
+                    </sup>
+                </li>
+                <li><a class="link-menu" href="{% url 'mainapp:user_articles' %}">Опубликованные</a>
+                    <sup>
+                        <s-2>{{ user_published_articles_count }}</s-2>
+                    </sup>
+                </li>
+                {% if user.is_staff %}
+                    <li><a class="link-menu" href="{% url 'mainapp:moderation_list' %}">Модерация</a>
+                        <sup>
+                            <s-1>{{ articles_on_moderation_count }}</s-1>
+                        </sup>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+        <div class="toolbar-menu-right">
+            <ul class="toolbar-menu-right"> <!-- Прижат к левому краю блока-->
+                <li>
+                    <div class="block-control">
+                        <div class="icon_sort">
+                            <div class="dropdown">
+                                <div class="dropbtn_toolbar" title="Сортировка">
+                                    <svg class="icon-sort">
+                                        <use xlink:href="#sorting"></use>
+                                    </svg>
                                 </div>
-                                <div class="menu-dropdown">
-                                    <a class="link-menu" href="{% url 'mainapp:user_moderation_articles' %}">
-                                        По&nbsp;хабам</a>
-                                </div>
-                                {% if user.is_staff %}
+                                <div class="dropdown-content">
                                     <div class="menu-dropdown">
-                                        <a class="link-menu"
-                                           href="{% url 'mainapp:user_articles' %}">По&nbsp;авторам</a>
+                                        <a class="link-menu" href="{% url 'mainapp:drafts' %}">По&nbsp;дате</a>
                                     </div>
-                                {% endif %}
-                                <div class="menu-dropdown">
-                                    <a class="link-menu" href="{% url 'mainapp:moderation_list' %}">По&nbsp;названию</a>
+                                    <div class="menu-dropdown">
+                                        <a class="link-menu" href="{% url 'mainapp:user_moderation_articles' %}">
+                                            По&nbsp;хабам</a>
+                                    </div>
+                                    {% if user.is_staff %}
+                                        <div class="menu-dropdown">
+                                            <a class="link-menu"
+                                               href="{% url 'mainapp:user_articles' %}">По&nbsp;авторам</a>
+                                        </div>
+                                    {% endif %}
+                                    <div class="menu-dropdown">
+                                        <a class="link-menu" href="{% url 'mainapp:moderation_list' %}">По&nbsp;названию</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </li>
-            <li>
-                <a class="link-menu" href="{% url 'complaints:complaints_list' %}" title="Жалобы">
-                    <svg class="icon-bad-toolbar">
-                        <use xlink:href="#bad"></use>
+                </li>
+                <li>
+                    <a class="link-menu" href="{% url 'complaints:complaints_list' %}" title="Жалобы">
+                        <svg class="icon-bad-toolbar">
+                            <use xlink:href="#bad"></use>
+                        </svg>
+                    </a>
+                    <sup>
+                        <s-1-1 id="toolbar-bad-counter">{{ complaints_count }}
+
+                        </s-1-1>
+                    </sup>
+                </li>
+                <li><a class="link-menu" href="" title="Заблокированный контент">
+                    <svg class="icon-block">
+                        <use xlink:href="#block"></use>
                     </svg>
                 </a>
-                <sup>
-                    <s-1-1 id="toolbar-bad-counter">{{ complaints_count }}
+                    <sup>
+                        <s-1-1 id="toolbar-block-counter">0  <!--block_count-->
 
-                    </s-1-1>
-                </sup>
-            </li>
-            <li><a class="link-menu" href="" title="Заблокированный контент">
-                <svg class="icon-block">
-                    <use xlink:href="#block"></use>
-                </svg>
-            </a>
-                <sup>
-                    <s-1-1 id="toolbar-block-counter">0  <!--block_count-->
+                        </s-1-1>
+                    </sup>
+                </li>
+            </ul>
+        </div>
 
-                    </s-1-1>
-                </sup>
-            </li>
-        </ul>
+    <!-- Hidden SVG sprite -->
+    <svg width="0" height="0" class="hidden">
+        <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="sorting">
+            <path d="M13.545 16.545L9.42 20.67a1.125 1.125 0 01-1.59 0l-4.125-4.125a1.125 1.125 0 111.59-1.59L7.5 17.16V4.125a1.125 1.125 0 112.25 0V17.16l2.205-2.205a1.125 1.125 0 011.59 1.59zM12.75 3a1.125 1.125 0 000 2.25h7.5a1.125 1.125 0 000-2.25h-7.5zm0 3.75a1.125 1.125 0 000 2.25h4.5a1.125 1.125 0 000-2.25h-4.5zm0 3.75a1.125 1.125 0 100 2.25h1.5a1.125 1.125 0 100-2.25h-1.5z"></path>
+        </symbol>
+        <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="bad">
+            <path d="M12 2c-4.2 0-8 3.22-8 8.2 0 3.32 2.67 7.25 8 11.8 5.33-4.55 8-8.48 8-11.8C20 5.22 16.2 2 12 2zm0 17.33c-4.05-3.7-6-6.79-6-9.14C6 6.57 8.65 4 12 4s6 2.57 6 6.2c0 2.34-1.95 5.44-6 9.13z"></path>
+            <path d="M11 6h2v5h-2V6zm0 7h2v2h-2v-2z"></path>
+        </symbol>
+        <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="block">
+            <path d="M12 2L4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5l-8-3zm6 9.09c0 4-2.55 7.7-6 8.83-3.45-1.13-6-4.82-6-8.83v-4.7l6-2.25 6 2.25v4.7zM9.91 8.5L8.5 9.91 10.59 12 8.5 14.09l1.41 1.41L12 13.42l2.09 2.08 1.41-1.41L13.42 12l2.08-2.09-1.41-1.41L12 10.59 9.91 8.5z"></path>
+        </symbol>
+        <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" id="exit">
+            <path d="M15 12.5V10H8.75V7.5H15V5l3.75 3.75L15 12.5zm-1.25-1.25v5H7.5V20L0 16.25V0h13.75v6.25H12.5v-5h-10l5 2.5V15h5v-3.75h1.25z"></path>
+        </symbol>
+    </svg>
     </div>
-</div>
-
-<!-- Hidden SVG sprite -->
-<svg width="0" height="0" class="hidden">
-    <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="sorting">
-        <path d="M13.545 16.545L9.42 20.67a1.125 1.125 0 01-1.59 0l-4.125-4.125a1.125 1.125 0 111.59-1.59L7.5 17.16V4.125a1.125 1.125 0 112.25 0V17.16l2.205-2.205a1.125 1.125 0 011.59 1.59zM12.75 3a1.125 1.125 0 000 2.25h7.5a1.125 1.125 0 000-2.25h-7.5zm0 3.75a1.125 1.125 0 000 2.25h4.5a1.125 1.125 0 000-2.25h-4.5zm0 3.75a1.125 1.125 0 100 2.25h1.5a1.125 1.125 0 100-2.25h-1.5z"></path>
-    </symbol>
-    <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="bad">
-        <path d="M12 2c-4.2 0-8 3.22-8 8.2 0 3.32 2.67 7.25 8 11.8 5.33-4.55 8-8.48 8-11.8C20 5.22 16.2 2 12 2zm0 17.33c-4.05-3.7-6-6.79-6-9.14C6 6.57 8.65 4 12 4s6 2.57 6 6.2c0 2.34-1.95 5.44-6 9.13z"></path>
-        <path d="M11 6h2v5h-2V6zm0 7h2v2h-2v-2z"></path>
-    </symbol>
-    <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="block">
-        <path d="M12 2L4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5l-8-3zm6 9.09c0 4-2.55 7.7-6 8.83-3.45-1.13-6-4.82-6-8.83v-4.7l6-2.25 6 2.25v4.7zM9.91 8.5L8.5 9.91 10.59 12 8.5 14.09l1.41 1.41L12 13.42l2.09 2.08 1.41-1.41L13.42 12l2.08-2.09-1.41-1.41L12 10.59 9.91 8.5z"></path>
-    </symbol>
-    <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" id="exit">
-        <path d="M15 12.5V10H8.75V7.5H15V5l3.75 3.75L15 12.5zm-1.25-1.25v5H7.5V20L0 16.25V0h13.75v6.25H12.5v-5h-10l5 2.5V15h5v-3.75h1.25z"></path>
-    </symbol>
-</svg>

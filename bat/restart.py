@@ -36,7 +36,8 @@ def main():
                     remove_file(file)
                     deleted_files_count += 1 # incrementing count
     print(f"Total files deleted: {deleted_files_count}")
-
+    if int(input('Миграции удалены. Нажмите 1 для выхода. Любая кнопка для продолжения:  ')):
+        return
     os.startfile(path+'\\bat\mmigr.bat')
     input('Правила миграций настроены. Нажмите Enter')
     os.startfile(path+'\\bat\migr.bat')

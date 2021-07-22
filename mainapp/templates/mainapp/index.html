@@ -39,9 +39,15 @@
                         <div class="section-indent"></div>
                         <div class="author-data">
                             <ul class="author-data">
-                                <li><img src="{% static 'svg/icon2.svg' %}" alt="icon"></li>
                                 <li>
-                                    <h6-1>{{ article.author.username }}</h6-1>
+                                    {% if article.author.profile_photo|length == 0 %}
+                                        <a href="{% url 'mainapp:user_detail' article.author.pk %}"><img src="{% static 'svg/block_foto.svg' %}" alt={{article.author.id}}></a>
+                                    {% else %}
+                                        <a href="{% url 'mainapp:user_detail' article.author.pk %}"><img src=/media/{{ article.author.profile_photo}} alt={{article.author.id}}></a>
+                                    {% endif %}
+                                </li>
+                                <li>
+                                    <a href="{% url 'mainapp:user_detail' article.author.pk %}" class="author-name">{{ article.author.username }}</a>
                                 </li>
                                 <li>
                                     <h6-2>{{ article.publication_date }}</h6-2>
@@ -120,17 +126,7 @@
                                         </ul>
                                     </div>
                                 </li>
-<!--                                <li>-->
-<!--                                    <div class="lvc-group">-->
-<!--                                        <ul class="lvc-group">-->
-<!--                                            <li title="Жалобы">-->
-<!--                                                <img src="{% static 'svg/bad-no-hover.svg' %}" alt="bad">-->
-<!--                                            </li>-->
-<!--                                        {# TODO заменить на счетчик жалоб#}-->
-<!--                                            <h5-2-lvc>{{ article.pk|get_comments_count }}</h5-2-lvc>-->
-<!--                                        </ul>-->
-<!--                                    </div>-->
-<!--                                </li>-->
+
                             </ul>
                         </div>
                     </div>
