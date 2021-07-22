@@ -100,7 +100,7 @@
                                 <div class="field-text-left">
                                     {% if author.is_superuser %}
                                         <h5-3>Администратор</h5-3>
-                                    {% elif is_on_moderation and author.is_staff %}
+                                    {% elif author.is_staff %}
                                         <h5-3>Модератор</h5-3>
                                     {% else %}
                                         <h5-3>Пользователь</h5-3>
