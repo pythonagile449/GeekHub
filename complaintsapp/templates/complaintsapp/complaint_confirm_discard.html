@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block menu %}
+{% endblock %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="upper-margin"></div>
+        <div class="message-fail">
+            <div class="indent-10"></div>
+            <div class="indent-20">
+                <h5>Внимание!</h5>
+            </div>
+            <div class="indent-20">
+                {% if complaint_sender == user %}
+                    <h4>Вы действительно хотите отозвать свою жалобу?</h4>
+                {% elif user.is_staff %}
+                    <h4>Вы действительно хотите отклонить жалобу пользователя {{ complaint_sender }}?</h4>
+                {% endif %}
+            </div>
+            <div class="message-box">{{ complaint.message }}</div>
+            <div class="indent-50">
+                {#                TODO edit delete complaint logic#}
+                <form method="post">
+                    {% csrf_token %}
+                    <a>
+                        <button class="button12" type="submit">Да!</button>
+                    </a>
+                </form>
+                <button class="button13" type="button" onclick="window.history.back()">Нет, отмена</button>
+            </div>
+        </div>
+        <div class="indent-20"></div>
+    </div>
+
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

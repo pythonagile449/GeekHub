@@ -1,0 +1,62 @@
+{% extends 'mainapp/article_detail.html' %}
+{% load static %}
+{% load martortags %}
+{% load comments %}
+{% load ratings %}
+
+{% block title %}
+    {{ title }} :: {{ block.super }}
+{% endblock %}
+
+{% block toolbar %}
+    {% include '_inc/profile_toolbar.html' %}
+{% endblock %}
+{##}
+{#{% block content %}#}
+{#    <div class="content-container">#}
+{#        <h2>Жалоба</h2>#}
+{#        <p>Пользователь FADSAS оставил жалобу на статью:</p>#}
+{##}
+{#    </div>#}
+{#{% endblock %}#}
+
+{% block right_content %}
+    <div class="section-right"> <!-- Правая секция -->
+        <div class="indent-40"></div> <!-- Топ контент -->
+        {% if user.is_staff %}
+            <p>Жалобы пользователя <span class="username">{{ complaint_sender }}</span></p>
+        {% else %}
+            <p>Мои жалобы</p>
+        {% endif %}
+        <div class="section-right-block">
+            <ul class="user-complaints-list">
+                {% for complaint in complaints %}
+                    <li class="user-complaint-item">
+                        {{ complaint.message }}{% if user.is_staff %}
+                            <!--Отклонить-->
+                            <a href="{% url 'complaints:discard_complaint' complaint.pk %}" title="Отклонить">
+                                Отклонить
+                            </a>
+                            <!--Принять-->
+                            <a href="{% url 'complaints:approve_complaint' complaint.pk %}" title="Принять">
+                                Принять
+                            </a>
+                        {% else %}
+                            {% if complaint.status == 'M' %}
+                                <!--Отозвать-->
+                                <a href="{% url 'complaints:discard_complaint' complaint.pk %}" title="Отозвать">
+                                    Отозвать
+                                </a>
+                            {% elif complaint.status == 'D' %}
+                                (Отклонена)
+                            {% elif complaint.status == 'A' %}
+                                (Принята)
+                            {% endif %}
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+
+        </div>
+    </div>
+{% endblock %}

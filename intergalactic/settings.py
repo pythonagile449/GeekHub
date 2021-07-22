@@ -25,6 +25,7 @@ INSTALLED_APPS = [
     'commentsapp',
     'notifyapp',
     'search',
+    'complaintsapp',
     # other apps
     'martor',
     'ckeditor',

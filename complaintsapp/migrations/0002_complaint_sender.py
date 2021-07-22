@@ -10,14 +10,14 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('ratingsapp', '0001_initial'),
+        ('complaintsapp', '0001_initial'),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='ratingcount',
-            name='users',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL, verbose_name='Владелец'),
+            model_name='complaint',
+            name='sender',
+            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, related_name='complaint_sender', to=settings.AUTH_USER_MODEL, verbose_name='Отправитель'),
         ),
     ]

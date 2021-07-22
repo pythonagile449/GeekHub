@@ -76,11 +76,17 @@
                     <div class="icon_edit">
                         <div class="dropdown">
                             <div class="dropbtn">
-                                <svg class="icon-edit">
-                                    <use xlink:href="#edit_art"></use>
+                                <svg class="icon-user">
+                                    <use xlink:href="#user"></use>
                                 </svg>
                             </div>
                             <div class="dropdown-content">
+                                <div class="menu-dropdown">
+                                    <a class="link-menu" href="{% url 'usersapp:modify'  user.pk %}">О себе</a>
+                                </div>
+                                <div class="menu-dropdown">
+                                    <a class="link-menu" href="{% url 'mainapp:create_article' %}">Редактор статей</a>
+                                </div>
                                 <div class="menu-dropdown">
                                     <a class="link-menu" href="{% url 'mainapp:drafts' %}">Черновики</a>
                                     <sup>
@@ -108,23 +114,16 @@
                                         </sup>
                                     </div>
                                 {% endif %}
+                                <div class="menu-dropdown">
+                                    <a href="{% url 'usersapp:logout' %}" class="link-menu" title="Выйти">
+                                        <svg class="icon-exit">
+                                            <use xlink:href="#exit"></use>
+                                        </svg>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </li>
-                <li>
-                    <a href="{% url 'usersapp:modify'  user.pk %}" class="link-menu" title="Профиль пользователя">
-                        <svg class="icon-user">
-                            <use xlink:href="#user"></use>
-                        </svg>
-                    </a>
-                </li>
-                <li>
-                    <a href="{% url 'usersapp:logout' %}" class="link-menu" title="Выйти">
-                        <svg class="icon-exit">
-                            <use xlink:href="#exit"></use>
-                        </svg>
-                    </a>
                 </li>
             {% endif %}
             {% if user.is_anonymous %}

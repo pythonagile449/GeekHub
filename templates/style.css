@@ -2072,7 +2072,7 @@ ul.top-info li { /* Menu list items */
     fill-opacity: 1.0;
 }
 
-.icon-bad-toolbar {
+.icon-bad {
     width: 26px;
     height: 26px;
     fill: var(--header-bg-color);
@@ -2081,7 +2081,7 @@ ul.top-info li { /* Menu list items */
     margin-left: 0px;
 }
 
-.icon-bad-toolbar:hover {
+.icon-bad:hover {
     fill: var(--warning-color);
     fill-opacity: 1.0;
 }
@@ -2238,20 +2238,6 @@ ul.toolbar-menu-right li {
     fill-opacity: 1.0;
 }
 
-.icon-bad {
-    width: 20px;
-    height: 20px;
-    fill: var(--link-hover-color);
-    fill-opacity: 1.0;
-    transition: 0.25s;
-    margin-left: 0px;
-}
-
-.icon-bad:hover {
-    fill: var(--warning-color);
-    fill-opacity: 1.0;
-}
-
 .button23 {
     transition: color 0.3s ease 0s;
     background: var(--main-bg-color);
@@ -2360,8 +2346,4 @@ ul.toolbar-menu-right li {
     background: rgba(72, 181, 255, 0.2);
     color: var(--header-bg-color);
     border-color: rgba(72, 181, 255, 0.2);
-}
-
-textarea.article-complaint-input {
-    width: 100%;
 }
