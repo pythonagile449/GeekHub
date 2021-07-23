@@ -47,6 +47,9 @@
                                 </a>
                             {% elif complaint.content_type.model == 'complaint' %}
                                 {# todo add link to complaint detail view #}
+                                                                <a href="{% url 'complaints:complaint_detail' complaint.content_object.pk complaint.sender.pk %}">
+                                    {{ complaint.content_object|truncatechars:35 }}
+                                </a>
                                 {{ complaint.content_object|truncatechars:35 }}
                             {% endif %}
                         </td>

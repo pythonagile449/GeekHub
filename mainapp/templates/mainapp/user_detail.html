@@ -129,22 +129,89 @@
         </div>
 
         <div class="section-right">
-
             <div class="section-right-block">
-
+                <div class="user-info-menu-field">
+                    <div class="content-user-info-title">
+                        <h5-3>Публикации {{author.username}}:</h5-3>
+                    </div>
+                </div>
+                <div class="indent-10"></div>
+                <div class="content-user-info">
+                    {%for article in author_articles%}
+                        <div class="author-data">
+                            <ul class="user-article-data">
+                                <li>
+                                    <h6-2>{{ article.publication_date }}</h6-2>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="short-article-field">
+                            <div class="short-article-title">
+                                <a class="link-user-info-menu"
+                                   href="{% url 'mainapp:article_detail' article.id %}">{{ article.title|title }}</a>
+                            </div>
+                            <ul class="user-article-data">
+                                <li>
+                                    <h6-2>{{ article.hub.name }}</h6-2>
+                                </li>
+                            </ul>
+                            <div class="short-article-data">
+                                <div class="like-comment">
+                                    <ul class="lvc-field">
+                                        <li>
+                                            <div class="lvc-group">
+                                                <ul class="lvc-group">
+                                                    <li><img src="{% static 'svg/chart.svg' %}" alt="chart">
+                                                    </li>
+                                                    <li>
+                                                        <h5-2-lvc>{{ article.id|rating_total }}</h5-2-lvc>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="lvc-group">
+                                                <ul class="lvc-group">
+                                                    <li><img src="{% static 'svg/carbon_view-filled_active.svg' %}"
+                                                             alt="view"></li>
+                                                    <li>
+                                                        <h5-2-lvc>{{ article.views }}</h5-2-lvc>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="lvc-group">
+                                                <ul class="lvc-group">
+                                                    {# TODO при нажатии на комментарий редирект на страницу статьи и фокус в поле ввода комментария#}
+                                                    <li title="Комментарии">
+                                                        <a href="{% url 'mainapp:article_detail' article.pk %}"
+                                                           title="Читать и комментировать">
+                                                            <svg class="icon-comment">
+                                                                <use xlink:href="#fluent_comment-24-filled_active"></use>
+                                                            </svg>
+                                                        </a>
+                                                    </li>
+                                                    <h5-2-lvc>{{ article.pk|get_comments_count }}</h5-2-lvc>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                </div>
             </div>
-
         </div>
     </div>
 
 
-<!--    <img src=/media/{{ author.profile_photo}} alt='Photo {{author.username}}'>-->
-<!--    {%for article in author_articles%}-->
-<!--        <div class="author_detail_article">-->
-<!--            {{ article.title}}-->
-<!--        </div>-->
-<!--    <div class="author_detail_hub">-->
-<!--            {{article.hub}}-->
-<!--        </div>-->
-<!--{% endfor%}-->
+    <!-- Hidden SVG sprite -->
+    <svg width="0" height="0" class="hidden">
+        <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" id="fluent_comment-24-filled_active">
+            <path d="M4.375 15a2.708 2.708 0 01-2.708-2.708V5.208A2.708 2.708 0 014.375 2.5h11.25a2.708 2.708 0 012.708 2.708v7.084A2.709 2.709 0 0115.625 15h-4.82l-4.49 3.18A.833.833 0 015 17.503V15h-.625z"></path>
+        </symbol>
+    </svg>
 {% endblock %}
