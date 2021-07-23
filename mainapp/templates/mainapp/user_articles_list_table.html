@@ -54,7 +54,7 @@
 
                         {# article author #}
                         {% if is_on_moderation and user.is_staff %}
-                            <td>{{ article.author }}</td>
+                            <td><a href="{% url 'mainapp:user_detail' article.author.pk %}" class="link-menu">{{ article.author }}</a></td>
                         {% endif %}
 
                         <td>
@@ -225,9 +225,4 @@
 {% block js %}
     <script type="text/javascript" src="{% static 'plugins/js/highlight.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/mainapp/user-articles-list.js' %}"></script>
-    <script>
-        $('.martor-preview pre').each(function (i, block) {
-            hljs.highlightBlock(block);
-        });
-    </script>
 {% endblock %}

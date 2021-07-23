@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block menu %}
+{% endblock %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="upper-margin"></div>
+        <div class="message-success">
+            <div class="indent-10"></div>
+            <div class="indent-20">
+                <h4>Внимание!</h4>
+            </div>
+            <div class="indent-20">
+                <h5>Вы действительно хотите принять жалобу пользователя {{ complaint_sender }}?</h5>
+            </div>
+            <div class="message-box"><h6-3>{{ complaint.message }}</h6-3></div>
+            <div class="indent-50">
+                {#                TODO edit delete complaint logic#}
+                <form method="post">
+                    {% csrf_token %}
+                    <a>
+                        <button class="button28" type="submit">Да, принять!</button>
+                    </a>
+                </form>
+                <button class="button12" type="button" onclick="window.history.back()">Нет, отмена</button>
+            </div>
+        </div>
+        <div class="indent-20"></div>
+    </div>
+
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

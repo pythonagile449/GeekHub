@@ -3,7 +3,7 @@ from operator import itemgetter
 from django.contrib.contenttypes.models import ContentType
 from django.db.models.functions import datetime
 from django.http import HttpResponseRedirect, JsonResponse, HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DetailView, ListView, DeleteView, UpdateView
 
@@ -11,6 +11,8 @@ from commentsapp.models import CommentsBranch
 from mainapp.forms import ArticleCkForm, ArticleMdForm
 from mainapp.models import Hub, Article
 from notifyapp.models import Notification
+from usersapp.context_processors.user_context_processors import usersapp_context
+from usersapp.models import GeekHubUser
 
 
 class Index(ListView):
@@ -390,13 +392,34 @@ class ModerationList(ListView):
         return context
 
 
-def top_menu(request):
-    all_articles = Article.objects.all()
-    context = {}
+def top_menu(request, hub_name):
+    """
+        RU
+        Контроллер меню толпа статей.
+
+        EN
+        Top articles' menu controller
+    """
+    if hub_name == 'Все хабы':
+        articles_to_show = Article.objects.filter(
+            is_published=True,
+            is_draft=False,
+            is_moderation_in_progress=False,
+            is_deleted=False
+        )
+    else:
+        hub = Hub.objects.get(name=hub_name)
+        articles_to_show = Article.objects.filter(
+            hub=hub,
+            is_published=True,
+            is_draft=False,
+            is_moderation_in_progress=False,
+            is_deleted=False
+        )
 
     article_data = []
 
-    for article in all_articles:
+    for article in articles_to_show:
         article_data.append({
             'id': article.id,
             'title': article.title,
@@ -413,3 +436,23 @@ def top_menu(request):
         return render(request, 'mainapp/top-menu.html', {'top_articles': context})
     else:
         return HttpResponse(status=404)
+
+
+
+
+
+def user_detail(request, pk=None):
+
+    if pk is not None:
+        title = 'Данные автора'
+        data_author = get_object_or_404(GeekHubUser, id=pk)
+        author_articles = Article.objects.filter(author=data_author, is_published=True, is_deleted=False) \
+            .order_by('-publication_date')
+    context = {
+        'title': title,
+        'author': data_author,
+        'author_articles': author_articles
+    }
+    print(context)
+    return render(request, 'mainapp/user_detail.html', context)
+

@@ -3,6 +3,7 @@ from uuid import uuid4
 from bs4 import BeautifulSoup
 from ckeditor.fields import RichTextField
 from django.contrib.contenttypes.fields import GenericRelation
+from django.contrib.postgres.indexes import GinIndex
 from django.db import models
 from django.urls import reverse
 from martor.models import MartorField
@@ -27,7 +28,7 @@ class Hub(models.Model):
 
 
 class Article(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid4)
+    id = models.UUIDField(primary_key=True, default=uuid4, db_index=True)
     title = models.CharField(max_length=256)
     front_image = models.ImageField(upload_to='article_front_img', blank=True)
     contents_ck = RichTextField(blank=True)
@@ -50,9 +51,13 @@ class Article(models.Model):
     class Meta:
         verbose_name = 'Статья'
         verbose_name_plural = 'Статьи'
+        indexes = [GinIndex(fields=['title'])]
+
+    def __unicode__(self):
+        return self.title
 
     def __str__(self):
-        return f'{self.title} {self.hub.name}'
+        return f'{self.title}'
 
     @staticmethod
     def remove_style_tag_from_ck_content(html):

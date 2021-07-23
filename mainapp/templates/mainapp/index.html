@@ -29,17 +29,25 @@
 {% endblock %}
 
 {% block content %}
+
     <div class="content-container">
         <div class="section-left">
+
             <div class="infinite-container">
                 {% for article in articles %}
                     <div class="infinite-item">
                         <div class="section-indent"></div>
                         <div class="author-data">
                             <ul class="author-data">
-                                <li><img src="{% static 'svg/icon2.svg' %}" alt="icon"></li>
                                 <li>
-                                    <h6-1>{{ article.author.username }}</h6-1>
+                                    {% if article.author.profile_photo|length == 0 %}
+                                        <a href="{% url 'mainapp:user_detail' article.author.pk %}"><img src="{% static 'svg/block_foto.svg' %}" alt={{article.author.id}}></a>
+                                    {% else %}
+                                        <a href="{% url 'mainapp:user_detail' article.author.pk %}"><img src=/media/{{ article.author.profile_photo}} alt={{article.author.id}}></a>
+                                    {% endif %}
+                                </li>
+                                <li>
+                                    <a href="{% url 'mainapp:user_detail' article.author.pk %}" class="author-name">{{ article.author.username }}</a>
                                 </li>
                                 <li>
                                     <h6-2>{{ article.publication_date }}</h6-2>
@@ -118,6 +126,7 @@
                                         </ul>
                                     </div>
                                 </li>
+
                             </ul>
                         </div>
                     </div>
@@ -127,7 +136,7 @@
             <div class="pagination">
                 <span class="step-links">
                     {% if page_obj.has_next %}
-                        <a class="infinite-more-link" href="?page={{ page_obj.next_page_number }}"></a>
+                        <a class="infinite-more-link" href="/?page={{ page_obj.next_page_number }}"></a>
                     {% endif %}
                 </span>
                 <div class="loading-container" style="display: none; margin-top: 1em;width: 10em;height: 10em"></div>
@@ -136,23 +145,26 @@
         </div>
 
         <div class="section-right">
-
             <div class="section-right-block">
                 {% include 'mainapp/top-menu.html' %}
             </div>
-
         </div>
     </div>
+
     <!-- Hidden SVG sprite -->
     <svg width="0" height="0" class="hidden">
         <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" id="fluent_comment-24-filled_active">
             <path d="M4.375 15a2.708 2.708 0 01-2.708-2.708V5.208A2.708 2.708 0 014.375 2.5h11.25a2.708 2.708 0 012.708 2.708v7.084A2.709 2.709 0 0115.625 15h-4.82l-4.49 3.18A.833.833 0 015 17.503V15h-.625z"></path>
+        </symbol>
+        <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 21" id="top_menu">
+            <path d="M20 7V4H0v3h20zm0 6v-3H0v3h20zm0 6v-3H0v3h20z"></path>
         </symbol>
     </svg>
 
     <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 21" id="top_menu">
         <path d="M20 7V4H0v3h20zm0 6v-3H0v3h20zm0 6v-3H0v3h20z"></path>
     </symbol>
+
 {% endblock %}
 
 {% block js %}
@@ -160,6 +172,8 @@
     <script src="{% static 'js/infinity_scroll/jquery.waypoints.min.js' %}"></script>
     <script src="{% static 'js/infinity_scroll/infinite.min.js' %}"></script>
     <script src="{% static 'js/mainapp/top-menu.js' %}"></script>
+    {% if search %}
+        <script src="{% static 'js/search/search.js' %}"></script>{% endif %}
     <script>
         $('.martor-preview pre').each(function (i, block) {
             hljs.highlightBlock(block);

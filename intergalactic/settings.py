@@ -24,6 +24,8 @@ INSTALLED_APPS = [
     'ratingsapp',
     'commentsapp',
     'notifyapp',
+    'search',
+    'complaintsapp',
     # other apps
     'martor',
     'ckeditor',
@@ -31,7 +33,6 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'polls.middleware.RequestTimeMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',

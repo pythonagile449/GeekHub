@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load martortags %}
+{% load ratings %}
+{% load comments %}
+
+{% block css %}
+    <link href="{% static 'plugins/css/ace.min.css' %}" type="text/css" media="all" rel="stylesheet"/>
+    <link href="{% static 'martor/css/martor.bootstrap.min.css' %}" type="text/css" media="all" rel="stylesheet"/>
+{% endblock %}
+
+{% block title %}
+    {{ title }} :: {{ block.super }}
+{% endblock %}
+
+{% block content %}
+    <div class="content-container">
+        <div class="search-background">
+                {% include 'search/_inc/search_form.html' %}
+                {% if target_type == 'posts' %}
+                    {% include 'search/_inc/search_posts.html' %}
+                {% elif target_type == 'hubs' %}
+                    {% include 'search/_inc/search_hubs.html' %}
+                {% elif target_type == 'users' %}
+                    {% include 'search/_inc/search_users.html' %}
+                {% elif target_type == 'comments' %}
+                    {% include 'search/_inc/search_comments.html' %}
+                {% endif %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block js %}
+    <script type="text/javascript" src="{% static 'plugins/js/highlight.min.js' %}"></script>
+    <script src="{% static 'js/infinity_scroll/jquery.waypoints.min.js' %}"></script>
+    <script src="{% static 'js/infinity_scroll/infinite.min.js' %}"></script>
+    <script src="{% static 'js/mainapp/top-menu.js' %}"></script>
+    <script src="{% static 'js/search/search.js' %}"></script>
+    <script>
+        $('.martor-preview pre').each(function (i, block) {
+            hljs.highlightBlock(block);
+        });
+
+        let infinite = new Waypoint.Infinite({
+            element: $('.infinite-container')[0],
+            onBeforePageLoad: function () {
+                $('.loading-container').show();
+            },
+            onAfterPageLoad: function () {
+                $('.loading-container').hide();
+            }
+        });
+    </script>
+{% endblock %}

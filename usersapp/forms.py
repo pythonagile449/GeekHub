@@ -54,6 +54,11 @@ class UserProfileForm(UserChangeForm):
         model = GeekHubUser
         fields = '__all__'
 
+class UserProfileDetailForm:
+    class Meta:
+        model = GeekHubUser
+        fields = '__all__'
+
 
 class UserProfileEditForm(ModelForm):
     other = 'O'
@@ -88,7 +93,7 @@ class UserProfileEditForm(ModelForm):
     article_redactor = forms.ChoiceField(choices=REDACTOR_CHOISES, widget=forms.Select(attrs={'class': 'placeholder'}),
                                          required=False)
 
-    profile_photo = forms.ImageField(label='Фото', widget=forms.FileInput(attrs={'class': '', 'required': False}),
+    profile_photo = forms.ImageField(label='Фото', widget=forms.FileInput(attrs={'class': '', 'required': False, }),
                                      required=False)
 
     class Meta:
