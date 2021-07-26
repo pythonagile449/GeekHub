@@ -4,7 +4,7 @@ from django.conf import settings
 import django.contrib.postgres.indexes
 from django.db import migrations, models
 import django.db.models.deletion
-from django.contrib.postgres.operations import BtreeGinExtension
+from django.contrib.postgres.operations import BtreeGinExtension, TrigramExtension, UnaccentExtension
 
 
 class Migration(migrations.Migration):
@@ -18,6 +18,8 @@ class Migration(migrations.Migration):
 
     operations = [
         BtreeGinExtension(),
+        TrigramExtension(),
+        UnaccentExtension(),
         migrations.AddField(
             model_name='article',
             name='author',

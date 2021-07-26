@@ -25,19 +25,21 @@
             </div>
             <div class="indent-20"></div>
                 <form method="post">
+
                     <div class="indent-auto">
                         {% csrf_token %}
-                        {% if user.is_staff %}
-                        <div class="indent-20">
-                            <h5>Комментарий отклонения жалобы:</h5>
-                        </div>
+                        {% if complaint_sender == user %}
+                            <div class="indent-20">
+                                <h5>Комментарий отклонения жалобы:</h5>
+                            </div>
 
                             <div class="block-complaint-discard-text">
                                 <div class="input-textarea">
                                     <textarea name="reason" id="reason_id" cols="100" rows="5" class="article-complaint-input" ></textarea>
                                 </div>
                             </div>
-                        <div class="indent-10"></div>
+                            <div class="indent-10"></div>
+
                         {% endif %}
                     </div>
                     <div class="indent-50">
