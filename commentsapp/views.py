@@ -9,7 +9,6 @@ from mainapp.models import Article
 from notifyapp.models import Notification
 
 
-# TODO удалять комменты при снятии статьи с модерации???
 def create_comment(request):
     if request.method == 'POST' and request.is_ajax():
         form_data = request.POST

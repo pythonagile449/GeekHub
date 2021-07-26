@@ -438,11 +438,7 @@ def top_menu(request, hub_name):
         return HttpResponse(status=404)
 
 
-
-
-
 def user_detail(request, pk=None):
-
     if pk is not None:
         title = 'Данные автора'
         data_author = get_object_or_404(GeekHubUser, id=pk)
@@ -455,4 +451,3 @@ def user_detail(request, pk=None):
     }
     print(context)
     return render(request, 'mainapp/user_detail.html', context)
-
