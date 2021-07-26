@@ -1,5 +1,5 @@
 from django.conf import settings
-from django.contrib.postgres.search import SearchQuery, SearchVector, SearchRank
+from django.contrib.postgres.search import SearchQuery, SearchVector, SearchRank, TrigramSimilarity
 from django.db.models import Q
 from django.views.generic import ListView
 
@@ -22,8 +22,8 @@ class Search(ListView):
 
     def get_queryset(self):
         queryset = Article.objects.none()
-        print(self.request.GET)
         query_string = self.request.GET.get('q')
+        query_string = query_string.lower() if query_string else None
         target_type = self.request.GET.get('target_type')
         if query_string and target_type in TARGET_TYPES.keys():
             if 'sqlite' in settings.DATABASES['default']['ENGINE']:
@@ -57,24 +57,42 @@ class Search(ListView):
         """ Full-text search in postgres DB with vector and rank. Used for deploy settings. """
         search_query = SearchQuery('')
         for word in query_string.split():
-            search_query |= SearchQuery(word)
+            search_query |= SearchQuery(word.lower())
         model = TARGET_TYPES[target_type]
         search_vector = Search.set_search_vector(model)
-        # queryset = model.objects.annotate(search=search_vector).filter(search=search_query)
-        # todo деделать поиск по частичным совпадениям в словах
+        similarity = Search.set_similarity(model, query_string.lower())
         search_rank = SearchRank(search_vector, search_query)
-        queryset = model.objects.annotate(rank=search_rank).order_by('-rank')
-
+        queryset = model.objects.annotate(rank=search_rank,).filter(rank__gte=0.2).order_by('-rank')
+        if not queryset:
+            queryset = model.objects.annotate(similarity=similarity).order_by('-similarity',)
         return queryset
 
     @staticmethod
     def set_search_vector(model):
         """ Set search fields depend model. """
         if issubclass(model, Article):
-            return SearchVector('title', 'contents_ck', 'contents_md')
+            return SearchVector('title', weight='A') + \
+                   SearchVector('contents_ck', weight='B') + \
+                   SearchVector('contents_md', weight='B')
         if issubclass(model, Hub):
             return SearchVector('name')
         if issubclass(model, GeekHubUser):
             return SearchVector('username')
         if issubclass(model, CommentsBranch):
             return SearchVector('description')
+
+    @staticmethod
+    def set_similarity(model, query_string):
+        """ Set TrigramSimilarity fields to search with soft contains. """
+        if issubclass(model, Article):
+            fields_list = ['title', 'contents_ck', 'contents_md']
+            result = TrigramSimilarity('title', '')
+            for field in fields_list:
+                result += TrigramSimilarity(field, query_string)
+            return result
+        if issubclass(model, Hub):
+            return TrigramSimilarity('name', query_string)
+        if issubclass(model, GeekHubUser):
+            return TrigramSimilarity('username', query_string)
+        if issubclass(model, CommentsBranch):
+            return TrigramSimilarity('description', query_string)
