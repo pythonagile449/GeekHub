@@ -20,11 +20,16 @@
                     <h5>Вы действительно хотите отклонить жалобу пользователя {{ complaint_sender }}?</h5>
                 {% endif %}
             </div>
-            <div class="message-box"><h6-3>{{ complaint.message }}</h6-3></div>
+            <div class="message-box">
+                <h6-3>{{ complaint.message }}</h6-3>
+            </div>
             <div class="indent-50">
-                {#                TODO edit delete complaint logic#}
                 <form method="post">
                     {% csrf_token %}
+                    {% if user.is_staff %}
+                        {# TODO верская поля ввода текста отклонения жалобы #}
+                        <textarea name="reason" id="reason_id" cols="30" rows="10"></textarea>
+                    {% endif %}
                     <a>
                         {% if complaint_sender == user %}
                             <button class="button12" type="submit">Да, отозвать!</button>

@@ -16,6 +16,7 @@ class Complaint(models.Model):
     message = models.CharField(max_length=512, verbose_name='Жалоба', null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     status = models.CharField(max_length=1, choices=STATUS_CHOISES, verbose_name='Статус', default='M')
+    reason_for_rejection = models.CharField(max_length=512, verbose_name='Причина отклонения', null=True, blank=True)
 
     object_id = models.CharField(max_length=40, null=True)
     content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE, null=True)
@@ -28,8 +29,9 @@ class Complaint(models.Model):
     def __str__(self):
         return f'{self.sender} -> {self.content_object} -> {self.message[:15]}'
 
-    def set_discard_status(self):
+    def set_discard_status(self, reason=None):
         self.status = 'D'
+        self.reason_for_rejection = reason if reason else None
         self.save()
 
     def set_approve_status(self):

@@ -7,16 +7,14 @@ from django.contrib.auth.models import AbstractUser
 
 from uuid import uuid4
 
+
 class AbstractUUID(models.Model):
     """ Абстрактная модель для использования UUID в качестве PK."""
-
-    # Параметр blank=True позволяет работать с формами, он никогда не
-    # будет пустым, см. метод save()
-
     id = models.UUIDField(primary_key=True, default=uuid4, editable=False)
 
     class Meta:
         abstract = True
+
 
 class GeekHubUser(AbstractUser, AbstractUUID):
     other = 'O'
