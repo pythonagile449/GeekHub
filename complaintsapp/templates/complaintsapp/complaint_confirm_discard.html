@@ -8,7 +8,7 @@
 
     <div class="container">
         <div class="upper-margin"></div>
-        <div class="message-fail">
+        <div class="message-complaint-discard">
             <div class="indent-10"></div>
             <div class="indent-20">
                 <h4>Внимание!</h4>
@@ -23,23 +23,36 @@
             <div class="message-box">
                 <h6-3>{{ complaint.message }}</h6-3>
             </div>
-            <div class="indent-50">
+            <div class="indent-20"></div>
                 <form method="post">
-                    {% csrf_token %}
-                    {% if user.is_staff %}
-                        {# TODO верская поля ввода текста отклонения жалобы #}
-                        <textarea name="reason" id="reason_id" cols="30" rows="10"></textarea>
-                    {% endif %}
-                    <a>
-                        {% if complaint_sender == user %}
-                            <button class="button12" type="submit">Да, отозвать!</button>
-                        {% elif user.is_staff %}
-                            <button class="button12" type="submit">Да, отклонить!</button>
+                    <div class="indent-auto">
+                        {% csrf_token %}
+                        {% if user.is_staff %}
+                        <div class="indent-20">
+                            <h5>Комментарий отклонения жалобы:</h5>
+                        </div>
+
+                            <div class="block-complaint-discard-text">
+                                <div class="input-textarea">
+                                    <textarea name="reason" id="reason_id" cols="100" rows="5" class="article-complaint-input" ></textarea>
+                                </div>
+                            </div>
+                        <div class="indent-10"></div>
                         {% endif %}
-                    </a>
+                    </div>
+                    <div class="indent-50">
+                        <a>
+                            {% if complaint_sender == user %}
+                                <button class="button12" type="submit">Да, отозвать!</button>
+                            {% elif user.is_staff %}
+                                <button class="button12" type="submit">Да, отклонить!</button>
+                            {% endif %}
+                        </a>
+
+
+                        <button class="button13" type="button" onclick="window.history.back()">Нет, отмена</button>
+                    </div>
                 </form>
-                <button class="button13" type="button" onclick="window.history.back()">Нет, отмена</button>
-            </div>
         </div>
         <div class="indent-20"></div>
     </div>
@@ -48,3 +61,4 @@
 
 {% block footer %}
 {% endblock %}
+
