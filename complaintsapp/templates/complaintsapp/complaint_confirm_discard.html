@@ -28,7 +28,7 @@
 
                     <div class="indent-auto">
                         {% csrf_token %}
-                        {% if complaint_sender == user %}
+                        {% if complaint.sender != user %}
                             <div class="indent-20">
                                 <h5>Комментарий отклонения жалобы:</h5>
                             </div>

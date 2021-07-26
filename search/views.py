@@ -62,9 +62,11 @@ class Search(ListView):
         search_vector = Search.set_search_vector(model)
         similarity = Search.set_similarity(model, query_string.lower())
         search_rank = SearchRank(search_vector, search_query)
-        queryset = model.objects.annotate(rank=search_rank,).filter(rank__gte=0.2).order_by('-rank')
+        queryset = model.objects.annotate(rank=search_rank, ).filter(rank__gte=0.2).order_by('-rank')
         if not queryset:
-            queryset = model.objects.annotate(similarity=similarity).order_by('-similarity',)
+            queryset = model.objects.annotate(similarity=similarity).order_by('-similarity', )
+        if issubclass(model, Article):
+            queryset = queryset.filter(is_published=True)
         return queryset
 
     @staticmethod
