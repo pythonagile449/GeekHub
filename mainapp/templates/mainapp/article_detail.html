@@ -29,13 +29,16 @@
                 <ul class="author-data">
                     <li>
                         {% if article.author.profile_photo|length == 0 %}
-                            <a href="{% url 'mainapp:user_detail' article.author.pk %}"><img src="{% static 'svg/block_foto.svg' %}" alt={{article.author.id}}></a>
+                            <a href="{% url 'mainapp:user_detail' article.author.pk %}"><img
+                                    src="{% static 'svg/block_foto.svg' %}" alt={{ article.author.id }}></a>
                         {% else %}
-                            <a href="{% url 'mainapp:user_detail' article.author.pk %}"><img src=/media/{{ article.author.profile_photo}} alt={{article.author.id}}></a>
+                            <a href="{% url 'mainapp:user_detail' article.author.pk %}"><img
+                                    src=/media/{{ article.author.profile_photo }} alt={{ article.author.id }}></a>
                         {% endif %}
                     </li>
                     <li>
-                        <a href="{% url 'mainapp:user_detail' article.author.pk %}" class="author-name">{{ article.author.username }}</a>
+                        <a href="{% url 'mainapp:user_detail' article.author.pk %}"
+                           class="author-name">{{ article.author.username }}</a>
                     </li>
                     <li>
                         <h6-2>{{ article.publication_date }}</h6-2>
@@ -183,17 +186,21 @@
                                                 <ul class="author-data">
                                                     <li>
                                                         {% if comment.author.profile_photo|length == 0 %}
-                                                            <a href="{% url 'mainapp:user_detail' comment.author.pk %}"><img src="{% static 'svg/block_foto.svg' %}" alt={{article.author.id}}></a>
+                                                            <a href="{% url 'mainapp:user_detail' comment.author.pk %}"><img
+                                                                    src="{% static 'svg/block_foto.svg' %}"
+                                                                    alt={{ article.author.id }}></a>
                                                         {% else %}
-                                                            <a href="{% url 'mainapp:user_detail' comment.author.pk %}"><img src=/media/{{ comment.author.profile_photo}} alt={{article.author.id}}></a>
+                                                            <a href="{% url 'mainapp:user_detail' comment.author.pk %}"><img
+                                                                    src=/media/{{ comment.author.profile_photo }} alt={{ article.author.id }}></a>
                                                         {% endif %}
                                                     </li>
                                                     <li>
-                                                        <a href="{% url 'mainapp:user_detail' comment.author.pk %}" class="author-name">{{ comment.author.username }}</a>
+                                                        <a href="{% url 'mainapp:user_detail' comment.author.pk %}"
+                                                           class="author-name">{{ comment.author.username }}</a>
                                                     </li>
-<!--                                                    <li>-->
-<!--                                                        <h6-1>{{ comment.author.username }}</h6-1>-->
-<!--                                                    </li>-->
+                                                    <!--                                                    <li>-->
+                                                    <!--                                                        <h6-1>{{ comment.author.username }}</h6-1>-->
+                                                    <!--                                                    </li>-->
                                                     <li>
                                                         <h6-2>{{ comment.created_at }}</h6-2>
                                                     </li>
@@ -400,7 +407,15 @@
             </div>
         </div>
         <div class="section-right">
-            {% block right_content %}{% endblock %}
+            {% block right_content %}
+                {# TODO отображение причины снятия с публикации #}
+                {% if article.reason_for_reject and not article.is_published %}
+                    <div style="background-color: red">
+                        Причина снятия с публикации: <br>
+                        {{ article.reason_for_reject }}
+                    </div>
+                {% endif %}
+            {% endblock %}
         </div>
     </div>
     <!-- Hidden SVG sprite -->

@@ -38,6 +38,8 @@ class Article(models.Model):
     publication_date = models.DateTimeField(auto_now_add=True, blank=False, null=False)
     created_at = models.DateField(auto_now_add=True, null=False)
     views = models.PositiveIntegerField(verbose_name='Просмотры статьи', default=0)
+    reason_for_reject = models.CharField(max_length=512, verbose_name='Причина снятия с публикации', null=True,
+                                         blank=True)
 
     is_draft = models.BooleanField(default=True)
     is_published = models.BooleanField(default=False)
@@ -58,6 +60,32 @@ class Article(models.Model):
 
     def __str__(self):
         return f'{self.title}'
+
+    def set_deleted_status(self):
+        self.is_draft = False
+        self.is_published = False
+        self.is_moderation_in_progress = False
+        self.is_deleted = True
+        self.save()
+
+    def set_publish_status(self):
+        self.reason_for_reject = None
+        self.is_draft = False
+        self.is_published = True
+        self.is_moderation_in_progress = False
+        self.save()
+
+    def set_on_moderation_status(self):
+        self.is_draft = False
+        self.is_published = False
+        self.is_moderation_in_progress = True
+        self.save()
+
+    def set_draft_status(self):
+        self.is_draft = True
+        self.is_published = False
+        self.is_moderation_in_progress = False
+        self.save()
 
     @staticmethod
     def remove_style_tag_from_ck_content(html):

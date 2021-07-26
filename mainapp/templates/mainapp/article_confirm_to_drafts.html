@@ -17,8 +17,24 @@
                 <h4>Вы действительно хотите отправить статью в черновики?</h4>
             </div>
             <div class="indent-50">
-                <form action="{% url 'mainapp:user_article_to_drafts' object.pk %}" method="post">
+                <form method="post">
                     {% csrf_token %}
+
+                    {# TODO блок ввода текста с причиной снятия с публикации #}
+                    {% if article.author != user and user.is_staff %}
+                        <div class="indent-20">
+                            <h5>Причина снятия статьи с публикации:</h5>
+                        </div>
+
+                        <div class="block-complaint-discard-text">
+                            <div class="input-textarea">
+                                <textarea name="reason_article_reject" id="reason_article_reject_id" cols="100" rows="5"
+                                          class="article-complaint-input"></textarea>
+                            </div>
+                        </div>
+                        <div class="indent-10"></div>
+                    {% endif %}
+
                     <a>
                         <button class="button12" type="submit">Да, В черновики</button>
                     </a>
