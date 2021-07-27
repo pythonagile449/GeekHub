@@ -54,7 +54,7 @@ class Search(ListView):
 
     @staticmethod
     def search_in_postgres(query_string, target_type):
-        """ Full-text search in postgres DB with vector and rank. Used for deploy settings. """
+        """ Full-text & trigram search in postgres DB with vector and rank. Used for deploy settings. """
         search_query = SearchQuery('')
         for word in query_string.split():
             search_query |= SearchQuery(word.lower())

@@ -1,0 +1,13 @@
+<div class="comments-search-list">
+    <ul>
+        {% for comment in targets %}
+            {% if comment.article.is_published %}
+                {# TODO добваить отображение в поиске комментов #}
+                <li>
+                    {{ comment.author }} : {{ comment.article|truncatechars:20 }}
+                    <a href="{% url 'mainapp:article_detail' comment.article.pk %}?scroll_to_comment={{ comment.pk }}">{{ comment.description }}</a>
+                </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+</div>
