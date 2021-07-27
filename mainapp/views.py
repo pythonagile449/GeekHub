@@ -9,9 +9,10 @@ from django.views.generic import CreateView, DetailView, ListView, DeleteView, U
 
 from commentsapp.models import CommentsBranch
 from mainapp.forms import ArticleCkForm, ArticleMdForm
-from mainapp.models import Hub, Article
+from mainapp.models import Hub, Article, ArticleViews
 from notifyapp.models import Notification
 from usersapp.models import GeekHubUser
+from usersapp.views import get_user_ip
 
 
 class Index(ListView):
@@ -144,8 +145,11 @@ class ArticleDetail(DetailView):
     def get(self, request, *args, **kwargs):
         response = super(ArticleDetail, self).get(request, *args, **kwargs)
         if self.object.is_published:
-            self.object.views += 1
-            self.object.save()
+            user_ip = get_user_ip(request)
+            if request.user.is_authenticated:
+                ArticleViews.get_or_add_auth_user_view(self.object.pk, request.user.pk, user_ip)
+            else:
+                ArticleViews.get_or_add_anonimus_view(self.object.pk, user_ip)
         return response
 
 
@@ -413,7 +417,7 @@ def top_menu(request, hub_name):
         article_data.append({
             'id': article.id,
             'title': article.title,
-            'views': article.views,
+            'views': article.get_views_count(),
             'comments': CommentsBranch.get_comments_count_by_article(article.id),
             'rating': article.rating.total()
         })

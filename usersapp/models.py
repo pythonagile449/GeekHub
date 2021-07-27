@@ -28,8 +28,7 @@ class GeekHubUser(AbstractUser, AbstractUUID):
     )
 
     activate_key = models.CharField(verbose_name='Код активации', max_length=128, blank=True, null=True)
-    activate_key_expires = models.DateTimeField(verbose_name='Время действия кода активации',
-                                                default=(now() + timedelta(hours=1)))
+    activate_key_expires = models.DateTimeField(verbose_name='Время действия кода активации', null=True)
     email = models.EmailField(verbose_name='E-mail', unique=True)
     profile_photo = models.ImageField(upload_to='media', verbose_name='Фотография профиля', blank=True)
     birthday = models.DateField(verbose_name='День рождения', blank=True, null=True)

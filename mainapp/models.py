@@ -87,6 +87,9 @@ class Article(models.Model):
         self.is_moderation_in_progress = False
         self.save()
 
+    def get_views_count(self):
+        return ArticleViews.objects.filter(article=self).count()
+
     @staticmethod
     def remove_style_tag_from_ck_content(html):
         """ Remove style attrs from image tags in ckeditor field. """
@@ -137,3 +140,28 @@ class Article(models.Model):
 
     def get_absolute_url(self):
         return reverse('mainapp:article_detail', kwargs={'pk': self.pk})
+
+
+class ArticleViews(models.Model):
+    class Meta:
+        verbose_name = 'Просмотр статьи'
+        verbose_name_plural = 'Просмотры статьи'
+
+    article = models.ForeignKey(Article, on_delete=models.CASCADE)
+    view_user = models.ForeignKey(GeekHubUser, on_delete=models.CASCADE, null=True, blank=True)
+    is_anonymous = models.BooleanField(default=True)
+    ip_address = models.GenericIPAddressField('IP адрес', null=True)
+    view_date = models.DateTimeField(auto_now_add=True)
+
+    @staticmethod
+    def get_views_count_by_article(article_id):
+        return ArticleViews.objects.filter(article=article_id).count()
+
+    @staticmethod
+    def get_or_add_auth_user_view(article_id, user_id, ip_address):
+        return ArticleViews.objects.get_or_create(article_id=article_id, view_user_id=user_id,
+                                                  is_anonymous=False, ip_address=ip_address)
+
+    @staticmethod
+    def get_or_add_anonimus_view(article_id, ip_address):
+        return ArticleViews.objects.get_or_create(article_id=article_id, is_anonymous=True, ip_address=ip_address)

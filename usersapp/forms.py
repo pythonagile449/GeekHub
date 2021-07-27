@@ -1,4 +1,5 @@
 import uuid
+from datetime import timedelta
 
 from django import forms
 from django.conf import settings
@@ -6,6 +7,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, User
 from django.core.mail import send_mail
 from django.forms import ModelForm
 from django.urls import reverse
+from django.utils.timezone import now
 
 from usersapp.models import GeekHubUser
 
@@ -33,6 +35,7 @@ class RegistrationForm(UserCreationForm):
     # ToDo: Вот тут мне не нравится метод save, пришлось все забрать из родительского модуля
     def save(self, commit=True):
         user = super().save(commit=False)
+        user.activate_key_expires = now() + timedelta(hours=1)
         user.set_password(self.cleaned_data["password1"])
         user.is_active = False
         user.activate_key = uuid.uuid4().hex
