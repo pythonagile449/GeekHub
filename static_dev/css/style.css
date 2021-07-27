@@ -2639,3 +2639,21 @@ ul.user-article-data li { /* Menu list items */
     display: flex;
     border-radius: 5px;
 }
+
+.message-draft-discard {
+    background: var(--section-fail-color);
+    height: auto;
+    width: 75%;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    border-radius: 5px;
+}
+
+.block-draft-discard-text {
+    display: flex;
+    padding: 5px;
+    align-items: center;
+    display: flex;
+    border-radius: 5px;
+}
