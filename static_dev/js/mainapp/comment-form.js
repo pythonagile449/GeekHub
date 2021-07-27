@@ -12,15 +12,26 @@ class Comment {
         this.parentCommentSmall = document.querySelector('.parent-comment-small');
         this.parentCommentText = document.querySelector('.parent-comment-text');
         this.closeAnswerButton = document.querySelector(".close-answer-button")
+        this.requestParams = new URLSearchParams(location.search);
         this.setHandlers();
         this.setAfterRenderHandlers();
+        this.tryScrollTo();
+    }
+
+    tryScrollTo() {
+        let scrollToComment = this.requestParams.get('scroll_to_comment');
+        if (scrollToComment) {
+            this.renderCommentsList().then(() => {
+                location.href = `#comment-anchor-${scrollToComment}`;
+            })
+        }
     }
 
     renderCommentsList() {
         let articleId = this.commentsTreeBlock.dataset.articleId,
             url = `/comments/get-comments-tree/${articleId}`;
 
-        $.ajax({
+        return $.ajax({
             url: url,
             type: "GET",
             success: data => {

@@ -38,6 +38,8 @@ class Article(models.Model):
     publication_date = models.DateTimeField(auto_now_add=True, blank=False, null=False)
     created_at = models.DateField(auto_now_add=True, null=False)
     views = models.PositiveIntegerField(verbose_name='Просмотры статьи', default=0)
+    reason_for_reject = models.CharField(max_length=512, verbose_name='Причина снятия с публикации', null=True,
+                                         blank=True)
 
     is_draft = models.BooleanField(default=True)
     is_published = models.BooleanField(default=False)
@@ -58,6 +60,35 @@ class Article(models.Model):
 
     def __str__(self):
         return f'{self.title}'
+
+    def set_deleted_status(self):
+        self.is_draft = False
+        self.is_published = False
+        self.is_moderation_in_progress = False
+        self.is_deleted = True
+        self.save()
+
+    def set_publish_status(self):
+        self.reason_for_reject = None
+        self.is_draft = False
+        self.is_published = True
+        self.is_moderation_in_progress = False
+        self.save()
+
+    def set_on_moderation_status(self):
+        self.is_draft = False
+        self.is_published = False
+        self.is_moderation_in_progress = True
+        self.save()
+
+    def set_draft_status(self):
+        self.is_draft = True
+        self.is_published = False
+        self.is_moderation_in_progress = False
+        self.save()
+
+    def get_views_count(self):
+        return ArticleViews.objects.filter(article=self).count()
 
     @staticmethod
     def remove_style_tag_from_ck_content(html):
@@ -109,3 +140,28 @@ class Article(models.Model):
 
     def get_absolute_url(self):
         return reverse('mainapp:article_detail', kwargs={'pk': self.pk})
+
+
+class ArticleViews(models.Model):
+    class Meta:
+        verbose_name = 'Просмотр статьи'
+        verbose_name_plural = 'Просмотры статьи'
+
+    article = models.ForeignKey(Article, on_delete=models.CASCADE)
+    view_user = models.ForeignKey(GeekHubUser, on_delete=models.CASCADE, null=True, blank=True)
+    is_anonymous = models.BooleanField(default=True)
+    ip_address = models.GenericIPAddressField('IP адрес', null=True)
+    view_date = models.DateTimeField(auto_now_add=True)
+
+    @staticmethod
+    def get_views_count_by_article(article_id):
+        return ArticleViews.objects.filter(article=article_id).count()
+
+    @staticmethod
+    def get_or_add_auth_user_view(article_id, user_id, ip_address):
+        return ArticleViews.objects.get_or_create(article_id=article_id, view_user_id=user_id,
+                                                  is_anonymous=False, ip_address=ip_address)
+
+    @staticmethod
+    def get_or_add_anonimus_view(article_id, ip_address):
+        return ArticleViews.objects.get_or_create(article_id=article_id, is_anonymous=True, ip_address=ip_address)

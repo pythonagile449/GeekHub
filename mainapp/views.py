@@ -9,10 +9,10 @@ from django.views.generic import CreateView, DetailView, ListView, DeleteView, U
 
 from commentsapp.models import CommentsBranch
 from mainapp.forms import ArticleCkForm, ArticleMdForm
-from mainapp.models import Hub, Article
+from mainapp.models import Hub, Article, ArticleViews
 from notifyapp.models import Notification
-from usersapp.context_processors.user_context_processors import usersapp_context
 from usersapp.models import GeekHubUser
+from usersapp.views import get_user_ip
 
 
 class Index(ListView):
@@ -145,8 +145,11 @@ class ArticleDetail(DetailView):
     def get(self, request, *args, **kwargs):
         response = super(ArticleDetail, self).get(request, *args, **kwargs)
         if self.object.is_published:
-            self.object.views += 1
-            self.object.save()
+            user_ip = get_user_ip(request)
+            if request.user.is_authenticated:
+                ArticleViews.get_or_add_auth_user_view(self.object.pk, request.user.pk, user_ip)
+            else:
+                ArticleViews.get_or_add_anonimus_view(self.object.pk, user_ip)
         return response
 
 
@@ -160,8 +163,7 @@ class ArticleUpdate(UpdateView):
 
         if request.path.startswith('/send_article_on_moderation/'):
             # handle send on moderation action under user drafts list
-            article.is_draft = False
-            article.is_moderation_in_progress = True
+            article.set_on_moderation_status()
             article.publication_date = datetime.datetime.now()
             self.success_url = reverse_lazy('mainapp:drafts')
             article.save()
@@ -169,9 +171,7 @@ class ArticleUpdate(UpdateView):
         if request.path.startswith('/publish/'):
             # handle publish action under staff user
             if request.user.is_staff:
-                article.is_draft = False
-                article.is_moderation_in_progress = False
-                article.is_published = True
+                article.set_publish_status()
                 article.publication_date = datetime.datetime.now()
                 article.save()
                 self.success_url = reverse_lazy('mainapp:moderation_list')
@@ -214,17 +214,14 @@ class ArticleUpdate(UpdateView):
             if self.request.path.startswith('/publish/'):
                 # todo handle publication action (for high rating users)
                 if self.request.user.is_staff:
-                    self.object.is_moderation_in_progress = False
-                    self.object.is_published = True
+                    self.object.set_publish_status()
                     self.success_url = reverse_lazy('mainapp:article_detail', self.object.pk)
             elif self.request.path.startswith('/moderation/'):
                 # handle moderation action
                 self.set_object_contents(form)
-                self.object.is_published = False
-                self.object.is_moderation_in_progress = True
+                self.object.set_on_moderation_status()
                 self.success_url = reverse_lazy('mainapp:user_moderation_articles')
             self.object.publication_date = datetime.datetime.now()
-            self.object.is_draft = False
             self.object.save()
             return super(ArticleUpdate, self).form_valid(form)
         else:
@@ -324,37 +321,34 @@ class UserModeratingArticles(UserArticles):
 
 
 class ArticleDelete(DeleteView):
+    """ Delete article view. """
     model = Article
     template_name = 'mainapp/article_confirm_delete.html'
     success_url = reverse_lazy('mainapp:drafts')
 
     def delete(self, request, *args, **kwargs):
         self.object = self.get_object()
-        self.object.is_published = False
-        self.object.is_moderation_in_progress = False
-        self.object.is_draft = False
-        self.object.is_deleted = True
-        self.object.save()
+        self.object.set_deleted_status()
         return HttpResponseRedirect(self.success_url)
 
 
 class ArticleReturnToDrafts(DeleteView):
+    """ Return article to draft by user or moderator. """
     model = Article
     template_name = 'mainapp/article_confirm_to_drafts.html'
     success_url = reverse_lazy('mainapp:drafts')
 
     def delete(self, request, *args, **kwargs):
         self.object = self.get_object()
-        is_published = self.object.is_published
-        self.object.is_published = False
-        self.object.is_moderation_in_progress = False
-        self.object.is_draft = True
-        self.object.save()
+        self.object.set_draft_status()
+        if request.user.is_staff:
+            self.object.reason_for_reject = request.POST.get('reason_article_reject')
+            self.object.save()
         if request.user != self.object.author:
             Notification.objects.create(
                 sender=request.user,
                 recipient=self.object.author,
-                message=f'Статья снята с {"публикации" if is_published else "модерации"}.',
+                message=f'Статья снята с {"публикации" if self.object.is_published else "модерации"}.',
                 content_type=ContentType.objects.get_for_model(self.object),
                 object_id=self.object.pk,
                 content_object=self.object,
@@ -423,7 +417,7 @@ def top_menu(request, hub_name):
         article_data.append({
             'id': article.id,
             'title': article.title,
-            'views': article.views,
+            'views': article.get_views_count(),
             'comments': CommentsBranch.get_comments_count_by_article(article.id),
             'rating': article.rating.total()
         })
@@ -438,11 +432,7 @@ def top_menu(request, hub_name):
         return HttpResponse(status=404)
 
 
-
-
-
 def user_detail(request, pk=None):
-
     if pk is not None:
         title = 'Данные автора'
         data_author = get_object_or_404(GeekHubUser, id=pk)
@@ -455,4 +445,3 @@ def user_detail(request, pk=None):
     }
     print(context)
     return render(request, 'mainapp/user_detail.html', context)
-

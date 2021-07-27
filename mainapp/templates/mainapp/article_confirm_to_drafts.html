@@ -8,25 +8,42 @@
 
     <div class="container">
         <div class="upper-margin"></div>
-        <div class="message-fail">
+        <div class="message-draft-discard">
             <div class="indent-10"></div>
             <div class="indent-20">
-                <h5>Внимание!</h5>
+                <h4>Внимание!</h4>
             </div>
             <div class="indent-20">
-                <h4>Вы действительно хотите отправить статью в черновики?</h4>
+                <h5>Вы действительно хотите отправить статью в черновики?</h5>
             </div>
-            <div class="indent-50">
-                <form action="{% url 'mainapp:user_article_to_drafts' object.pk %}" method="post">
+            <div class="indent-auto">
+                <form method="post">
                     {% csrf_token %}
-                    <a>
-                        <button class="button12" type="submit">Да, В черновики</button>
-                    </a>
+                    {% if article.author != user and user.is_staff and article.is_published %}
+                        <div class="indent-20">
+                            <h5>Причина снятия статьи с публикации:</h5>
+                        </div>
+
+                        <div class="block-draft-discard-text">
+                            <div class="input-textarea">
+                                <textarea name="reason_article_reject" id="reason_article_reject_id" cols="100" rows="5"
+                                          class="article-complaint-input"></textarea>
+                            </div>
+                        </div>
+                        <div class="indent-10"></div>
+                    {% endif %}
+                    <div class="indent-50">
+                        <a>
+                            <button class="button12" type="submit">Да, В черновики</button>
+                        </a>
+
+                        <button class="button13" type="button" onclick="window.history.back()">Нет, отмена</button>
+                    </div>
+                    <div class="indent-10"></div>
                 </form>
-                <button class="button13" type="button" onclick="window.history.back()">Нет, отмена</button>
             </div>
         </div>
-        <div class="indent-20"></div>
+
     </div>
 
 {% endblock %}
