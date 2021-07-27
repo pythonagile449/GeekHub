@@ -3,6 +3,7 @@ from uuid import uuid4
 from bs4 import BeautifulSoup
 from ckeditor.fields import RichTextField
 from django.contrib.contenttypes.fields import GenericRelation
+from django.contrib.contenttypes.models import ContentType
 from django.contrib.postgres.indexes import GinIndex
 from django.db import models
 from django.urls import reverse
@@ -89,6 +90,20 @@ class Article(models.Model):
 
     def get_views_count(self):
         return ArticleViews.objects.filter(article=self).count()
+
+    def get_rating_count(self):
+        return RatingCount.objects.get(object_id=self.pk).rate
+
+    @staticmethod
+    def get_top_articles(hub_name='Все хабы', count=7):
+        article_content_type = ContentType.objects.get_for_model(Article)
+        top_rates = RatingCount.objects.filter(content_type_id=article_content_type).order_by('-rate').select_related()
+        if hub_name == 'Все хабы':
+            top_articles = [item.content for item in top_rates if item.content.is_published]
+        else:
+            top_articles = [item.content for item in top_rates if
+                            (item.content.is_published and item.content.hub.name == hub_name)]
+        return top_articles[:count]
 
     @staticmethod
     def remove_style_tag_from_ck_content(html):

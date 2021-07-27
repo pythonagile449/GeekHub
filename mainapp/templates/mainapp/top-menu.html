@@ -1,4 +1,5 @@
 {% load static %}
+{% load comments %}
 
     <div class="indent-40"></div> <!-- Топ контент -->
     <div class="section-right-top-block">
@@ -42,7 +43,7 @@
                                             <li><a href="/"><img src="{% static 'svg/chart.svg' %}" alt="chart"></a>
                                             </li>
                                             <li>
-                                                <h5-2-lvc>{{ top_article.rating }}</h5-2-lvc>
+                                                <h5-2-lvc>{{ top_article.get_rating_count }}</h5-2-lvc>
                                             </li>
                                         </ul>
                                     </div>
@@ -66,17 +67,17 @@
                                                     <use xlink:href="#fluent_comment-24-filled_active"></use>
                                                 </svg>
                                             <li class="comm_number">
-                                                <h5-2-lvc>{{ top_article.comments }}</h5-2-lvc>
+                                                <h5-2-lvc>{{ top_article.pk|get_comments_count }}</h5-2-lvc>
                                             </li>
                                         </ul>
                                     </div>
                                 </li>
-<!--                                <li>-->
-<!--                                    <div class="lvc-group">-->
-<!--                                        <ul class="lvc-group">-->
-<!--                                            <li title="Жалобы">-->
-<!--                                                <img src="{% static 'svg/bad-no-hover.svg' %}" alt="bad">-->
-<!--                                            </li>-->
+                                <!--                                <li>-->
+                                <!--                                    <div class="lvc-group">-->
+                                <!--                                        <ul class="lvc-group">-->
+                                <!--                                            <li title="Жалобы">-->
+                                <!--                                                <img src="{% static 'svg/bad-no-hover.svg' %}" alt="bad">-->
+                                <!--                                            </li>-->
 <!--                                        {# TODO заменить на счетчик жалоб#}-->
 <!--                                            <h5-2-lvc>{{ top_article.comm }}</h5-2-lvc>-->
 <!--                                        </ul>-->
