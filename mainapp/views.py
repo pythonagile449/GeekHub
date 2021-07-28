@@ -394,7 +394,7 @@ def top_menu(request, hub_name):
         Top articles' menu controller
     """
     if request.method == 'GET' and request.is_ajax():
-        return render(request, 'mainapp/top-menu.html', {'top_articles': Article.get_top_articles(hub_name)})
+        return render(request, 'mainapp/top-menu.html', {'top_articles': Article.get_top_rated_articles(hub_name)})
     else:
         return HttpResponse(status=404)
 

@@ -6,6 +6,7 @@ from django.contrib.contenttypes.fields import GenericRelation
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.postgres.indexes import GinIndex
 from django.db import models
+from django.db.models import Count
 from django.urls import reverse
 from martor.models import MartorField
 
@@ -92,17 +93,16 @@ class Article(models.Model):
         return ArticleViews.objects.filter(article=self).count()
 
     def get_rating_count(self):
-        return RatingCount.objects.get(object_id=self.pk).rate
+        return self.rating.total()
 
     @staticmethod
-    def get_top_articles(hub_name='Все хабы', count=7):
-        article_content_type = ContentType.objects.get_for_model(Article)
-        top_rates = RatingCount.objects.filter(content_type_id=article_content_type).order_by('-rate').select_related()
+    def get_top_rated_articles(hub_name='Все хабы', count=7):
+        """ Return articles by rating. """
         if hub_name == 'Все хабы':
-            top_articles = [item.content for item in top_rates if item.content.is_published]
+            articles = Article.objects.filter(is_published=True)
         else:
-            top_articles = [item.content for item in top_rates if
-                            (item.content.is_published and item.content.hub.name == hub_name)]
+            articles = Article.objects.filter(is_published=True, hub__name=hub_name)
+        top_articles = sorted([a for a in articles], key=lambda a: a.rating.total(), reverse=True)
         return top_articles[:count]
 
     @staticmethod
