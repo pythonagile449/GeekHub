@@ -257,7 +257,6 @@ class UserArticles(ListView):
     EN
     User's articles. By deafault shows "my articles"
     """
-    # template_name = 'mainapp/user_articles_list.html'
     template_name = 'mainapp/user_articles_list_table.html'
     context_object_name = 'articles'
 
@@ -356,14 +355,6 @@ class ArticleReturnToDrafts(DeleteView):
         return HttpResponseRedirect(self.get_success_url())
 
 
-# class ShowTop(ListView):
-#     template_name = 'mainapp/user_articles_list.html'
-#
-# def get_queryset(self, **kwargs):
-#     queryset = Article.objects.filter(is_published=True).order_by('-publication_date')[:7]
-#     return queryset
-
-
 class ModerationList(ListView):
     """
     RU
@@ -372,7 +363,6 @@ class ModerationList(ListView):
     EN
     Moderators profile page (moderation users articles).
     """
-    # template_name = 'mainapp/user_articles_list.html'
     template_name = 'mainapp/user_articles_list_table.html'
     queryset = Article.objects.filter(is_moderation_in_progress=True, is_deleted=False).order_by('publication_date')
     context_object_name = 'articles'
