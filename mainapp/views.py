@@ -1,10 +1,9 @@
-from operator import itemgetter
-
 from django.contrib.contenttypes.models import ContentType
 from django.db.models.functions import datetime
 from django.http import HttpResponseRedirect, JsonResponse, HttpResponse
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy
+from django.views import View
 from django.views.generic import CreateView, DetailView, ListView, DeleteView, UpdateView
 
 from commentsapp.models import CommentsBranch
@@ -340,6 +339,7 @@ class ArticleReturnToDrafts(DeleteView):
 
     def delete(self, request, *args, **kwargs):
         self.object = self.get_object()
+        is_published = self.object.is_published
         self.object.set_draft_status()
         if request.user.is_staff:
             self.object.reason_for_reject = request.POST.get('reason_article_reject')
@@ -348,7 +348,7 @@ class ArticleReturnToDrafts(DeleteView):
             Notification.objects.create(
                 sender=request.user,
                 recipient=self.object.author,
-                message=f'Статья снята с {"публикации" if self.object.is_published else "модерации"}.',
+                message=f'Статья снята с {"публикации" if is_published else "модерации"}.',
                 content_type=ContentType.objects.get_for_model(self.object),
                 object_id=self.object.pk,
                 content_object=self.object,
@@ -356,12 +356,12 @@ class ArticleReturnToDrafts(DeleteView):
         return HttpResponseRedirect(self.get_success_url())
 
 
-class ShowTop(ListView):
-    # template_name = 'mainapp/user_articles_list.html'
-
-    def get_queryset(self, **kwargs):
-        queryset = Article.objects.filter(is_published=True).order_by('-publication_date')[:7]
-        return queryset
+# class ShowTop(ListView):
+#     template_name = 'mainapp/user_articles_list.html'
+#
+# def get_queryset(self, **kwargs):
+#     queryset = Article.objects.filter(is_published=True).order_by('-publication_date')[:7]
+#     return queryset
 
 
 class ModerationList(ListView):
@@ -389,47 +389,27 @@ class ModerationList(ListView):
 def top_menu(request, hub_name):
     """
         RU
-        Контроллер меню толпа статей.
+        Контроллер меню топа статей.
 
         EN
         Top articles' menu controller
     """
-    if hub_name == 'Все хабы':
-        articles_to_show = Article.objects.filter(
-            is_published=True,
-            is_draft=False,
-            is_moderation_in_progress=False,
-            is_deleted=False
-        )
-    else:
-        hub = Hub.objects.get(name=hub_name)
-        articles_to_show = Article.objects.filter(
-            hub=hub,
-            is_published=True,
-            is_draft=False,
-            is_moderation_in_progress=False,
-            is_deleted=False
-        )
-
-    article_data = []
-
-    for article in articles_to_show:
-        article_data.append({
-            'id': article.id,
-            'title': article.title,
-            'views': article.get_views_count(),
-            'comments': CommentsBranch.get_comments_count_by_article(article.id),
-            'rating': article.rating.total()
-        })
-
-    top_articles = sorted(article_data, key=itemgetter('rating'), reverse=True)
-
-    context = top_articles[:7]
-
     if request.method == 'GET' and request.is_ajax():
-        return render(request, 'mainapp/top-menu.html', {'top_articles': context})
+        return render(request, 'mainapp/top-menu.html', {'top_articles': Article.get_top_articles(hub_name)})
     else:
         return HttpResponse(status=404)
+
+
+class TopMenuView(View):
+    def get(self, request, *args, **kwargs):
+        if request.is_ajax():
+            hub_name = self.kwargs.get('hub_name')
+            sort_by = request.GET.get('sorted_by')
+            return render(request, 'mainapp/top-menu.html',
+                          {'top_articles': Article.get_top_articles(hub_name=hub_name,
+                                                                          sort_by=sort_by if sort_by else 'rating')})
+        else:
+            return HttpResponse(status=404)
 
 
 def user_detail(request, pk=None):
