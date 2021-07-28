@@ -1,91 +1,104 @@
 {% load static %}
+{% load comments %}
 
-    <div class="indent-40"></div> <!-- Топ контент -->
-    <div class="section-right-top-block">
-        <div class="top-info-menu-field">
-            <div class="top-info-menu">
-                <div id="top-menu-dropdown" class="dropdown">
-                    <div class="top-menu-dropbtn">
-                        <svg class="icon-top-menu">
-                            <use xlink:href="#top_menu"></use>
-                        </svg>
-                    </div>
-                    <div class="dropdown-content">
-                        <div class="menu-dropdown"><a class="link-menu" href="/">Лучшие статьи</a></div>
-{#                        <div class="menu-dropdown"><a class="link-menu" href="/">По дате</a></div>#}
-                        {#                        <div class="menu-dropdown"><a class="link-menu" href="/">Горячие&nbsp;темы</a></div>#}
-                        {#                        <div class="menu-dropdown"><a class="link-menu" href="/">Лучшие&nbsp;авторы</a></div>#}
-                    </div>
+<div class="indent-40"></div> <!-- Топ контент -->
+<div class="section-right-top-block">
+    <div class="top-info-menu-field">
+        <div class="top-info-menu">
+            <div id="top-menu-dropdown" class="dropdown">
+                <div class="top-menu-dropbtn">
+                    <svg class="icon-top-menu">
+                        <use xlink:href="#top_menu"></use>
+                    </svg>
                 </div>
-            </div>
-            <div class="content-top-info-title">
-                <h5-3>Лучшие&nbsp;статьи</h5-3>
-            </div>
-            <div class="top-info-title">
-                <h6-2>ТОП-лист</h6-2>
+                <div class="dropdown-content">
+                    <div class="menu-dropdown">
+                        <span class="link-menu sort-top-menu-link"
+                           data-sorted-by="rating">По&nbsp;рейтингу</span>
+                    </div>
+                    <div class="menu-dropdown">
+                        <span class="link-menu sort-top-menu-link"
+                           data-sorted-by="views">По&nbsp;просмотрам</span>
+                    </div>
+                    <div class="menu-dropdown">
+                        <span class="link-menu sort-top-menu-link"
+                           data-sorted-by="date">По&nbsp;дате</span>
+                    </div>
+<!--                    <div class="menu-dropdown">-->
+<!--                        <span class="link-menu sort-top-menu-link"-->
+<!--                           data-sorted-by="">Самые&nbsp;обсуждаемые</span>-->
+<!--                    </div>-->
+                </div>
             </div>
         </div>
-        <div class="indent-10"></div>
-        <div class="content-top-info">
-            {% for top_article in top_articles %}
-                <div class="short-article-field">
-                    <div class="short-article-title">
-                        <a class="link-top-info-menu"
-                           href="{% url 'mainapp:article_detail' top_article.id %}">{{ top_article.title|title }}</a>
-                    </div>
-                    <div class="short-article-data">
-                        <div class="like-comment">
-                            <ul class="lvc-field">
-                                <li>
-                                    <div class="lvc-group">
-                                        <ul class="lvc-group">
-                                            <li><a href="/"><img src="{% static 'svg/chart.svg' %}" alt="chart"></a>
-                                            </li>
-                                            <li>
-                                                <h5-2-lvc>{{ top_article.rating }}</h5-2-lvc>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="lvc-group">
-                                        <ul class="lvc-group">
-                                            <li><img src="{% static 'svg/carbon_view-filled_active.svg' %}"
-                                                     alt="view"></li>
-                                            <li>
-                                                <h5-2-lvc>{{ top_article.get_views_count }}</h5-2-lvc>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="lvc-group">
-                                        <ul class="lvc-group">
-                                            <li>
-                                                <svg class="icon-comment">
-                                                    <use xlink:href="#fluent_comment-24-filled_active"></use>
-                                                </svg>
-                                            <li class="comm_number">
-                                                <h5-2-lvc>{{ top_article.comments }}</h5-2-lvc>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-<!--                                <li>-->
-<!--                                    <div class="lvc-group">-->
-<!--                                        <ul class="lvc-group">-->
-<!--                                            <li title="Жалобы">-->
-<!--                                                <img src="{% static 'svg/bad-no-hover.svg' %}" alt="bad">-->
-<!--                                            </li>-->
-<!--                                        {# TODO заменить на счетчик жалоб#}-->
-<!--                                            <h5-2-lvc>{{ top_article.comm }}</h5-2-lvc>-->
-<!--                                        </ul>-->
-<!--                                    </div>-->
-<!--                                </li>-->
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            {% endfor %}
+        <div class="content-top-info-title">
+            <h5-3>Лучшие&nbsp;статьи</h5-3>
+        </div>
+        <div class="top-info-title">
+            <h6-2>ТОП-лист</h6-2>
         </div>
     </div>
+    <div class="indent-10"></div>
+    <div class="content-top-info">
+        {% for top_article in top_articles %}
+            <div class="short-article-field">
+                <div class="short-article-title">
+                    <a class="link-top-info-menu"
+                       href="{% url 'mainapp:article_detail' top_article.id %}">{{ top_article.title|title }}</a>
+                </div>
+                <div class="short-article-data">
+                    <div class="like-comment">
+                        <ul class="lvc-field">
+                            <li>
+                                <div class="lvc-group">
+                                    <ul class="lvc-group">
+                                        <li><a href="/"><img src="{% static 'svg/chart.svg' %}" alt="chart"></a>
+                                        </li>
+                                        <li>
+                                            <h5-2-lvc>{{ top_article.get_rating_count }}</h5-2-lvc>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="lvc-group">
+                                    <ul class="lvc-group">
+                                        <li><img src="{% static 'svg/carbon_view-filled_active.svg' %}"
+                                                 alt="view"></li>
+                                        <li>
+                                            <h5-2-lvc>{{ top_article.get_views_count }}</h5-2-lvc>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="lvc-group">
+                                    <ul class="lvc-group">
+                                        <li>
+                                            <svg class="icon-comment">
+                                                <use xlink:href="#fluent_comment-24-filled_active"></use>
+                                            </svg>
+                                        <li class="comm_number">
+                                            <h5-2-lvc>{{ top_article.pk|get_comments_count }}</h5-2-lvc>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <!--                                <li>-->
+                            <!--                                    <div class="lvc-group">-->
+                            <!--                                        <ul class="lvc-group">-->
+                            <!--                                            <li title="Жалобы">-->
+                            <!--                                                <img src="{% static 'svg/bad-no-hover.svg' %}" alt="bad">-->
+                            <!--                                            </li>-->
+                            <!--                                        {# TODO заменить на счетчик жалоб#}-->
+                            <!--                                            <h5-2-lvc>{{ top_article.comm }}</h5-2-lvc>-->
+                            <!--                                        </ul>-->
+                            <!--                                    </div>-->
+                            <!--                                </li>-->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
