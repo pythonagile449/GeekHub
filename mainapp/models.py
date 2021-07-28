@@ -96,14 +96,27 @@ class Article(models.Model):
         return self.rating.total()
 
     @staticmethod
-    def get_top_rated_articles(hub_name='Все хабы', count=7):
+    def get_top_articles(hub_name='Все хабы', count=7, sort_by='rating'):
         """ Return articles by rating. """
         if hub_name == 'Все хабы':
             articles = Article.objects.filter(is_published=True)
         else:
             articles = Article.objects.filter(is_published=True, hub__name=hub_name)
-        top_articles = sorted([a for a in articles], key=lambda a: a.rating.total(), reverse=True)
-        return top_articles[:count]
+        return Article.sort_articles_by(articles, sort_by)[:count]
+
+    @staticmethod
+    def sort_articles_by(articles_queryset, sort_by):
+        top_articles = articles_queryset
+        if sort_by == 'rating':
+            top_articles = sorted([article for article in articles_queryset], key=lambda a: a.rating.total(),
+                                  reverse=True)
+        if sort_by == 'views':
+            views = articles_queryset.prefetch_related('article_view')
+            top_articles = sorted([view for view in views],
+                                  key=lambda a: ArticleViews.get_views_count_by_article(a.pk), reverse=True)
+        if sort_by == 'date':
+            top_articles = articles_queryset.order_by('-publication_date')
+        return top_articles
 
     @staticmethod
     def remove_style_tag_from_ck_content(html):
@@ -162,7 +175,7 @@ class ArticleViews(models.Model):
         verbose_name = 'Просмотр статьи'
         verbose_name_plural = 'Просмотры статьи'
 
-    article = models.ForeignKey(Article, on_delete=models.CASCADE)
+    article = models.ForeignKey(Article, on_delete=models.CASCADE, related_name='article_view')
     view_user = models.ForeignKey(GeekHubUser, on_delete=models.CASCADE, null=True, blank=True)
     is_anonymous = models.BooleanField(default=True)
     ip_address = models.GenericIPAddressField('IP адрес', null=True)

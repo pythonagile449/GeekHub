@@ -3,6 +3,7 @@ from django.db.models.functions import datetime
 from django.http import HttpResponseRedirect, JsonResponse, HttpResponse
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy
+from django.views import View
 from django.views.generic import CreateView, DetailView, ListView, DeleteView, UpdateView
 
 from commentsapp.models import CommentsBranch
@@ -355,12 +356,12 @@ class ArticleReturnToDrafts(DeleteView):
         return HttpResponseRedirect(self.get_success_url())
 
 
-class ShowTop(ListView):
-    # template_name = 'mainapp/user_articles_list.html'
-
-    def get_queryset(self, **kwargs):
-        queryset = Article.objects.filter(is_published=True).order_by('-publication_date')[:7]
-        return queryset
+# class ShowTop(ListView):
+#     template_name = 'mainapp/user_articles_list.html'
+#
+# def get_queryset(self, **kwargs):
+#     queryset = Article.objects.filter(is_published=True).order_by('-publication_date')[:7]
+#     return queryset
 
 
 class ModerationList(ListView):
@@ -394,9 +395,21 @@ def top_menu(request, hub_name):
         Top articles' menu controller
     """
     if request.method == 'GET' and request.is_ajax():
-        return render(request, 'mainapp/top-menu.html', {'top_articles': Article.get_top_rated_articles(hub_name)})
+        return render(request, 'mainapp/top-menu.html', {'top_articles': Article.get_top_articles(hub_name)})
     else:
         return HttpResponse(status=404)
+
+
+class TopMenuView(View):
+    def get(self, request, *args, **kwargs):
+        if request.is_ajax():
+            hub_name = self.kwargs.get('hub_name')
+            sort_by = request.GET.get('sorted_by')
+            return render(request, 'mainapp/top-menu.html',
+                          {'top_articles': Article.get_top_articles(hub_name=hub_name,
+                                                                          sort_by=sort_by if sort_by else 'rating')})
+        else:
+            return HttpResponse(status=404)
 
 
 def user_detail(request, pk=None):
