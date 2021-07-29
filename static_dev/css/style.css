@@ -824,7 +824,7 @@ select {
 }
 
 .block-foto {
-    display:flex;
+    display: flex;
     width: 270px;
     height: 270px;
     justify-content: center;
@@ -1965,17 +1965,18 @@ ul.top-info li { /* Menu list items */
     margin-right: 20px;
     height: 40px;
     align-items: center;
-    display:flex;
+    display: flex;
 }
 
 .top-info-menu {
     width: 30px;
-    display:flex;
+    display: flex;
     /*background-color: var(--section-bg-color);*/
     align-items: center;
     margin-left: 20px;
 
 }
+
 .top-menu-dropbtn {
     color: white;
     /*padding: 16px;*/
@@ -1989,7 +1990,7 @@ ul.top-info li { /* Menu list items */
     border: 2px solid;
     border-color: var(--section-bg-color);
     align-items: center;
-    height: 588px;
+    height: 65vh;
     overflow-y: auto;
 }
 
@@ -2000,13 +2001,19 @@ ul.top-info li { /* Menu list items */
 }
 
 .short-article-field {
+    margin: 8px 20px 8px 20px;
+    border-bottom: 1px solid;
+    border-color: var(--section-bg-color);
+}
 
+.short-article-field:last-child {
+    border: none;
 }
 
 .short-article-title {
     align-items: center;
     display: flex;
-    margin: 8px 20px 8px 20px;
+    margin: 8px 0;
 }
 
 .link-top-info-menu {
@@ -2029,10 +2036,7 @@ ul.top-info li { /* Menu list items */
 
 .short-article-data {
     display: flex;
-    margin: 8px 20px 8px 20px;
-    border-bottom: 1px solid;
-    border-color: var(--section-bg-color);
-
+    margin: 8px 0;
 }
 
 ul.author-data a img {
@@ -2409,6 +2413,7 @@ textarea.article-complaint-input {
     display: flex;
     align-items: center;
 }
+
 .block-info-auto {
     width: 80%;
     height: 80%;
@@ -2447,7 +2452,7 @@ textarea.article-complaint-input {
     border: 2px solid;
     border-color: var(--section-bg-color);
     align-items: center;
-    max-height:528px;
+    max-height: 528px;
     overflow-y: auto;
 }
 
@@ -2517,7 +2522,7 @@ ul.user-complaints-list li {
     border-color: var(--section-bg-color);
     align-items: center;
     width: auto;
-    height:434px;
+    height: 434px;
     overflow-y: auto;
 }
 
@@ -2740,7 +2745,7 @@ ul.search-hubs li { /* Menu list items */
     border: 2px solid;
     border-color: var(--section-bg-color);
     align-items: center;
-    max-height:528px;
+    max-height: 528px;
     overflow-y: auto;
 }
 
@@ -2790,4 +2795,39 @@ ul.comments-search-data li { /* Menu list items */
 
 .a-rank {
     padding-left: 20px;
+}
+
+.like-article {
+    width: 25px;
+    height: 25px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    background-image: url(../svg/up.svg);
+}
+
+.like-article:hover {
+    background-image: url(../svg/up+.svg);
+}
+
+.dislike-article {
+    width: 25px;
+    height: 25px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    background-image: url(../svg/down.svg);
+}
+
+.dislike-article:hover {
+    background-image: url(../svg/down+.svg);
+}
+
+/*TODO стили для отмеченного лайка-дизлайка */
+.like-chosen {
+    background-image: url(../svg/up+.svg);
+}
+
+.dislike-chosen {
+    background-image: url(../svg/down+.svg);
 }
