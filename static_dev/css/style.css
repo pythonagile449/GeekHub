@@ -1563,6 +1563,7 @@ textarea.comment-area {
     border-radius: 5px;
     padding-top: 10px;
     padding-bottom: 10px;
+    white-space: nowrap;
 }
 
 .field-foto-button {

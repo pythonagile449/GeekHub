@@ -1,15 +1,13 @@
-"use strict"
-
 class TopMenu {
     constructor() {
-        this.getDomElements();
-        this.getTopData(this.hubName, 'rating');
+        this.getDomeElements();
+        this.getTopData();
         this.updateBlockInterval = 300000;
         this.intervalId = window.setInterval(this.getTopData, this.updateBlockInterval, this.hubName);
         this.initHandlers();
     }
 
-    getDomElements() {
+    getDomeElements() {
         this.sectionRightBlock = document.querySelector('.section-right-block');
         this.hubName = document.querySelector('.section-title h2').innerText;
         this.dropDownMenu = document.querySelector('#top-menu-dropdown');
@@ -17,19 +15,19 @@ class TopMenu {
 
     initHandlers() {
         this.dropDownMenu.addEventListener('click', evt => {
-            let sortBy = evt.target.dataset.sortedBy;
-            if (sortBy) this.getTopData(this.hubName, sortBy)
+            console.log(evt);
+            console.log(this.hubName);
         })
 
     }
 
-    getTopData(hubName, sortBy) {
+    getTopData() {
         $.ajax({
-            url: `/get-top-menu/${hubName}/?sorted_by=${sortBy}`,
+            url: '/get-top-menu/' + this.hubName,
             type: "GET",
             success: data => {
                 $(`.section-right`).html(data);
-                topMenu.getDomElements();
+                topMenu.getDomeElements();
                 topMenu.initHandlers();
             },
             error: d => {
@@ -40,3 +38,4 @@ class TopMenu {
 }
 
 const topMenu = new TopMenu();
+

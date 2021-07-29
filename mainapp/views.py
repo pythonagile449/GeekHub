@@ -22,6 +22,7 @@ class Index(ListView):
     EN
     Main paige(all the articles by publication date)
     """
+    model = Article
     template_name = 'mainapp/index.html'
     queryset = Article.objects.filter(is_published=True)
     ordering = ['-publication_date']
@@ -34,7 +35,7 @@ class Index(ListView):
         return context
 
 
-class ArticlesByHub(ListView):
+class ArticlesByHub(Index):
     """
     RU
     Статьи по категориям.
@@ -44,10 +45,6 @@ class ArticlesByHub(ListView):
     Articles by categories(hubs)
     hub_id is passed in kwargs from the get_absolute_url model method
     """
-    model = Article
-    template_name = 'mainapp/index.html'
-    context_object_name = 'articles'
-    paginate_by = 5
 
     def get_queryset(self):
         queryset = Article.objects.filter(hub=self.kwargs['hub_id'], is_published=True, is_deleted=False) \
@@ -411,7 +408,8 @@ def user_detail(request, pk=None):
     context = {
         'title': title,
         'author': data_author,
-        'author_articles': author_articles
+        'author_articles': author_articles,
+        'author_rating': GeekHubUser.get_total_user_rating(data_author)
     }
     print(context)
     return render(request, 'mainapp/user_detail.html', context)

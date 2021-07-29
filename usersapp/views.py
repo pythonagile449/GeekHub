@@ -1,14 +1,14 @@
 from django.contrib import auth
+from django.contrib.auth.views import LoginView, LogoutView
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.template.context_processors import csrf
 from django.urls import reverse_lazy
 from django.utils import timezone
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.contrib.auth.views import LoginView, LogoutView
 
-from usersapp.models import GeekHubUser, BlockingByIp
 from usersapp.forms import RegistrationForm, LoginForm, UserProfileEditForm
+from usersapp.models import GeekHubUser, BlockingByIp
 
 
 def get_user_ip(request):
