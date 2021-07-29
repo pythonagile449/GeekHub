@@ -122,17 +122,16 @@ class Article(models.Model):
 
     @staticmethod
     def sort_articles_by(articles_queryset, sort_by='date'):
-        top_articles = articles_queryset
         if sort_by == 'rating':
-            top_articles = sorted([article for article in articles_queryset], key=lambda a: a.rating.total(),
-                                  reverse=True)
+            articles_queryset = sorted([article for article in articles_queryset], key=lambda a: a.rating.total(),
+                                       reverse=True)
         if sort_by == 'views':
             views = articles_queryset.prefetch_related('article_view')
-            top_articles = sorted([view for view in views],
-                                  key=lambda a: ArticleViews.get_views_count_by_article(a.pk), reverse=True)
+            articles_queryset = sorted([view for view in views],
+                                       key=lambda a: ArticleViews.get_views_count_by_article(a.pk), reverse=True)
         if sort_by == 'date':
-            top_articles = articles_queryset.order_by('-publication_date')
-        return top_articles
+            articles_queryset = articles_queryset.order_by('-publication_date')
+        return articles_queryset
 
     @staticmethod
     def remove_style_tag_from_ck_content(html):
