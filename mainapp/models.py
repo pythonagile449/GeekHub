@@ -131,6 +131,9 @@ class Article(models.Model):
                                        key=lambda a: ArticleViews.get_views_count_by_article(a.pk), reverse=True)
         if sort_by == 'date':
             articles_queryset = articles_queryset.order_by('-publication_date')
+        if sort_by == 'comments':
+            articles_queryset = sorted([article for article in articles_queryset], key=lambda a: a.get_comments_count(),
+                                       reverse=True)
         return articles_queryset
 
     @staticmethod

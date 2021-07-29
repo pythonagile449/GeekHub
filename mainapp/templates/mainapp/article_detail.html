@@ -14,7 +14,6 @@
 {% endblock %}
 
 {% block content %}
-
     <div class="content-container">
         <div class="section-left">
 
@@ -76,8 +75,10 @@
 
                                         <ul class="lvc-group">
                                             <li data-id="{{ article.id }}" data-type="article" data-action="like"
-                                                title="Нравится" class="like-article">
-                                                <img src="{% static 'svg/up4+.svg' %}" alt="like">
+                                                title="Нравится"
+                                                class="like-article{% if user_rating_for_article_chose == 1 %} like-chosen{% endif %}">
+                                                {# убрал картинку, сделал подстановку через css#}
+                                                {# <img src="{% static 'svg/up4+.svg' %}" alt="like">#}
                                             </li>
                                             <h5-2-lvc-plus data-count="positive" class="positive">
                                                 {% if article.rating.like.count %}
@@ -87,8 +88,10 @@
                                                 {% endif %}
                                             </h5-2-lvc-plus>
                                             <li data-id="{{ article.id }}" data-type="article" data-action="dislike"
-                                                title="Не нравится" class="dislike-article">
-                                                <img src="{% static 'svg/down4+.svg' %}" alt="like">
+                                                title="Не нравится"
+                                                class="dislike-article{% if user_rating_for_article_chose == -1 %} dislike-chosen{% endif %}">
+                                                {# убрал картинку, сделал подстановку через css#}
+                                                {# <img src="{% static 'svg/down4+.svg' %}" alt="like">#}
                                             </li>
                                             <h5-2-lvc-minus data-count="negative" class="negative">
                                                 {% if article.rating.dislikes.count %}
@@ -128,19 +131,23 @@
                                     </ul>
                                 </div>
                             </li>
-                            <li>
-                                <div class="lvc-group">
-                                    <ul class="lvc-group">
-                                        <li title="Подать жалобу">
+
+                            {% if user != article.author and not user.is_staff %}
+                                <li>
+                                    <div class="lvc-group">
+                                        <ul class="lvc-group">
+                                            <li title="Подать жалобу">
                                             <span class="show-complaint-button">
                                                 <svg class="icon-bad">
                                                     <use xlink:href="#bad"></use>
                                                 </svg>
                                             </span>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            {% endif %}
+
                         </ul>
 
                         <div class="complaint-container hidden">
@@ -198,9 +205,6 @@
                                                         <a href="{% url 'usersapp:user_detail' comment.author.pk %}"
                                                            class="author-name">{{ comment.author.username }}</a>
                                                     </li>
-                                                    <!--                                                    <li>-->
-                                                    <!--                                                        <h6-1>{{ comment.author.username }}</h6-1>-->
-                                                    <!--                                                    </li>-->
                                                     <li>
                                                         <h6-2>{{ comment.created_at }}</h6-2>
                                                     </li>
@@ -408,13 +412,13 @@
         </div>
         <div class="section-right">
             {% block right_content %}
-            {# TODO отображение причины снятия с публикации #}
-            {% if article.reason_for_reject and not article.is_published %}
-                <div class="indent-40"></div> <!-- Жалобы-->
+                {# TODO отображение причины снятия с публикации #}
+                {% if article.reason_for_reject and not article.is_published %}
+                    <div class="indent-40"></div> <!-- Жалобы-->
                     <div class="section-right-author-complaint-block">
                         <div class="danger-complaint-menu-field">
                             <div class="content-complaint-title">
-                                    <h5-3>Внимание! Статья снята с публикации!</h5-3>
+                                <h5-3>Внимание! Статья снята с публикации!</h5-3>
                             </div>
                         </div>
                         <div class="indent-10"></div>
@@ -435,12 +439,12 @@
                             </ul>
                         </div>
                     </div>
-            {% endif %}
+                {% endif %}
             {% endblock %}
         </div>
     </div>
 
-        <!-- Hidden SVG sprite -->
+    <!-- Hidden SVG sprite -->
     <svg width="0" height="0" class="hidden">
         <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 26" id="up3">
             <path d="M16 9.5c0-.688-.563-1.25-1.25-1.25H8.275L9.1 4.275l.025-.288c0-.387-.162-.737-.412-1L7.725 2 1.55 8.175A1.88 1.88 0 001 9.5v8.125c0 1.038.837 1.875 1.875 1.875h8.438c.774 0 1.437-.475 1.724-1.137l2.825-6.613c.088-.213.138-.45.138-.688V9.5z"></path>

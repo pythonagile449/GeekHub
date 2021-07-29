@@ -10,6 +10,7 @@ from commentsapp.models import CommentsBranch
 from mainapp.forms import ArticleCkForm, ArticleMdForm
 from mainapp.models import Hub, Article, ArticleViews
 from notifyapp.models import Notification
+from ratingsapp.models import RatingCount
 from usersapp.models import GeekHubUser
 from usersapp.views import get_user_ip
 
@@ -136,6 +137,9 @@ class ArticleDetail(DetailView):
                                                                        self.comments_preview_count)
         context['comments_count_settings'] = self.comments_preview_count
         context['all_comments_count'] = CommentsBranch.get_comments_count_by_article(self.get_object().pk)
+        context['user_rating_for_article_chose'] = RatingCount.get_user_rate_chose(
+            user=self.request.user, obj_id=self.object.id,
+            obj_content_type=ContentType.objects.get_for_model(self.object))
         return context
 
     def get(self, request, *args, **kwargs):
