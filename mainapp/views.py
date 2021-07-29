@@ -409,7 +409,7 @@ def user_detail(request, pk=None):
         'title': title,
         'author': data_author,
         'author_articles': author_articles,
-        'author_rating': GeekHubUser.get_total_user_rating(data_author)
+        'author_rating': data_author.get_total_user_rating()
     }
     print(context)
     return render(request, 'mainapp/user_detail.html', context)

@@ -92,19 +92,24 @@ class Article(models.Model):
     def get_views_count(self):
         return ArticleViews.objects.filter(article=self).count()
 
-    def get_rating_count(self, type='total'):
-        if type == 'total':
-            return self.rating.total()
-        if type == 'positive':
-            return self.rating.positive()
-        if type == 'negative':
-            return self.rating.negative()
-        else:
-            return 'XXX'
+    def get_rating_count(self):
+        return self.rating.total()
 
+    def get_positive_rating(self):
+        return self.rating.positive()
 
     def get_comments_count(self):
         return self.comments.model_class().get_comments_count_by_article(self.id)
+
+    def get_article_rank(self):
+        article_rating = self.get_rating_count()
+        print(article_rating)
+        article_comments = self.get_comments_count()
+        print(article_comments)
+        article_views = self.get_views_count()
+        print(article_views)
+
+        return article_rating + article_comments + article_views
 
     @staticmethod
     def get_top_articles(hub_name='Все хабы', count=7, sort_by='rating'):
@@ -129,13 +134,19 @@ class Article(models.Model):
             top_articles = articles_queryset.order_by('-publication_date')
         return top_articles
 
-
-    def get_article_rank(self):
-        article_rating = self.get_rating_count('positive')
-        article_comments = self.get_comments_count()
-        article_views = self.get_views_count()
-
-        return article_rating + article_comments + article_views
+    @staticmethod
+    def get_author_rank(id):
+        total = 0
+        articles = Article.objects.filter(
+            author=id,
+            reason_for_reject=None,
+            is_draft=False,
+            is_published=True,
+            is_moderation_in_progress=False
+        )
+        for article in articles:
+            total += Article.get_article_rank(article)
+        return total
 
     @staticmethod
     def remove_style_tag_from_ck_content(html):
