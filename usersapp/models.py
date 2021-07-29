@@ -1,11 +1,11 @@
+from uuid import uuid4
+
 from django.contrib import admin
+from django.contrib.auth.models import AbstractUser
+from django.contrib.contenttypes.models import ContentType
 from django.db import models
 from django.urls import reverse
 from django.utils.timezone import now
-from datetime import timedelta
-from django.contrib.auth.models import AbstractUser
-
-from uuid import uuid4
 
 
 class AbstractUUID(models.Model):
@@ -35,6 +35,8 @@ class GeekHubUser(AbstractUser, AbstractUUID):
     user_information = models.CharField(blank=True, max_length=512, verbose_name='Обо мне', default='')
     gender = models.CharField(max_length=1, choices=GENDER_CHOISES, verbose_name='Пол', default=other)
 
+    articles = ContentType(app_label='mainapp', model='article')
+
     md_editor = 'MD'
     ckeditor = 'CK'
 
@@ -53,6 +55,16 @@ class GeekHubUser(AbstractUser, AbstractUUID):
 
     def get_absolute_url(self):
         return reverse('usersapp:login')
+
+    def get_total_user_rating(self):
+        user_articles = self.get_user_published_articles()
+        total_rank = 0
+        for article in user_articles:
+            total_rank += article.get_article_rank()
+        return total_rank
+
+    def get_user_published_articles(self):
+        return self.articles.model_class().get_published_articles_by_author(self.id)
 
 
 class BlockingByIp(models.Model):
