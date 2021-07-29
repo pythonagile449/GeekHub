@@ -57,7 +57,14 @@ class GeekHubUser(AbstractUser, AbstractUUID):
         return reverse('usersapp:login')
 
     def get_total_user_rating(self):
-        return self.articles.model_class().get_author_rank(self.id)
+        user_articles = self.get_user_published_articles()
+        total_rank = 0
+        for article in user_articles:
+            total_rank += article.get_article_rank()
+        return total_rank
+
+    def get_user_published_articles(self):
+        return self.articles.model_class().get_published_articles_by_author(self.id)
 
 
 class BlockingByIp(models.Model):

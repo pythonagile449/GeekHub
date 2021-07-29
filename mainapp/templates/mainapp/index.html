@@ -41,13 +41,13 @@
                             <ul class="author-data">
                                 <li>
                                     {% if article.author.profile_photo|length == 0 %}
-                                        <a href="{% url 'mainapp:user_detail' article.author.pk %}"><img src="{% static 'svg/block_foto.svg' %}" alt={{article.author.id}}></a>
+                                        <a href="{% url 'usersapp:user_detail' article.author.pk %}"><img src="{% static 'svg/block_foto.svg' %}" alt={{article.author.id}}></a>
                                     {% else %}
-                                        <a href="{% url 'mainapp:user_detail' article.author.pk %}"><img src=/media/{{ article.author.profile_photo}} alt={{article.author.id}}></a>
+                                        <a href="{% url 'usersapp:user_detail' article.author.pk %}"><img src=/media/{{ article.author.profile_photo}} alt={{article.author.id}}></a>
                                     {% endif %}
                                 </li>
                                 <li>
-                                    <a href="{% url 'mainapp:user_detail' article.author.pk %}" class="author-name">{{ article.author.username }}</a>
+                                    <a href="{% url 'usersapp:user_detail' article.author.pk %}" class="author-name">{{ article.author.username }}</a>
                                 </li>
                                 <li>
                                     <h6-2>{{ article.publication_date }}</h6-2>

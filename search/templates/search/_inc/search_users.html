@@ -7,15 +7,15 @@
             <div class="user-foto-for-search">
                 <li>
                 {% if user.profile_photo|length == 0 %}
-                    <a href="{% url 'mainapp:user_detail' user.pk %}"><img src="{% static 'svg/block_foto.svg' %}" alt={{user.id}}></a>
+                    <a href="{% url 'usersapp:user_detail' user.pk %}"><img src="{% static 'svg/block_foto.svg' %}" alt={{user.id}}></a>
                 {% else %}
-                    <a href="{% url 'mainapp:user_detail' user.pk %}"><img src=/media/{{ user.profile_photo}} alt={{user.id}}></a>
+                    <a href="{% url 'usersapp:user_detail' user.pk %}"><img src=/media/{{ user.profile_photo}} alt={{user.id}}></a>
                 {% endif %}
                 </li>
             </div>
             <div class="user-nic-for-search">
                 <li>
-                    <a href="{% url 'mainapp:user_detail' user.pk %}" class="user-name">{{ user.username }}</a>
+                    <a href="{% url 'usersapp:user_detail' user.pk %}" class="user-name">{{ user.username }}</a>
                 </li>
             </div>
         </ul>

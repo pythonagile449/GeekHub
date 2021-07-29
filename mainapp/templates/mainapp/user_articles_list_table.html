@@ -54,7 +54,7 @@
 
                         {# article author #}
                         {% if is_on_moderation and user.is_staff %}
-                            <td><a href="{% url 'mainapp:user_detail' article.author.pk %}" class="link-menu">{{ article.author }}</a></td>
+                            <td><a href="{% url 'usersapp:user_detail' article.author.pk %}" class="link-menu">{{ article.author }}</a></td>
                         {% endif %}
 
                         <td>

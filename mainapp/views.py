@@ -145,7 +145,7 @@ class ArticleDetail(DetailView):
             if request.user.is_authenticated:
                 ArticleViews.get_or_add_auth_user_view(self.object.pk, request.user.pk, user_ip)
             else:
-                ArticleViews.get_or_add_anonimus_view(self.object.pk, user_ip)
+                ArticleViews.get_or_add_anonymous_view(self.object.pk, user_ip)
         return response
 
 
@@ -373,43 +373,21 @@ class ModerationList(ListView):
         return context
 
 
-def top_menu(request, hub_name):
-    """
-        RU
-        Контроллер меню топа статей.
-
-        EN
-        Top articles' menu controller
-    """
-    if request.method == 'GET' and request.is_ajax():
-        return render(request, 'mainapp/top-menu.html', {'top_articles': Article.get_top_articles(hub_name)})
-    else:
-        return HttpResponse(status=404)
-
-
 class TopMenuView(View):
+    """
+    RU
+    Контроллер меню топа статей.
+
+    EN
+    Top articles' menu controller
+    """
+
     def get(self, request, *args, **kwargs):
         if request.is_ajax():
             hub_name = self.kwargs.get('hub_name')
             sort_by = request.GET.get('sorted_by')
             return render(request, 'mainapp/top-menu.html',
                           {'top_articles': Article.get_top_articles(hub_name=hub_name,
-                                                                          sort_by=sort_by if sort_by else 'rating')})
+                                                                    sort_by=sort_by if sort_by else 'rating')})
         else:
             return HttpResponse(status=404)
-
-
-def user_detail(request, pk=None):
-    if pk is not None:
-        title = 'Данные автора'
-        data_author = get_object_or_404(GeekHubUser, id=pk)
-        author_articles = Article.objects.filter(author=data_author, is_published=True, is_deleted=False) \
-            .order_by('-publication_date')
-    context = {
-        'title': title,
-        'author': data_author,
-        'author_articles': author_articles,
-        'author_rating': data_author.get_total_user_rating()
-    }
-    print(context)
-    return render(request, 'mainapp/user_detail.html', context)

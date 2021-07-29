@@ -89,8 +89,12 @@ class Article(models.Model):
         self.is_moderation_in_progress = False
         self.save()
 
+    @staticmethod
+    def get_published_articles_by_author(user_id):
+        return Article.objects.filter(author_id=user_id, is_published=True).select_related()
+
     def get_views_count(self):
-        return ArticleViews.objects.filter(article=self).count()
+        return ArticleViews.get_views_count_by_article(self.id)
 
     def get_rating_count(self):
         return self.rating.total()
@@ -103,12 +107,8 @@ class Article(models.Model):
 
     def get_article_rank(self):
         article_rating = self.get_rating_count()
-        print(article_rating)
         article_comments = self.get_comments_count()
-        print(article_comments)
         article_views = self.get_views_count()
-        print(article_views)
-
         return article_rating + article_comments + article_views
 
     @staticmethod
@@ -121,7 +121,7 @@ class Article(models.Model):
         return Article.sort_articles_by(articles, sort_by)[:count]
 
     @staticmethod
-    def sort_articles_by(articles_queryset, sort_by):
+    def sort_articles_by(articles_queryset, sort_by='date'):
         top_articles = articles_queryset
         if sort_by == 'rating':
             top_articles = sorted([article for article in articles_queryset], key=lambda a: a.rating.total(),
@@ -133,20 +133,6 @@ class Article(models.Model):
         if sort_by == 'date':
             top_articles = articles_queryset.order_by('-publication_date')
         return top_articles
-
-    @staticmethod
-    def get_author_rank(id):
-        total = 0
-        articles = Article.objects.filter(
-            author=id,
-            reason_for_reject=None,
-            is_draft=False,
-            is_published=True,
-            is_moderation_in_progress=False
-        )
-        for article in articles:
-            total += Article.get_article_rank(article)
-        return total
 
     @staticmethod
     def remove_style_tag_from_ck_content(html):
@@ -221,5 +207,5 @@ class ArticleViews(models.Model):
                                                   is_anonymous=False, ip_address=ip_address)
 
     @staticmethod
-    def get_or_add_anonimus_view(article_id, ip_address):
+    def get_or_add_anonymous_view(article_id, ip_address):
         return ArticleViews.objects.get_or_create(article_id=article_id, is_anonymous=True, ip_address=ip_address)
