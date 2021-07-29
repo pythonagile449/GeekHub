@@ -2778,3 +2778,16 @@ ul.comments-search-data li { /* Menu list items */
     text-decoration: none;
     display: flex;
 }
+
+.icon-author-rank {
+    width: 30px;
+    height: 30px;
+    fill: var(--primary-color);
+    fill-opacity: var(--header-opacity);
+    transition: 0.25s;
+    margin-left: 0px;
+}
+
+.a-rank {
+    padding-left: 20px;
+}

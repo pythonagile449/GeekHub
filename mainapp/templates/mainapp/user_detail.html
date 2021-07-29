@@ -120,8 +120,20 @@
                     </div>
                     <div class="field-50"></div>
                     <div class="block-user-info">
-                        <div class="indent-20"></div>
-                        <div class="field-50">
+<!--                        <div class="indent-20"></div>-->
+                        <div class="indent-50-2">
+                            <div class="a-rank">
+                                <a href="" title="Рейтинг автора">
+                                    <svg class="icon-author-rank"> <!--author rank -->
+                                        <use xlink:href="#rank_star"></use>
+                                    </svg>
+                                </a>
+                                <h5-1>:</h5-1>
+                            </div>
+                            <h5-3> {{author_rating}} </h5-3>
+                        </div>
+                        <div class="indent-50-2">
+                            <h5-1>Публикаций: {{author_articles|length}}</h5-1>
                         </div>
                     </div>
                 </div>
@@ -132,8 +144,7 @@
             <div class="section-right-block">
                 <div class="user-info-menu-field">
                     <div class="content-user-info-title">
-                        <h5-3>Публикации {{author.username}}:</h5-3>
-                        <h6-2>Рейтинг автора: {{author_rating}}</h6-2>
+                        <h5-3>Список публикаций {{author.username}}:</h5-3>
                     </div>
                 </div>
                 <div class="indent-10"></div>
@@ -213,6 +224,9 @@
     <svg width="0" height="0" class="hidden">
         <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" id="fluent_comment-24-filled_active">
             <path d="M4.375 15a2.708 2.708 0 01-2.708-2.708V5.208A2.708 2.708 0 014.375 2.5h11.25a2.708 2.708 0 012.708 2.708v7.084A2.709 2.709 0 0115.625 15h-4.82l-4.49 3.18A.833.833 0 015 17.503V15h-.625z"></path>
+        </symbol>
+        <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" id="rank_star">
+            <path d="M8.99 2.586a1.125 1.125 0 012.018 0l1.965 3.98 4.394.639a1.125 1.125 0 01.623 1.92l-3.18 3.1.75 4.374c.16.92-.806 1.62-1.632 1.187l-3.93-2.067-3.929 2.067a1.126 1.126 0 01-1.633-1.187l.75-4.375-3.179-3.1c-.667-.65-.299-1.785.624-1.92l4.394-.637L8.99 2.586z"></path>
         </symbol>
     </svg>
 {% endblock %}
