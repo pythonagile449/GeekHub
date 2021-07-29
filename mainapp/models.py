@@ -112,7 +112,7 @@ class Article(models.Model):
         return article_rating + article_comments + article_views
 
     @staticmethod
-    def get_top_articles(hub_name='Все хабы', count=15, sort_by='rating'):
+    def get_top_articles(hub_name='Все хабы', count=7, sort_by='rating'):
         """ Return articles by rating. """
         if hub_name == 'Все хабы':
             articles = Article.objects.filter(is_published=True)
