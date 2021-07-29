@@ -217,8 +217,7 @@ class UserAccountView(DetailView):
     def get_context_data(self, **kwargs):
         context = super(UserAccountView, self).get_context_data()
         user_articles = Article.get_published_articles_by_author(self.object.pk)
-        print(self.object)
-        context['title'] = f'Профиль {self.get_object().username}'
+        context['title'] = f'Профиль {self.object.username}'
         context['author_articles'] = Article.sort_articles_by(user_articles, 'date')
         return context
 
