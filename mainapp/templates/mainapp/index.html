@@ -41,13 +41,13 @@
                             <ul class="author-data">
                                 <li>
                                     {% if article.author.profile_photo|length == 0 %}
-                                        <a href="{% url 'mainapp:user_detail' article.author.pk %}"><img src="{% static 'svg/block_foto.svg' %}" alt={{article.author.id}}></a>
+                                        <a href="{% url 'usersapp:user_detail' article.author.pk %}"><img src="{% static 'svg/block_foto.svg' %}" alt={{article.author.id}}></a>
                                     {% else %}
-                                        <a href="{% url 'mainapp:user_detail' article.author.pk %}"><img src=/media/{{ article.author.profile_photo}} alt={{article.author.id}}></a>
+                                        <a href="{% url 'usersapp:user_detail' article.author.pk %}"><img src=/media/{{ article.author.profile_photo}} alt={{article.author.id}}></a>
                                     {% endif %}
                                 </li>
                                 <li>
-                                    <a href="{% url 'mainapp:user_detail' article.author.pk %}" class="author-name">{{ article.author.username }}</a>
+                                    <a href="{% url 'usersapp:user_detail' article.author.pk %}" class="author-name">{{ article.author.username }}</a>
                                 </li>
                                 <li>
                                     <h6-2>{{ article.publication_date }}</h6-2>
@@ -105,7 +105,7 @@
                                                     src="{% static 'svg/carbon_view-filled_active.svg' %}"
                                                     alt="view"></li>
                                             <li>
-                                                <h5-2-lvc>{{ article.views }}</h5-2-lvc>
+                                                <h5-2-lvc>{{ article.get_views_count }}</h5-2-lvc>
                                             </li>
                                         </ul>
                                     </div>
@@ -145,9 +145,7 @@
         </div>
 
         <div class="section-right">
-            <div class="section-right-block">
-                {% include 'mainapp/top-menu.html' %}
-            </div>
+            {% include 'mainapp/top-menu.html' %}
         </div>
     </div>
 
@@ -161,17 +159,13 @@
         </symbol>
     </svg>
 
-    <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 21" id="top_menu">
-        <path d="M20 7V4H0v3h20zm0 6v-3H0v3h20zm0 6v-3H0v3h20z"></path>
-    </symbol>
-
 {% endblock %}
 
 {% block js %}
     <script type="text/javascript" src="{% static 'plugins/js/highlight.min.js' %}"></script>
     <script src="{% static 'js/infinity_scroll/jquery.waypoints.min.js' %}"></script>
     <script src="{% static 'js/infinity_scroll/infinite.min.js' %}"></script>
-    <script src="{% static 'js/mainapp/top-menu.js' %}"></script>
+    <script src="{% static 'js/mainapp/top_menu.js' %}"></script>
     {% if search %}
         <script src="{% static 'js/search/search.js' %}"></script>{% endif %}
     <script>

@@ -83,7 +83,6 @@
                         <div class="field-110">
                             <div class="block-text">
                                 <h5-3>{{ form.user_information.label_tag }}</h5-3>
-
                             </div>
                             <div class="block-info">
                                 <div class="input-textarea">
@@ -194,6 +193,20 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="indent-50-2">
+                                <div class="a-rank">
+                                    <a href="" title="Ваш рейтинг">
+                                        <svg class="icon-author-rank"> <!--author rank -->
+                                            <use xlink:href="#rank_star"></use>
+                                        </svg>
+                                    </a>
+                                    <h5-1>:</h5-1>
+                                </div>
+                                <h5-3> {{author_rating}} </h5-3>
+                            </div>
+                        <div class="indent-50-2">
+                            <h5-1>Публикаций: {{author_articles|length}}</h5-1>
+                        </div>
                         </div>
                     </div>
                 </div>
@@ -210,5 +223,10 @@
     </div>
 
     <div class="indent-20"></div>
-
+    <!-- Hidden SVG sprite -->
+    <svg width="0" height="0" class="hidden">
+        <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" id="rank_star">
+            <path d="M8.99 2.586a1.125 1.125 0 012.018 0l1.965 3.98 4.394.639a1.125 1.125 0 01.623 1.92l-3.18 3.1.75 4.374c.16.92-.806 1.62-1.632 1.187l-3.93-2.067-3.929 2.067a1.126 1.126 0 01-1.633-1.187l.75-4.375-3.179-3.1c-.667-.65-.299-1.785.624-1.92l4.394-.637L8.99 2.586z"></path>
+        </symbol>
+    </svg>
 {% endblock %}

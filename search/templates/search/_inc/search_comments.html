@@ -1,0 +1,43 @@
+{% load static %}
+<div class="comments-search-list">
+    <div class="indent-20"></div>
+    <ul class="comments-search-data">
+        {% for comment in targets %}
+            {% if comment.article.is_published %}
+                {# TODO добваить отображение в поиске комментов #}
+                <li>
+                    <ul class="user-search-data">
+                        <div class="user-foto-for-search">
+                            <li>
+                            {% if comment.author.profile_photo|length == 0 %}
+                                <a href="{% url 'usersapp:user_detail' comment.author.pk %}"><img src="{% static 'svg/block_foto.svg' %}" alt={{comment.author}}></a>
+                            {% else %}
+                                <a href="{% url 'usersapp:user_detail' comment.author.pk %}"><img src=/media/{{ comment.author.profile_photo}} alt={{comment.author}}></a>
+                            {% endif %}
+                            </li>
+                        </div>
+                        <div class="user-nic-for-search">
+                            <li>
+                                <a href="{% url 'usersapp:user_detail' comment.author.pk %}" class="user-name">{{ comment.author }}</a>
+                            </li>
+                        </div>
+                        <div class="article-title-for-search">
+                            <li>
+                                {{ comment.article|truncatechars:40 }}
+                            </li>
+                        </div>
+                        <li>
+                            <a href="{% url 'mainapp:article_detail' comment.article.pk %}?scroll_to_comment={{ comment.pk }}">{{ comment.description|truncatechars:40  }}</a>
+                        </li>
+                    </ul>
+
+
+                </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+</div>
+
+
+
+

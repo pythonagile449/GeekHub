@@ -70,7 +70,8 @@ class ComplaintDiscardView(LoginRequiredMixin, DeleteView):
     def delete(self, request, *args, **kwargs):
         complaint = self.get_object()
         if request.user.is_staff:
-            complaint.set_discard_status()
+            reason = self.request.POST.get('reason')
+            complaint.set_discard_status(reason)
             NotificationFactory.notify(request.user, complaint.sender, 'Жалоба отклонена', complaint)
             return HttpResponseRedirect(self.success_url)
         elif not request.user.is_staff and (request.user == complaint.sender):
@@ -117,6 +118,10 @@ class ComplaintDetailView(LoginRequiredMixin, ArticleDetail):
         context = super(ComplaintDetailView, self).get_context_data()
         context['title'] = 'Просмотр жалобы'
         complaint_sender = self.kwargs['complaint_sender']
+        content_type = ContentType.objects.get_for_model(self.object)
         context['complaint_sender'] = GeekHubUser.objects.get(pk=complaint_sender)
-        context['complaints'] = Complaint.objects.filter(sender=complaint_sender)
+        complaints = Complaint.objects.filter(sender=complaint_sender,
+                                              content_type=content_type,
+                                              object_id=self.object.pk, )
+        context['complaints'] = complaints.filter(status='M') if self.request.user.is_staff else complaints
         return context

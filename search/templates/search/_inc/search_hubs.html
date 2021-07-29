@@ -1,8 +1,11 @@
 <div class="hubs-search-list">
     <ul>
         {% for hub in targets %}
-            <li>{{ hub.name }}</li>
+        <ul class="search-hubs">
+            <div class="hub-for-search">
+                <li><a href="{{ hub.get_absolute_url }}" class="link-menu">{{ hub.name }}</a></li>
+            </div>
+        </ul>
         {% endfor %}
-
     </ul>
 </div>

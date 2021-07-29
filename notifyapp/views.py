@@ -61,8 +61,3 @@ def check_notifications(request):
     if request.user.is_authenticated:
         user_notifications_count = Notification.objects.filter(recipient=request.user, is_read=False).count()
     return JsonResponse({'notifications_count': user_notifications_count})
-
-    # if request.user.is_authenticated:
-    #     user_notifications_count = Notification.objects.filter(recipient=request.user, is_read=False).count()
-    #     return JsonResponse({'notifications_count': user_notifications_count})
-    # return

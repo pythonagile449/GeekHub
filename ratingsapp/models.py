@@ -52,3 +52,11 @@ class RatingCount(models.Model):
     object_id = models.CharField(max_length=40)
     content = GenericForeignKey()
     objects = RatingManager()
+
+    @staticmethod
+    def get_user_rate_chose(user, obj_id, obj_content_type):
+        try:
+            rate = RatingCount.objects.get(content_type=obj_content_type, object_id=obj_id, users=user).rate
+        except RatingCount.DoesNotExist:
+            rate = 0
+        return rate
