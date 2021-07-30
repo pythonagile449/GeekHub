@@ -324,12 +324,65 @@
                                         </div>
                                         <div class="indent-10"></div>
                                     </div>
-                                    <div class="my-text">
+
+
+
+
+
+
+
+
+
+
+
+                                  <style>
+                                    button_speech {
+                                      background: yellow;
+                                      animation-name: none;
+                                      animation-duration: 3s;
+                                      animation-iteration-count: infinite;
+                                    }
+                                    @keyframes flash {
+                                      0% {
+                                        background: red;
+                                      }
+                                      50% {
+                                        background: green;
+                                      }
+                                    }
+                                  </style>
+
+                                  <button id="button_speech"><img src="{% static 'img/mic_start.png' %}" alt="icon" style="border-radius:50px; height:50px;"></button>
+                                  <div id="content"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                  <div class="my-text">
+
                                         <div class="editor-field">
+
                                             <form class="comment-form">
+
                                                 {% csrf_token %}
+
                                                 <textarea name="comment"
-                                                          class="editor-field comment-area"></textarea>
+                                                          class="editor-field comment-area" id="for_stt">
+
+
+
+                                                </textarea>
                                                 <div class="button-field">
                                                     <button
                                                             class="button22 send-comment-button"
@@ -517,5 +570,50 @@
             hljs.highlightBlock(block);
         });
     </script>
+
+  <script>
+    var result = '';
+    window.onload = () => {
+      const txt_to_form = document.getElementById('for_stt');
+      txt_to_form.value = '';
+      const button = document.getElementById('button_speech');
+
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      const SpeechGrammarList = window.SpeechGrammarList || window.webkitSpeechGrammarList;
+      const SpeechRecognitionEvent = window.SpeechRecognitionEvent || window.webkitSpeechRecognitionEvent;
+
+      var recognition = new SpeechRecognition();
+      recognition.continuous = true;
+      recognition.interimResults = false;
+
+
+      button.addEventListener('click', () => {
+        if (button.style['animation-name'] === 'flash') {
+          button.innerHTML = '<img src="{% static 'img/mic_start.png' %}" style="height:50px; width:50px; border-radius:50px;">';
+          button.style['animation-name'] = 'none';
+          recognition.abort();
+
+        } else {
+          button.style['animation-name'] = 'flash';
+          button.innerHTML = '<img src="{% static 'svg/mic_stop.svg' %}" style="height:50px; width:50px; border-radius:50px;">';
+
+          recognition.start();
+        }
+      });
+
+      recognition.onresult = function (event) {
+        let result_sum= txt_to_form.value;
+        let result = ''
+        for (let i = event.resultIndex; i < event.results.length; i++) {
+          result += event.results[i][0].transcript;
+        }
+        txt_to_form.focus();
+        txt_to_form.value = result_sum+result;
+
+      };
+    };
+
+  </script>
+
 {% endblock %}
 

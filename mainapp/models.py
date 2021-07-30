@@ -232,10 +232,10 @@ class ArticleToSoundThread():
         sound_path_article = str(article.id)+'.mp3'
         article.sound = sound_path_article
         article.save()
-        th = Thread(target=ArticleToSoundThread.get_voice_from_text, args=(self,))
-        th.start()
-        th.join()
-        # ArticleToSoundThread.get_voice_from_text(article)
+        # th = Thread(target=ArticleToSoundThread.get_voice_from_text, args=(article,))
+        # th.start()
+        # th.join()
+        ArticleToSoundThread.get_voice_from_text(article)
 
         return sound_path_article
 
@@ -246,8 +246,10 @@ class ArticleToSoundThread():
             article = article
             text = ArticleToSoundThread.get_article_text(article)
             sound_path_article_to_file = 'media' + str(article.sound.url)
+
+
             tts = TTS(threads=1)
-            tts.to_file(filename=sound_path_article_to_file, text=text, voice='anna', format_='mp3')
+            tts.to_file(filename=sound_path_article_to_file, text=text, voice='Aleksandr', format_='mp3')
             return
         except KeyError:
             return "Error record voice"
