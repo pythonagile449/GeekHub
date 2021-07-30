@@ -2657,3 +2657,12 @@ ul.user-article-data li { /* Menu list items */
     display: flex;
     border-radius: 5px;
 }
+
+
+sound_article{
+    border: solid 1px darkblue;
+    align-items: center;
+    width: 300px;
+    height:200px;
+
+}

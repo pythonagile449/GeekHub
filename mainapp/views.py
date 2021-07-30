@@ -13,6 +13,7 @@ from notifyapp.models import Notification
 from usersapp.models import GeekHubUser
 from usersapp.views import get_user_ip
 
+from threading import Thread
 
 class Index(ListView):
     """
@@ -139,7 +140,21 @@ class ArticleDetail(DetailView):
                                                                        self.comments_preview_count)
         context['comments_count_settings'] = self.comments_preview_count
         context['all_comments_count'] = CommentsBranch.get_comments_count_by_article(self.get_object().pk)
+
+        sound_path_article = str(self.object.id)+'.mp3'   # Потом переписать
+
+        self.object.sound = sound_path_article
+        self.object.save()
+        self.text_to_sound_thread()
+        context['sound_path'] = str(sound_path_article)
         return context
+
+    def text_to_sound_thread(self):
+        th = Thread(target=Article.get_voice_from_text, args=(self.object,))
+        th.start()
+        th.join()
+
+
 
     def get(self, request, *args, **kwargs):
         response = super(ArticleDetail, self).get(request, *args, **kwargs)
@@ -407,7 +422,7 @@ class TopMenuView(View):
             sort_by = request.GET.get('sorted_by')
             return render(request, 'mainapp/top-menu.html',
                           {'top_articles': Article.get_top_articles(hub_name=hub_name,
-                                                                          sort_by=sort_by if sort_by else 'rating')})
+                                                                    sort_by=sort_by if sort_by else 'rating')})
         else:
             return HttpResponse(status=404)
 
