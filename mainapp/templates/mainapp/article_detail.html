@@ -55,6 +55,19 @@
                 <h6-3>{{ article.hub.name }}</h6-3>
             </div>
 
+            <div class="sound_article">
+                <audio class="sound_text"
+                    controls
+                    src="/media{{  article.sound.url }} " alt="Озвученный голосом текст">
+
+                    <code>audio</code> element.
+                </audio>
+
+
+            </div>
+
+
+
             <div class="section-left-text">
                 {% if article.editor == 'CK' %}
                     <div class="ck-preview">

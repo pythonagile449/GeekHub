@@ -1,5 +1,7 @@
 from uuid import uuid4
 
+from rhvoice_wrapper import TTS
+
 from bs4 import BeautifulSoup
 from ckeditor.fields import RichTextField
 from django.contrib.contenttypes.fields import GenericRelation
@@ -51,6 +53,8 @@ class Article(models.Model):
     author = models.ForeignKey(GeekHubUser, on_delete=models.CASCADE)
     rating = GenericRelation(RatingCount, related_query_name='articles')
     comments = ContentType(app_label='commentsapp', model='commentsbranch')
+
+    sound = models.ImageField(upload_to='media', verbose_name='Фотография профиля', blank=True)
 
     class Meta:
         verbose_name = 'Статья'
@@ -148,6 +152,54 @@ class Article(models.Model):
         except KeyError:
             return html
 
+    @staticmethod
+    def get_text_from_ck_content(html):
+        """  Remove all style attrs from tags in ckeditor field"""
+        soup = BeautifulSoup(html, features='lxml')
+        try:
+            text = soup.text
+            return text
+        except KeyError:
+            return html
+
+    @staticmethod
+    def generator_audio(text, voice='anna', format_='wav', buff=4096, sets=None):
+        """https://freesoft.dev/program/148898794"""
+        tts = TTS(threads=1)
+        with tts.say(text, voice, format_, buff, sets) as gen:
+            for chunk in gen:
+                yield chunk
+
+    @staticmethod
+    def _text():
+        tts = TTS(threads=1)
+        with open('wery_large_book.txt') as fp:
+            text = fp.read(5000)
+            while text:
+                yield text
+                text = fp.read(5000)
+
+    @staticmethod
+    def generator_audio_iterable():
+        tts = TTS(threads=1)
+        _text = {}
+        with tts.say(_text()) as gen:
+            for chunk in gen:
+                yield chunk
+
+    @staticmethod
+    def get_voice_from_text(object_article):
+        try:
+            text = Article.get_article_text(object_article)
+            sound_path_article = 'media' + str(object_article.sound.url)
+            tts = TTS(threads=1)
+            tts.to_file(filename=sound_path_article, text=text, voice='Aleksandr', format_='mp3')
+
+
+            return
+        except KeyError:
+            return "Error record voice"
+
     def get_article_preview_from_ck(self):
         """ Uses BeatifulSoup to parse html. """
         soup = BeautifulSoup(self.contents_ck, features='lxml')
@@ -183,6 +235,16 @@ class Article(models.Model):
             return self.get_article_preview_from_ck()
         if self.editor == 'MD':
             return self.get_article_preview_from_md()
+
+    @staticmethod
+    def get_article_text(obj):
+        """
+            Returns the text of the article to be displayed in the article list.
+            """
+        if obj.editor == 'CK':
+            return Article.get_text_from_ck_content(obj.contents_ck)
+        if obj.editor == 'MD':
+            return Article.get_text_from_ck_content(obj.contents_md)
 
     def get_absolute_url(self):
         return reverse('mainapp:article_detail', kwargs={'pk': self.pk})

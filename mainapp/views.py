@@ -1,23 +1,19 @@
 from django.contrib.contenttypes.models import ContentType
 from django.db.models.functions import datetime
 from django.http import HttpResponseRedirect, JsonResponse, HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy
 from django.views import View
 from django.views.generic import CreateView, DetailView, ListView, DeleteView, UpdateView
 
 from commentsapp.models import CommentsBranch
-from intergalactic import settings
 from mainapp.forms import ArticleCkForm, ArticleMdForm
 from mainapp.models import Hub, Article, ArticleViews
 from notifyapp.models import Notification
-from ratingsapp.models import RatingCount
 from usersapp.models import GeekHubUser
 from usersapp.views import get_user_ip
-import telebot
 
-bot = telebot.TeleBot(settings.token)
-
+from threading import Thread
 
 class Index(ListView):
     """
@@ -27,7 +23,6 @@ class Index(ListView):
     EN
     Main paige(all the articles by publication date)
     """
-    model = Article
     template_name = 'mainapp/index.html'
     queryset = Article.objects.filter(is_published=True)
     ordering = ['-publication_date']
@@ -40,7 +35,7 @@ class Index(ListView):
         return context
 
 
-class ArticlesByHub(Index):
+class ArticlesByHub(ListView):
     """
     RU
     Статьи по категориям.
@@ -50,6 +45,10 @@ class ArticlesByHub(Index):
     Articles by categories(hubs)
     hub_id is passed in kwargs from the get_absolute_url model method
     """
+    model = Article
+    template_name = 'mainapp/index.html'
+    context_object_name = 'articles'
+    paginate_by = 5
 
     def get_queryset(self):
         queryset = Article.objects.filter(hub=self.kwargs['hub_id'], is_published=True, is_deleted=False) \
@@ -141,10 +140,21 @@ class ArticleDetail(DetailView):
                                                                        self.comments_preview_count)
         context['comments_count_settings'] = self.comments_preview_count
         context['all_comments_count'] = CommentsBranch.get_comments_count_by_article(self.get_object().pk)
-        context['user_rating_for_article_chose'] = RatingCount.get_user_rate_chose(
-            user=self.request.user, obj_id=self.object.id,
-            obj_content_type=ContentType.objects.get_for_model(self.object))
+
+        sound_path_article = str(self.object.id)+'.mp3'   # Потом переписать
+
+        self.object.sound = sound_path_article
+        self.object.save()
+        self.text_to_sound_thread()
+        context['sound_path'] = str(sound_path_article)
         return context
+
+    def text_to_sound_thread(self):
+        th = Thread(target=Article.get_voice_from_text, args=(self.object,))
+        th.start()
+        th.join()
+
+
 
     def get(self, request, *args, **kwargs):
         response = super(ArticleDetail, self).get(request, *args, **kwargs)
@@ -153,7 +163,7 @@ class ArticleDetail(DetailView):
             if request.user.is_authenticated:
                 ArticleViews.get_or_add_auth_user_view(self.object.pk, request.user.pk, user_ip)
             else:
-                ArticleViews.get_or_add_anonymous_view(self.object.pk, user_ip)
+                ArticleViews.get_or_add_anonimus_view(self.object.pk, user_ip)
         return response
 
 
@@ -189,21 +199,6 @@ class ArticleUpdate(UpdateView):
                     object_id=article.pk,
                     content_object=article,
                 )
-                try:
-                    bot.send_message(article.author.telegram,
-                                     f'<b>Статья</b> <a href="https://reqsoft.ru/article/{article.pk}/">{article.title}'
-                                     f'</a> опубликована', parse_mode='HTML')
-                except Exception as e:
-                    print(e)
-                try:
-                    for telegram_user in GeekHubUser.objects.all():
-                        if telegram_user.telegram != article.author.telegram:
-                            bot.send_message(telegram_user.telegram,
-                                             f'<b>Опубликована новая статья:</b>\n'
-                                             f'<a href="https://reqsoft.ru/article/{article.pk}/">{article.title}'
-                                             f'</a>', parse_mode='HTML')
-                except Exception as e:
-                    print(e)
                 return HttpResponseRedirect(self.success_url)
         return super(ArticleUpdate, self).get(request, args, kwargs)
 
@@ -277,6 +272,7 @@ class UserArticles(ListView):
     EN
     User's articles. By deafault shows "my articles"
     """
+    # template_name = 'mainapp/user_articles_list.html'
     template_name = 'mainapp/user_articles_list_table.html'
     context_object_name = 'articles'
 
@@ -372,14 +368,15 @@ class ArticleReturnToDrafts(DeleteView):
                 object_id=self.object.pk,
                 content_object=self.object,
             )
-            try:
-                link = f'<a href="https://reqsoft.ru/article/{self.object.pk}/">{self.object.title}</a>'
-                bot.send_message(self.object.author.telegram,
-                                 f"<b>Статья снята с {'публикации' if is_published else 'модерации'}</b> "
-                                 f"{link}", parse_mode='HTML')
-            except Exception as e:
-                print(e)
         return HttpResponseRedirect(self.get_success_url())
+
+
+# class ShowTop(ListView):
+#     template_name = 'mainapp/user_articles_list.html'
+#
+# def get_queryset(self, **kwargs):
+#     queryset = Article.objects.filter(is_published=True).order_by('-publication_date')[:7]
+#     return queryset
 
 
 class ModerationList(ListView):
@@ -390,6 +387,7 @@ class ModerationList(ListView):
     EN
     Moderators profile page (moderation users articles).
     """
+    # template_name = 'mainapp/user_articles_list.html'
     template_name = 'mainapp/user_articles_list_table.html'
     queryset = Article.objects.filter(is_moderation_in_progress=True, is_deleted=False).order_by('publication_date')
     context_object_name = 'articles'
@@ -403,20 +401,25 @@ class ModerationList(ListView):
         return context
 
 
+def top_menu(request, hub_name):
+    """
+        RU
+        Контроллер меню топа статей.
+
+        EN
+        Top articles' menu controller
+    """
+    if request.method == 'GET' and request.is_ajax():
+        return render(request, 'mainapp/top-menu.html', {'top_articles': Article.get_top_articles(hub_name)})
+    else:
+        return HttpResponse(status=404)
+
+
 class TopMenuView(View):
-    """
-    RU
-    Контроллер меню топа статей.
-
-    EN
-    Top articles' menu controller
-    """
-
     def get(self, request, *args, **kwargs):
         if request.is_ajax():
             hub_name = self.kwargs.get('hub_name')
             sort_by = request.GET.get('sorted_by')
-
             return render(request, 'mainapp/top-menu.html',
                           {'top_articles': Article.get_top_articles(hub_name=hub_name,
                                                                     sort_by=sort_by if sort_by else 'rating')})
@@ -424,5 +427,16 @@ class TopMenuView(View):
             return HttpResponse(status=404)
 
 
-def show_site_rules(request):
-    return render(request, 'mainapp/site_rules.html')
+def user_detail(request, pk=None):
+    if pk is not None:
+        title = 'Данные автора'
+        data_author = get_object_or_404(GeekHubUser, id=pk)
+        author_articles = Article.objects.filter(author=data_author, is_published=True, is_deleted=False) \
+            .order_by('-publication_date')
+    context = {
+        'title': title,
+        'author': data_author,
+        'author_articles': author_articles
+    }
+    print(context)
+    return render(request, 'mainapp/user_detail.html', context)

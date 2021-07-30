@@ -1,0 +1,3 @@
+Disable mp3 support - lame not found. Use apt install lame
+Disable opus support - opusenc not found. Use apt install opus-tools
+Disable flac support - flac not found. Use apt install flac

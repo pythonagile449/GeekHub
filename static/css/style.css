@@ -1761,3 +1761,10 @@ ul.author-data li img {
     border-radius: 40px;
 }
 
+sound_article{
+    border: solid 1px darkblue;
+    align-items: center;
+    width: 300px;
+    height:200px;
+
+}
