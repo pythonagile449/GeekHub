@@ -102,6 +102,7 @@ class CreateArticle(CreateView):
             form.instance.is_moderation_in_progress = True
             form.instance.is_draft = False
 
+
             article = form.instance
             form.instance.sound = ArticleToSoundThread.get_sound_data(article)
 
@@ -148,8 +149,9 @@ class ArticleDetail(DetailView):
         context['comments_count_settings'] = self.comments_preview_count
         context['all_comments_count'] = CommentsBranch.get_comments_count_by_article(article.pk)
 
-        # if (not article.sound) or sys.getsizeof('/media/media/' + str(article.sound)) == 0:
-        context['sound_path'] = 'media/media/Record_none.mp3_3'
+
+
+        context['sound_path'] = 'media/media/Record_none.mp3'
         context['sound_path'] = ArticleToSoundThread.get_sound_data(article)
 
         return context
