@@ -28,9 +28,7 @@ class Search {
         this.input.addEventListener('keyup', evt => {
             if (evt.key === 'Enter') {
                 console.log('entrr')
-                // this.searchForm.action = `/search/?q=${this.input.value}&target_type=${this.targetType}/`;
                 location.href = `/search/?q=${this.input.value}&target_type=${this.targetType}`;
-        // this.searchForm.submit()
         evt.preventDefault()
         }
         })

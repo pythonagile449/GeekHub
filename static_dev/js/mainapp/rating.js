@@ -1,5 +1,6 @@
 "use strict"
 
+
 //Получение переменной cookie по имени
 function getCookie(name) {
     var cookieValue = null;
@@ -17,6 +18,21 @@ function getCookie(name) {
     return cookieValue;
 }
 
+function setRatingStyle(user_chose) {
+    if (user_chose === 1) {
+        $('.like-article').addClass('like-chosen');
+        $('.dislike-article').removeClass('dislike-chosen');
+    }
+    if (user_chose === -1) {
+        $('.like-article').removeClass('like-chosen');
+        $('.dislike-article').addClass('dislike-chosen');
+    }
+    if (user_chose === 0) {
+        $('.like-article').removeClass('like-chosen');
+        $('.dislike-article').removeClass('dislike-chosen');
+    }
+}
+
 function like() {
     var like = $(this);
     var type = like.data('type');
@@ -28,14 +44,13 @@ function like() {
         type: 'POST',
         data: {'obj': pk},
         success: function (json) {
-
             $('.positive').html(json.positive)
             $('.negative').html(json.negative)
             $('.modal-content').html(json.access_denied)
             if (json.access_denied) {
                 $("#modal-articles").modal("show")
             }
-
+            setRatingStyle(json.user_chose);
         }
     });
     return false;
@@ -54,13 +69,13 @@ function dislike() {
         data: {'obj': pk},
 
         success: function (json) {
-
             $('.positive').html(json.positive)
             $('.negative').html(json.negative)
             $('.modal-content').html(json.access_denied)
             if (json.access_denied) {
                 $("#modal-articles").modal("show")
             }
+            setRatingStyle(json.user_chose);
         }
     });
 

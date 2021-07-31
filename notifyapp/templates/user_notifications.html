@@ -42,7 +42,11 @@
                         </td>
                         <td>
                             {% if notification.content_type.model == 'complaint' %}
-                                {# TODO ссылка на страницу жалобы#}
+                                {% if notification.content_object.content_type.model == 'article' %}
+                                    <a href="{% url 'complaints:complaint_detail' notification.content_object.content_object.pk notification.recipient.pk %}">
+                                        {{ notification.content_object.message|truncatechars:35 }}
+                                    </a>
+                                {% endif %}
                             {% elif notification.content_type.model == 'article' %}
                                 <a href="{% url 'mainapp:article_detail' notification.content_object.pk %}">
                                     {{ notification.content_object.title|truncatechars:25 }}
@@ -50,7 +54,7 @@
                             {% endif %}
                         </td>
                         <td>
-                            {{ notification.sender }}
+                            <a href="{% url 'usersapp:user_detail' notification.sender.pk %}">{{ notification.sender }}</a>
                         </td>
                         <td>
                             <label class="form-check-label"

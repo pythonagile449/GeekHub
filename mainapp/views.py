@@ -1,18 +1,18 @@
-from operator import itemgetter
-
 from django.contrib.contenttypes.models import ContentType
 from django.db.models.functions import datetime
 from django.http import HttpResponseRedirect, JsonResponse, HttpResponse
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy
+from django.views import View
 from django.views.generic import CreateView, DetailView, ListView, DeleteView, UpdateView
 
 from commentsapp.models import CommentsBranch
 from mainapp.forms import ArticleCkForm, ArticleMdForm
-from mainapp.models import Hub, Article
+from mainapp.models import Hub, Article, ArticleViews
 from notifyapp.models import Notification
-from usersapp.context_processors.user_context_processors import usersapp_context
+from ratingsapp.models import RatingCount
 from usersapp.models import GeekHubUser
+from usersapp.views import get_user_ip
 
 
 class Index(ListView):
@@ -23,6 +23,7 @@ class Index(ListView):
     EN
     Main paige(all the articles by publication date)
     """
+    model = Article
     template_name = 'mainapp/index.html'
     queryset = Article.objects.filter(is_published=True)
     ordering = ['-publication_date']
@@ -35,7 +36,7 @@ class Index(ListView):
         return context
 
 
-class ArticlesByHub(ListView):
+class ArticlesByHub(Index):
     """
     RU
     Статьи по категориям.
@@ -45,10 +46,6 @@ class ArticlesByHub(ListView):
     Articles by categories(hubs)
     hub_id is passed in kwargs from the get_absolute_url model method
     """
-    model = Article
-    template_name = 'mainapp/index.html'
-    context_object_name = 'articles'
-    paginate_by = 5
 
     def get_queryset(self):
         queryset = Article.objects.filter(hub=self.kwargs['hub_id'], is_published=True, is_deleted=False) \
@@ -140,13 +137,19 @@ class ArticleDetail(DetailView):
                                                                        self.comments_preview_count)
         context['comments_count_settings'] = self.comments_preview_count
         context['all_comments_count'] = CommentsBranch.get_comments_count_by_article(self.get_object().pk)
+        context['user_rating_for_article_chose'] = RatingCount.get_user_rate_chose(
+            user=self.request.user, obj_id=self.object.id,
+            obj_content_type=ContentType.objects.get_for_model(self.object))
         return context
 
     def get(self, request, *args, **kwargs):
         response = super(ArticleDetail, self).get(request, *args, **kwargs)
         if self.object.is_published:
-            self.object.views += 1
-            self.object.save()
+            user_ip = get_user_ip(request)
+            if request.user.is_authenticated:
+                ArticleViews.get_or_add_auth_user_view(self.object.pk, request.user.pk, user_ip)
+            else:
+                ArticleViews.get_or_add_anonymous_view(self.object.pk, user_ip)
         return response
 
 
@@ -160,8 +163,7 @@ class ArticleUpdate(UpdateView):
 
         if request.path.startswith('/send_article_on_moderation/'):
             # handle send on moderation action under user drafts list
-            article.is_draft = False
-            article.is_moderation_in_progress = True
+            article.set_on_moderation_status()
             article.publication_date = datetime.datetime.now()
             self.success_url = reverse_lazy('mainapp:drafts')
             article.save()
@@ -169,9 +171,7 @@ class ArticleUpdate(UpdateView):
         if request.path.startswith('/publish/'):
             # handle publish action under staff user
             if request.user.is_staff:
-                article.is_draft = False
-                article.is_moderation_in_progress = False
-                article.is_published = True
+                article.set_publish_status()
                 article.publication_date = datetime.datetime.now()
                 article.save()
                 self.success_url = reverse_lazy('mainapp:moderation_list')
@@ -214,17 +214,14 @@ class ArticleUpdate(UpdateView):
             if self.request.path.startswith('/publish/'):
                 # todo handle publication action (for high rating users)
                 if self.request.user.is_staff:
-                    self.object.is_moderation_in_progress = False
-                    self.object.is_published = True
+                    self.object.set_publish_status()
                     self.success_url = reverse_lazy('mainapp:article_detail', self.object.pk)
             elif self.request.path.startswith('/moderation/'):
                 # handle moderation action
                 self.set_object_contents(form)
-                self.object.is_published = False
-                self.object.is_moderation_in_progress = True
+                self.object.set_on_moderation_status()
                 self.success_url = reverse_lazy('mainapp:user_moderation_articles')
             self.object.publication_date = datetime.datetime.now()
-            self.object.is_draft = False
             self.object.save()
             return super(ArticleUpdate, self).form_valid(form)
         else:
@@ -261,7 +258,6 @@ class UserArticles(ListView):
     EN
     User's articles. By deafault shows "my articles"
     """
-    # template_name = 'mainapp/user_articles_list.html'
     template_name = 'mainapp/user_articles_list_table.html'
     context_object_name = 'articles'
 
@@ -324,21 +320,19 @@ class UserModeratingArticles(UserArticles):
 
 
 class ArticleDelete(DeleteView):
+    """ Delete article view. """
     model = Article
     template_name = 'mainapp/article_confirm_delete.html'
     success_url = reverse_lazy('mainapp:drafts')
 
     def delete(self, request, *args, **kwargs):
         self.object = self.get_object()
-        self.object.is_published = False
-        self.object.is_moderation_in_progress = False
-        self.object.is_draft = False
-        self.object.is_deleted = True
-        self.object.save()
+        self.object.set_deleted_status()
         return HttpResponseRedirect(self.success_url)
 
 
 class ArticleReturnToDrafts(DeleteView):
+    """ Return article to draft by user or moderator. """
     model = Article
     template_name = 'mainapp/article_confirm_to_drafts.html'
     success_url = reverse_lazy('mainapp:drafts')
@@ -346,10 +340,10 @@ class ArticleReturnToDrafts(DeleteView):
     def delete(self, request, *args, **kwargs):
         self.object = self.get_object()
         is_published = self.object.is_published
-        self.object.is_published = False
-        self.object.is_moderation_in_progress = False
-        self.object.is_draft = True
-        self.object.save()
+        self.object.set_draft_status()
+        if request.user.is_staff:
+            self.object.reason_for_reject = request.POST.get('reason_article_reject')
+            self.object.save()
         if request.user != self.object.author:
             Notification.objects.create(
                 sender=request.user,
@@ -362,14 +356,6 @@ class ArticleReturnToDrafts(DeleteView):
         return HttpResponseRedirect(self.get_success_url())
 
 
-class ShowTop(ListView):
-    # template_name = 'mainapp/user_articles_list.html'
-
-    def get_queryset(self, **kwargs):
-        queryset = Article.objects.filter(is_published=True).order_by('-publication_date')[:7]
-        return queryset
-
-
 class ModerationList(ListView):
     """
     RU
@@ -378,7 +364,6 @@ class ModerationList(ListView):
     EN
     Moderators profile page (moderation users articles).
     """
-    # template_name = 'mainapp/user_articles_list.html'
     template_name = 'mainapp/user_articles_list_table.html'
     queryset = Article.objects.filter(is_moderation_in_progress=True, is_deleted=False).order_by('publication_date')
     context_object_name = 'articles'
@@ -392,67 +377,21 @@ class ModerationList(ListView):
         return context
 
 
-def top_menu(request, hub_name):
+class TopMenuView(View):
     """
-        RU
-        Контроллер меню толпа статей.
+    RU
+    Контроллер меню топа статей.
 
-        EN
-        Top articles' menu controller
+    EN
+    Top articles' menu controller
     """
-    if hub_name == 'Все хабы':
-        articles_to_show = Article.objects.filter(
-            is_published=True,
-            is_draft=False,
-            is_moderation_in_progress=False,
-            is_deleted=False
-        )
-    else:
-        hub = Hub.objects.get(name=hub_name)
-        articles_to_show = Article.objects.filter(
-            hub=hub,
-            is_published=True,
-            is_draft=False,
-            is_moderation_in_progress=False,
-            is_deleted=False
-        )
 
-    article_data = []
-
-    for article in articles_to_show:
-        article_data.append({
-            'id': article.id,
-            'title': article.title,
-            'views': article.views,
-            'comments': CommentsBranch.get_comments_count_by_article(article.id),
-            'rating': article.rating.total()
-        })
-
-    top_articles = sorted(article_data, key=itemgetter('rating'), reverse=True)
-
-    context = top_articles[:7]
-
-    if request.method == 'GET' and request.is_ajax():
-        return render(request, 'mainapp/top-menu.html', {'top_articles': context})
-    else:
-        return HttpResponse(status=404)
-
-
-
-
-
-def user_detail(request, pk=None):
-
-    if pk is not None:
-        title = 'Данные автора'
-        data_author = get_object_or_404(GeekHubUser, id=pk)
-        author_articles = Article.objects.filter(author=data_author, is_published=True, is_deleted=False) \
-            .order_by('-publication_date')
-    context = {
-        'title': title,
-        'author': data_author,
-        'author_articles': author_articles
-    }
-    print(context)
-    return render(request, 'mainapp/user_detail.html', context)
-
+    def get(self, request, *args, **kwargs):
+        if request.is_ajax():
+            hub_name = self.kwargs.get('hub_name')
+            sort_by = request.GET.get('sorted_by')
+            return render(request, 'mainapp/top-menu.html',
+                          {'top_articles': Article.get_top_articles(hub_name=hub_name,
+                                                                    sort_by=sort_by if sort_by else 'rating')})
+        else:
+            return HttpResponse(status=404)

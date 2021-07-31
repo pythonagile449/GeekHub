@@ -1,7 +1,23 @@
+{% load static %}
+
 <div class="users-search-list">
-    <ul>
+    <div class="indent-20"></div>
         {% for user in targets %}
-            <li>{{ user.username }}</li>
-        {% endfor %}
-    </ul>
+        <ul class="user-search-data">
+            <div class="user-foto-for-search">
+                <li>
+                {% if user.profile_photo|length == 0 %}
+                    <a href="{% url 'usersapp:user_detail' user.pk %}"><img src="{% static 'svg/block_foto.svg' %}" alt={{user.id}}></a>
+                {% else %}
+                    <a href="{% url 'usersapp:user_detail' user.pk %}"><img src=/media/{{ user.profile_photo}} alt={{user.id}}></a>
+                {% endif %}
+                </li>
+            </div>
+            <div class="user-nic-for-search">
+                <li>
+                    <a href="{% url 'usersapp:user_detail' user.pk %}" class="user-name">{{ user.username }}</a>
+                </li>
+            </div>
+        </ul>
+    {% endfor %}
 </div>

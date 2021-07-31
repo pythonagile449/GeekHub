@@ -14,12 +14,9 @@
 {% endblock %}
 
 {% block content %}
-
     <div class="content-container">
         <div class="section-left">
 
-
-            {# ToDo: Вот этот блок надо стилизовать  REQ-162 REQ-163         #}
             <div class="modal fade" id="modal-articles">
                 <div class="modal-dialog">
                     <div class="modal-content"></div>
@@ -31,13 +28,16 @@
                 <ul class="author-data">
                     <li>
                         {% if article.author.profile_photo|length == 0 %}
-                            <a href="{% url 'mainapp:user_detail' article.author.pk %}"><img src="{% static 'svg/block_foto.svg' %}" alt={{article.author.id}}></a>
+                            <a href="{% url 'usersapp:user_detail' article.author.pk %}"><img
+                                    src="{% static 'svg/block_foto.svg' %}" alt={{ article.author.id }}></a>
                         {% else %}
-                            <a href="{% url 'mainapp:user_detail' article.author.pk %}"><img src=/media/{{ article.author.profile_photo}} alt={{article.author.id}}></a>
+                            <a href="{% url 'usersapp:user_detail' article.author.pk %}"><img
+                                    src=/media/{{ article.author.profile_photo }} alt={{ article.author.id }}></a>
                         {% endif %}
                     </li>
                     <li>
-                        <a href="{% url 'mainapp:user_detail' article.author.pk %}" class="author-name">{{ article.author.username }}</a>
+                        <a href="{% url 'usersapp:user_detail' article.author.pk %}"
+                           class="author-name">{{ article.author.username }}</a>
                     </li>
                     <li>
                         <h6-2>{{ article.publication_date }}</h6-2>
@@ -75,8 +75,10 @@
 
                                         <ul class="lvc-group">
                                             <li data-id="{{ article.id }}" data-type="article" data-action="like"
-                                                title="Нравится" class="like-article">
-                                                <img src="{% static 'svg/up4+.svg' %}" alt="like">
+                                                title="Нравится"
+                                                class="like-article{% if user_rating_for_article_chose == 1 %} like-chosen{% endif %}">
+                                                {# убрал картинку, сделал подстановку через css#}
+                                                {# <img src="{% static 'svg/up4+.svg' %}" alt="like">#}
                                             </li>
                                             <h5-2-lvc-plus data-count="positive" class="positive">
                                                 {% if article.rating.like.count %}
@@ -86,8 +88,10 @@
                                                 {% endif %}
                                             </h5-2-lvc-plus>
                                             <li data-id="{{ article.id }}" data-type="article" data-action="dislike"
-                                                title="Не нравится" class="dislike-article">
-                                                <img src="{% static 'svg/down4+.svg' %}" alt="like">
+                                                title="Не нравится"
+                                                class="dislike-article{% if user_rating_for_article_chose == -1 %} dislike-chosen{% endif %}">
+                                                {# убрал картинку, сделал подстановку через css#}
+                                                {# <img src="{% static 'svg/down4+.svg' %}" alt="like">#}
                                             </li>
                                             <h5-2-lvc-minus data-count="negative" class="negative">
                                                 {% if article.rating.dislikes.count %}
@@ -105,7 +109,7 @@
                                             <li><img src="{% static 'svg/carbon_view-filled_active.svg' %}"
                                                      alt="view"></li>
                                             <li>
-                                                <h5-2-lvc>{{ article.views }}</h5-2-lvc>
+                                                <h5-2-lvc>{{ article.get_views_count }}</h5-2-lvc>
                                             </li>
                                         </ul>
                                     </div>
@@ -127,19 +131,23 @@
                                     </ul>
                                 </div>
                             </li>
-                            <li>
-                                <div class="lvc-group">
-                                    <ul class="lvc-group">
-                                        <li title="Подать жалобу">
+
+                            {% if user != article.author and not user.is_staff %}
+                                <li>
+                                    <div class="lvc-group">
+                                        <ul class="lvc-group">
+                                            <li title="Подать жалобу">
                                             <span class="show-complaint-button">
                                                 <svg class="icon-bad">
                                                     <use xlink:href="#bad"></use>
                                                 </svg>
                                             </span>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            {% endif %}
+
                         </ul>
 
                         <div class="complaint-container hidden">
@@ -185,17 +193,18 @@
                                                 <ul class="author-data">
                                                     <li>
                                                         {% if comment.author.profile_photo|length == 0 %}
-                                                            <a href="{% url 'mainapp:user_detail' comment.author.pk %}"><img src="{% static 'svg/block_foto.svg' %}" alt={{article.author.id}}></a>
+                                                            <a href="{% url 'usersapp:user_detail' comment.author.pk %}"><img
+                                                                    src="{% static 'svg/block_foto.svg' %}"
+                                                                    alt={{ article.author.id }}></a>
                                                         {% else %}
-                                                            <a href="{% url 'mainapp:user_detail' comment.author.pk %}"><img src=/media/{{ comment.author.profile_photo}} alt={{article.author.id}}></a>
+                                                            <a href="{% url 'usersapp:user_detail' comment.author.pk %}"><img
+                                                                    src=/media/{{ comment.author.profile_photo }} alt={{ article.author.id }}></a>
                                                         {% endif %}
                                                     </li>
                                                     <li>
-                                                        <a href="{% url 'mainapp:user_detail' comment.author.pk %}" class="author-name">{{ comment.author.username }}</a>
+                                                        <a href="{% url 'usersapp:user_detail' comment.author.pk %}"
+                                                           class="author-name">{{ comment.author.username }}</a>
                                                     </li>
-<!--                                                    <li>-->
-<!--                                                        <h6-1>{{ comment.author.username }}</h6-1>-->
-<!--                                                    </li>-->
                                                     <li>
                                                         <h6-2>{{ comment.created_at }}</h6-2>
                                                     </li>
@@ -402,9 +411,39 @@
             </div>
         </div>
         <div class="section-right">
-            {% block right_content %}{% endblock %}
+            {% block right_content %}
+                {# TODO отображение причины снятия с публикации #}
+                {% if article.reason_for_reject and not article.is_published %}
+                    <div class="indent-40"></div> <!-- Жалобы-->
+                    <div class="section-right-author-complaint-block">
+                        <div class="danger-complaint-menu-field">
+                            <div class="content-complaint-title">
+                                <h5-3>Внимание! Статья снята с публикации!</h5-3>
+                            </div>
+                        </div>
+                        <div class="indent-10"></div>
+                        <div class="author-content-complaint">
+                            <ul class="user-complaints-list">
+                                <li class="user-complaint-item">
+                                    <div class="field-complaint">
+                                        <div class="field-30-с">
+                                            <h5-1>Причина снятия с публикации:</h5-1>
+                                        </div>
+                                        <div>
+                                            <div class="complaint-bg">
+                                                {{ article.reason_for_reject }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endblock %}
         </div>
     </div>
+
     <!-- Hidden SVG sprite -->
     <svg width="0" height="0" class="hidden">
         <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 26" id="up3">
@@ -441,3 +480,4 @@
         });
     </script>
 {% endblock %}
+

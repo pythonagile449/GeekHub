@@ -36,9 +36,10 @@ class RatingsView(View):
                 result = True
             else:
                 rating.delete()
+                rating = 0
                 result = False
         except RatingCount.DoesNotExist:
-            obj.rating.create(users=request.user, rate=self.vote_type)
+            rating = obj.rating.create(users=request.user, rate=self.vote_type)
             result = True
 
         return HttpResponse(
@@ -46,7 +47,8 @@ class RatingsView(View):
                 "result": result,
                 "positive": obj.rating.positive().count(),
                 "negative": obj.rating.negative().count(),
-                "total": obj.rating.total()
+                "total": obj.rating.total(),
+                'user_chose': rating.rate if rating != 0 else 0,
             }),
             content_type="application/json"
         )

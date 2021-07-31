@@ -1,14 +1,16 @@
 from django.contrib import auth
+from django.contrib.auth.views import LoginView, LogoutView
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.template.context_processors import csrf
 from django.urls import reverse_lazy
 from django.utils import timezone
+from django.views.generic import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.contrib.auth.views import LoginView, LogoutView
 
-from usersapp.models import GeekHubUser, BlockingByIp
+from mainapp.models import Article
 from usersapp.forms import RegistrationForm, LoginForm, UserProfileEditForm
+from usersapp.models import GeekHubUser, BlockingByIp
 
 
 def get_user_ip(request):
@@ -199,6 +201,25 @@ class UserAccountEdit(UpdateView):
             return render(request, template_name='mainapp/400.html')
         except Exception as e:
             return render(request, template_name='mainapp/400.html')
+
+
+class UserAccountView(DetailView):
+    """
+        RU
+        Просмотр профиля пользователя
+
+        EN
+        User profile detail view
+        """
+    model = GeekHubUser
+    context_object_name = 'author'
+
+    def get_context_data(self, **kwargs):
+        context = super(UserAccountView, self).get_context_data()
+        user_articles = Article.get_published_articles_by_author(self.object.pk)
+        context['title'] = f'Профиль {self.object.username}'
+        context['author_articles'] = Article.sort_articles_by(user_articles, 'date')
+        return context
 
 
 class UserAccountDeleteView(DeleteView):
