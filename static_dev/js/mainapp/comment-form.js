@@ -84,20 +84,16 @@ class Comment {
     setHandlers() {
         const commentsRating = new CommentsRating();
 
-        if (this.showCommentsButton) {
-            this.showCommentsButton.addEventListener('click', evt => {
-                this.renderCommentsList();
-            })
-        }
+        this.showCommentsButton?.addEventListener('click', evt => {
+            this.renderCommentsList();
+        })
 
-        if (this.commentSubmitButton) {
-            this.commentSubmitButton.addEventListener('click', evt => {
-                this.postComment(evt);
-                this.commentForm.reset();
-            })
-        }
+        this.commentSubmitButton?.addEventListener('click', evt => {
+            this.postComment(evt);
+            this.commentForm.reset();
+        })
 
-        this.closeAnswerButton.addEventListener('click', evt => {
+        this.closeAnswerButton?.addEventListener('click', evt => {
             this.resetAndCloseAnswerBlock();
         })
     }
@@ -106,8 +102,8 @@ class Comment {
         this.commentBlocks = document.querySelectorAll('.author-comment');
         this.answerButtons = document.querySelectorAll('.answer-button');
 
-        this.commentBlocks.forEach(block => {
-            block.addEventListener('mouseenter', evt => {
+        this.commentBlocks?.forEach(block => {
+            block?.addEventListener('mouseenter', evt => {
                 this.answerButton = evt.target.querySelector('.answer-button');
                 this.answerButton.classList.toggle('hidden');
             })
