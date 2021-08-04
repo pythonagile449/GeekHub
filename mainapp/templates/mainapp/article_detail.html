@@ -257,9 +257,24 @@
                                                 {% endif %}
 
                                             </div>
-                                            <button type="button" class="answer-button hidden"
-                                                    data-answer-to="{{ comment.pk }}">Ответить
-                                            </button>
+                                            <div class="comment-actions">
+                                                <button type="button" class="answer-button hidden"
+                                                        data-answer-to="{{ comment.pk }}">Ответить
+                                                </button>
+                                                <button type="button" class="complaint-comment-button hidden"
+                                                        data-complaint-to="{{ comment.pk }}">Пожаловаться
+                                                </button>
+                                                {# TODO см. метод getHTML(commentId) класса CommentUserComplaint() в файле comment-user-complaint.js#}
+                                                {#  <div class="complaint-input-comment-block">#}
+                                                {#      <p>Оставить жалобу на комментарий:</p>#}
+                                                {#          <textarea class="complaint-against-comment-text" #}
+                                                {#                    name="complaint-against-comment" cols="30" rows="10"></textarea>#}
+                                                {#          <button type="button" class="button23 submit-complaint-comment-button"                                                                     data-comment-id="${commentId}">#}
+                                                {#                    Отправить жалобу#}
+                                                {#          </button>#}
+                                                {#          <span class="close-block">X</span>#}
+                                                {#  </div>#}
+                                            </div>
                                             <div class="indent-60"></div>
                                         </div>
                                     {% endfor %}
@@ -473,6 +488,7 @@
 
 {% block js %}
     <script type="module" src="{% static 'js/mainapp/comment-form.js' %}"></script>
+    <script type="module" src="{% static 'js/complaintsapp/comment-user-complaint.js' %}"></script>
     <script type="text/javascript" src="{% static 'plugins/js/highlight.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/complaintsapp/article-user-complaint.js' %}"></script>
     <script>

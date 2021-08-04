@@ -98,10 +98,7 @@ class ComplaintApproveView(ComplaintDiscardView):
             complaint_target_type = ContentType.objects.get(pk=complaint.content_type.pk)
             obj = complaint_target_type.get_object_for_this_type(pk=complaint.object_id)
             if complaint_target_type.model == 'article':
-                obj.is_draft = True
-                obj.is_published = False
-                obj.is_moderation_in_progress = False
-                obj.save()
+                obj.set_draft_status()
                 NotificationFactory.notify(request.user, obj.author,
                                            'Статья снята с публикации в связи с жалобой', obj)
             NotificationFactory.notify(request.user, complaint.sender, 'Жалоба принята', complaint)

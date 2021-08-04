@@ -1,4 +1,5 @@
 import {CommentsRating} from './rating.js';
+import {CommentUserComplaint} from "../complaintsapp/comment-user-complaint.js";
 
 class Comment {
     constructor() {
@@ -11,7 +12,9 @@ class Comment {
         this.commentsTreeBlock = document.querySelector('.comments-tree-block');
         this.parentCommentSmall = document.querySelector('.parent-comment-small');
         this.parentCommentText = document.querySelector('.parent-comment-text');
-        this.closeAnswerButton = document.querySelector(".close-answer-button")
+        this.closeAnswerButton = document.querySelector(".close-answer-button");
+        this.complaintButtons = document.querySelectorAll('.complaint-comment-button');
+        this.complaint = new CommentUserComplaint();
         this.requestParams = new URLSearchParams(location.search);
         this.setHandlers();
         this.setAfterRenderHandlers();
@@ -101,26 +104,39 @@ class Comment {
     setAfterRenderHandlers() {
         this.commentBlocks = document.querySelectorAll('.author-comment');
         this.answerButtons = document.querySelectorAll('.answer-button');
+        this.complaintButtons = document.querySelectorAll('.complaint-comment-button');
 
         this.commentBlocks?.forEach(block => {
             block?.addEventListener('mouseenter', evt => {
                 this.answerButton = evt.target.querySelector('.answer-button');
+                this.complaintButton = evt.target.querySelector('.complaint-comment-button');
                 this.answerButton.classList.toggle('hidden');
+                this.complaintButton.classList.toggle('hidden');
             })
 
-            block.addEventListener('mouseleave', evt => {
-                this.answerButton.classList.toggle('hidden')
+            block?.addEventListener('mouseleave', evt => {
+                this.answerButton.classList.toggle('hidden');
+                this.complaintButton.classList.toggle('hidden');
             })
         })
 
-        this.answerButtons.forEach(button => {
-            button.addEventListener('click', evt => {
+        this.answerButtons?.forEach(button => {
+            button?.addEventListener('click', evt => {
+                this.complaint.removeComplaintBlocks();
                 this.parentCommentSmall.classList.remove('hidden');
-                let text = evt.target.parentNode.querySelector('.author-text p').textContent;
+                let text = evt.target.parentNode.parentNode.querySelector('.author-text p').textContent;
                 text = this.truncateChars(text);
                 document.querySelector('.comment-area').focus();
                 this.parentCommentText.innerHTML = text;
                 this.currentParentId = evt.currentTarget.dataset.answerTo;
+            })
+        })
+
+        this.complaintButtons?.forEach(button => {
+            button?.addEventListener('click', evt => {
+                let drawToNode = evt.target.parentNode;
+                let commentId = evt.target.dataset.complaintTo;
+                this.complaint.drawComplaintInputBlock(drawToNode, commentId);
             })
         })
     }
@@ -131,6 +147,12 @@ class Comment {
         }
         return str
     }
+
+    hideActionButtons() {
+        this.answerButtons.forEach(button => button.classList.add('hidden'));
+        this.complaintButtons.forEach(button => button.classList.add('hidden'));
+    }
 }
 
 const commentForm = new Comment();
+export {commentForm};

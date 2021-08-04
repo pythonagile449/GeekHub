@@ -1578,10 +1578,33 @@ textarea.comment-area {
 }
 
 .answer-button {
-    position: absolute;
     background-color: transparent;
     border: none;
     color: #707070;
+}
+
+.complaint-comment-button {
+    background-color: transparent;
+    border: none;
+    color: #707070;
+}
+
+.comment-actions {
+    margin-top: 1rem;
+    position: absolute;
+}
+
+.comment-actions .complaint-comment-button {
+    margin-left: 3rem;
+}
+
+textarea.complaint-against-comment-text {
+    background-color: #0d71bb;
+}
+
+.complaint-input-comment-block {
+    position: absolute;
+    top: 20px;
 }
 
 .parent-comment-small {
@@ -1649,10 +1672,6 @@ textarea.comment-area {
 
 p {
     margin-bottom: 0rem;
-}
-
-.answer-button {
-    margin-top: 1rem;
 }
 
 .section-left-text {
