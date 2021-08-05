@@ -258,12 +258,14 @@
 
                                             </div>
                                             <div class="comment-actions">
-                                                <button type="button" class="answer-button hidden"
-                                                        data-answer-to="{{ comment.pk }}">Ответить
-                                                </button>
-                                                <button type="button" class="complaint-comment-button hidden"
-                                                        data-complaint-to="{{ comment.pk }}">Пожаловаться
-                                                </button>
+                                                {% if comment.author is not user and not user.is_anonymous %}
+                                                    <button type="button" class="answer-button hidden"
+                                                            data-answer-to="{{ comment.pk }}">Ответить
+                                                    </button>
+                                                    <button type="button" class="complaint-comment-button hidden"
+                                                            data-complaint-to="{{ comment.pk }}">Пожаловаться
+                                                    </button>
+                                                {% endif %}
                                                 {# TODO см. метод getHTML(commentId) класса CommentUserComplaint() в файле comment-user-complaint.js#}
                                                 {#  <div class="complaint-input-comment-block">#}
                                                 {#      <p>Оставить жалобу на комментарий:</p>#}
