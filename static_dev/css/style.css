@@ -1583,6 +1583,14 @@ textarea.comment-area {
     color: #707070;
 }
 
+.highlight {
+    background-color: yellow;
+}
+
+.wrapper-absolute {
+    position: absolute;
+}
+
 .complaint-comment-button {
     background-color: transparent;
     border: none;
@@ -1604,7 +1612,7 @@ textarea.complaint-against-comment-text {
 
 .complaint-input-comment-block {
     position: absolute;
-    top: 20px;
+    right: 325px;
 }
 
 .parent-comment-small {

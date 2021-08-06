@@ -14,6 +14,7 @@ class CommentUserComplaint {
     getHTML(commentId) {
         return `
             <div class="complaint-input-comment-block">
+            <div class="wrapper-absolute">
             <p>Оставить жалобу на комментарий:</p>
                 <textarea class="complaint-against-comment-text" 
                     name="complaint-against-comment" cols="30" rows="10"></textarea>
@@ -21,6 +22,7 @@ class CommentUserComplaint {
                     Отправить жалобу
                 </button>
                 <span class="close-block">X</span>
+            </div>
             </div>
         `
     }
@@ -31,7 +33,7 @@ class CommentUserComplaint {
 
     drawComplaintInputBlock(node, commentId) {
         this.removeComplaintBlocks();
-        node.insertAdjacentHTML('beforeend', this.getHTML(commentId));
+        node.insertAdjacentHTML('afterbegin', this.getHTML(commentId));
         this.getElements();
         this.setHandlers();
     }
@@ -56,9 +58,14 @@ class CommentUserComplaint {
             url: `/complaint/create/?obj_id=${commentId}&message=${message}&instance=comment`,
             success: data => {
                 console.log(data.success);
+                commentForm.hideActionButtons();
+                $('.modal-content').html(data.success);
+                $("#modal-articles").modal("show");
             },
             error: d => {
                 console.log(d);
+                commentForm.hideActionButtons();
+
             }
         });
     }

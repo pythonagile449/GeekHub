@@ -97,12 +97,18 @@ class ComplaintApproveView(ComplaintDiscardView):
             complaint.set_approve_status()
             complaint_target_type = ContentType.objects.get(pk=complaint.content_type.pk)
             obj = complaint_target_type.get_object_for_this_type(pk=complaint.object_id)
+
             if complaint_target_type.model == 'article':
                 obj.set_draft_status()
                 NotificationFactory.notify(request.user, obj.author,
                                            'Статья снята с публикации в связи с жалобой', obj)
+            if complaint_target_type.model == 'commentsbranch':
+                # TODO добавиль логику обработки жалобы на коммент (бан пользователю)
+                pass
+
             NotificationFactory.notify(request.user, complaint.sender, 'Жалоба принята', complaint)
             return HttpResponseRedirect(self.success_url)
+
         response = HttpResponse()
         response.status_code = 403
         return response
@@ -117,8 +123,14 @@ class ComplaintDetailView(LoginRequiredMixin, ArticleDetail):
         complaint_sender = self.kwargs['complaint_sender']
         content_type = ContentType.objects.get_for_model(self.object)
         context['complaint_sender'] = GeekHubUser.objects.get(pk=complaint_sender)
-        complaints = Complaint.objects.filter(sender=complaint_sender,
-                                              content_type=content_type,
-                                              object_id=self.object.pk, )
+        if self.request.GET.get('complaint_against_comment'):
+            comment_content_type = ContentType.objects.get(model='commentsbranch')
+            complaints = Complaint.objects.filter(sender=complaint_sender,
+                                                  content_type=comment_content_type,
+                                                  object_id=self.request.GET.get('scroll_to_comment'))
+        else:
+            complaints = Complaint.objects.filter(sender=complaint_sender,
+                                                  content_type=content_type,
+                                                  object_id=self.object.pk, )
         context['complaints'] = complaints.filter(status='M') if self.request.user.is_staff else complaints
         return context

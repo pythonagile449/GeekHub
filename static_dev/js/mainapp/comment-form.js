@@ -23,11 +23,22 @@ class Comment {
 
     tryScrollTo() {
         let scrollToComment = this.requestParams.get('scroll_to_comment');
+        let complaintAgainstComment = this.requestParams.get('complaint_against_comment');
+
+
         if (scrollToComment) {
             this.renderCommentsList().then(() => {
                 location.href = `#comment-anchor-${scrollToComment}`;
+                if (complaintAgainstComment) {
+                    let commentNode = document.querySelector(`#comment-card-id-${scrollToComment}`)
+                    this.highlightCommentBlock(commentNode)
+                }
             })
         }
+    }
+
+    highlightCommentBlock(commentNode) {
+        commentNode.classList.add('highlight');
     }
 
     renderCommentsList() {
@@ -115,8 +126,8 @@ class Comment {
             })
 
             block?.addEventListener('mouseleave', evt => {
-                this.answerButton.classList.toggle('hidden');
-                this.complaintButton.classList.toggle('hidden');
+                this.answerButton?.classList.toggle('hidden');
+                this.complaintButton?.classList.toggle('hidden');
             })
         })
 
@@ -134,7 +145,7 @@ class Comment {
 
         this.complaintButtons?.forEach(button => {
             button?.addEventListener('click', evt => {
-                let drawToNode = evt.target.parentNode;
+                let drawToNode = evt.target.parentNode.parentNode;
                 let commentId = evt.target.dataset.complaintTo;
                 this.complaint.drawComplaintInputBlock(drawToNode, commentId);
             })

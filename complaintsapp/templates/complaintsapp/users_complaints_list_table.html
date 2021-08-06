@@ -46,7 +46,7 @@
                                     {{ complaint.content_object|truncatechars:35 }}
                                 </a>
                             {% elif complaint.content_type.model == 'commentsbranch' %}
-                                <a href="{% url 'complaints:complaint_detail' complaint.content_object.article.pk complaint.sender.pk %}?scroll_to_comment={{ complaint.content_object.pk }}">
+                                <a href="{% url 'complaints:complaint_detail' complaint.content_object.article.pk complaint.sender.pk %}?scroll_to_comment={{ complaint.content_object.pk }}&complaint_against_comment=True">
                                     {{ complaint.content_object.description|truncatechars:35 }}
                                 </a>
                             {% endif %}

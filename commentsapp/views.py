@@ -6,7 +6,7 @@ from django.shortcuts import render, get_object_or_404
 
 from commentsapp.models import CommentsBranch
 from mainapp.models import Article
-from notifyapp.models import Notification
+from notifyapp.models import Notification, NotificationFactory
 
 
 def create_comment(request):
@@ -26,14 +26,18 @@ def create_comment(request):
 
         if request.user != article.author:
             message = 'Новое замечание модератора' if not article.is_published else 'Новый комментарий к статье'
-            notification = Notification.objects.create(
-                sender=request.user,
-                recipient=article.author,
-                message=message,
-                content_type=ContentType.objects.get_for_model(article),
-                object_id=article.pk,
-                content_object=article,
-            )
+            # notification = Notification.objects.create(
+            #     sender=request.user,
+            #     recipient=article.author,
+            #     message=message,
+            #     content_type=ContentType.objects.get_for_model(article),
+            #     object_id=article.pk,
+            #     content_object=article,
+            # )
+            NotificationFactory.notify(sender=request.user,
+                                       recipient=article.author,
+                                       message=message,
+                                       model_object=new_comment)
 
         return HttpResponse(
             json.dumps({

@@ -56,6 +56,10 @@
                                 <a href="{% url 'mainapp:article_detail' notification.content_object.pk %}">
                                     {{ notification.content_object.title|truncatechars:25 }}
                                 </a>
+                            {% elif notification.content_type.model == 'commentsbranch' %}
+                                <a href="{% url 'mainapp:article_detail' notification.content_object.article.pk %}?scroll_to_comment={{ notification.object_id }}">
+                                    {{ notification.content_object.article.title|truncatechars:25 }}
+                                </a>
                             {% endif %}
                         </td>
                         <td>
