@@ -23,15 +23,14 @@ class Comment {
 
     tryScrollTo() {
         let scrollToComment = this.requestParams.get('scroll_to_comment');
-        let complaintAgainstComment = this.requestParams.get('complaint_against_comment');
-
+        this.complaintAgainstComment = this.requestParams.get('complaint_against_comment');
 
         if (scrollToComment) {
             this.renderCommentsList().then(() => {
                 location.href = `#comment-anchor-${scrollToComment}`;
-                if (complaintAgainstComment) {
+                if (this.complaintAgainstComment) {
                     let commentNode = document.querySelector(`#comment-card-id-${scrollToComment}`)
-                    this.highlightCommentBlock(commentNode)
+                    this.highlightCommentBlock(commentNode);
                 }
             })
         }
@@ -43,7 +42,7 @@ class Comment {
 
     renderCommentsList() {
         let articleId = this.commentsTreeBlock.dataset.articleId,
-            url = `/comments/get-comments-tree/${articleId}`;
+            url = `/comments/get-comments-tree/${articleId}/?complaint_against_comment=${this.complaintAgainstComment}`;
 
         return $.ajax({
             url: url,
@@ -121,8 +120,8 @@ class Comment {
             block?.addEventListener('mouseenter', evt => {
                 this.answerButton = evt.target.querySelector('.answer-button');
                 this.complaintButton = evt.target.querySelector('.complaint-comment-button');
-                this.answerButton.classList.toggle('hidden');
-                this.complaintButton.classList.toggle('hidden');
+                this.answerButton?.classList.toggle('hidden');
+                this.complaintButton?.classList.toggle('hidden');
             })
 
             block?.addEventListener('mouseleave', evt => {

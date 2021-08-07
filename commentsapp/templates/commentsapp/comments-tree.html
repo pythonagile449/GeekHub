@@ -73,9 +73,11 @@
                     <button type="button" class="answer-button hidden"
                             data-answer-to="{{ comment.pk }}">Ответить
                     </button>
-                    <button type="button" class="complaint-comment-button hidden"
-                            data-complaint-to="{{ comment.pk }}">Пожаловаться
-                    </button>
+                    {% if not complaint_against_comment %}
+                        <button type="button" class="complaint-comment-button hidden"
+                                data-complaint-to="{{ comment.pk }}">Пожаловаться
+                        </button>
+                    {% endif %}
                 </div>
                 <div class="indent-60"></div>
             </div>
