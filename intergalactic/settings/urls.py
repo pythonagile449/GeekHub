@@ -20,6 +20,7 @@ urlpatterns = [
     path('notifications/', include('notifyapp.urls', namespace='notifyapp')),
     path('search/', include('search.urls', namespace='search')),
     path('complaint/', include('complaintsapp.urls', namespace='complaints')),
+
     # mardown editor urls
     path('martor/', include('martor.urls')),
     path('api/uploader/', markdown_uploader, name='markdown_uploader_page'),
