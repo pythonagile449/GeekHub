@@ -1,26 +1,50 @@
 "use strict"
 
+var firstFormState = {}
+
+document.addEventListener('DOMContentLoaded', () => {
+    firstFormState = {
+        title: document.querySelector('#id_title')?.value,
+        hub: document.querySelector('#id_hub').value,
+        content: document.querySelector('.create-article-form').elements.contents.value,
+    }
+    CKEDITOR.on('instanceReady', () => {
+        firstFormState.content = CKEDITOR.instances["id_contents"].getData();
+    })
+})
+
+window.onbeforeunload = (evt) => {
+    let endFirmTitle = document.querySelector('#id_title')?.value,
+        endHub = document.querySelector('#id_hub')?.value,
+        endContent = document.querySelector('.create-article-form').elements.contents.value;
+
+    if (CKEDITOR.instances["id_contents"] !== undefined) {
+        endContent = CKEDITOR.instances["id_contents"].getData();
+    }
+
+    if (firstFormState.title === endFirmTitle && firstFormState.hub === endHub && firstFormState.content === endContent) {
+        evt.preventDefault();
+    } else {
+        if (page.isActionButtonClicked) {
+            evt.preventDefault();
+        } else {
+            return 'Changes will not be saved!';
+        }
+    }
+}
+
+
 class Page {
     constructor() {
-        this.is_form_changed = false;
         this.form = document.querySelector('.create-article-form');
         this.publishArticleButton = document.querySelector('.publish-article-button');
         this.saveAsDraftButton = document.querySelector('.save-as-draft-button');
         this.saveEditDraftButton = document.querySelector('#save-editing-draft-button');
         this.answerBlock = document.querySelector('.answer');
-
-        this.inputTitle = document.querySelector('#id_title');
-        this.selectHab = document.querySelector('#id_hub');
-        this.textAreaCK = document.querySelector('#cke_1_contents');
-        this.firstFormState = {
-            title: this.inputTitle.value,
-            hub: this.selectHab.value,
-            content: this.textAreaCK?.value,
-        }
-
+        this.isActionButtonClicked = false;
         this.setHandlers();
-        this.listenFormInputs();
     }
+
 
     setHandlers() {
         if (this.publishArticleButton) {
@@ -30,6 +54,7 @@ class Page {
 
         if (this.saveAsDraftButton) {
             this.saveAsDraftButton.addEventListener('click', (evt) => {
+                this.isActionButtonClicked = true;
                 this.form.setAttribute('action', '/create-draft/');
                 this.form.submit();
             })
@@ -37,6 +62,7 @@ class Page {
 
         if (this.saveEditDraftButton) {
             this.saveEditDraftButton.addEventListener('click', (evt) => {
+                this.isActionButtonClicked = true;
                 let uuid = evt.currentTarget.dataset.uuid;
                 let url = `/edit-draft/${uuid}/`;
                 let form_data = new FormData(this.form);
@@ -74,15 +100,6 @@ class Page {
             })
         }
     }
-
-    listenFormInputs() {
-        this.inputTitle?.addEventListener('change', () => this.is_form_changed = true);
-        this.selectHab?.addEventListener('change', () => this.is_form_changed = true);
-        this.textAreaCK?.addEventListener('change', () => console.log('change textarea'));
-        console.log(this.is_form_changed);
-        console.log(this.firstFormState);
-    }
 }
 
 const page = new Page();
-
