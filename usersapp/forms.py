@@ -4,6 +4,7 @@ from datetime import timedelta
 from django import forms
 from django.conf import settings
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, UserChangeForm
+from django.core.exceptions import ValidationError
 from django.core.mail import send_mail
 from django.forms import ModelForm
 from django.urls import reverse
@@ -98,6 +99,14 @@ class UserProfileEditForm(ModelForm):
 
     profile_photo = forms.ImageField(label='Фото', widget=forms.FileInput(attrs={'class': '', 'required': False, }),
                                      required=False)
+
+    def clean_birthday(self):
+        birthday = self.cleaned_data['birthday']
+        print(birthday)
+        if birthday == None:
+            raise ValidationError('Incorrect birthday input')
+        else:
+            return birthday
 
     class Meta:
         model = GeekHubUser

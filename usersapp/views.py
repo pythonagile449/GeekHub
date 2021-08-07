@@ -180,7 +180,7 @@ class UserAccountEdit(UpdateView):
     """
     model = GeekHubUser
     template_name_suffix = '_update'
-    fields = ['first_name', 'last_name', 'profile_photo', 'user_information', 'article_redactor', 'gender']
+    fields = ['first_name', 'last_name', 'profile_photo', 'user_information', 'article_redactor', 'gender', 'birthday']
 
     def get_form_class(self):
         return UserProfileEditForm
