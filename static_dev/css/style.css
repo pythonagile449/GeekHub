@@ -1590,7 +1590,7 @@ textarea.comment-area {
 
 .wrapper-absolute {
     position: absolute;
-    width: 325px;
+    width: 367px;
 }
 
 .complaint-comment-button {
@@ -1610,7 +1610,7 @@ textarea.comment-area {
 
 textarea.complaint-against-comment-text {
     background-color: var (--main-bg-color);
-    width: 300px;
+    width: 342px;
 }
 
 .complaint-input-comment-block {
