@@ -1,5 +1,3 @@
-from datetime import datetime
-
 from django.contrib import auth
 from django.contrib.auth.views import LoginView, LogoutView
 from django.http import HttpResponseRedirect
@@ -206,7 +204,7 @@ class UserAccountEdit(UpdateView):
 
     def get_initial(self):
         initial = super(UserAccountEdit, self).get_initial()
-        initial['birthday'] = self.object.birthday.strftime('%Y-%m-%d')
+        initial['birthday'] = self.object.birthday.strftime('%Y-%m-%d') if self.object.birthday else None
         return initial
 
 
