@@ -59,4 +59,6 @@ class RatingCount(models.Model):
             rate = RatingCount.objects.get(content_type=obj_content_type, object_id=obj_id, users=user).rate
         except RatingCount.DoesNotExist:
             rate = 0
+        except TypeError:
+            rate = 0
         return rate

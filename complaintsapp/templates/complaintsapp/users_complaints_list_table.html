@@ -46,8 +46,9 @@
                                     {{ complaint.content_object|truncatechars:35 }}
                                 </a>
                             {% elif complaint.content_type.model == 'commentsbranch' %}
-                                {# todo add link to complaint comment detail view #}
-                                {{ complaint.content_object|truncatechars:35 }}
+                                <a href="{% url 'complaints:complaint_detail' complaint.content_object.article.pk complaint.sender.pk %}?scroll_to_comment={{ complaint.content_object.pk }}&complaint_against_comment=True">
+                                    {{ complaint.content_object.description|truncatechars:35 }}
+                                </a>
                             {% endif %}
                         </td>
 
@@ -64,7 +65,6 @@
                         {# complaint date|actions #}
                         <td class="cell-date" style="width: 250px">{{ complaint.created_at }}</td>
                         <td class="cell-actions hidden" style="width: 250px">
-                            {# todo replace text to svg#}
                             {% if user.is_staff %}
                                 <!--Отклонить-->
                                 <a href="{% url 'complaints:discard_complaint' complaint.pk %}" title="Отклонить">

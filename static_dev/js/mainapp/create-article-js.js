@@ -1,11 +1,38 @@
-// "use strict"
+"use strict"
 
-// $('.create-article-form').data('serialize', $('.create-article-form').serialize()); // On load save form current state
-//
-// $(window).bind('beforeunload', function (e) {
-//     if ($('.create-article-form').serialize() != $('.create-article-form').data('serialize')) return true;
-//     else e = null; // i.e; if form state change show warning box, else don't show it.
-// });
+var firstFormState = {}
+
+document.addEventListener('DOMContentLoaded', () => {
+    firstFormState = {
+        title: document.querySelector('#id_title')?.value,
+        hub: document.querySelector('#id_hub').value,
+        content: document.querySelector('.create-article-form').elements.contents.value,
+    }
+    CKEDITOR.on('instanceReady', () => {
+        firstFormState.content = CKEDITOR.instances["id_contents"].getData();
+    })
+})
+
+window.onbeforeunload = (evt) => {
+    let endFirmTitle = document.querySelector('#id_title')?.value,
+        endHub = document.querySelector('#id_hub')?.value,
+        endContent = document.querySelector('.create-article-form').elements.contents.value;
+
+    if (CKEDITOR.instances["id_contents"] !== undefined) {
+        endContent = CKEDITOR.instances["id_contents"].getData();
+    }
+
+    if (firstFormState.title === endFirmTitle && firstFormState.hub === endHub && firstFormState.content === endContent) {
+        evt.preventDefault();
+    } else {
+        if (page.isActionButtonClicked) {
+            evt.preventDefault();
+        } else {
+            return 'Changes will not be saved!';
+        }
+    }
+}
+
 
 class Page {
     constructor() {
@@ -14,8 +41,10 @@ class Page {
         this.saveAsDraftButton = document.querySelector('.save-as-draft-button');
         this.saveEditDraftButton = document.querySelector('#save-editing-draft-button');
         this.answerBlock = document.querySelector('.answer');
+        this.isActionButtonClicked = false;
         this.setHandlers();
     }
+
 
     setHandlers() {
         if (this.publishArticleButton) {
@@ -25,6 +54,7 @@ class Page {
 
         if (this.saveAsDraftButton) {
             this.saveAsDraftButton.addEventListener('click', (evt) => {
+                this.isActionButtonClicked = true;
                 this.form.setAttribute('action', '/create-draft/');
                 this.form.submit();
             })
@@ -32,6 +62,7 @@ class Page {
 
         if (this.saveEditDraftButton) {
             this.saveEditDraftButton.addEventListener('click', (evt) => {
+                this.isActionButtonClicked = true;
                 let uuid = evt.currentTarget.dataset.uuid;
                 let url = `/edit-draft/${uuid}/`;
                 let form_data = new FormData(this.form);
@@ -68,9 +99,7 @@ class Page {
                 });
             })
         }
-
     }
 }
 
 const page = new Page();
-

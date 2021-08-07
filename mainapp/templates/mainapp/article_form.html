@@ -18,7 +18,6 @@
 {% block content %}
 
     <div class="indent-20"></div>
-    <!--    <form class="create-article-form container-editor" action="{% url 'mainapp:create_article' %}" method="post">-->
     <form class="create-article-form container-editor" action="
         {% if object.pk %}
         {% url 'mainapp:article_moderation' object.pk %}
