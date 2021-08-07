@@ -1584,11 +1584,13 @@ textarea.comment-area {
 }
 
 .highlight {
-    background-color: yellow;
+    background-color: rgba(255, 255, 0, 0.3);  /*yellow*/
+    border-radius: 5px;
 }
 
 .wrapper-absolute {
     position: absolute;
+    width: 325px;
 }
 
 .complaint-comment-button {
@@ -1607,12 +1609,13 @@ textarea.comment-area {
 }
 
 textarea.complaint-against-comment-text {
-    background-color: #0d71bb;
+    background-color: var (--main-bg-color);
+    width: 300px;
 }
 
 .complaint-input-comment-block {
-    position: absolute;
-    right: 325px;
+    position: relative;
+    left: 773px;
 }
 
 .parent-comment-small {
@@ -2857,4 +2860,51 @@ ul.comments-search-data li { /* Menu list items */
 
 .dislike-chosen {
     background-image: url(../svg/down+.svg);
+}
+
+
+.field-comment-complaint {
+    padding: 10px 10px 5px 10px;
+    border-radius: 5px;
+    border: 2px solid;
+    border-color: var(--section-bg-color);
+    background-color: rgba(233, 233, 233, 0.3);
+    margin: 10px 0px 10px 0px;
+}
+
+.comment-complaint-title {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    margin: 0;
+    padding: 0;
+    flex-direction: row;
+    height: 30px;
+    align-items: center;
+    background-color: rgba(255, 122, 0, 0.2);
+    border-radius: 5px;
+    border: 2px solid;
+    border-color: var(--section-bg-color);
+}
+
+.button23-c {
+    transition: color 0.3s ease 0s;
+    background: var(--main-bg-color);
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--secondary-color);
+    color: var(--link-hover-color);
+    padding: 5px 8px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.button23-c:hover {
+    background: rgba(255, 230, 230, 1);
+    color: var(--header-bg-color);
+    border-color: rgba(72, 181, 255, 0.2);
 }

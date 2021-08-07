@@ -15,13 +15,21 @@ class CommentUserComplaint {
         return `
             <div class="complaint-input-comment-block">
             <div class="wrapper-absolute">
-            <p>Оставить жалобу на комментарий:</p>
-                <textarea class="complaint-against-comment-text" 
-                    name="complaint-against-comment" cols="30" rows="10"></textarea>
-                <button type="button" class="button23 submit-complaint-comment-button" data-comment-id="${commentId}">
+                <div class="comment-complaint-title">
+                    <h5-1>Оставить жалобу на комментарий:</h5-1>
+                </div>
+                <div class="field-comment-complaint" style="background-color: rgba(255, 122, 0, 0.2)">
+                    <textarea class="complaint-against-comment-text"
+                        name="complaint-against-comment" cols="30" rows="10" maxlength="500"></textarea>
+                </div>
+                <button type="button" class="button23-c submit-complaint-comment-button" data-comment-id="${commentId}">
                     Отправить жалобу
                 </button>
-                <span class="close-block">X</span>
+                <span class="close-block" title="Закрыть">
+                    <svg class="icon-X">
+                        <use xlink:href="#check-box2"></use>
+                    </svg>
+                </span>
             </div>
             </div>
         `
