@@ -1,20 +1,25 @@
-// "use strict"
-
-// $('.create-article-form').data('serialize', $('.create-article-form').serialize()); // On load save form current state
-//
-// $(window).bind('beforeunload', function (e) {
-//     if ($('.create-article-form').serialize() != $('.create-article-form').data('serialize')) return true;
-//     else e = null; // i.e; if form state change show warning box, else don't show it.
-// });
+"use strict"
 
 class Page {
     constructor() {
+        this.is_form_changed = false;
         this.form = document.querySelector('.create-article-form');
         this.publishArticleButton = document.querySelector('.publish-article-button');
         this.saveAsDraftButton = document.querySelector('.save-as-draft-button');
         this.saveEditDraftButton = document.querySelector('#save-editing-draft-button');
         this.answerBlock = document.querySelector('.answer');
+
+        this.inputTitle = document.querySelector('#id_title');
+        this.selectHab = document.querySelector('#id_hub');
+        this.textAreaCK = document.querySelector('#cke_1_contents');
+        this.firstFormState = {
+            title: this.inputTitle.value,
+            hub: this.selectHab.value,
+            content: this.textAreaCK?.value,
+        }
+
         this.setHandlers();
+        this.listenFormInputs();
     }
 
     setHandlers() {
@@ -68,7 +73,14 @@ class Page {
                 });
             })
         }
+    }
 
+    listenFormInputs() {
+        this.inputTitle?.addEventListener('change', () => this.is_form_changed = true);
+        this.selectHab?.addEventListener('change', () => this.is_form_changed = true);
+        this.textAreaCK?.addEventListener('change', () => console.log('change textarea'));
+        console.log(this.is_form_changed);
+        console.log(this.firstFormState);
     }
 }
 
