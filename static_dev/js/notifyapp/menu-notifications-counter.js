@@ -8,10 +8,12 @@ function checkNotificationsCount() {
     $.ajax({
         url: '/notifications/check-user-notifications-count/',
         success: data => {
-            if (data.notifications_count > 0) {
-                notificationsCountBox.innerHTML = data.notifications_count;
-            } else {
-                notificationsCountBox.innerHTML = '';
+            if (notificationsCountBox) {
+                if (data.notifications_count > 0) {
+                    notificationsCountBox.innerHTML = data.notifications_count;
+                } else {
+                    notificationsCountBox.innerHTML = '';
+                }
             }
         },
         error: error => {

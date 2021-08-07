@@ -47,9 +47,18 @@
                                         {{ notification.content_object.message|truncatechars:35 }}
                                     </a>
                                 {% endif %}
+                                {% if notifications.content_object.content_type.model == 'commentsbranch' %}
+                                    <a href="{% url 'mainapp:article' notification.content_object.content_object.pk %}?scroll_to_comment={{ notification.content_object.pk }}">
+                                        {{ notification.content_object.message|truncatechars:35 }}
+                                    </a>
+                                {% endif %}
                             {% elif notification.content_type.model == 'article' %}
                                 <a href="{% url 'mainapp:article_detail' notification.content_object.pk %}">
                                     {{ notification.content_object.title|truncatechars:25 }}
+                                </a>
+                            {% elif notification.content_type.model == 'commentsbranch' %}
+                                <a href="{% url 'mainapp:article_detail' notification.content_object.article.pk %}?scroll_to_comment={{ notification.object_id }}">
+                                    {{ notification.content_object.article.title|truncatechars:25 }}
                                 </a>
                             {% endif %}
                         </td>

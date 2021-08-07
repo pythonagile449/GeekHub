@@ -1,6 +1,6 @@
 from django.contrib.auth.models import AnonymousUser
 
-from complaintsapp.models import Complaint  # Даня
+from complaintsapp.models import Complaint
 from mainapp.models import Article
 
 

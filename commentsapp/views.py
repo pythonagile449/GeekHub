@@ -1,12 +1,11 @@
 import json
 
-from django.contrib.contenttypes.models import ContentType
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
 
 from commentsapp.models import CommentsBranch
 from mainapp.models import Article
-from notifyapp.models import Notification
+from notifyapp.models import NotificationFactory
 
 
 def create_comment(request):
@@ -26,14 +25,10 @@ def create_comment(request):
 
         if request.user != article.author:
             message = 'Новое замечание модератора' if not article.is_published else 'Новый комментарий к статье'
-            notification = Notification.objects.create(
-                sender=request.user,
-                recipient=article.author,
-                message=message,
-                content_type=ContentType.objects.get_for_model(article),
-                object_id=article.pk,
-                content_object=article,
-            )
+            NotificationFactory.notify(sender=request.user,
+                                       recipient=article.author,
+                                       message=message,
+                                       model_object=new_comment)
 
         return HttpResponse(
             json.dumps({
@@ -49,11 +44,15 @@ def get_article_comments(request, article_id=None):
     if request.method == 'GET' and request.is_ajax():
         article = get_object_or_404(Article, id=article_id)
         comments = CommentsBranch.objects.filter(article=article).order_by('-created_at')
+        is_complaint = request.GET.get('complaint_against_comment')
         if article.is_published:
             comments = comments.filter(is_moderation=False)
         else:
             comments = comments.filter(is_moderation=True)
 
-        return render(request, 'commentsapp/comments-tree.html', {'comments': comments, 'article': article})
+        return render(request, 'commentsapp/comments-tree.html',
+                      {'comments': comments, 'article': article,
+                       'complaint_against_comment': True if is_complaint == 'True' else False,
+                       })
     else:
         return HttpResponse(status=404)
