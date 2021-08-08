@@ -1,5 +1,3 @@
-import sys
-
 from django.contrib.contenttypes.models import ContentType
 from django.db.models.functions import datetime
 from django.http import HttpResponseRedirect, JsonResponse, HttpResponse
@@ -121,7 +119,6 @@ class CreateArticle(CreateView):
     def get_context_data(self, **kwargs):
         context = super(CreateArticle, self).get_context_data()
         context['title'] = 'Создание новой статьи'
-
         return context
 
 
@@ -338,7 +335,6 @@ class UserModeratingArticles(UserArticles):
         context['is_published'] = False
         context['is_draft'] = False
         context['is_on_moderation'] = True
-        # context['sound'] = '#'
         return context
 
 
