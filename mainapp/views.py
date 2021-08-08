@@ -1,7 +1,7 @@
 from django.contrib.contenttypes.models import ContentType
 from django.db.models.functions import datetime
 from django.http import HttpResponseRedirect, JsonResponse, HttpResponse
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import View
 from django.views.generic import CreateView, DetailView, ListView, DeleteView, UpdateView
@@ -12,7 +12,6 @@ from mainapp.forms import ArticleCkForm, ArticleMdForm
 from mainapp.models import Hub, Article, ArticleViews
 from notifyapp.models import Notification
 from ratingsapp.models import RatingCount
-from usersapp.models import GeekHubUser
 from usersapp.views import get_user_ip
 import telebot
 
@@ -414,8 +413,9 @@ class TopMenuView(View):
         if request.is_ajax():
             hub_name = self.kwargs.get('hub_name')
             sort_by = request.GET.get('sorted_by')
+
             return render(request, 'mainapp/top-menu.html',
-                          {'top_articles': Article.get_top_articles(hub_name=hub_name,
-                                                                    sort_by=sort_by if sort_by else 'rating')})
+                          {'top_articles': Article.get_top_articles (hub_name=hub_name,
+                                                         sort_by=sort_by if sort_by else 'rating')})
         else:
             return HttpResponse(status=404)
