@@ -12,6 +12,7 @@ from mainapp.forms import ArticleCkForm, ArticleMdForm
 from mainapp.models import Hub, Article, ArticleViews
 from notifyapp.models import Notification
 from ratingsapp.models import RatingCount
+from usersapp.models import GeekHubUser
 from usersapp.views import get_user_ip
 import telebot
 
@@ -190,7 +191,8 @@ class ArticleUpdate(UpdateView):
                 )
                 try:
                     bot.send_message(article.author.telegram,
-                                     f"Статья {settings.DOMAIN_NAME}/article/{article.pk}/ опубликована")
+                                     f'<b>Статья</b> <a href="https://reqsoft.ru/article/{article.pk}/">{article.title}'
+                                     f'</a> опубликована', parse_mode='HTML')
                 except Exception as e:
                     print(e)
                 try:
@@ -198,8 +200,8 @@ class ArticleUpdate(UpdateView):
                         if telegram_user.telegram != article.author.telegram:
                             bot.send_message(telegram_user.telegram,
                                              f'<b>Опубликована новая статья:</b>\n'
-                                             f'<a href="{settings.DOMAIN_NAME}/article/{article.pk}/">{article.title}'
-                                             f'</a>\n{settings.DOMAIN_NAME}/article/{article.pk}/', parse_mode='HTML')
+                                             f'<a href="https://reqsoft.ru/article/{article.pk}/">{article.title}'
+                                             f'</a>', parse_mode='HTML')
                 except Exception as e:
                     print(e)
                 return HttpResponseRedirect(self.success_url)
@@ -371,9 +373,10 @@ class ArticleReturnToDrafts(DeleteView):
                 content_object=self.object,
             )
             try:
+                link = f'<a href="https://reqsoft.ru/article/{self.object.pk}/">{self.object.title}</a>'
                 bot.send_message(self.object.author.telegram,
-                                 f"Статья снята с {'публикации' if is_published else 'модерации'} "
-                                 f"{settings.DOMAIN_NAME}/article/{self.object.pk}/")
+                                 f"<b>Статья снята с {'публикации' if is_published else 'модерации'}</b> "
+                                 f"{link}", parse_mode='HTML')
             except Exception as e:
                 print(e)
         return HttpResponseRedirect(self.get_success_url())
