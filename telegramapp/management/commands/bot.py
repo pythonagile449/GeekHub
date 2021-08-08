@@ -6,34 +6,44 @@ import telebot
 from email.utils import parseaddr
 
 from intergalactic import settings
-from mainapp.models import Article
+from mainapp.models import Article, Hub
 from usersapp.models import GeekHubUser
 from telegramapp.models import TelegramUsers
 from django.core.mail import send_mail
 
 action = ['Да', 'Нет']
 author_action = ['Лидер', 'Топ 5']
+article_action = []
+for item in Hub.objects.all():
+    article_action.append(str(item))
 
 
 def main_bot(tok):
     bot = telebot.TeleBot(tok)
 
     keyboard = telebot.types.ReplyKeyboardMarkup(True)
-    keyboard.row('топ авторы', 'топ статья', 'подписка')
-    password_button, author_button = [], []
+    keyboard.row('топ авторы', 'статьи', 'подписка')
+    subscribe_button, author_button, article_button = [], [], []
+
     otvet = telebot.types.InlineKeyboardMarkup(row_width=2)
     author_otvet = telebot.types.InlineKeyboardMarkup(row_width=2)
+    article_otvet = telebot.types.InlineKeyboardMarkup(row_width=2)
+
     for item in range(0, len(action)):
-        password_button.append(telebot.types.InlineKeyboardButton(f"{action[item]}", callback_data=action[item]))
+        subscribe_button.append(telebot.types.InlineKeyboardButton(f"{action[item]}", callback_data=action[item]))
     for item in range(0, len(author_action)):
         author_button.append(
             telebot.types.InlineKeyboardButton(f"{author_action[item]}", callback_data=author_action[item]))
-    password_button1 = telebot.types.InlineKeyboardButton(" ", callback_data='good')
-    password_button2 = telebot.types.InlineKeyboardButton(" ", callback_data='bad')
+    for item in range(0, len(article_action)):
+        article_button.append(
+            telebot.types.InlineKeyboardButton(f"{article_action[item]}", callback_data=article_action[item]))
+
     for item in range(0, len(action)):
-        otvet.add(password_button[item])
+        otvet.add(subscribe_button[item])
     for item in range(0, len(author_action)):
         author_otvet.add(author_button[item])
+    for item in range(0, len(article_action)):
+        article_otvet.add(article_button[item])
 
     @bot.message_handler(commands=["start"])
     def start_message(message):
@@ -65,13 +75,21 @@ def main_bot(tok):
                         author_list.append([rating, [str(item), str(item.pk)]])
                     author_list.sort(key=lambda x: x[0])
                     author_list.reverse()
-                    
+
                     message_list = 'Топ 5 авторов:\n'
                     for item in range(0, 5):
                         message_list += f'Никнейм = <a href="https://reqsoft.ru/auth/user/{author_list[item][1][1]}/">' \
-                                           f'{author_list[item][1][0]}</a>, ' \
-                                           f'Рейтинг = {author_list[item][0]}\n'
+                                        f'{author_list[item][1][0]}</a>, ' \
+                                        f'Рейтинг = {author_list[item][0]}\n'
                     bot.send_message(call.message.chat.id, message_list, parse_mode='HTML')
+                for item in range(0, len(article_action)):
+                    if call.data == article_action[item]:
+                        hub_item = Hub.objects.get(name=article_action[item])
+                        article_list = Article.objects.filter(hub=hub_item.pk).order_by('publication_date')[:5]
+                        message_article_list = 'Последние 5 статей в данной категории:\n\n'
+                        for item in range(0, len(article_list)):
+                            message_article_list += f'<a href="https://reqsoft.ru/article/{article_list[item].pk}/">{article_list[item].title}</a>\n\n'
+                        bot.send_message(call.message.chat.id, message_article_list, parse_mode='HTML')
 
         except Exception as e:
             print(repr(e))
@@ -79,19 +97,10 @@ def main_bot(tok):
     @bot.message_handler(content_types=["text"])
     def commands(message):
         if message.text.lower() == "топ авторы":
-            msg = GeekHubUser.objects.all()
-            top = msg[0]
-            for item in msg:
-                if GeekHubUser.get_total_user_rating(top) < GeekHubUser.get_total_user_rating(item):
-                    top = item
             bot.send_message(message.chat.id, 'Выберите вариант: ', reply_markup=author_otvet)
 
-        if message.text.lower() == "топ статья":
-            msg = Article.sort_articles_by(Article.objects.all(), sort_by='rating')[:1]
-            title = Article.objects.filter(title=msg[0])
-            urls = Article.objects.filter(title=msg[0]).values('id')
-            complite_url = f"https://reqsoft.ru/article/{urls[0]['id']}/"
-            bot.send_message(message.chat.id, f'<a href="{complite_url}">{title[0]}</a>', parse_mode='HTML')
+        if message.text.lower() == "статьи":
+            bot.send_message(message.chat.id, 'Выберите категорию: ', reply_markup=article_otvet)
 
         if message.text.lower() == "подписка":
             registered_users = TelegramUsers.objects.filter(users_id=message.chat.id)
