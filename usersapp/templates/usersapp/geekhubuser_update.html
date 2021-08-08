@@ -215,12 +215,19 @@
 
             <div class="section-right">
                 <div class="section-right-block">
-                    <p>Получать уведомления:</p>
-                    <p>{{ form.notify_article_comments }} {{ form.notify_article_comments.label_tag }}</p>
-                    <p>{{ form.notify_article_change_status }} {{ form.notify_article_change_status.label_tag }}</p>
-                    <p>{{ form.notify_moderator_messages }} {{ form.notify_moderator_messages.label_tag }}</p>
-                    <p>{{ form.notify_complaints_against_article_status }} {{ form.notify_complaints_against_article_status.label_tag }}</p>
-                    <p>{{ form.notify_complaints_against_comment_status }} {{ form.notify_complaints_against_comment_status.label_tag }}</p>
+                    <div class="user-info-settings-field">
+                        <div class="settings-user-info-title">
+                            <h5-1>Получать уведомления:</h5-1>
+                        </div>
+                    </div>
+                    <div class="indent-10"></div>
+                    <div class="settings-user-info">
+                        <div class="field-50"><p><h5-1>{{ form.notify_article_comments }} {{ form.notify_article_comments.label_tag }}</h5-1></p></div>
+                        <div class="field-50"><p><h5-1>{{ form.notify_article_change_status }} {{ form.notify_article_change_status.label_tag }}</h5-1></p></div>
+                        <div class="field-50"><p><h5-1>{{ form.notify_moderator_messages }} {{ form.notify_moderator_messages.label_tag }}</h5-1></p></div>
+                        <div class="field-50"><p><h5-1>{{ form.notify_complaints_against_article_status }} {{ form.notify_complaints_against_article_status.label_tag }}</h5-1></p></div>
+                        <div class="field-50"><p><h5-1>{{ form.notify_complaints_against_comment_status }} {{ form.notify_complaints_against_comment_status.label_tag }}</h5-1></p></div>
+                    </div>
                 </div>
             </div>
 
@@ -232,6 +239,9 @@
     <svg width="0" height="0" class="hidden">
         <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" id="rank_star">
             <path d="M8.99 2.586a1.125 1.125 0 012.018 0l1.965 3.98 4.394.639a1.125 1.125 0 01.623 1.92l-3.18 3.1.75 4.374c.16.92-.806 1.62-1.632 1.187l-3.93-2.067-3.929 2.067a1.126 1.126 0 01-1.633-1.187l.75-4.375-3.179-3.1c-.667-.65-.299-1.785.624-1.92l4.394-.637L8.99 2.586z"></path>
+        </symbol>
+        <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" id="check-box1">
+            <path d="M22.624 7L9.79 20.654 6.065 17.91H4L9.79 27l14.9-20h-2.066z" fill="#48B5FF"></path>
         </symbol>
     </svg>
 {% endblock %}
