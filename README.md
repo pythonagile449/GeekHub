@@ -39,6 +39,9 @@ https://drive.google.com/file/d/1n-xDsNR9xoCXxkCRyHvqZMwJFiZVfAYB/view?usp=shari
 
 `py manage.py usersfill -s`
 
+Если у вас уже установлена БД, но не заполнилась таблицы настроек для пользователей, воспользуйтесь командой:  
+`py manage.py userssettings -c`  
+
 * После создания суперпользователя нужно наполнить бд тестовыми хабами и статьями. Команды:
 
 `py manage.py create_hubs - создание хабов`
