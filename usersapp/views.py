@@ -180,7 +180,7 @@ class UserAccountEdit(UpdateView):
     """
     model = GeekHubUser
     template_name_suffix = '_update'
-    fields = ['first_name', 'last_name', 'profile_photo', 'user_information', 'article_redactor', 'gender']
+    fields = ['first_name', 'last_name', 'profile_photo', 'user_information', 'article_redactor', 'gender', 'birthday']
 
     def get_form_class(self):
         return UserProfileEditForm
@@ -201,6 +201,11 @@ class UserAccountEdit(UpdateView):
             return render(request, template_name='mainapp/400.html')
         except Exception as e:
             return render(request, template_name='mainapp/400.html')
+
+    def get_initial(self):
+        initial = super(UserAccountEdit, self).get_initial()
+        initial['birthday'] = self.object.birthday.strftime('%Y-%m-%d') if self.object.birthday else None
+        return initial
 
 
 class UserAccountView(DetailView):

@@ -1,9 +1,10 @@
 import uuid
-from datetime import timedelta
+from datetime import timedelta, datetime
 
 from django import forms
 from django.conf import settings
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, UserChangeForm
+from django.core.exceptions import ValidationError
 from django.core.mail import send_mail
 from django.forms import ModelForm
 from django.urls import reverse
@@ -98,6 +99,21 @@ class UserProfileEditForm(ModelForm):
 
     profile_photo = forms.ImageField(label='Фото', widget=forms.FileInput(attrs={'class': '', 'required': False, }),
                                      required=False)
+
+    def clean_birthday(self):
+        birthday = self.cleaned_data['birthday']
+        minimal_age_years = 7
+
+        if birthday is not None:
+            user_age = int((datetime.now().date() - birthday).days / 365.25)
+            if (datetime.now().date() - birthday).days < 0:
+                raise ValidationError('Похоже вы еще не родились')
+            if 0 <= user_age < minimal_age_years:
+                raise ValidationError('Вы слишком молоды')
+            if user_age > 100:
+                raise ValidationError('Вам более 100 лет')
+
+        return birthday
 
     class Meta:
         model = GeekHubUser
