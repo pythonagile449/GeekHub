@@ -78,8 +78,8 @@ def main_bot(tok):
 
                     message_list = 'Топ 5 авторов:\n'
                     for item in range(0, 5):
-                        message_list += f'Никнейм = <a href="https://reqsoft.ru/auth/user/{author_list[item][1][1]}/">' \
-                                        f'{author_list[item][1][0]}</a>, ' \
+                        message_list += f'Никнейм = <a href="https://reqsoft.ru/auth/user/' \
+                                        f'{author_list[item][1][1]}/">{author_list[item][1][0]}</a>, ' \
                                         f'Рейтинг = {author_list[item][0]}\n'
                     bot.send_message(call.message.chat.id, message_list, parse_mode='HTML')
                 for item in range(0, len(article_action)):
@@ -88,7 +88,8 @@ def main_bot(tok):
                         article_list = Article.objects.filter(hub=hub_item.pk).order_by('publication_date')[:5]
                         message_article_list = 'Последние 5 статей в данной категории:\n\n'
                         for item in range(0, len(article_list)):
-                            message_article_list += f'<a href="https://reqsoft.ru/article/{article_list[item].pk}/">{article_list[item].title}</a>\n\n'
+                            message_article_list += f'<a href="https://reqsoft.ru/article/{article_list[item].pk}/">' \
+                                                    f'{article_list[item].title}</a>\n\n'
                         bot.send_message(call.message.chat.id, message_article_list, parse_mode='HTML')
 
         except Exception as e:
@@ -127,9 +128,11 @@ def main_bot(tok):
                 verify_link = f"/telegram/{message.chat.id}:{check_email[1]}/"
 
                 title = f'Подтверждение учетной записи {message.chat.id}'
-                email_message = f'Для подтверждения учетной записи {message.chat.id} на портале https://reqsoft.ru перейдите по ' \
+                email_message = f'Для подтверждения учетной записи {message.chat.id}' \
+                                f' на портале https://reqsoft.ru перейдите по ' \
                                 f'ссылке: \nhttps://reqsoft.ru{verify_link} '
-                bot_message = f'Для подтверждения учетной записи {message.chat.id} на портале https://reqsoft.ru перейдите по ' \
+                bot_message = f'Для подтверждения учетной записи {message.chat.id}' \
+                              f' на портале https://reqsoft.ru перейдите по ' \
                               f'ссылке отправленной вам на email '
                 send_mail(title, email_message, settings.EMAIL_HOST_USER, [check_email[1]], fail_silently=False,
                           auth_user=settings.EMAIL_HOST_USER, auth_password=settings.EMAIL_HOST_PASSWORD)
