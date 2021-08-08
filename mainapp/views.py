@@ -1,3 +1,5 @@
+import sys
+
 from django.contrib.contenttypes.models import ContentType
 from django.db.models.functions import datetime
 from django.http import HttpResponseRedirect, JsonResponse, HttpResponse
@@ -8,12 +10,11 @@ from django.views.generic import CreateView, DetailView, ListView, DeleteView, U
 
 from commentsapp.models import CommentsBranch
 from mainapp.forms import ArticleCkForm, ArticleMdForm
-from mainapp.models import Hub, Article, ArticleViews
+from mainapp.models import Hub, Article, ArticleViews, ArticleToSoundThread
 from notifyapp.models import Notification
 from usersapp.models import GeekHubUser
 from usersapp.views import get_user_ip
 
-from threading import Thread
 
 class Index(ListView):
     """
@@ -100,6 +101,10 @@ class CreateArticle(CreateView):
         if self.request.path == '/create-article/':
             form.instance.is_moderation_in_progress = True
             form.instance.is_draft = False
+
+            article = form.instance
+            form.instance.sound = ArticleToSoundThread.get_sound_data(article)
+
         if self.request.path == '/create-draft/':
             self.success_url = reverse_lazy('mainapp:drafts')
         form.instance.publication_date = datetime.datetime.now()
@@ -118,6 +123,7 @@ class CreateArticle(CreateView):
     def get_context_data(self, **kwargs):
         context = super(CreateArticle, self).get_context_data()
         context['title'] = 'Создание новой статьи'
+
         return context
 
 
@@ -134,27 +140,19 @@ class ArticleDetail(DetailView):
     comments_preview_count = 3
 
     def get_context_data(self, **kwargs):
+        article = self.get_object()
         context = super(ArticleDetail, self).get_context_data()
         context['title'] = self.get_object().title
-        context['comments_preview'] = CommentsBranch.get_last_comments(self.get_object().pk,
+        context['comments_preview'] = CommentsBranch.get_last_comments(article.pk,
                                                                        self.comments_preview_count)
         context['comments_count_settings'] = self.comments_preview_count
-        context['all_comments_count'] = CommentsBranch.get_comments_count_by_article(self.get_object().pk)
+        context['all_comments_count'] = CommentsBranch.get_comments_count_by_article(article.pk)
 
-        sound_path_article = str(self.object.id)+'.mp3'   # Потом переписать
+        # if (not article.sound) or sys.getsizeof('/media/media/' + str(article.sound)) == 0:
+        context['sound_path'] = 'media/media/Record_none.mp3_3'
+        context['sound_path'] = ArticleToSoundThread.get_sound_data(article)
 
-        self.object.sound = sound_path_article
-        self.object.save()
-        self.text_to_sound_thread()
-        context['sound_path'] = str(sound_path_article)
         return context
-
-    def text_to_sound_thread(self):
-        th = Thread(target=Article.get_voice_from_text, args=(self.object,))
-        th.start()
-        th.join()
-
-
 
     def get(self, request, *args, **kwargs):
         response = super(ArticleDetail, self).get(request, *args, **kwargs)
@@ -179,6 +177,9 @@ class ArticleUpdate(UpdateView):
             # handle send on moderation action under user drafts list
             article.set_on_moderation_status()
             article.publication_date = datetime.datetime.now()
+
+            article.sound = ArticleToSoundThread.get_sound_data(article)
+
             self.success_url = reverse_lazy('mainapp:drafts')
             article.save()
             return HttpResponseRedirect(self.success_url)
@@ -187,6 +188,9 @@ class ArticleUpdate(UpdateView):
             if request.user.is_staff:
                 article.set_publish_status()
                 article.publication_date = datetime.datetime.now()
+
+                article.sound = ArticleToSoundThread.get_sound_data(article)
+
                 article.save()
                 self.success_url = reverse_lazy('mainapp:moderation_list')
 
@@ -331,6 +335,7 @@ class UserModeratingArticles(UserArticles):
         context['is_published'] = False
         context['is_draft'] = False
         context['is_on_moderation'] = True
+        # context['sound'] = '#'
         return context
 
 

@@ -59,7 +59,7 @@
             <div class="sound_article">
                 <audio class="sound_text"
                     controls
-                    src="/media{{  article.sound.url }} " alt="Озвученный голосом текст">
+                    src="/media{{article.sound.url|default:'#' }}" alt="Озвученный голосом текст">
 
                     <code>audio</code> element.
                 </audio>
