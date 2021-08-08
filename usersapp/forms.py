@@ -10,7 +10,7 @@ from django.forms import ModelForm
 from django.urls import reverse
 from django.utils.timezone import now
 
-from usersapp.models import GeekHubUser
+from usersapp.models import GeekHubUser, UserNotificationSettings
 
 
 def send_verify_mail(user):
@@ -65,6 +65,10 @@ class UserProfileDetailForm:
 
 
 class UserProfileEditForm(ModelForm):
+    # def __init__(self, notification_settings=None, *args, **kwargs):
+    #     self.user_notification_settings = notification_settings
+    #     super(UserProfileEditForm, self).__init__(*args, **kwargs)
+
     other = 'O'
     male = 'M'
     female = 'W'
@@ -93,12 +97,41 @@ class UserProfileEditForm(ModelForm):
                                required=False)
     gender = forms.ChoiceField(choices=GENDER_CHOISES, widget=forms.Select(attrs={'class': 'placeholder'}),
                                required=False)
-
     article_redactor = forms.ChoiceField(choices=REDACTOR_CHOISES, widget=forms.Select(attrs={'class': 'placeholder'}),
                                          required=False)
-
     profile_photo = forms.ImageField(label='Фото', widget=forms.FileInput(attrs={'class': '', 'required': False, }),
                                      required=False)
+
+    notify_article_comments = forms.BooleanField(
+        widget=forms.CheckboxInput(attrs={'class': 'notification-checkbox'}), required=False,
+        label='Комментарии к статьям', label_suffix='')
+    notify_article_change_status = forms.BooleanField(
+        widget=forms.CheckboxInput(attrs={'class': 'notification-checkbox'}), required=False,
+        label='Изменении статуса статьи', label_suffix='')
+    notify_moderator_messages = forms.BooleanField(
+        widget=forms.CheckboxInput(attrs={'class': 'notification-checkbox'}), required=False,
+        label='Сообщения при модерации', label_suffix='')
+    notify_complaints_against_article_status = forms.BooleanField(
+        widget=forms.CheckboxInput(attrs={'class': 'notification-checkbox'}), required=False,
+        label='Статус жалоб на статью', label_suffix='')
+    notify_complaints_against_comment_status = forms.BooleanField(
+        widget=forms.CheckboxInput(attrs={'class': 'notification-checkbox'}), required=False,
+        label='Статус жалоб на комментарии', label_suffix='')
+
+    def save(self, commit=True):
+        user = super(UserProfileEditForm, self).save(commit=False)
+        print(user)
+        user_notify_settings = UserNotificationSettings.objects.get(user=user)
+        print(user_notify_settings)
+        user_notify_settings.notify_article_comments = self.cleaned_data['notify_article_comments']
+        user_notify_settings.notify_article_change_status = self.cleaned_data['notify_article_change_status']
+        user_notify_settings.notify_moderator_messages = self.cleaned_data['notify_moderator_messages']
+        user_notify_settings.notify_complaints_against_article_status = self.cleaned_data[
+            'notify_complaints_against_article_status']
+        user_notify_settings.notify_complaints_against_comment_status = self.cleaned_data[
+            'notify_complaints_against_comment_status']
+        user_notify_settings.save()
+        return user
 
     def clean_birthday(self):
         birthday = self.cleaned_data['birthday']

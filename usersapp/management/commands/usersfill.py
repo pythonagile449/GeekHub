@@ -1,7 +1,6 @@
 from django.core.management.base import BaseCommand
 from django.contrib.auth import get_user_model
-from django.contrib.auth.models import AbstractUser
-from usersapp.models import GeekHubUser
+from usersapp.models import GeekHubUser, UserNotificationSettings
 import json
 import os
 
@@ -19,7 +18,8 @@ class Command(BaseCommand):
         if options['super']:
             super_user = get_user_model()
             try:
-                super_user.objects.create_superuser('Agile449', 'pythonagile449@gmail.com', 'Geek@2021')
+                user = super_user.objects.create_superuser('Agile449', 'pythonagile449@gmail.com', 'Geek@2021')
+                UserNotificationSettings.objects.create(user=user)
                 print("Суперпользователь успешно создан.")
             except Exception as e:
                 print(f"Ошибка: {e} при создании суперпользователя")
