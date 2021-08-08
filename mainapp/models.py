@@ -9,6 +9,7 @@ from django.contrib.contenttypes.fields import GenericRelation
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.postgres.indexes import GinIndex
 from django.db import models
+from django.db.models import Count
 from django.urls import reverse
 from martor.models import MartorField
 
@@ -55,7 +56,7 @@ class Article(models.Model):
     rating = GenericRelation(RatingCount, related_query_name='articles')
     comments = ContentType(app_label='commentsapp', model='commentsbranch')
 
-    sound = models.ImageField(upload_to='media', verbose_name='Озвученная статья', blank=True)
+    sound = models.ImageField(upload_to='media', verbose_name='Фотография профиля', blank=True)
 
     class Meta:
         verbose_name = 'Статья'
@@ -99,7 +100,7 @@ class Article(models.Model):
         return Article.objects.filter(author_id=user_id, is_published=True).select_related()
 
     def get_views_count(self):
-        return ArticleViews.get_views_count_by_article(self.id)
+        return ArticleViews.objects.filter(article=self).count()
 
     def get_rating_count(self):
         return self.rating.total()
@@ -153,6 +154,54 @@ class Article(models.Model):
         except KeyError:
             return html
 
+    @staticmethod
+    def get_text_from_ck_content(html):
+        """  Remove all style attrs from tags in ckeditor field"""
+        soup = BeautifulSoup(html, features='lxml')
+        try:
+            text = soup.text
+            return text
+        except KeyError:
+            return html
+
+    @staticmethod
+    def generator_audio(text, voice='anna', format_='wav', buff=4096, sets=None):
+        """https://freesoft.dev/program/148898794"""
+        tts = TTS(threads=1)
+        with tts.say(text, voice, format_, buff, sets) as gen:
+            for chunk in gen:
+                yield chunk
+
+    @staticmethod
+    def _text():
+        tts = TTS(threads=1)
+        with open('wery_large_book.txt') as fp:
+            text = fp.read(5000)
+            while text:
+                yield text
+                text = fp.read(5000)
+
+    @staticmethod
+    def generator_audio_iterable():
+        tts = TTS(threads=1)
+        _text = {}
+        with tts.say(_text()) as gen:
+            for chunk in gen:
+                yield chunk
+
+    @staticmethod
+    def get_voice_from_text(object_article):
+        try:
+            text = Article.get_article_text(object_article)
+            sound_path_article = 'media' + str(object_article.sound.url)
+            tts = TTS(threads=1)
+            tts.to_file(filename=sound_path_article, text=text, voice='Aleksandr', format_='mp3')
+
+
+            return
+        except KeyError:
+            return "Error record voice"
+
     def get_article_preview_from_ck(self):
         """ Uses BeatifulSoup to parse html. """
         soup = BeautifulSoup(self.contents_ck, features='lxml')
@@ -189,7 +238,15 @@ class Article(models.Model):
         if self.editor == 'MD':
             return self.get_article_preview_from_md()
 
-
+    @staticmethod
+    def get_article_text(obj):
+        """
+            Returns the text of the article to be displayed in the article list.
+            """
+        if obj.editor == 'CK':
+            return Article.get_text_from_ck_content(obj.contents_ck)
+        if obj.editor == 'MD':
+            return Article.get_text_from_ck_content(obj.contents_md)
 
     def get_absolute_url(self):
         return reverse('mainapp:article_detail', kwargs={'pk': self.pk})
@@ -216,7 +273,7 @@ class ArticleViews(models.Model):
                                                   is_anonymous=False, ip_address=ip_address)
 
     @staticmethod
-    def get_or_add_anonymous_view(article_id, ip_address):
+    def get_or_add_anonimus_view(article_id, ip_address):
         return ArticleViews.objects.get_or_create(article_id=article_id, is_anonymous=True, ip_address=ip_address)
 
 
