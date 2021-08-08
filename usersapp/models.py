@@ -67,6 +67,25 @@ class GeekHubUser(AbstractUser, AbstractUUID):
         return self.articles.model_class().get_published_articles_by_author(self.id)
 
 
+class UserNotificationSettings(models.Model):
+    user = models.OneToOneField(GeekHubUser, on_delete=models.CASCADE, primary_key=True)
+    notify_article_comments = models.BooleanField(
+        default=True,
+        verbose_name='Уведомления о комментариях к статьям')
+    notify_article_change_status = models.BooleanField(
+        default=True,
+        verbose_name='Уведомления об изменении статуса статьи')
+    notify_moderator_messages = models.BooleanField(
+        default=True,
+        verbose_name='Уведомления о сообщениях при модерации')
+    notify_complaints_against_article_status = models.BooleanField(
+        default=True,
+        verbose_name='Уведомления о статусе жалобы на статью')
+    notify_complaints_against_comment_status = models.BooleanField(
+        default=True,
+        verbose_name='Уведомление о статусе жалобы на комментарий')
+
+
 class BlockingByIp(models.Model):
     class Meta:
         db_table = "BlockingByIp"
