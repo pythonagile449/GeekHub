@@ -34,7 +34,7 @@ class GeekHubUser(AbstractUser, AbstractUUID):
     birthday = models.DateField(verbose_name='День рождения', blank=True, null=True)
     user_information = models.CharField(blank=True, max_length=512, verbose_name='Обо мне', default='')
     gender = models.CharField(max_length=1, choices=GENDER_CHOISES, verbose_name='Пол', default=other)
-
+    telegram = models.CharField(blank=True, max_length=10, verbose_name='ID Telegram', default='', null=True)
     articles = ContentType(app_label='mainapp', model='article')
 
     md_editor = 'MD'

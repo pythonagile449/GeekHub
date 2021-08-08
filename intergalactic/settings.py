@@ -8,6 +8,7 @@ from intergalactic.ck_editor_settings import *
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+token = '1821843720:AAGUfJeKRL9xky5yYYN5D08OPzTzCslUJ1M'
 
 # Application definition
 

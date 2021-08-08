@@ -23,6 +23,7 @@ urlpatterns = [
     # mardown editor urls
     path('martor/', include('martor.urls')),
     path('api/uploader/', markdown_uploader, name='markdown_uploader_page'),
+    path('telegram/', include('telegramapp.urls', namespace='telegram')),
     # ckeditor urls    path('ckeditor/', include('ckeditor_uploader.urls')),
     path('ckeditor/upload/', login_required(ckeditor_views.upload), name='ckeditor_upload'),
     path('ckeditor/browse/', never_cache(login_required(ckeditor_views.browse)), name='ckeditor_browse'),

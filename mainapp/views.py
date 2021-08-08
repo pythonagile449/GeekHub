@@ -7,12 +7,16 @@ from django.views import View
 from django.views.generic import CreateView, DetailView, ListView, DeleteView, UpdateView
 
 from commentsapp.models import CommentsBranch
+from intergalactic import settings
 from mainapp.forms import ArticleCkForm, ArticleMdForm
 from mainapp.models import Hub, Article, ArticleViews
 from notifyapp.models import Notification
 from ratingsapp.models import RatingCount
 from usersapp.models import GeekHubUser
 from usersapp.views import get_user_ip
+import telebot
+
+bot = telebot.TeleBot(settings.token)
 
 
 class Index(ListView):
@@ -185,6 +189,20 @@ class ArticleUpdate(UpdateView):
                     object_id=article.pk,
                     content_object=article,
                 )
+                try:
+                    bot.send_message(article.author.telegram,
+                                     f"Статья {settings.DOMAIN_NAME}/article/{article.pk}/ опубликована")
+                except Exception as e:
+                    print(e)
+                try:
+                    for telegram_user in GeekHubUser.objects.all():
+                        if telegram_user.telegram != article.author.telegram:
+                            bot.send_message(telegram_user.telegram,
+                                             f'<b>Опубликована новая статья:</b>\n'
+                                             f'<a href="{settings.DOMAIN_NAME}/article/{article.pk}/">{article.title}'
+                                             f'</a>\n{settings.DOMAIN_NAME}/article/{article.pk}/', parse_mode='HTML')
+                except Exception as e:
+                    print(e)
                 return HttpResponseRedirect(self.success_url)
         return super(ArticleUpdate, self).get(request, args, kwargs)
 
@@ -353,6 +371,12 @@ class ArticleReturnToDrafts(DeleteView):
                 object_id=self.object.pk,
                 content_object=self.object,
             )
+            try:
+                bot.send_message(self.object.author.telegram,
+                                 f"Статья снята с {'публикации' if is_published else 'модерации'} "
+                                 f"{settings.DOMAIN_NAME}/article/{self.object.pk}/")
+            except Exception as e:
+                print(e)
         return HttpResponseRedirect(self.get_success_url())
 
 
