@@ -215,12 +215,19 @@
 
             <div class="section-right">
                 <div class="section-right-block">
-                    <p>Получать уведомления:</p>
-                    <p>{{ form.notify_article_comments }} {{ form.notify_article_comments.label_tag }}</p>
-                    <p>{{ form.notify_article_change_status }} {{ form.notify_article_change_status.label_tag }}</p>
-                    <p>{{ form.notify_moderator_messages }} {{ form.notify_moderator_messages.label_tag }}</p>
-                    <p>{{ form.notify_complaints_against_article_status }} {{ form.notify_complaints_against_article_status.label_tag }}</p>
-                    <p>{{ form.notify_complaints_against_comment_status }} {{ form.notify_complaints_against_comment_status.label_tag }}</p>
+                    <div class="user-info-settings-field">
+                        <div class="settings-user-info-title">
+                            <h5-1>Получать уведомления:</h5-1>
+                        </div>
+                    </div>
+                    <div class="indent-10"></div>
+                    <div class="settings-user-info">
+                        <div class="indent-48"><p><h5-1>{{ form.notify_article_comments }} {{ form.notify_article_comments.label_tag }}</h5-1></p></div>
+                        <div class="indent-48"><p><h5-1>{{ form.notify_article_change_status }} {{ form.notify_article_change_status.label_tag }}</h5-1></p></div>
+                        <div class="indent-48"><p><h5-1>{{ form.notify_moderator_messages }} {{ form.notify_moderator_messages.label_tag }}</h5-1></p></div>
+                        <div class="indent-48"><p><h5-1>{{ form.notify_complaints_against_article_status }} {{ form.notify_complaints_against_article_status.label_tag }}</h5-1></p></div>
+                        <div class="indent-48"><p><h5-1>{{ form.notify_complaints_against_comment_status }} {{ form.notify_complaints_against_comment_status.label_tag }}</h5-1></p></div>
+                    </div>
                 </div>
             </div>
 
