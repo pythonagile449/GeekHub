@@ -55,3 +55,10 @@ https://drive.google.com/file/d/1n-xDsNR9xoCXxkCRyHvqZMwJFiZVfAYB/view?usp=shari
 * Когда пройдены все вышеописанные этапы, следует запустить локальный сервер. После его запуска проект будет доступен по адресу http://localhost:8000. Команда старта сервера:
 
 `py manage.py runserver`
+
+
+### Шаг шесть - запуск бота telegram
+
+* Для запуска бота необходимо добавить переменную token в файл settings, с содержимым выданным при регистрации бота @BotFather, команда старта:
+
+`py manage.py bot`
