@@ -25,10 +25,18 @@ def create_comment(request):
 
         if request.user != article.author:
             message = 'Новое замечание модератора' if not article.is_published else 'Новый комментарий к статье'
-            NotificationFactory.notify(sender=request.user,
-                                       recipient=article.author,
-                                       message=message,
-                                       model_object=new_comment)
+            if article.is_published:
+                if article.author.usernotificationsettings.notify_article_comments:
+                    NotificationFactory.notify(sender=request.user,
+                                               recipient=article.author,
+                                               message=message,
+                                               model_object=new_comment)
+            else:
+                if article.author.usernotificationsettings.notify_moderator_messages:
+                    NotificationFactory.notify(sender=request.user,
+                                               recipient=article.author,
+                                               message=message,
+                                               model_object=new_comment)
 
         return HttpResponse(
             json.dumps({

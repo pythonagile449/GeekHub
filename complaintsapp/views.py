@@ -72,7 +72,14 @@ class ComplaintDiscardView(LoginRequiredMixin, DeleteView):
         if request.user.is_staff:
             reason = self.request.POST.get('reason')
             complaint.set_discard_status(reason)
-            NotificationFactory.notify(request.user, complaint.sender, 'Жалоба отклонена', complaint)
+
+            if complaint.content_type.model == 'article':
+                if complaint.sender.usernotificationsettings.notify_complaints_against_article_status:
+                    NotificationFactory.notify(request.user, complaint.sender, 'Жалоба отклонена', complaint)
+            if complaint.content_type.model == 'commentsbranch':
+                if complaint.sender.usernotificationsettings.notify_complaints_against_comment_status:
+                    NotificationFactory.notify(request.user, complaint.sender, 'Жалоба отклонена', complaint)
+
             return HttpResponseRedirect(self.success_url)
         elif not request.user.is_staff and (request.user == complaint.sender):
             complaint.delete()
@@ -100,13 +107,18 @@ class ComplaintApproveView(ComplaintDiscardView):
 
             if complaint_target_type.model == 'article':
                 obj.set_draft_status()
-                NotificationFactory.notify(request.user, obj.author,
-                                           'Статья снята с публикации в связи с жалобой', obj)
+                if obj.author.usernotificationsettings.notify_article_change_status:
+                    # Notify author
+                    NotificationFactory.notify(request.user, obj.author,
+                                               'Статья снята с публикации в связи с жалобой', obj)
+                if complaint.sender.usernotificationsettings.notify_complaints_against_article_status:
+                    # Notify complaint sender
+                    NotificationFactory.notify(request.user, complaint.sender, 'Жалоба принята', complaint)
+
             if complaint_target_type.model == 'commentsbranch':
                 # TODO добавиль логику обработки жалобы на коммент (бан пользователю)
                 pass
 
-            NotificationFactory.notify(request.user, complaint.sender, 'Жалоба принята', complaint)
             return HttpResponseRedirect(self.success_url)
 
         response = HttpResponse()

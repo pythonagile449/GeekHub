@@ -48,8 +48,12 @@
 {% block footer %}
     <div class="footer">
         <div class="footer-container">
-            <p>All right reserved. {% now " Y " %} <a href="{% url 'mainapp:index' %}">InEn</a></p>
-            <p></p>
+            <ul class="footer-container">
+                <li><a class="footer-menu" href="https://t.me/Agile449_bot" target="_blank">Telegram Бот</a></li>
+<!--                <li><a class="footer-menu" href="about_us.html">О проекте</a></li>-->
+                <li><a class="footer-menu" href="{% url 'mainapp:site_rules' %}">Правила сайта</a></li>
+<!--                <li><a class="footer-menu" href="">Условия использования</a></li>-->
+            </ul>
         </div>
     </div>
 {% endblock %}
