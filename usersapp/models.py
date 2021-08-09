@@ -34,7 +34,7 @@ class GeekHubUser(AbstractUser, AbstractUUID):
     birthday = models.DateField(verbose_name='День рождения', blank=True, null=True)
     user_information = models.CharField(blank=True, max_length=512, verbose_name='Обо мне', default='')
     gender = models.CharField(max_length=1, choices=GENDER_CHOISES, verbose_name='Пол', default=other)
-
+    telegram = models.CharField(blank=True, max_length=10, verbose_name='ID Telegram', default='', null=True)
     articles = ContentType(app_label='mainapp', model='article')
 
     md_editor = 'MD'
@@ -65,6 +65,25 @@ class GeekHubUser(AbstractUser, AbstractUUID):
 
     def get_user_published_articles(self):
         return self.articles.model_class().get_published_articles_by_author(self.id)
+
+
+class UserNotificationSettings(models.Model):
+    user = models.OneToOneField(GeekHubUser, on_delete=models.CASCADE, primary_key=True)
+    notify_article_comments = models.BooleanField(
+        default=True,
+        verbose_name='Уведомления о комментариях к статьям')
+    notify_article_change_status = models.BooleanField(
+        default=True,
+        verbose_name='Уведомления об изменении статуса статьи')
+    notify_moderator_messages = models.BooleanField(
+        default=True,
+        verbose_name='Уведомления о сообщениях при модерации')
+    notify_complaints_against_article_status = models.BooleanField(
+        default=True,
+        verbose_name='Уведомления о статусе жалобы на статью')
+    notify_complaints_against_comment_status = models.BooleanField(
+        default=True,
+        verbose_name='Уведомление о статусе жалобы на комментарий')
 
 
 class BlockingByIp(models.Model):

@@ -72,7 +72,14 @@ class ComplaintDiscardView(LoginRequiredMixin, DeleteView):
         if request.user.is_staff:
             reason = self.request.POST.get('reason')
             complaint.set_discard_status(reason)
-            NotificationFactory.notify(request.user, complaint.sender, 'Жалоба отклонена', complaint)
+
+            if complaint.content_type.model == 'article':
+                if complaint.sender.usernotificationsettings.notify_complaints_against_article_status:
+                    NotificationFactory.notify(request.user, complaint.sender, 'Жалоба отклонена', complaint)
+            if complaint.content_type.model == 'commentsbranch':
+                if complaint.sender.usernotificationsettings.notify_complaints_against_comment_status:
+                    NotificationFactory.notify(request.user, complaint.sender, 'Жалоба отклонена', complaint)
+
             return HttpResponseRedirect(self.success_url)
         elif not request.user.is_staff and (request.user == complaint.sender):
             complaint.delete()
@@ -97,15 +104,23 @@ class ComplaintApproveView(ComplaintDiscardView):
             complaint.set_approve_status()
             complaint_target_type = ContentType.objects.get(pk=complaint.content_type.pk)
             obj = complaint_target_type.get_object_for_this_type(pk=complaint.object_id)
+
             if complaint_target_type.model == 'article':
-                obj.is_draft = True
-                obj.is_published = False
-                obj.is_moderation_in_progress = False
-                obj.save()
-                NotificationFactory.notify(request.user, obj.author,
-                                           'Статья снята с публикации в связи с жалобой', obj)
-            NotificationFactory.notify(request.user, complaint.sender, 'Жалоба принята', complaint)
+                obj.set_draft_status()
+                if obj.author.usernotificationsettings.notify_article_change_status:
+                    # Notify author
+                    NotificationFactory.notify(request.user, obj.author,
+                                               'Статья снята с публикации в связи с жалобой', obj)
+                if complaint.sender.usernotificationsettings.notify_complaints_against_article_status:
+                    # Notify complaint sender
+                    NotificationFactory.notify(request.user, complaint.sender, 'Жалоба принята', complaint)
+
+            if complaint_target_type.model == 'commentsbranch':
+                # TODO добавиль логику обработки жалобы на коммент (бан пользователю)
+                pass
+
             return HttpResponseRedirect(self.success_url)
+
         response = HttpResponse()
         response.status_code = 403
         return response
@@ -120,8 +135,14 @@ class ComplaintDetailView(LoginRequiredMixin, ArticleDetail):
         complaint_sender = self.kwargs['complaint_sender']
         content_type = ContentType.objects.get_for_model(self.object)
         context['complaint_sender'] = GeekHubUser.objects.get(pk=complaint_sender)
-        complaints = Complaint.objects.filter(sender=complaint_sender,
-                                              content_type=content_type,
-                                              object_id=self.object.pk, )
+        if self.request.GET.get('complaint_against_comment'):
+            comment_content_type = ContentType.objects.get(model='commentsbranch')
+            complaints = Complaint.objects.filter(sender=complaint_sender,
+                                                  content_type=comment_content_type,
+                                                  object_id=self.request.GET.get('scroll_to_comment'))
+        else:
+            complaints = Complaint.objects.filter(sender=complaint_sender,
+                                                  content_type=content_type,
+                                                  object_id=self.object.pk, )
         context['complaints'] = complaints.filter(status='M') if self.request.user.is_staff else complaints
         return context

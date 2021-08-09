@@ -12,13 +12,15 @@
     {% include '_inc/profile_toolbar.html' %}
 {% endblock %}
 
+
+
 {% block right_content %}
     <div class="indent-40"></div> <!-- Жалобы-->
     <div class="section-right-complaint-block">
         <div class="complaint-menu-field">
             <div class="content-complaint-title">
                 {% if user.is_staff %}
-                    <h5-3>Жалобы пользователя <span class="username">{{ complaint_sender }}:</span></h5-3>
+                    <h5-3>Жалобы пользователя <span class="username">{{ complaint_sender }}</span>:</h5-3>
                 {% else %}
                     <h5-3>Мои жалобы:</h5-3>
                 {% endif %}
@@ -28,7 +30,6 @@
         <div class="content-complaint">
             <ul class="user-complaints-list">
                 {% for complaint in complaints %}
-                    {#                {% if complaint.status == 'M' %}#}
                     <li class="user-complaint-item">
                     {% if complaint.status == 'M' %}
                         <div class="field-complaint">
@@ -37,11 +38,6 @@
                     {% elif complaint.status == 'A' %}
                         <div class="field-complaint" style="background-color: rgba(152, 240, 149, 0.6)">
                     {% endif %}
-                        {#                        <div class="field-30"><h5-1>Ссылка на публикацию:</h5-1></div>#}
-                        {#                            <a href="{% url 'complaints:complaint_detail' complaint.content_object.pk complaint.sender.pk %}" class="link-complaint">#}
-                        {#                                {{ complaint.content_object }}#}
-                        {#                            </a>#}
-                        {#                            <div class="indent-20"></div>#}
 
                         <div class="field-30-с">
                             <h5-1>Текст жалобы:</h5-1>
@@ -65,7 +61,7 @@
                             </div>
                         {% else %}
                             {% if complaint.status == 'M' %}
-                                <!--                            Отозвать-->
+                                <!--Отозвать-->
                                 <div class="indent-50">
                                     <a href="{% url 'complaints:discard_complaint' complaint.pk %}"
                                        title="Отозвать">
@@ -81,7 +77,6 @@
                         {% endif %}
                         </div>
                     </li>
-                    {#                {% endif %}#}
                 {% endfor %}
             </ul>
         </div>

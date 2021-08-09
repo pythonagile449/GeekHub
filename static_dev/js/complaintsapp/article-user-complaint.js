@@ -10,14 +10,16 @@ class Complaint {
     }
 
     setHandlers() {
-        this.showComplaintBoxButton.addEventListener('click', evt => {
-            this.complaintContainer.classList.toggle('hidden');
-            this.complaintInput.value = '';
-            this.complaintInput.focus();
+        this.showComplaintBoxButton?.addEventListener('click', evt => {
+            this.complaintContainer?.classList?.toggle('hidden');
+            if (this.complaintInput) {
+                this.complaintInput.value = '';
+                this.complaintInput.focus();
+            }
         })
 
-        this.submitComplaintButton.addEventListener('click', evt => {
-            this.complaintContainer.classList.add('hidden');
+        this.submitComplaintButton?.addEventListener('click', evt => {
+            this.complaintContainer?.classList?.add('hidden');
             let articleId = evt.target.dataset.articleId;
             let message = this.complaintInput.value;
             $.ajax({

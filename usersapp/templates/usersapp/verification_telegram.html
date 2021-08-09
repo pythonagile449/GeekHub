@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block menu %}{% endblock %}
+
+{% block content %}
+    <div class="container-message verification">
+        {% if user.is_authenticated %}
+            <div class="wrapper-login">
+                <div class="container">
+                    <div class="upper-margin"></div>
+                    <div class="message-success">
+                        <div class="indent-10"></div>
+                        <div class="indent-20">
+
+                        </div>
+                        <div class="indent-20">
+                            <h5> {{ msg }}</h5>
+                        </div>
+                        <div class="indent-50">
+                            <a href="{% url 'mainapp:index' %}" class="button8">На главную</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <div class="wrapper-login">
+                <div class="container">
+                    <div class="upper-margin"></div>
+                    <div class="message">
+                        <div class="indent-10"></div>
+                        <div class="indent-20">
+                            <h5>{{ msg }}</h5>
+                        </div>
+                        <div class="indent-50">
+                            <a href="{% url 'mainapp:index' %}" class="button8">На главную</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+        <!--        <br>-->
+        <!--        <div class="alert " role="alert" style="margin-top: 50px;">-->
+        <!--            <button class="form-control">-->
+        {#<a href="{% url 'mainapp:index' %}" class="">на главную</a>#}
+        <!--            </button>-->
+        <!--        </div>-->
+    </div>
+{% endblock %}
+
+{% block footer %}
+{% endblock %}
