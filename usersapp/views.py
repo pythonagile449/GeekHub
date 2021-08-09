@@ -1,14 +1,16 @@
 from django.contrib import auth
+from django.contrib.auth.views import LoginView, LogoutView
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.template.context_processors import csrf
 from django.urls import reverse_lazy
 from django.utils import timezone
+from django.views.generic import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.contrib.auth.views import LoginView, LogoutView
 
-from usersapp.models import GeekHubUser, BlockingByIp
+from mainapp.models import Article
 from usersapp.forms import RegistrationForm, LoginForm, UserProfileEditForm
+from usersapp.models import GeekHubUser, BlockingByIp, UserNotificationSettings
 
 
 def get_user_ip(request):
@@ -67,7 +69,13 @@ class RegistrationView(CreateView):
     '''
     model = GeekHubUser
     form_class = RegistrationForm
-    success_url = '/auth/verify/'
+    # success_url = '/auth/verify/'
+    success_url = reverse_lazy('usersapp:verification')
+
+    def form_valid(self, form):
+        response = super(RegistrationView, self).form_valid(form)
+        UserNotificationSettings.objects.create(user=self.object)
+        return response
 
 
 class AuthenticationView(LoginView):
@@ -178,7 +186,10 @@ class UserAccountEdit(UpdateView):
     """
     model = GeekHubUser
     template_name_suffix = '_update'
-    fields = ['first_name', 'last_name', 'profile_photo', 'user_information', 'article_redactor', 'gender']
+    fields = ['first_name', 'last_name', 'profile_photo', 'user_information', 'article_redactor', 'gender', 'birthday',
+              'notify_article_comments', 'notify_article_change_status', 'notify_moderator_messages',
+              'notify_complaints_against_article_status', 'notify_complaints_against_comment_status',
+              ]
 
     def get_form_class(self):
         return UserProfileEditForm
@@ -199,6 +210,46 @@ class UserAccountEdit(UpdateView):
             return render(request, template_name='mainapp/400.html')
         except Exception as e:
             return render(request, template_name='mainapp/400.html')
+
+    def get_initial(self):
+        initial = super(UserAccountEdit, self).get_initial()
+        user_notify_settings = UserNotificationSettings.objects.get(user=self.object)
+        initial['birthday'] = self.object.birthday.strftime('%Y-%m-%d') if self.object.birthday else None
+        initial['notify_article_comments'] = user_notify_settings.notify_article_comments
+        initial['notify_article_change_status'] = user_notify_settings.notify_article_change_status
+        initial['notify_moderator_messages'] = user_notify_settings.notify_moderator_messages
+        initial[
+            'notify_complaints_against_article_status'] = user_notify_settings.notify_complaints_against_article_status
+        initial[
+            'notify_complaints_against_comment_status'] = user_notify_settings.notify_complaints_against_comment_status
+        return initial
+
+    def form_valid(self, form):
+        print('valid')
+        return super(UserAccountEdit, self).form_valid(form)
+
+    def form_invalid(self, form):
+        print('invalid')
+        print(form.data)
+        return super(UserAccountEdit, self).form_invalid(form)
+
+class UserAccountView(DetailView):
+    """
+        RU
+        Просмотр профиля пользователя
+
+        EN
+        User profile detail view
+        """
+    model = GeekHubUser
+    context_object_name = 'author'
+
+    def get_context_data(self, **kwargs):
+        context = super(UserAccountView, self).get_context_data()
+        user_articles = Article.get_published_articles_by_author(self.object.pk)
+        context['title'] = f'Профиль {self.object.username}'
+        context['author_articles'] = Article.sort_articles_by(user_articles, 'date')
+        return context
 
 
 class UserAccountDeleteView(DeleteView):

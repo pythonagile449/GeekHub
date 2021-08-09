@@ -3,7 +3,7 @@ import sys
 from django.contrib.contenttypes.models import ContentType
 from django.db.models.functions import datetime
 from django.http import HttpResponseRedirect, JsonResponse, HttpResponse
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import View
 from django.views.generic import CreateView, DetailView, ListView, DeleteView, UpdateView
@@ -12,7 +12,7 @@ from commentsapp.models import CommentsBranch
 from mainapp.forms import ArticleCkForm, ArticleMdForm
 from mainapp.models import Hub, Article, ArticleViews, ArticleToSoundThread
 from notifyapp.models import Notification
-from usersapp.models import GeekHubUser
+from ratingsapp.models import RatingCount
 from usersapp.views import get_user_ip
 
 
@@ -24,6 +24,7 @@ class Index(ListView):
     EN
     Main paige(all the articles by publication date)
     """
+    model = Article
     template_name = 'mainapp/index.html'
     queryset = Article.objects.filter(is_published=True)
     ordering = ['-publication_date']
@@ -36,7 +37,7 @@ class Index(ListView):
         return context
 
 
-class ArticlesByHub(ListView):
+class ArticlesByHub(Index):
     """
     RU
     Статьи по категориям.
@@ -46,10 +47,6 @@ class ArticlesByHub(ListView):
     Articles by categories(hubs)
     hub_id is passed in kwargs from the get_absolute_url model method
     """
-    model = Article
-    template_name = 'mainapp/index.html'
-    context_object_name = 'articles'
-    paginate_by = 5
 
     def get_queryset(self):
         queryset = Article.objects.filter(hub=self.kwargs['hub_id'], is_published=True, is_deleted=False) \
@@ -152,6 +149,11 @@ class ArticleDetail(DetailView):
         context['sound_path'] = 'media/media/Record_none.mp3_3'
         context['sound_path'] = ArticleToSoundThread.get_sound_data(article)
 
+
+        context['all_comments_count'] = CommentsBranch.get_comments_count_by_article(self.get_object().pk)
+        context['user_rating_for_article_chose'] = RatingCount.get_user_rate_chose(
+            user=self.request.user, obj_id=self.object.id,
+            obj_content_type=ContentType.objects.get_for_model(self.object))
         return context
 
     def get(self, request, *args, **kwargs):
@@ -161,7 +163,7 @@ class ArticleDetail(DetailView):
             if request.user.is_authenticated:
                 ArticleViews.get_or_add_auth_user_view(self.object.pk, request.user.pk, user_ip)
             else:
-                ArticleViews.get_or_add_anonimus_view(self.object.pk, user_ip)
+                ArticleViews.get_or_add_anonymous_view(self.object.pk, user_ip)
         return response
 
 
@@ -276,7 +278,6 @@ class UserArticles(ListView):
     EN
     User's articles. By deafault shows "my articles"
     """
-    # template_name = 'mainapp/user_articles_list.html'
     template_name = 'mainapp/user_articles_list_table.html'
     context_object_name = 'articles'
 
@@ -376,14 +377,6 @@ class ArticleReturnToDrafts(DeleteView):
         return HttpResponseRedirect(self.get_success_url())
 
 
-# class ShowTop(ListView):
-#     template_name = 'mainapp/user_articles_list.html'
-#
-# def get_queryset(self, **kwargs):
-#     queryset = Article.objects.filter(is_published=True).order_by('-publication_date')[:7]
-#     return queryset
-
-
 class ModerationList(ListView):
     """
     RU
@@ -392,7 +385,6 @@ class ModerationList(ListView):
     EN
     Moderators profile page (moderation users articles).
     """
-    # template_name = 'mainapp/user_articles_list.html'
     template_name = 'mainapp/user_articles_list_table.html'
     queryset = Article.objects.filter(is_moderation_in_progress=True, is_deleted=False).order_by('publication_date')
     context_object_name = 'articles'
@@ -406,21 +398,15 @@ class ModerationList(ListView):
         return context
 
 
-def top_menu(request, hub_name):
-    """
-        RU
-        Контроллер меню топа статей.
-
-        EN
-        Top articles' menu controller
-    """
-    if request.method == 'GET' and request.is_ajax():
-        return render(request, 'mainapp/top-menu.html', {'top_articles': Article.get_top_articles(hub_name)})
-    else:
-        return HttpResponse(status=404)
-
-
 class TopMenuView(View):
+    """
+    RU
+    Контроллер меню топа статей.
+
+    EN
+    Top articles' menu controller
+    """
+
     def get(self, request, *args, **kwargs):
         if request.is_ajax():
             hub_name = self.kwargs.get('hub_name')
@@ -430,18 +416,3 @@ class TopMenuView(View):
                                                                     sort_by=sort_by if sort_by else 'rating')})
         else:
             return HttpResponse(status=404)
-
-
-def user_detail(request, pk=None):
-    if pk is not None:
-        title = 'Данные автора'
-        data_author = get_object_or_404(GeekHubUser, id=pk)
-        author_articles = Article.objects.filter(author=data_author, is_published=True, is_deleted=False) \
-            .order_by('-publication_date')
-    context = {
-        'title': title,
-        'author': data_author,
-        'author_articles': author_articles
-    }
-    print(context)
-    return render(request, 'mainapp/user_detail.html', context)
