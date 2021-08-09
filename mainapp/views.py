@@ -391,7 +391,11 @@ class TopMenuView(View):
             sort_by = request.GET.get('sorted_by')
 
             return render(request, 'mainapp/top-menu.html',
-                          {'top_articles': Article.get_top_articles (hub_name=hub_name,
-                                                         sort_by=sort_by if sort_by else 'rating')})
+                          {'top_articles': Article.get_top_articles(hub_name=hub_name,
+                                                                    sort_by=sort_by if sort_by else 'rating')})
         else:
             return HttpResponse(status=404)
+
+
+def show_site_rules(request):
+    return render(request, 'mainapp/site_rules.html')
