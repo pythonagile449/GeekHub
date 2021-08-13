@@ -1,3 +1,7 @@
+from multiprocessing import Process, cpu_count, Pool
+from threading import Thread
+
+from bs4 import BeautifulSoup
 from django.contrib.contenttypes.models import ContentType
 from django.db.models.functions import datetime
 from django.http import HttpResponseRedirect, JsonResponse, HttpResponse
@@ -5,10 +9,11 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import View
 from django.views.generic import CreateView, DetailView, ListView, DeleteView, UpdateView
+from rhvoice_wrapper import TTS
 
 from commentsapp.models import CommentsBranch
 from mainapp.forms import ArticleCkForm, ArticleMdForm
-from mainapp.models import Hub, Article, ArticleViews, ArticleToSoundThread
+from mainapp.models import Hub, Article, ArticleViews
 from notifyapp.models import Notification
 from ratingsapp.models import RatingCount
 from usersapp.views import get_user_ip
@@ -98,8 +103,7 @@ class CreateArticle(CreateView):
             form.instance.is_draft = False
 
 
-            article = form.instance
-            form.instance.sound = ArticleToSoundThread.get_sound_data(article)
+
 
         if self.request.path == '/create-draft/':
             self.success_url = reverse_lazy('mainapp:drafts')
@@ -143,17 +147,22 @@ class ArticleDetail(DetailView):
         context['comments_count_settings'] = self.comments_preview_count
         context['all_comments_count'] = CommentsBranch.get_comments_count_by_article(article.pk)
 
-
-
-        context['sound_path'] = 'media/media/Record_none.mp3'
-        context['sound_path'] = ArticleToSoundThread.get_sound_data(article)
-
-
-        context['all_comments_count'] = CommentsBranch.get_comments_count_by_article(self.get_object().pk)
         context['user_rating_for_article_chose'] = RatingCount.get_user_rate_chose(
             user=self.request.user, obj_id=self.object.id,
             obj_content_type=ContentType.objects.get_for_model(self.object))
+
+
+
+        if not article.sound:
+            ArticleToSoundThread.get_sound_data(self)
+
         return context
+
+
+
+
+
+
 
     def get(self, request, *args, **kwargs):
         response = super(ArticleDetail, self).get(request, *args, **kwargs)
@@ -178,9 +187,6 @@ class ArticleUpdate(UpdateView):
             # handle send on moderation action under user drafts list
             article.set_on_moderation_status()
             article.publication_date = datetime.datetime.now()
-
-            article.sound = ArticleToSoundThread.get_sound_data(article)
-
             self.success_url = reverse_lazy('mainapp:drafts')
             article.save()
             return HttpResponseRedirect(self.success_url)
@@ -189,9 +195,6 @@ class ArticleUpdate(UpdateView):
             if request.user.is_staff:
                 article.set_publish_status()
                 article.publication_date = datetime.datetime.now()
-
-                article.sound = ArticleToSoundThread.get_sound_data(article)
-
                 article.save()
                 self.success_url = reverse_lazy('mainapp:moderation_list')
 
@@ -221,6 +224,9 @@ class ArticleUpdate(UpdateView):
         if self.object.editor == 'MD':
             self.object.contents_md = form.cleaned_data['contents']
 
+
+
+
     def form_valid(self, form):
         """ Processing a correct ajax request to change data. """
         if self.request.method == 'POST' and self.request.is_ajax():
@@ -239,6 +245,7 @@ class ArticleUpdate(UpdateView):
                 # handle moderation action
                 self.set_object_contents(form)
                 self.object.set_on_moderation_status()
+
                 self.success_url = reverse_lazy('mainapp:user_moderation_articles')
             self.object.publication_date = datetime.datetime.now()
             self.object.save()
@@ -313,6 +320,7 @@ class UserDrafts(UserArticles):
         context['is_published'] = False
         context['is_draft'] = True
         context['is_on_moderation'] = False
+
         return context
 
 
@@ -414,3 +422,52 @@ class TopMenuView(View):
                                                                     sort_by=sort_by if sort_by else 'rating')})
         else:
             return HttpResponse(status=404)
+
+
+
+
+
+
+class ArticleToSoundThread:
+
+
+    """https://freesoft.dev/program/148898794"""
+
+
+    def get_sound_data(self):
+
+        sound_url = str(self.object.id)+'.mp3'
+        self.object.sound = sound_url
+        ArticleToSoundThread.get_voice_from_text(self)
+        self.object.save()
+        # self.context['sound_path'] = str(self.object.sound.url)
+
+
+    def get_voice_from_text(self):
+        try:
+            text = ArticleToSoundThread.get_article_text(self)
+            tts = TTS(threads=1)
+            tts.to_file(filename='media'+str(self.object.sound.url), text=text, voice='Aleksandr', format_='mp3')
+
+        except KeyError:
+            return "Error record voice"
+
+
+    def get_article_text(self):
+        """
+            Returns the text of the article to be displayed in the article list.
+            """
+        if self.object.editor == 'CK':
+            return ArticleToSoundThread.get_text_from_content(self.object.contents_ck)
+        if self.object.editor == 'MD':
+            return ArticleToSoundThread.get_text_from_content(self.object.contents_md)
+
+
+    def get_text_from_content(html):
+        """  Remove all style attrs from tags in ckeditor field"""
+        soup = BeautifulSoup(html, features='lxml')
+        try:
+            text = soup.text
+            return text
+        except KeyError:
+            return html
