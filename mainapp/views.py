@@ -95,6 +95,7 @@ class CreateArticle(CreateView):
         Create draft if '/create-draft/' or send article on moderation.
         """
         form.instance.author = self.request.user
+        form.instance.sound = ''
 
         # если запрос на публикацию статьи - устанавливаем статус 'на модерации', снимаем статус 'черновик'
         # if publication of an article is requested, set status 'is_moderation_in_progress' remove status 'draft'
@@ -151,17 +152,11 @@ class ArticleDetail(DetailView):
             user=self.request.user, obj_id=self.object.id,
             obj_content_type=ContentType.objects.get_for_model(self.object))
 
-
-
-        if not article.sound:
-            ArticleToSoundThread.get_sound_data(self)
+        if not article.sound or article.sound == 'record_none.mp3':
+            new_sound_text = ArticleToSoundThread
+            new_sound_text.get_sound_data(self)
 
         return context
-
-
-
-
-
 
 
     def get(self, request, *args, **kwargs):
@@ -182,6 +177,7 @@ class ArticleUpdate(UpdateView):
 
     def get(self, request, *args, **kwargs):
         article = self.get_object()
+        article.sound = ''
 
         if request.path.startswith('/send_article_on_moderation/'):
             # handle send on moderation action under user drafts list
