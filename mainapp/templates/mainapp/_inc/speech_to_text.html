@@ -1,0 +1,60 @@
+
+  <style>
+    button_speech {
+      background: yellow;
+      animation-name: none;
+      animation-duration: 3s;
+      animation-iteration-count: infinite;
+    }
+    @keyframes flash {
+      0% {
+        background: red;
+      }
+      50% {
+        background: green;
+      }
+    }
+  </style>
+
+<button id="button_speech"><img src="{% static 'svg/icon2.svg' %}" alt="icon">
+</button>
+<div id="content"></div>
+
+
+
+<script>
+  var result = '';
+  window.onload = () => {
+    const button = document.getElementById('button_speech');
+    let p = document.createElement("p");
+    button.addEventListener('click', () => {
+      if (button.style['animation-name'] === 'flash') {
+        recognition.stop();
+        button.style['animation-name'] = 'none';
+        button.innerHTML = '<img src="{% static 'svg/icon2.svg' %}">';
+        console.log('Text:   ', content.textContent)
+        // content.innerText = '';
+      } else {
+        button.style['animation-name'] = 'flash';
+        button.innerHTML = '<img src="{% static 'svg/icon2.svg' %}">';
+        recognition.start();
+      }
+    });
+
+    const content = document.getElementById('content');
+
+    const recognition = new webkitSpeechRecognition();
+    recognition.continuous = true;
+    recognition.interimResults = false;
+    recognition.onresult = function (event) {
+      let result_sum= content.textContent;
+      let result = ''
+      for (let i = event.resultIndex; i < event.results.length; i++) {
+        result += event.results[i][0].transcript;
+      }
+      content.innerText = result_sum+result;
+    };
+  };
+
+</script>
+

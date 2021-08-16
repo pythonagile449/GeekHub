@@ -1,3 +1,7 @@
+from multiprocessing import Process, cpu_count, Pool
+from threading import Thread
+
+from bs4 import BeautifulSoup
 from django.contrib.contenttypes.models import ContentType
 from django.db.models.functions import datetime
 from django.http import HttpResponseRedirect, JsonResponse, HttpResponse
@@ -5,18 +9,14 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import View
 from django.views.generic import CreateView, DetailView, ListView, DeleteView, UpdateView
+from rhvoice_wrapper import TTS
 
 from commentsapp.models import CommentsBranch
-from intergalactic import settings
 from mainapp.forms import ArticleCkForm, ArticleMdForm
 from mainapp.models import Hub, Article, ArticleViews
 from notifyapp.models import Notification
 from ratingsapp.models import RatingCount
-from usersapp.models import GeekHubUser
 from usersapp.views import get_user_ip
-import telebot
-
-bot = telebot.TeleBot(settings.token)
 
 
 class Index(ListView):
@@ -95,12 +95,17 @@ class CreateArticle(CreateView):
         Create draft if '/create-draft/' or send article on moderation.
         """
         form.instance.author = self.request.user
+        form.instance.sound = ''
 
         # если запрос на публикацию статьи - устанавливаем статус 'на модерации', снимаем статус 'черновик'
         # if publication of an article is requested, set status 'is_moderation_in_progress' remove status 'draft'
         if self.request.path == '/create-article/':
             form.instance.is_moderation_in_progress = True
             form.instance.is_draft = False
+
+
+
+
         if self.request.path == '/create-draft/':
             self.success_url = reverse_lazy('mainapp:drafts')
         form.instance.publication_date = datetime.datetime.now()
@@ -135,16 +140,24 @@ class ArticleDetail(DetailView):
     comments_preview_count = 3
 
     def get_context_data(self, **kwargs):
+        article = self.get_object()
         context = super(ArticleDetail, self).get_context_data()
         context['title'] = self.get_object().title
-        context['comments_preview'] = CommentsBranch.get_last_comments(self.get_object().pk,
+        context['comments_preview'] = CommentsBranch.get_last_comments(article.pk,
                                                                        self.comments_preview_count)
         context['comments_count_settings'] = self.comments_preview_count
-        context['all_comments_count'] = CommentsBranch.get_comments_count_by_article(self.get_object().pk)
+        context['all_comments_count'] = CommentsBranch.get_comments_count_by_article(article.pk)
+
         context['user_rating_for_article_chose'] = RatingCount.get_user_rate_chose(
             user=self.request.user, obj_id=self.object.id,
             obj_content_type=ContentType.objects.get_for_model(self.object))
+
+        if not article.sound or article.sound == 'record_none.mp3':
+            new_sound_text = ArticleToSoundThread
+            new_sound_text.get_sound_data(self)
+
         return context
+
 
     def get(self, request, *args, **kwargs):
         response = super(ArticleDetail, self).get(request, *args, **kwargs)
@@ -164,6 +177,7 @@ class ArticleUpdate(UpdateView):
 
     def get(self, request, *args, **kwargs):
         article = self.get_object()
+        article.sound = ''
 
         if request.path.startswith('/send_article_on_moderation/'):
             # handle send on moderation action under user drafts list
@@ -189,21 +203,6 @@ class ArticleUpdate(UpdateView):
                     object_id=article.pk,
                     content_object=article,
                 )
-                try:
-                    bot.send_message(article.author.telegram,
-                                     f'<b>Статья</b> <a href="https://reqsoft.ru/article/{article.pk}/">{article.title}'
-                                     f'</a> опубликована', parse_mode='HTML')
-                except Exception as e:
-                    print(e)
-                try:
-                    for telegram_user in GeekHubUser.objects.all():
-                        if telegram_user.telegram != article.author.telegram:
-                            bot.send_message(telegram_user.telegram,
-                                             f'<b>Опубликована новая статья:</b>\n'
-                                             f'<a href="https://reqsoft.ru/article/{article.pk}/">{article.title}'
-                                             f'</a>', parse_mode='HTML')
-                except Exception as e:
-                    print(e)
                 return HttpResponseRedirect(self.success_url)
         return super(ArticleUpdate, self).get(request, args, kwargs)
 
@@ -220,6 +219,9 @@ class ArticleUpdate(UpdateView):
             self.object.contents_ck = Article.remove_style_tag_from_ck_content(form.cleaned_data['contents'])
         if self.object.editor == 'MD':
             self.object.contents_md = form.cleaned_data['contents']
+
+
+
 
     def form_valid(self, form):
         """ Processing a correct ajax request to change data. """
@@ -239,6 +241,7 @@ class ArticleUpdate(UpdateView):
                 # handle moderation action
                 self.set_object_contents(form)
                 self.object.set_on_moderation_status()
+
                 self.success_url = reverse_lazy('mainapp:user_moderation_articles')
             self.object.publication_date = datetime.datetime.now()
             self.object.save()
@@ -313,6 +316,7 @@ class UserDrafts(UserArticles):
         context['is_published'] = False
         context['is_draft'] = True
         context['is_on_moderation'] = False
+
         return context
 
 
@@ -372,13 +376,6 @@ class ArticleReturnToDrafts(DeleteView):
                 object_id=self.object.pk,
                 content_object=self.object,
             )
-            try:
-                link = f'<a href="https://reqsoft.ru/article/{self.object.pk}/">{self.object.title}</a>'
-                bot.send_message(self.object.author.telegram,
-                                 f"<b>Статья снята с {'публикации' if is_published else 'модерации'}</b> "
-                                 f"{link}", parse_mode='HTML')
-            except Exception as e:
-                print(e)
         return HttpResponseRedirect(self.get_success_url())
 
 
@@ -416,7 +413,6 @@ class TopMenuView(View):
         if request.is_ajax():
             hub_name = self.kwargs.get('hub_name')
             sort_by = request.GET.get('sorted_by')
-
             return render(request, 'mainapp/top-menu.html',
                           {'top_articles': Article.get_top_articles(hub_name=hub_name,
                                                                     sort_by=sort_by if sort_by else 'rating')})
@@ -424,5 +420,50 @@ class TopMenuView(View):
             return HttpResponse(status=404)
 
 
-def show_site_rules(request):
-    return render(request, 'mainapp/site_rules.html')
+
+
+
+
+class ArticleToSoundThread:
+
+
+    """https://freesoft.dev/program/148898794"""
+
+
+    def get_sound_data(self):
+
+        sound_url = str(self.object.id)+'.mp3'
+        self.object.sound = sound_url
+        ArticleToSoundThread.get_voice_from_text(self)
+        self.object.save()
+        # self.context['sound_path'] = str(self.object.sound.url)
+
+
+    def get_voice_from_text(self):
+        try:
+            text = ArticleToSoundThread.get_article_text(self)
+            tts = TTS(threads=1)
+            tts.to_file(filename='media'+str(self.object.sound.url), text=text, voice='Aleksandr', format_='mp3')
+
+        except KeyError:
+            return "Error record voice"
+
+
+    def get_article_text(self):
+        """
+            Returns the text of the article to be displayed in the article list.
+            """
+        if self.object.editor == 'CK':
+            return ArticleToSoundThread.get_text_from_content(self.object.contents_ck)
+        if self.object.editor == 'MD':
+            return ArticleToSoundThread.get_text_from_content(self.object.contents_md)
+
+
+    def get_text_from_content(html):
+        """  Remove all style attrs from tags in ckeditor field"""
+        soup = BeautifulSoup(html, features='lxml')
+        try:
+            text = soup.text
+            return text
+        except KeyError:
+            return html

@@ -1,3 +1,4 @@
+from multiprocessing import cpu_count
 from uuid import uuid4
 
 from bs4 import BeautifulSoup
@@ -8,6 +9,7 @@ from django.contrib.postgres.indexes import GinIndex
 from django.db import models
 from django.urls import reverse
 from martor.models import MartorField
+
 
 from ratingsapp.models import RatingCount
 from usersapp.models import GeekHubUser
@@ -52,6 +54,9 @@ class Article(models.Model):
     rating = GenericRelation(RatingCount, related_query_name='articles')
     comments = ContentType(app_label='commentsapp', model='commentsbranch')
 
+    sound = models.ImageField(upload_to='media', verbose_name='Фотография профиля', blank=True,
+                              default='record_none.mp3')
+
     class Meta:
         verbose_name = 'Статья'
         verbose_name_plural = 'Статьи'
@@ -94,7 +99,7 @@ class Article(models.Model):
         return Article.objects.filter(author_id=user_id, is_published=True).select_related()
 
     def get_views_count(self):
-        return ArticleViews.get_views_count_by_article(self.id)
+        return ArticleViews.objects.filter(article=self).count()
 
     def get_rating_count(self):
         return self.rating.total()
@@ -147,6 +152,17 @@ class Article(models.Model):
             return ''.join([str(tag) for tag in soup.body.children])
         except KeyError:
             return html
+
+    @staticmethod
+    def get_text_from_ck_content(html):
+      """  Remove all style attrs from tags in ckeditor field"""
+      soup = BeautifulSoup(html, features='lxml')
+      try:
+        text = soup.text
+        return text
+      except KeyError:
+        return html
+
 
     def get_article_preview_from_ck(self):
         """ Uses BeatifulSoup to parse html. """
@@ -211,3 +227,9 @@ class ArticleViews(models.Model):
     @staticmethod
     def get_or_add_anonymous_view(article_id, ip_address):
         return ArticleViews.objects.get_or_create(article_id=article_id, is_anonymous=True, ip_address=ip_address)
+
+
+
+
+
+

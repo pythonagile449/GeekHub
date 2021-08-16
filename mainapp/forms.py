@@ -14,7 +14,6 @@ class ArticleCkForm(forms.ModelForm):
     short_description = forms.CharField(label='Краткое описание',
                                         widget=forms.TextInput(attrs={'class': 'form-control'}),
                                         max_length=256, required=False)
-
     class Meta:
         model = Article
         fields = [
@@ -23,6 +22,7 @@ class ArticleCkForm(forms.ModelForm):
             'contents_ck',
             'contents_md',
             'short_description',
+            'sound'
         ]
 
 
