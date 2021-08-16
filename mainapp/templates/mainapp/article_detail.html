@@ -55,16 +55,20 @@
                 <h6-3>{{ article.hub.name }}</h6-3>
             </div>
 
-            <div class="sound_article">
-                <audio class="sound_text"
-                    controls
-                    src="/media{{article.sound.url|default:'#' }}" alt="Озвученный голосом текст">
+            {% if not user.is_anonymous  %}
+                {% if article.is_moderation_in_progress or article.is_published %}
 
-                    <code>audio</code> element.
-                </audio>
+                    <div class="sound_article">
+                        <audio class="sound_text"
+                            controls
+                            src="/media{{article.sound.url|default:'#' }}" alt="Озвученный голосом текст">
 
+                            <code>audio</code> element.
+                        </audio>
+                    </div>
 
-            </div>
+                {% endif %}
+            {% endif %}
 
 
 

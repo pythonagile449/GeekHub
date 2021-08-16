@@ -14,9 +14,6 @@ class ArticleCkForm(forms.ModelForm):
     short_description = forms.CharField(label='Краткое описание',
                                         widget=forms.TextInput(attrs={'class': 'form-control'}),
                                         max_length=256, required=False)
-    # article_sound = forms.ImageField(upload_to='media', label='Озвученная статья', widget=forms.FileInput(attrs={'class': '', 'required': False, }),
-    #                                  required=False)
-
     class Meta:
         model = Article
         fields = [

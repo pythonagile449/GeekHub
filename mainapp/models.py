@@ -9,7 +9,7 @@ from django.contrib.postgres.indexes import GinIndex
 from django.db import models
 from django.urls import reverse
 from martor.models import MartorField
-from rhvoice_wrapper import TTS
+
 
 from ratingsapp.models import RatingCount
 from usersapp.models import GeekHubUser
@@ -54,63 +54,13 @@ class Article(models.Model):
     rating = GenericRelation(RatingCount, related_query_name='articles')
     comments = ContentType(app_label='commentsapp', model='commentsbranch')
 
-    sound = models.ImageField(upload_to='media', verbose_name='Фотография профиля', blank=True)
+    sound = models.ImageField(upload_to='media', verbose_name='Фотография профиля', blank=True,
+                              default='record_none.mp3')
 
     class Meta:
         verbose_name = 'Статья'
         verbose_name_plural = 'Статьи'
         indexes = [GinIndex(fields=['title'])]
-
-
-
-
-
-
-
-    # @staticmethod
-    # def generator_audio(text, voice='anna', format_='wav', buff=4096, sets=None):
-    #   """https://freesoft.dev/program/148898794"""
-    #   tts = TTS(threads=1)
-    #   with tts.say(text, voice, format_, buff, sets) as gen:
-    #     for chunk in gen:
-    #       yield chunk
-
-    # @staticmethod
-    # def get_voice_from_text(object_article):
-    #   try:
-    #     text = Article.get_article_text(object_article)
-    #     sound_path_article = 'media' + str(object_article.sound.url)
-    #     tts = TTS(threads=1)
-    #     tts.to_file(filename=sound_path_article, text=text, voice='Artemiy', format_='mp3')
-    #     return
-    #   except KeyError:
-    #     return "Error record voice"
-    #
-
-
-    # @staticmethod
-    # def get_text_from_content(html):
-    #   """  Remove all style attrs from tags in ckeditor field"""
-    #   soup = BeautifulSoup(html, features='lxml')
-    #   try:
-    #     text = soup.text
-    #     return text
-    #   except KeyError:
-    #     return html
-    #
-
-    # @staticmethod
-    # def get_article_text(obj):
-    #   """
-    #       Returns the text of the article to be displayed in the article list.
-    #       """
-    #   if obj.editor == 'CK':
-    #     return Article.get_text_from_content(obj.contents_ck)
-    #   if obj.editor == 'MD':
-    #     return Article.get_text_from_content(obj.contents_md)
-    #
-
-
 
     def __unicode__(self):
         return self.title
@@ -250,16 +200,6 @@ class Article(models.Model):
         if self.editor == 'MD':
             return self.get_article_preview_from_md()
 
-    # @staticmethod
-    # def get_article_text(obj):
-    #     """
-    #         Returns the text of the article to be displayed in the article list.
-    #         """
-    #     if obj.editor == 'CK':
-    #         return Article.get_text_from_ck_content(obj.contents_ck)
-    #     if obj.editor == 'MD':
-    #         return Article.get_text_from_ck_content(obj.contents_md)
-
     def get_absolute_url(self):
         return reverse('mainapp:article_detail', kwargs={'pk': self.pk})
 
@@ -285,7 +225,7 @@ class ArticleViews(models.Model):
                                                   is_anonymous=False, ip_address=ip_address)
 
     @staticmethod
-    def get_or_add_anonimus_view(article_id, ip_address):
+    def get_or_add_anonymous_view(article_id, ip_address):
         return ArticleViews.objects.get_or_create(article_id=article_id, is_anonymous=True, ip_address=ip_address)
 
 
